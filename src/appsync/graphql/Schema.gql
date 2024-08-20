@@ -1,0 +1,8 @@
+scalar AWSTimestamp
+scalar AWSURL
+scalar AWSJSON
+
+schema {
+    query: Query
+    mutation: Mutation
+}

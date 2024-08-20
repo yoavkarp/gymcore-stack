@@ -1,0 +1,14 @@
+type Trainer {
+    id: String!
+    name: String!
+    email: String!
+    phoneNumber: String!
+    status: String!
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}
+
+type TrainerConnection {
+    items: [Trainer!]
+    nextToken: String
+}

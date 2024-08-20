@@ -1,0 +1,10 @@
+type Query {
+    getMemberById(id: String!): Member @aws_auth(cognito_groups: ["admin", "club", "trainer"])
+    searchMembers(query: String!, limit: Int): [Member!] @aws_auth(cognito_groups: ["admin", "club", "trainer"])
+    getAuthData: Member @aws_auth(cognito_groups: ["admin", "club", "trainer", "member"])
+}
+
+input ListQueryInput {
+    nextToken: String
+    limit: Int
+}

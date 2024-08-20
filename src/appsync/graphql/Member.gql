@@ -1,0 +1,20 @@
+type Member {
+    id: String!
+    name: String!
+    email: String!
+    phoneNumber: String!
+    status: String!
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}
+
+type MemberConnection {
+    items: [Member!]
+    nextToken: String
+}
+
+input InviteMemberInput {
+    name: String!
+    email: String!
+    phoneNumber: String!
+}
