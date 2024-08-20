@@ -7,6 +7,9 @@ yarn-error.log
 cdk.out/
 cdk.context.json
 
+# Typescript output
+lib/
+
 # IDE/Editor specific
 .vscode/
 .idea/
