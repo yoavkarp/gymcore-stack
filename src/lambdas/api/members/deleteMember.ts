@@ -7,8 +7,6 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 export const deleteMember: AppSyncResolver<MutationDeleteMemberArgs, Member> = async (event, context, callback) => {
 
-    const isAdmin = event.identity?.claims?.['cognito:groups']?.includes('admin')
-
     try {
         const { Attributes: MemberData } = await dynamodb.delete({
             Key: {
@@ -17,13 +15,13 @@ export const deleteMember: AppSyncResolver<MutationDeleteMemberArgs, Member> = a
             },
             ReturnValues: "ALL_OLD",
             TableName: "MemberTable",
-            ConditionExpression: `${!isAdmin ? '#clubId = :clubId AND ' : ""}#tenantId = :tenantId`,
+            ConditionExpression: "clubId = :clubId AND #tenantId = :tenantId",
             ExpressionAttributeValues: {
-                ":clubId": isAdmin ? undefined : event.identity?.claims?.['custom:clubId'],
+                ":clubId": event.identity?.claims?.['custom:clubId'],
                 ":tenantId": process.env.TENANT_ID
             },
             ExpressionAttributeNames: {
-                "#clubId": isAdmin ? undefined : "clubId",
+                "#clubId": "clubId",
                 "#tenantId": "tenantId"
             },
         }).promise()
