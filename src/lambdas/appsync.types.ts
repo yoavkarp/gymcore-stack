@@ -2,10 +2,15 @@ import { AppSyncIdentityCognito, AppSyncResolverEventHeaders, Callback, Context 
 
 export interface AppSyncResolverEvent<TArguments = any> {
     arguments: TArguments;
-    identity?: AppSyncIdentityCognito;
+    identity?: Omit<AppSyncIdentityCognito, "claims"> & {
+        claims?: {
+            "cognito:groups"?: string[];
+            "custom:clubId"?: string;
+            [key: string]: any;
+        }
+    };
     request: {
         headers: AppSyncResolverEventHeaders;
-        /** The API's custom domain if used for the request. */
         domainName: string | null;
     };
     info: {

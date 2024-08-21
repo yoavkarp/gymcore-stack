@@ -8,7 +8,8 @@ import {
 } from '@aws-cdk/aws-cognito-identitypool-alpha'
 
 interface CognitoConstructProps extends StackProps {
-    readonly name: string
+    readonly tenantName: string
+    readonly tenantId: string
 }
 
 
@@ -22,7 +23,7 @@ export class CognitoConstruct extends Construct {
         super(scope, id);
 
         // Define the Cognito API
-        this.userPool = new UserPool(this, `${props.name}_userPool`, {
+        this.userPool = new UserPool(this, "UserPool", {
             selfSignUpEnabled: false,
             removalPolicy: RemovalPolicy.DESTROY,
             accountRecovery: AccountRecovery.PHONE_AND_EMAIL,
@@ -65,7 +66,7 @@ export class CognitoConstruct extends Construct {
                 //     mutable: true
                 // }),
             },
-            userPoolName: props.name,
+            userPoolName: props.tenantName,
         })
 
         const groups = ["admin", "club", "trainer", "member", "invited"];
@@ -74,7 +75,7 @@ export class CognitoConstruct extends Construct {
             (groupName) =>
                 new CfnUserPoolGroup(
                     this,
-                    `${props.name}${groupName}Group`,
+                    "UserPoolGroup",
                     {
                         userPoolId: this.userPool.userPoolId,
                         groupName: groupName,
@@ -84,17 +85,18 @@ export class CognitoConstruct extends Construct {
 
         const userPoolClient = new UserPoolClient(
             this,
-            `${props.name}Client`,
+            `UserPoolClient`,
             {
                 userPool: this.userPool,
+                userPoolClientName: props.tenantName,
             }
         )
 
         const identityPool = new IdentityPool(
             this,
-            props.name,
+            props.tenantName,
             {
-                identityPoolName: props.name,
+                identityPoolName: props.tenantName,
                 allowUnauthenticatedIdentities: true,
                 authenticationProviders: {
                     userPools: [

@@ -4,14 +4,14 @@ import { GraphqlApi } from 'aws-cdk-lib/aws-appsync';
 import path from 'path';
 import { CfnOutput } from 'aws-cdk-lib';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
-import membersLambda from './datasources/members-lambda';
-import { LayerConstruct } from '@/layers/layer-construct';
-import { Function, ILayerVersion } from 'aws-cdk-lib/aws-lambda';
+import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 
 type AppSyncConstructProps = {
     userPool: UserPool;
     name: string;
-    lambdas: Function[]
+    layers: ILayerVersion[];
+    tenantId: string;
 }
 
 export class AppSyncConstruct extends Construct {
@@ -22,7 +22,7 @@ export class AppSyncConstruct extends Construct {
         super(scope, id);
 
         // Define the AppSync API
-        this.api = new GraphqlApi(this, `${props.name}_Api`, {
+        this.api = new GraphqlApi(this, "api", {
             name: props.name,
             schema: SchemaFile.fromAsset(path.join(__dirname, 'schema.graphql')),
             authorizationConfig: {
@@ -39,12 +39,24 @@ export class AppSyncConstruct extends Construct {
             xrayEnabled: false,
         })
 
-        this.dataSources = props.lambdas.map((lambda) => this.api.addLambdaDataSource(lambda.functionName, lambda));
-
-        this.dataSources[0].createResolver(`Mutation.deleteMember`, {
-            fieldName: "deleteMember",
-            typeName: "Mutation"
+        const api_lambda = new Function(scope, "api", {
+            functionName: `Api_${props.name}`,
+            runtime: Runtime.NODEJS_18_X,
+            handler: 'index.main',
+            code: Code.fromAsset(
+                path.join(__dirname, "..", "..", "lambdas", 'api')
+            ),
+            layers: props.layers,
+            logRetention: RetentionDays.TWO_WEEKS,
+            environment: {
+                TENANT_ID: props.tenantId,
+                USER_POOL_ID: props.userPool.userPoolId
+            }
         })
+
+        this.dataSources = [
+            this.api.addLambdaDataSource("api", api_lambda)
+        ]
 
         new CfnOutput(this, 'GRAPHQL_URL', {
             value: this.api.graphqlUrl,
