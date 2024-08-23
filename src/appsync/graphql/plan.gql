@@ -1,0 +1,41 @@
+# Plan
+type Plan  {
+    id: ID!
+
+    memberId: ID!
+    member: Member
+
+    trainerId: ID!
+    trainer: Trainer
+
+    clubId: ID!
+    club: Club
+
+    name: String!
+    notes: String
+
+    trainingPlanId: ID!
+    workouts: WorkoutConnection
+
+    weeks: Int!
+    meetings: Int!
+    completed: [CompletedWorkout!]
+        
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+
+    events: EventConnection
+}
+
+type CompletedWorkout {
+    activeWorkoutId: ID!
+    activeWorkout: ActiveWorkout
+    workoutId: ID!
+    workout: Workout
+    time: AWSTimestamp!
+}
+
+type PlanConnection {
+    items: [Plan!]
+    nextToken: String
+}

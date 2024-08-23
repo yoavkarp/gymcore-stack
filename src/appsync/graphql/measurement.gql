@@ -1,0 +1,22 @@
+type Measurement {
+    id: ID!
+
+    memberId: ID!
+    member: Member
+
+    height: Float
+    weight: Float
+    age: Float!
+    fat: Float
+    heartRate: Float
+    bmi: Float
+    bmr: Float
+
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}
+
+type MeasurementConnection {
+    items: [Measurement!]
+    nextToken: String
+}

@@ -1,0 +1,21 @@
+type TrainingPlan  {
+    id: ID!
+    
+    trainerId: ID!
+    trainer: Trainer
+
+    clubId: ID
+    club: Club
+
+    memberId: ID!
+    member: Member
+
+    name: String!
+    description: String
+    workouts_ids: [ID!]
+
+    workouts: [Workout!]
+    
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}

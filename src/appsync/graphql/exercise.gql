@@ -1,0 +1,15 @@
+type Exercise {
+    id: ID!
+    name: String!
+    video: AWSURL
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    
+    tenantId: ID
+    tenant: Tenant
+}
+
+type ExerciseConnection {
+    items: [Exercise!]
+    nextToken: String
+}

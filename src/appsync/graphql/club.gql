@@ -1,0 +1,13 @@
+type Club {
+    id: ID!
+    name: String!
+
+    userId: ID!
+    user: User!
+
+    tenantId: ID!
+    tenant: Tenant!
+    
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}

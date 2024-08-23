@@ -1,17 +1,13 @@
 import { AppSyncResolver } from "../appsync.types";
-import { deleteMember } from "./members/deleteMember";
-import { getCurrentMember } from "./members/getCurrentMember";
-import { getMemberById } from "./members/getMemberById";
-import { inviteMember } from "./members/inviteMember";
-import { searchMembers } from "./members/searchMembers";
-import members from './members';
+import membersFns from "./members";
 
 const fnMap: Record<string, AppSyncResolver | undefined> = {
-    members
+    ...membersFns
 }
 
 export const main: AppSyncResolver = async (event, context, callback) => {
 
+    context.callbackWaitsForEmptyEventLoop = false;
     const fn = fnMap[event.info.fieldName];
 
     if (!fn) {

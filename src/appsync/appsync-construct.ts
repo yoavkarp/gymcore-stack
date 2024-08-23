@@ -6,12 +6,14 @@ import { CfnOutput } from 'aws-cdk-lib';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
 import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { DynamoDBStack } from '@/dynamodb/dynamodb-stack';
 
 type AppSyncConstructProps = {
     userPool: UserPool;
-    name: string;
+    tenantName: string;
     layers: ILayerVersion[];
     tenantId: string;
+    tables: DynamoDBStack['tables'];
 }
 
 export class AppSyncConstruct extends Construct {
@@ -23,8 +25,8 @@ export class AppSyncConstruct extends Construct {
 
         // Define the AppSync API
         this.api = new GraphqlApi(this, "api", {
-            name: props.name,
-            schema: SchemaFile.fromAsset(path.join(__dirname, 'schema.graphql')),
+            name: `${props.tenantName}_API`,
+            schema: SchemaFile.fromAsset(path.join("src", "appsync", 'schema.graphql')),
             authorizationConfig: {
                 defaultAuthorization: {
                     authorizationType: AuthorizationType.USER_POOL,
@@ -40,11 +42,11 @@ export class AppSyncConstruct extends Construct {
         })
 
         const api_lambda = new Function(scope, "api", {
-            functionName: `Api_${props.name}`,
+            functionName: `${props.tenantName}_API_Lambda`,
             runtime: Runtime.NODEJS_18_X,
             handler: 'index.main',
             code: Code.fromAsset(
-                path.join(__dirname, "..", "..", "lambdas", 'api')
+                path.join(__dirname, "..", "lambdas", 'api')
             ),
             layers: props.layers,
             logRetention: RetentionDays.TWO_WEEKS,
@@ -53,6 +55,12 @@ export class AppSyncConstruct extends Construct {
                 USER_POOL_ID: props.userPool.userPoolId
             }
         })
+
+        props.tables.clubTable.grantFullAccess(api_lambda)
+        props.tables.memberTable.grantFullAccess(api_lambda)
+        props.tables.tenantTable.grantFullAccess(api_lambda)
+        props.tables.userTable.grantFullAccess(api_lambda)
+        props.tables.trainerTable.grantFullAccess(api_lambda)
 
         this.dataSources = [
             this.api.addLambdaDataSource("api", api_lambda)

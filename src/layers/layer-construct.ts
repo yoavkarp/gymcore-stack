@@ -15,7 +15,7 @@ export interface LayerConstructProps {
 export class LayerConstruct extends Construct {
     public readonly layerVersion: lambda.LayerVersion;
 
-    private readonly rootLayerPath: string = path.join(__dirname);
+    private readonly rootLayerPath: string = path.join("src", "layers");
     private readonly runtime: lambda.Runtime = Runtime.NODEJS_18_X;
     private readonly layerName: string;
     private readonly tags?: { [key: string]: string };

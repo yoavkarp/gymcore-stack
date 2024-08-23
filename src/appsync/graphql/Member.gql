@@ -1,9 +1,20 @@
 type Member {
-    id: String!
-    name: String!
-    email: String!
-    phoneNumber: String!
-    status: String!
+    id: ID!
+
+    userId: ID!
+    user: User!
+
+    tenantId: ID!
+    tenant: Tenant!
+
+    level: String
+    weeklyAvailability: Int
+    profileWorkouts: WorkoutConnection
+    activeWorkout: ActiveWorkout
+
+    activePlanId: ID
+    activePlan: Plan
+
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
 }
@@ -13,7 +24,7 @@ type MemberConnection {
     nextToken: String
 }
 
-input InviteMemberInput {
+input CreateMemberInput {
     name: String!
     email: String!
     phoneNumber: String!

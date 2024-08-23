@@ -1,6 +1,12 @@
 scalar AWSTimestamp
 scalar AWSURL
 scalar AWSJSON
+scalar AWSDateTime
+scalar AWSDate
+scalar AWSTime
+scalar AWSPhone
+scalar AWSIPAddress
+scalar AWSEmail
 
 schema {
     query: Query

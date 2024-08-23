@@ -1,0 +1,23 @@
+type LibraryWorkout {
+    id: ID!
+
+    clubId: ID
+    club: Club
+
+    trainerId: ID!
+    trainer: Trainer
+
+    name: String!
+    description: String
+    exercises: [WorkoutExercise!]
+
+    level: String
+
+    created_at: AWSTimestamp!
+    updated_at: AWSTimestamp!
+}
+
+type LibraryWorkoutConnection {
+    items: [LibraryWorkout!]
+    nextToken: String
+}

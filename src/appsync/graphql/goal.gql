@@ -1,0 +1,15 @@
+type Goal {
+    
+    userId: ID!
+    user: User!
+
+    name: String!
+    status: String!
+    created_at: AWSTimestamp!
+    updated_at: AWSTimestamp!
+}
+
+type GoalConnection {
+    items: [Goal!]
+    nextToken: String
+}

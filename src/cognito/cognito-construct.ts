@@ -60,13 +60,13 @@ export class CognitoConstruct extends Construct {
                 },
             },
             customAttributes: {
-                // organizationId: new StringAttribute({
-                //     minLen: 36,
-                //     maxLen: 36,
-                //     mutable: true
-                // }),
+                clubId: new StringAttribute({
+                    minLen: 36,
+                    maxLen: 36,
+                    mutable: false,
+                }),
             },
-            userPoolName: props.tenantName,
+            userPoolName: `${props.tenantName} UserPool`,
         })
 
         const groups = ["admin", "club", "trainer", "member", "invited"];
@@ -75,7 +75,7 @@ export class CognitoConstruct extends Construct {
             (groupName) =>
                 new CfnUserPoolGroup(
                     this,
-                    "UserPoolGroup",
+                    `${groupName}Group`,
                     {
                         userPoolId: this.userPool.userPoolId,
                         groupName: groupName,

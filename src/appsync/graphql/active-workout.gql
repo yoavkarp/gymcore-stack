@@ -1,0 +1,67 @@
+type ActiveWorkout {
+    id: ID!
+
+    workoutId: ID!
+    workout: Workout!
+
+    planId: ID
+    plan: Plan
+
+    memberId: ID!
+    member: Member
+
+    name: String!
+    exercises: [ActiveWorkoutExercise!]
+    startAt: AWSTimestamp!
+    endAt: AWSTimestamp
+}
+
+type ActiveWorkoutConnection {
+    items: [ActiveWorkout!]
+    nextToken: String
+}
+
+type ActiveWorkoutExercise {
+    id: ID!
+
+    exerciseId: ID!
+    exercise: Exercise
+
+    name: String!
+    description: String
+    type: String!
+
+    data: [ActiveWorkoutExerciseData!]
+    group: [ActiveWorkoutExercise]
+    mn: String
+    sh: String
+
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}
+
+type ActiveWorkoutExerciseData {
+    reps: ActiveRangedUnit
+    weight: ActiveRangedUnit
+    rest: ActiveRangedUnit
+    dropsets: [ActiveDropSetData]
+    resist: Float
+    angle: Float
+    dis: Float
+    intens: ActiveRangedUnit
+    tempo: Float
+    thr: ActiveRangedUnit
+    time: Float
+}
+
+type ActiveDropSetData {
+    reps: ActiveRangedUnit
+    weight: ActiveRangedUnit
+}
+
+type ActiveRangedUnit {
+    min: Float
+    max: Float
+    unit: String
+    done: Float
+}

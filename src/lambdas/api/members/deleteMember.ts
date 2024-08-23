@@ -1,37 +1,31 @@
-import { Member, MutationDeleteMemberArgs } from "@/appsync/schema.types";
+import { Member, Mutation, MutationDeleteMemberArgs } from "@/appsync/schema.types";
 import { AppSyncResolver } from "../../appsync.types";
-import AWS from 'aws-sdk';
+import { cognito, dynamodb } from "../connection";
 
-const cognito = new AWS.CognitoIdentityServiceProvider();
-const dynamodb = new AWS.DynamoDB.DocumentClient();
-
-export const deleteMember: AppSyncResolver<MutationDeleteMemberArgs, Member> = async (event, context, callback) => {
-
+export const deleteMember: AppSyncResolver<MutationDeleteMemberArgs, Mutation['deleteMember']> = async (event, context, callback) => {
     try {
-        const { Attributes: MemberData } = await dynamodb.delete({
+        const { Attributes: data } = await dynamodb.delete({
             Key: {
-                id: event.arguments.id,
+                id: event.arguments.memberId,
                 tenantId: process.env.TENANT_ID
             },
             ReturnValues: "ALL_OLD",
             TableName: "MemberTable",
-            ConditionExpression: "clubId = :clubId AND #tenantId = :tenantId",
+            ConditionExpression: "clubId = :clubId",
             ExpressionAttributeValues: {
-                ":clubId": event.identity?.claims?.['custom:clubId'],
-                ":tenantId": process.env.TENANT_ID
+                ":clubId": event.identity?.claims?.["custom:clubId"],
             },
             ExpressionAttributeNames: {
                 "#clubId": "clubId",
-                "#tenantId": "tenantId"
             },
         }).promise()
 
-        await cognito.adminDeleteUser({
+        await cognito.adminDisableUser({
             UserPoolId: process.env.USER_POOL_ID!,
-            Username: MemberData?.id
+            Username: data?.phoneNumber
         }).promise()
 
-        callback(null, MemberData as Member)
+        callback(null, data as Member)
     }
     catch (err: any) {
         callback(err)

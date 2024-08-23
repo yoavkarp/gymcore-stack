@@ -5,10 +5,10 @@
     "gymcore-cdk": "bin/gymcore-cdk.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && graphql-codegen --config codegen.config.ts",
     "cdk": "cdk",
     "test": "jest",
-    "ydeploy": "tsc && npx aws-cdk deploy --all --outputs-file outputs/cdk-output.json --require-approval never --profile yoav",
+    "ydeploy": "npx aws-cdk deploy --all --outputs-file outputs/cdk-output.json --require-approval never --profile yoav",
     "codegen": "graphql-codegen --config codegen.config.ts"
   },
   "devDependencies": {

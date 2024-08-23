@@ -1,0 +1,10 @@
+type Tenant {
+    id: ID!
+    name: String!
+
+    userId: ID!
+    user: User!
+    
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+}

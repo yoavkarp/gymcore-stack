@@ -1,1 +1,20 @@
-{}
+{
+  "HolmesPlaceIsraelCDKStack": {
+    "AuthIdentityPoolIdFB6655FB": "eu-central-1:4473b744-bd88-4588-9ec3-a5220c717b94",
+    "AuthUserPoolIdC0605E59": "eu-central-1_U6MEPL8RM",
+    "ApiGRAPHQLURL06B0C7F4": "https://nonbvrt4nrbbdecss36s5hmg2e.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "tenantId": "d53e40e2-555a-47e0-9193-eedefb739bea",
+    "ApiAPIIDEBF2D2C5": "wkkvn7q2nrghld3a35izoe6ovy",
+    "ApiAPIKEY6DAC4802": "",
+    "AuthUserPoolClientId8216BF9A": "31th6je3rrcgn0l1t60tcsi6hb"
+  },
+  "DevCDKStack": {
+    "AuthIdentityPoolIdFB6655FB": "eu-central-1:ef97e56e-bb6e-4598-8de0-b0b031afe641",
+    "AuthUserPoolIdC0605E59": "eu-central-1_C2WsAuxaP",
+    "ApiGRAPHQLURL06B0C7F4": "https://dfx7o4elp5f43daee3uesjvh3y.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "tenantId": "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c",
+    "ApiAPIIDEBF2D2C5": "q7saaj7e6vg65ed5fvujxy4o2u",
+    "ApiAPIKEY6DAC4802": "",
+    "AuthUserPoolClientId8216BF9A": "4d0ifpokhknmb1gkcibmk0mnc8"
+  }
+}

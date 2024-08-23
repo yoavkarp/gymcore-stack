@@ -1,4 +1,5 @@
 type Mutation {
-    inviteMember(input: InviteMemberInput!): Member
-    deleteMember(id: String!): Member
+    # Member
+    createMember(input: CreateMemberInput!): Member
+    deleteMember(memberId: ID!): Member
 }

@@ -3,45 +3,47 @@ import { Construct } from 'constructs';
 import { AppSyncConstruct } from './appsync/appsync-construct';
 import { CognitoConstruct } from './cognito/cognito-construct';
 import { LayerConstruct } from './layers/layer-construct';
+import { DynamoDBStack } from './dynamodb/dynamodb-stack';
 
 type GymcoreCdkStackProps = StackProps & {
     tenantName: string;
     tenantId: string;
+    tables: DynamoDBStack['tables'];
 }
 
 class GymcoreCdkStack extends Stack {
-    private readonly databaseLayer: LayerConstruct;
+
+    private readonly awsSdkLayer: LayerConstruct;
     private readonly auth: CognitoConstruct;
     private readonly appsync: AppSyncConstruct;
+
     constructor(scope: Construct, id: string, props: GymcoreCdkStackProps) {
         super(scope, id, props);
 
-        this.databaseLayer = new LayerConstruct(this, 'db-layer', {
-            layerFolder: 'db-layer',
+
+        this.awsSdkLayer = new LayerConstruct(this, 'aws-sdk-layer', {
+            layerFolder: 'aws-sdk-layer',
         });
 
-        this.auth = new CognitoConstruct(this, 'HolmesPlaceGymcoreAuth', {
-            tenantName: 'HolmesPlaceGymcoreAuth',
+        this.auth = new CognitoConstruct(this, 'Auth', {
+            tenantName: props.tenantName,
             tenantId: props.tenantId
         })
 
-        this.appsync = new AppSyncConstruct(this, 'HolmesPlaceGymcoreApi', {
+        this.appsync = new AppSyncConstruct(this, 'Api', {
             userPool: this.auth.userPool,
-            name: "HolmesPlaceGymcoreApi",
-            layers: [this.databaseLayer.layerVersion],
-            tenantId: props.tenantId
+            tenantName: props.tenantName,
+            layers: [this.awsSdkLayer.layerVersion],
+            tenantId: props.tenantId,
+            tables: props.tables
         })
 
-        new CfnOutput(this, 'GRAPHQL_URL', {
-            value: this.appsync.api.graphqlUrl,
+        new CfnOutput(this, "tenantId", {
+            value: props.tenantId
         })
 
-        new CfnOutput(this, 'API_ID', {
-            value: this.appsync.api.apiId,
-        })
-
-        new CfnOutput(this, 'API_KEY', {
-            value: this.appsync.api.apiKey || "",
+        new CfnOutput(this, "tenantName", {
+            value: props.tenantName
         })
 
     }

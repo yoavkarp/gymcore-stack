@@ -27,13 +27,13 @@ export function createGraphQLSchema(directoryPath: string) {
 }
 
 const f = createGraphQLSchema(path.join(__dirname, "src", "appsync", "graphql"));
-fs.writeFileSync(path.join("lib", "appsync", "schema.graphql"), f, 'utf-8');
+fs.writeFileSync(path.join("src", "appsync", "schema.graphql"), f, 'utf-8');
 
 const config: CodegenConfig = {
     overwrite: true,
-    schema: path.join("lib", "appsync", "schema.graphql"),
+    schema: path.join("src", "appsync", "schema.graphql"),
     generates: {
-        [path.join("lib", "appsync", "schema.types.ts")]: {
+        [path.join("src", "appsync", "schema.types.ts")]: {
             plugins: ["typescript"]
         }
     }

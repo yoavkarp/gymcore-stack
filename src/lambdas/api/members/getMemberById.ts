@@ -1,24 +1,25 @@
-import { QueryGetMemberByIdArgs } from "@/appsync/schema.types";
+import { Member, Query, QueryGetMemberByIdArgs } from "@/appsync/schema.types";
 import { AppSyncResolver } from "../../appsync.types";
-import AWS from 'aws-sdk';
+import { dynamodb } from "../connection";
 
-const dynamodb = new AWS.DynamoDB.DocumentClient();
+export const getMemberById: AppSyncResolver<QueryGetMemberByIdArgs, Query['getMemberById']> = async (event, context, callback) => {
 
-export const getMemberById: AppSyncResolver<QueryGetMemberByIdArgs> = async (event, context, callback) => {
-    const {
-        id
-    } = event.arguments;
+    try {
+        const { Item: data } = await dynamodb.get({
+            TableName: "MemberTable",
+            Key: {
+                id: event.arguments.memberId,
+                tenantId: process.env.TENANT_ID
+            }
+        }).promise()
 
-    const { Item: UserItem } = await dynamodb.get({
-        TableName: process.env.MembersTableName!,
-        Key: {
-            id
+        if (!data) {
+            return callback(new Error(`Member with id ${event.arguments.memberId} not found`));
         }
-    }).promise()
 
-    if (!UserItem) {
-        return callback(new Error(`Member with id ${id} not found`));
+        return callback(undefined, data as Member)
     }
-
-    return callback(undefined, UserItem)
+    catch (err: any) {
+        return callback(err)
+    }
 }
