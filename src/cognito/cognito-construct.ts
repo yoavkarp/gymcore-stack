@@ -51,25 +51,18 @@ export class CognitoConstruct extends Construct {
             },
             standardAttributes: {
                 email: {
-                    required: true,
+                    required: false,
                     mutable: true
                 },
                 phoneNumber: {
                     required: true,
                     mutable: true
-                },
-            },
-            customAttributes: {
-                clubId: new StringAttribute({
-                    minLen: 36,
-                    maxLen: 36,
-                    mutable: false,
-                }),
+                }
             },
             userPoolName: `${props.tenantName} UserPool`,
         })
 
-        const groups = ["admin", "club", "trainer", "member", "invited"];
+        const groups = ["club", "member"];
 
         groups.forEach(
             (groupName) =>

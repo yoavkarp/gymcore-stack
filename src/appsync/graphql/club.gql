@@ -1,13 +1,13 @@
 type Club {
     id: ID!
-    name: String!
-
-    userId: ID!
-    user: User!
-
     tenantId: ID!
-    tenant: Tenant!
     
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL!
+    address: String!
+
+    created_at: AWSTimestamp!
+    updated_at: AWSTimestamp!
 }

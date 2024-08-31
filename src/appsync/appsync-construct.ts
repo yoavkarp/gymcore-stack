@@ -61,10 +61,19 @@ export class AppSyncConstruct extends Construct {
         props.tables.tenantTable.grantFullAccess(api_lambda)
         props.tables.userTable.grantFullAccess(api_lambda)
         props.tables.trainerTable.grantFullAccess(api_lambda)
+        props.userPool.grant(api_lambda, 'cognito-idp:*')
 
         this.dataSources = [
+            // api lambda
             this.api.addLambdaDataSource("api", api_lambda)
         ]
+            .concat(
+                // tables
+                Object.keys(props.tables).map((key) => {
+                    return this.api.addDynamoDbDataSource(key, props.tables[key as keyof DynamoDBStack['tables']], {
+                        name: props.tables[key as keyof DynamoDBStack['tables']].tableName + "_DataSource"
+                    })
+                }))
 
         new CfnOutput(this, 'GRAPHQL_URL', {
             value: this.api.graphqlUrl,

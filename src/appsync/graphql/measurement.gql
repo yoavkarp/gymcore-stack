@@ -1,22 +1,27 @@
 type Measurement {
     id: ID!
-
+    tenantId: ID!
     memberId: ID!
-    member: Member
+    clubId: ID
 
-    height: Float
     weight: Float
-    age: Float!
+    height: Float
     fat: Float
-    heartRate: Float
-    bmi: Float
-    bmr: Float
+    heart_rate: Float
 
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
 }
 
 type MeasurementConnection {
     items: [Measurement!]
     nextToken: String
+}
+
+input CreateMeasurementInput {
+    memberId: ID!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
 }

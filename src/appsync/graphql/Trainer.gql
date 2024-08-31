@@ -1,14 +1,17 @@
 type Trainer {
     id: String!
-
-    userId: String!
-    user: User!
-
-    clubId: String!
-    club: Club!
-
+    clubId: ID!
     tenantId: ID!
-    tenant: Tenant!
+
+    clubsIds: [ID!]!
+
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
 }
 
 type TrainerConnection {

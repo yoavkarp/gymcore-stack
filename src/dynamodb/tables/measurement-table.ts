@@ -20,8 +20,8 @@ export class MeasurementTableConstruct extends Construct {
 
         this.table.addGlobalSecondaryIndex({
             indexName: "measurements-by-member-id",
-            partitionKey: { name: 'tenantId', type: AttributeType.STRING },
-            sortKey: { name: 'memberId', type: AttributeType.STRING }
+            partitionKey: { name: 'tenantId#memberId', type: AttributeType.STRING },
+            sortKey: { name: 'created_at', type: AttributeType.STRING }
         })
 
         const measurementTableServiceRole = new Role(this, 'MeasurementTableServiceRole', {

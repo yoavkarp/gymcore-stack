@@ -2,6 +2,11 @@ import { RemovalPolicy } from "aws-cdk-lib";
 import { Table, BillingMode, AttributeType } from "aws-cdk-lib/aws-dynamodb";
 import { Role, ServicePrincipal, PolicyStatement, Effect } from "aws-cdk-lib/aws-iam";
 import { Construct } from "constructs";
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as eventSources from 'aws-cdk-lib/aws-lambda-event-sources';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import path from "path";
+import { UserPool } from "aws-cdk-lib/aws-cognito";
 
 export class UserTableConstruct extends Construct {
 
@@ -15,7 +20,8 @@ export class UserTableConstruct extends Construct {
             billingMode: BillingMode.PAY_PER_REQUEST,
             partitionKey: { name: 'tenantId', type: AttributeType.STRING },
             sortKey: { name: 'id', type: AttributeType.STRING },
-            tableName: "UserTable"
+            tableName: "UserTable",
+            stream: dynamodb.StreamViewType.NEW_IMAGE
         })
 
         // const userTableServiceRole = new Role(this, 'UserTableServiceRole', {

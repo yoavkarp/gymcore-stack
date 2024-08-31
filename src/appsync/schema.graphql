@@ -1,196 +1,32 @@
-# active-workout.gql
-type ActiveWorkout {
-    id: ID!
-
-    workoutId: ID!
-    workout: Workout!
-
-    planId: ID
-    plan: Plan
-
-    memberId: ID!
-    member: Member
-
-    name: String!
-    exercises: [ActiveWorkoutExercise!]
-    startAt: AWSTimestamp!
-    endAt: AWSTimestamp
-}
-
-type ActiveWorkoutConnection {
-    items: [ActiveWorkout!]
-    nextToken: String
-}
-
-type ActiveWorkoutExercise {
-    id: ID!
-
-    exerciseId: ID!
-    exercise: Exercise
-
-    name: String!
-    description: String
-    type: String!
-
-    data: [ActiveWorkoutExerciseData!]
-    group: [ActiveWorkoutExercise]
-    mn: String
-    sh: String
-
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-type ActiveWorkoutExerciseData {
-    reps: ActiveRangedUnit
-    weight: ActiveRangedUnit
-    rest: ActiveRangedUnit
-    dropsets: [ActiveDropSetData]
-    resist: Float
-    angle: Float
-    dis: Float
-    intens: ActiveRangedUnit
-    tempo: Float
-    thr: ActiveRangedUnit
-    time: Float
-}
-
-type ActiveDropSetData {
-    reps: ActiveRangedUnit
-    weight: ActiveRangedUnit
-}
-
-type ActiveRangedUnit {
-    min: Float
-    max: Float
-    unit: String
-    done: Float
-}
-
-# club.gql
+# Club.gql
 type Club {
     id: ID!
-    name: String!
-
-    userId: ID!
-    user: User!
-
     tenantId: ID!
-    tenant: Tenant!
     
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-# event.gql
-# Event
-
-type Event  {
-    id: ID!
-
-    clubId: ID!
-    club: Club!
-
-    tenantId: ID!
-    tenant: Tenant!
-
-    trainerId: ID!
-    trainer: Trainer
-
-    memberId: ID!
-    member: Member
-
-    startAt: AWSTimestamp!
-    endAt: AWSTimestamp!
-    
-    planId: ID
-    plan: Plan
-
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-type EventConnection {
-    items: [Event!]
-    nextToken: String
-}
-
-# exercise.gql
-type Exercise {
-    id: ID!
     name: String!
-    video: AWSURL
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-    
-    tenantId: ID
-    tenant: Tenant
-}
-
-type ExerciseConnection {
-    items: [Exercise!]
-    nextToken: String
-}
-
-# goal.gql
-type Goal {
-    
-    userId: ID!
-    user: User!
-
-    name: String!
-    status: String!
-    created_at: AWSTimestamp!
-    updated_at: AWSTimestamp!
-}
-
-type GoalConnection {
-    items: [Goal!]
-    nextToken: String
-}
-
-# library-workout.gql
-type LibraryWorkout {
-    id: ID!
-
-    clubId: ID
-    club: Club
-
-    trainerId: ID!
-    trainer: Trainer
-
-    name: String!
-    description: String
-    exercises: [WorkoutExercise!]
-
-    level: String
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL!
+    address: String!
 
     created_at: AWSTimestamp!
     updated_at: AWSTimestamp!
 }
 
-type LibraryWorkoutConnection {
-    items: [LibraryWorkout!]
-    nextToken: String
-}
-
-# measurement.gql
+# Measurement.gql
 type Measurement {
     id: ID!
-
+    tenantId: ID!
     memberId: ID!
-    member: Member
+    clubId: ID
 
-    height: Float
     weight: Float
-    age: Float!
+    height: Float
     fat: Float
-    heartRate: Float
-    bmi: Float
-    bmr: Float
+    heart_rate: Float
 
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
 }
 
 type MeasurementConnection {
@@ -198,26 +34,34 @@ type MeasurementConnection {
     nextToken: String
 }
 
-# member.gql
+input CreateMeasurementInput {
+    memberId: ID!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}
+
+# Member.gql
 type Member {
     id: ID!
-
-    userId: ID!
-    user: User!
-
     tenantId: ID!
-    tenant: Tenant!
 
-    level: String
-    weeklyAvailability: Int
-    profileWorkouts: WorkoutConnection
-    activeWorkout: ActiveWorkout
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
 
-    activePlanId: ID
-    activePlan: Plan
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate!
+    gender: String!
+    
+    clubsIds: [ID!]!
 
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
+    measurement: Measurement
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
 }
 
 type MemberConnection {
@@ -226,200 +70,42 @@ type MemberConnection {
 }
 
 input CreateMemberInput {
-    name: String!
-    email: String!
-    phoneNumber: String!
+    phone_number: AWSPhone!
 }
 
-# mutation.gql
+input UpdateMemberInput {
+    id: ID!
+    name: String
+    email: AWSEmail
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate
+    gender: String
+}
+
+# Mutation.gql
 type Mutation {
     # Member
-    createMember(input: CreateMemberInput!): Member
-    deleteMember(memberId: ID!): Member
+    createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
+    deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+
+    updateAuthenticatedMember(input: UpdateMemberInput!): Member @aws_auth(cognito_groups: ["member"])
+
+    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
 }
 
-# plan.gql
-# Plan
-type Plan  {
-    id: ID!
-
-    memberId: ID!
-    member: Member
-
-    trainerId: ID!
-    trainer: Trainer
-
-    clubId: ID!
-    club: Club
-
-    name: String!
-    notes: String
-
-    trainingPlanId: ID!
-    workouts: WorkoutConnection
-
-    weeks: Int!
-    meetings: Int!
-    completed: [CompletedWorkout!]
-        
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-
-    events: EventConnection
-}
-
-type CompletedWorkout {
-    activeWorkoutId: ID!
-    activeWorkout: ActiveWorkout
-    workoutId: ID!
-    workout: Workout
-    time: AWSTimestamp!
-}
-
-type PlanConnection {
-    items: [Plan!]
-    nextToken: String
-}
-
-# query.gql
+# Query.gql
 type Query {
-    getMemberById(memberId: String!): Member @aws_auth(cognito_groups: ["admin", "club", "trainer"])
-    searchMembers(query: String!, limit: Int): [Member!] @aws_auth(cognito_groups: ["admin", "club", "trainer"])
-    getAuthData: Member @aws_auth(cognito_groups: ["admin", "club", "trainer", "member"])
+    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["admin", "club", "trainer"])
+    getAuthenticatedMember: Member @aws_auth(cognito_groups: ["member"])
+
+    getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["admin", "club", "trainer", "member"])
+    getAuthenticatedClub: Club @aws_auth(cognito_groups: ["club"])
+
+    getTenant: Tenant @aws_auth(cognito_groups: ["admin", "club", "trainer", "member"])
 }
 
-input ListQueryInput {
-    nextToken: String
-    limit: Int
-}
-
-# tenant.gql
-type Tenant {
-    id: ID!
-    name: String!
-
-    userId: ID!
-    user: User!
-    
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-# trainer.gql
-type Trainer {
-    id: String!
-
-    userId: String!
-    user: User!
-
-    clubId: String!
-    club: Club!
-
-    tenantId: ID!
-    tenant: Tenant!
-}
-
-type TrainerConnection {
-    items: [Trainer!]
-    nextToken: String
-}
-
-# training-plan.gql
-type TrainingPlan  {
-    id: ID!
-    
-    trainerId: ID!
-    trainer: Trainer
-
-    clubId: ID
-    club: Club
-
-    memberId: ID!
-    member: Member
-
-    name: String!
-    description: String
-    workouts_ids: [ID!]
-
-    workouts: [Workout!]
-    
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-# workout.gql
-type Workout {
-    id: ID!
-    name: String!
-    notes: String
-
-    clubId: ID
-    club: Club
-
-    memberId: ID!
-    member: Member
-
-    trainerId: ID!
-    trainer: Trainer
-
-    exercises: [WorkoutExercise!]
-    
-    level: String
-
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-type WorkoutExercise {
-    id: ID!
-
-    exerciseId: ID!
-    exercise: Exercise
-    
-    name: String!
-    notes: String
-    type: String!
-
-    data: [WorkoutExerciseData!]
-    group: [WorkoutExercise]
-    mn: String
-    sh: String
-
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-}
-
-type WorkoutExerciseData {
-    reps: RangedUnit
-    weight: RangedUnit
-    rest: RangedUnit
-    dropsets: [DropSetData]
-    resist: Float
-    angle: Float
-    dis: Float
-    intens: RangedUnit
-    tempo: Float
-    thr: RangedUnit
-    time: Float
-}
-
-type DropSetData {
-    reps: RangedUnit
-    weight: RangedUnit
-}
-
-type RangedUnit {
-    min: Float
-    max: Float
-    unit: String
-}
-
-type WorkoutConnection {
-    items: [Workout!]
-    nextToken: String
-}
-
-# schema.gql
+# Schema.gql
 scalar AWSTimestamp
 scalar AWSURL
 scalar AWSJSON
@@ -435,12 +121,38 @@ schema {
     mutation: Mutation
 }
 
-# user.gql
-type User {
+# Tenant.gql
+type Tenant {
     id: ID!
+
     name: String!
     email: AWSEmail!
-    phoneNumber: AWSPhone!
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL!
+    address: String!
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+# Trainer.gql
+type Trainer {
+    id: String!
+    clubId: ID!
+    tenantId: ID!
+
+    clubsIds: [ID!]!
+
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type TrainerConnection {
+    items: [Trainer!]
+    nextToken: String
 }

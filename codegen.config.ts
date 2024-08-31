@@ -34,9 +34,14 @@ const config: CodegenConfig = {
     schema: path.join("src", "appsync", "schema.graphql"),
     generates: {
         [path.join("src", "appsync", "schema.types.ts")]: {
-            plugins: ["typescript"]
+            plugins: ["typescript"],
+            config: {
+                scalars: {
+                },
+                typesPrefix: "I"
+            }
         }
-    }
+    },
 };
 
 export default config;

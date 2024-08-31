@@ -15,22 +15,23 @@ class GymcoreCdkStack extends Stack {
 
     private readonly awsSdkLayer: LayerConstruct;
     private readonly auth: CognitoConstruct;
-    private readonly appsync: AppSyncConstruct;
+    private readonly api: AppSyncConstruct;
 
     constructor(scope: Construct, id: string, props: GymcoreCdkStackProps) {
         super(scope, id, props);
 
-
         this.awsSdkLayer = new LayerConstruct(this, 'aws-sdk-layer', {
             layerFolder: 'aws-sdk-layer',
         });
+
+        console.log("WALLE", props.tables)
 
         this.auth = new CognitoConstruct(this, 'Auth', {
             tenantName: props.tenantName,
             tenantId: props.tenantId
         })
 
-        this.appsync = new AppSyncConstruct(this, 'Api', {
+        this.api = new AppSyncConstruct(this, 'Api', {
             userPool: this.auth.userPool,
             tenantName: props.tenantName,
             layers: [this.awsSdkLayer.layerVersion],

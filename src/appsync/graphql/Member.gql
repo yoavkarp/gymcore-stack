@@ -1,22 +1,22 @@
 type Member {
     id: ID!
-
-    userId: ID!
-    user: User!
-
     tenantId: ID!
-    tenant: Tenant!
 
-    level: String
-    weeklyAvailability: Int
-    profileWorkouts: WorkoutConnection
-    activeWorkout: ActiveWorkout
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
 
-    activePlanId: ID
-    activePlan: Plan
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate!
+    gender: String!
+    
+    clubsIds: [ID!]!
 
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
+    measurement: Measurement
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
 }
 
 type MemberConnection {
@@ -25,7 +25,15 @@ type MemberConnection {
 }
 
 input CreateMemberInput {
-    name: String!
-    email: String!
-    phoneNumber: String!
+    phone_number: AWSPhone!
+}
+
+input UpdateMemberInput {
+    id: ID!
+    name: String
+    email: AWSEmail
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate
+    gender: String
 }

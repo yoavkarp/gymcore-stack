@@ -1,8 +1,8 @@
-import { Member, Mutation, MutationDeleteMemberArgs } from "@/appsync/schema.types";
+import { IMember, IMutation, IMutationDeleteMemberArgs } from "@/appsync/schema.types";
 import { AppSyncResolver } from "../../appsync.types";
 import { cognito, dynamodb } from "../connection";
 
-export const deleteMember: AppSyncResolver<MutationDeleteMemberArgs, Mutation['deleteMember']> = async (event, context, callback) => {
+export const handler: AppSyncResolver<IMutationDeleteMemberArgs, IMutation['deleteMember']> = async (event, context, callback) => {
     try {
         const { Attributes: data } = await dynamodb.delete({
             Key: {
@@ -11,21 +11,15 @@ export const deleteMember: AppSyncResolver<MutationDeleteMemberArgs, Mutation['d
             },
             ReturnValues: "ALL_OLD",
             TableName: "MemberTable",
-            ConditionExpression: "clubId = :clubId",
-            ExpressionAttributeValues: {
-                ":clubId": event.identity?.claims?.["custom:clubId"],
-            },
-            ExpressionAttributeNames: {
-                "#clubId": "clubId",
-            },
         }).promise()
 
-        await cognito.adminDisableUser({
-            UserPoolId: process.env.USER_POOL_ID!,
-            Username: data?.phoneNumber
+        await cognito.adminRemoveUserFromGroup({
+            UserPoolId: process.env.USER_POOL_ID,
+            Username: data?.phoneNumber,
+            GroupName: "member"
         }).promise()
 
-        callback(null, data as Member)
+        callback(null, data as IMember)
     }
     catch (err: any) {
         callback(err)

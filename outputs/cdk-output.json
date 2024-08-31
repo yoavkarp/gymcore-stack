@@ -1,20 +1,28 @@
 {
-  "HolmesPlaceIsraelCDKStack": {
-    "AuthIdentityPoolIdFB6655FB": "eu-central-1:4473b744-bd88-4588-9ec3-a5220c717b94",
-    "AuthUserPoolIdC0605E59": "eu-central-1_U6MEPL8RM",
-    "ApiGRAPHQLURL06B0C7F4": "https://nonbvrt4nrbbdecss36s5hmg2e.appsync-api.eu-central-1.amazonaws.com/graphql",
-    "tenantId": "d53e40e2-555a-47e0-9193-eedefb739bea",
-    "ApiAPIIDEBF2D2C5": "wkkvn7q2nrghld3a35izoe6ovy",
-    "ApiAPIKEY6DAC4802": "",
-    "AuthUserPoolClientId8216BF9A": "31th6je3rrcgn0l1t60tcsi6hb"
+  "GymcoreDatabaseStack": {
+    "ExportsOutputFnGetAttMeasurementTableConstructMeasurementTable2D6B5B46ArnDE48480B": "arn:aws:dynamodb:eu-central-1:181032208684:table/MeasurementTable",
+    "ExportsOutputFnGetAttTrainerTableConstructTrainerTableD2C070DEArn340101E0": "arn:aws:dynamodb:eu-central-1:181032208684:table/TrainerTable",
+    "ExportsOutputFnGetAttEventTableConstructEventTableE5522A0CArn6966C042": "arn:aws:dynamodb:eu-central-1:181032208684:table/EventTable",
+    "ExportsOutputFnGetAttClubTableConstructClubTableB990B280ArnD8EB3EE8": "arn:aws:dynamodb:eu-central-1:181032208684:table/ClubTable",
+    "ExportsOutputRefMeasurementTableConstructMeasurementTable2D6B5B46881295A1": "MeasurementTable",
+    "ExportsOutputRefTrainerTableConstructTrainerTableD2C070DE5596FF4F": "TrainerTable",
+    "ExportsOutputFnGetAttUserTableConstructUserTable3E2278F6Arn7EB206C9": "arn:aws:dynamodb:eu-central-1:181032208684:table/UserTable",
+    "ExportsOutputRefTenantTableConstructTenantTable3AFA7E50131AF5B5": "TenantTable",
+    "ExportsOutputRefClubTableConstructClubTableB990B28095CFACDC": "ClubTable",
+    "ExportsOutputRefUserTableConstructUserTable3E2278F6F67CBD4B": "UserTable",
+    "ExportsOutputRefMemberTableConstructMemberTableAB546BC23F111482": "MemberTable",
+    "ExportsOutputFnGetAttTenantTableConstructTenantTable3AFA7E50ArnC0BA387B": "arn:aws:dynamodb:eu-central-1:181032208684:table/TenantTable",
+    "ExportsOutputRefEventTableConstructEventTableE5522A0CD30CFC6A": "EventTable",
+    "ExportsOutputFnGetAttMemberTableConstructMemberTableAB546BC2ArnB5C5E960": "arn:aws:dynamodb:eu-central-1:181032208684:table/MemberTable"
   },
   "DevCDKStack": {
-    "AuthIdentityPoolIdFB6655FB": "eu-central-1:ef97e56e-bb6e-4598-8de0-b0b031afe641",
-    "AuthUserPoolIdC0605E59": "eu-central-1_C2WsAuxaP",
-    "ApiGRAPHQLURL06B0C7F4": "https://dfx7o4elp5f43daee3uesjvh3y.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "AuthIdentityPoolIdFB6655FB": "eu-central-1:a437609e-de62-479a-be93-01946fca3a54",
+    "AuthUserPoolIdC0605E59": "eu-central-1_rPC74KFyx",
+    "ApiGRAPHQLURL06B0C7F4": "https://dnatrtlngrc4voltuatgkjb5ke.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "tenantName": "Dev_Israel",
     "tenantId": "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c",
-    "ApiAPIIDEBF2D2C5": "q7saaj7e6vg65ed5fvujxy4o2u",
+    "ApiAPIIDEBF2D2C5": "4fmpc3bd6fas3fvexj5o7lnsiy",
     "ApiAPIKEY6DAC4802": "",
-    "AuthUserPoolClientId8216BF9A": "4d0ifpokhknmb1gkcibmk0mnc8"
+    "AuthUserPoolClientId8216BF9A": "cc6hkh9nqjvvjj93dpmhu6kln"
   }
 }

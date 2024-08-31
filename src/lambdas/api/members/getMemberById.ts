@@ -1,8 +1,8 @@
-import { Member, Query, QueryGetMemberByIdArgs } from "@/appsync/schema.types";
+import { IMember, IQuery, IQueryGetMemberByIdArgs } from "@/appsync/schema.types";
 import { AppSyncResolver } from "../../appsync.types";
 import { dynamodb } from "../connection";
 
-export const getMemberById: AppSyncResolver<QueryGetMemberByIdArgs, Query['getMemberById']> = async (event, context, callback) => {
+export const handler: AppSyncResolver<IQueryGetMemberByIdArgs, IQuery['getMemberById']> = async (event, context, callback) => {
 
     try {
         const { Item: data } = await dynamodb.get({
@@ -17,7 +17,7 @@ export const getMemberById: AppSyncResolver<QueryGetMemberByIdArgs, Query['getMe
             return callback(new Error(`Member with id ${event.arguments.memberId} not found`));
         }
 
-        return callback(undefined, data as Member)
+        return callback(undefined, data as IMember)
     }
     catch (err: any) {
         return callback(err)
