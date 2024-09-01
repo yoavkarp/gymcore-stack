@@ -1,10 +1,9 @@
-import { IMember, IMutation, IMutationCreateMemberArgs } from "@/appsync/schema.types";
+import { IMutationCreateMemberArgs } from "@/appsync/schema.types";
 import { AppSyncResolver } from "../../appsync.types";
-import { cognito, dynamodb } from "../connection";
-import { randomUUID } from "crypto";
-import { CognitoIdentityServiceProvider, AWSError } from "aws-sdk";
-import { PromiseResult } from "aws-sdk/lib/request";
-import { UserType } from "aws-sdk/clients/cognitoidentityserviceprovider";
+import * as AWS from 'aws-sdk';
+
+const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'eu-central-1' });
+const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 export const handler: AppSyncResolver<IMutationCreateMemberArgs> = async (event, context, callback) => {
 
@@ -17,88 +16,42 @@ export const handler: AppSyncResolver<IMutationCreateMemberArgs> = async (event,
     // define username
     const Username = phone_number;
 
-    const exists = await cognito.listUsers({
+    const { User: user } = await cognito.adminCreateUser({
         UserPoolId: process.env.USER_POOL_ID,
-        Filter: `phone_number = "${phone_number}"`
+        Username: phone_number.substring(4),
+        TemporaryPassword: "Abcd1234!@",
+        UserAttributes: [
+            {
+                Name: 'phone_number',
+                Value: phone_number
+            },
+            {
+                Name: "phone_number_verified",
+                Value: "true"
+            }
+        ]
     }).promise()
 
-    let user: UserType | undefined = exists.Users?.[0];
+    await cognito.adminAddUserToGroup({
+        Username,
+        UserPoolId: process.env.USER_POOL_ID,
+        GroupName: "member"
+    }).promise()
 
-    if (!user) {
-
-        let user = (await cognito.adminCreateUser({
-            UserPoolId: process.env.USER_POOL_ID,
-            Username,
-            TemporaryPassword: "12345678",
-            UserAttributes: [
-                {
-                    Name: 'phone_number',
-                    Value: phone_number
-                },
-                {
-                    Name: "phone_number_verified",
-                    Value: "true"
-                }
-            ]
-        }).promise()).User
-
-        await cognito.adminAddUserToGroup({
-            Username,
-            UserPoolId: process.env.USER_POOL_ID,
-            GroupName: "member"
-        }).promise()
-
-        const memberItem = {
-            id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
-            tenantId: process.env.TENANT_ID,
-            phone_number,
-            created_at: user?.UserCreateDate,
-            updated_at: user?.UserCreateDate
-        }
-
-        await dynamodb.put({
-            TableName: "MemberTable",
-            Item: memberItem,
-            ConditionExpression: "attribute_not_exists(id)"
-        }).promise()
-
-        return callback(undefined, memberItem)
-
+    const memberItem = {
+        id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
+        tenantId: process.env.TENANT_ID,
+        phone_number,
+        created_at: user?.UserCreateDate?.toISOString(),
+        updated_at: user?.UserCreateDate?.toISOString()
     }
 
-    const { Item } = await dynamodb.get({
+    await dynamodb.put({
         TableName: "MemberTable",
-        Key: {
-            tenantId: process.env.TENANT_ID,
-            id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value
-        }
+        Item: memberItem,
+        ConditionExpression: "attribute_not_exists(id)"
     }).promise()
 
-    if (Item) {
-        return callback(new Error("err-user-already-a-member"), Item)
-    }
-    else {
+    return callback(undefined, memberItem)
 
-        await cognito.adminAddUserToGroup({
-            Username,
-            UserPoolId: process.env.USER_POOL_ID,
-            GroupName: "member"
-        }).promise()
-
-        const memberItem = {
-            id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
-            tenantId: process.env.TENANT_ID,
-            phone_number,
-            created_at: user?.UserCreateDate,
-            updated_at: user?.UserCreateDate
-        }
-
-        await dynamodb.put({
-            TableName: "MemberTable",
-            Item: memberItem,
-            ConditionExpression: "attribute_not_exists(id)"
-        }).promise()
-
-        return callback(undefined, memberItem)
-    }
 }

@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { aws_lambda as lambda } from 'aws-cdk-lib';
+import { CfnOutput, aws_lambda as lambda } from 'aws-cdk-lib';
 import { Tags } from 'aws-cdk-lib'
 import * as path from 'path';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
@@ -15,7 +15,7 @@ export interface LayerConstructProps {
 export class LayerConstruct extends Construct {
     public readonly layerVersion: lambda.LayerVersion;
 
-    private readonly rootLayerPath: string = path.join("src", "layers");
+    private readonly rootLayerPath: string = "src/layers";
     private readonly runtime: lambda.Runtime = Runtime.NODEJS_18_X;
     private readonly layerName: string;
     private readonly tags?: { [key: string]: string };
@@ -48,6 +48,7 @@ export class LayerConstruct extends Construct {
         }
 
         const fullPath = path.join(this.rootLayerPath, props.layerFolder);
+        new CfnOutput(this, "LayerPath", { value: fullPath });
 
         // Define the Lambda Layer
         this.layerVersion = new lambda.LayerVersion(this, "layer", {

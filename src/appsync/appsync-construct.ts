@@ -2,7 +2,7 @@ import { Construct } from 'constructs';
 import { AuthorizationType, BackedDataSource, FieldLogLevel, SchemaFile } from 'aws-cdk-lib/aws-appsync';
 import { GraphqlApi } from 'aws-cdk-lib/aws-appsync';
 import path from 'path';
-import { CfnOutput } from 'aws-cdk-lib';
+import { CfnOutput, Duration } from 'aws-cdk-lib';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
 import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
@@ -53,7 +53,8 @@ export class AppSyncConstruct extends Construct {
             environment: {
                 TENANT_ID: props.tenantId,
                 USER_POOL_ID: props.userPool.userPoolId
-            }
+            },
+            timeout: Duration.seconds(10)
         })
 
         props.tables.clubTable.grantFullAccess(api_lambda)
@@ -61,11 +62,20 @@ export class AppSyncConstruct extends Construct {
         props.tables.tenantTable.grantFullAccess(api_lambda)
         props.tables.userTable.grantFullAccess(api_lambda)
         props.tables.trainerTable.grantFullAccess(api_lambda)
+        props.tables.measurementTable.grantFullAccess(api_lambda)
         props.userPool.grant(api_lambda, 'cognito-idp:*')
+
+        const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);
+
+        this.api.createResolver("createMember", {
+            typeName: "Mutation",
+            fieldName: "createMember",
+            dataSource: api_lambda_ds
+        })
 
         this.dataSources = [
             // api lambda
-            this.api.addLambdaDataSource("api", api_lambda)
+            api_lambda_ds
         ]
             .concat(
                 // tables

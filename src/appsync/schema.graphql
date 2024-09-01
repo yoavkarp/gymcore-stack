@@ -1,47 +1,3 @@
-# Club.gql
-type Club {
-    id: ID!
-    tenantId: ID!
-    
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-    profile_picture: AWSURL!
-    address: String!
-
-    created_at: AWSTimestamp!
-    updated_at: AWSTimestamp!
-}
-
-# Measurement.gql
-type Measurement {
-    id: ID!
-    tenantId: ID!
-    memberId: ID!
-    clubId: ID
-
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
-}
-
-type MeasurementConnection {
-    items: [Measurement!]
-    nextToken: String
-}
-
-input CreateMeasurementInput {
-    memberId: ID!
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-}
-
 # Member.gql
 type Member {
     id: ID!
@@ -105,36 +61,6 @@ type Query {
     getTenant: Tenant @aws_auth(cognito_groups: ["admin", "club", "trainer", "member"])
 }
 
-# Schema.gql
-scalar AWSTimestamp
-scalar AWSURL
-scalar AWSJSON
-scalar AWSDateTime
-scalar AWSDate
-scalar AWSTime
-scalar AWSPhone
-scalar AWSIPAddress
-scalar AWSEmail
-
-schema {
-    query: Query
-    mutation: Mutation
-}
-
-# Tenant.gql
-type Tenant {
-    id: ID!
-
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-    profile_picture: AWSURL!
-    address: String!
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
-}
-
 # Trainer.gql
 type Trainer {
     id: String!
@@ -155,4 +81,78 @@ type Trainer {
 type TrainerConnection {
     items: [Trainer!]
     nextToken: String
+}
+
+# club.gql
+type Club {
+    id: ID!
+    tenantId: ID!
+    
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL!
+    address: String!
+
+    created_at: AWSTimestamp!
+    updated_at: AWSTimestamp!
+}
+
+# measurement.gql
+type Measurement {
+    id: ID!
+    tenantId: ID!
+    memberId: ID!
+    clubId: ID
+
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type MeasurementConnection {
+    items: [Measurement!]
+    nextToken: String
+}
+
+input CreateMeasurementInput {
+    memberId: ID!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}
+
+# tenant.gql
+type Tenant {
+    id: ID!
+
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL!
+    address: String!
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+# schema.gql
+scalar AWSTimestamp
+scalar AWSURL
+scalar AWSJSON
+scalar AWSDateTime
+scalar AWSDate
+scalar AWSTime
+scalar AWSPhone
+scalar AWSIPAddress
+scalar AWSEmail
+
+schema {
+    query: Query
+    mutation: Mutation
 }

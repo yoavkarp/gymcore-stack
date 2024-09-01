@@ -1,5 +1,7 @@
 import { IMutation, IQuery } from "@/appsync/schema.types";
 import { AppSyncResolver } from "../appsync.types";
+import AWS from "aws-sdk";
+AWS.config.update({ region: 'eu-central-1' });
 
 type FnMap = {
     Query?: Record<keyof Omit<IQuery, "__typename">, string>
@@ -23,20 +25,19 @@ const fnMap: FnMap = {
 }
 
 export const main: AppSyncResolver = async (event, context, callback) => {
-
-    context.callbackWaitsForEmptyEventLoop = false;
     const parentType = event.info.parentTypeName as keyof FnMap;
     const fnPath = fnMap[parentType]?.[event.info.fieldName as keyof FnMap[keyof FnMap]];
 
+    console.log(parentType, event.info.fieldName, fnPath)
 
     if (!fnPath) {
         return callback(new Error(`No function found for ${event.info.parentTypeName}.${event.info.fieldName}`))
     }
-    try {
-        const { handler }: { handler: AppSyncResolver } = await import(fnPath);
-        return handler(event, context, callback);
-    }
 
+    try {
+        const func = require(fnPath);
+        await func.handler(event, context, callback);
+    }
     catch (err: any) {
         return callback(err)
     }

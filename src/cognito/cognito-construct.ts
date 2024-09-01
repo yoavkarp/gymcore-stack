@@ -62,7 +62,7 @@ export class CognitoConstruct extends Construct {
             userPoolName: `${props.tenantName} UserPool`,
         })
 
-        const groups = ["club", "member"];
+        const groups = ["admin", "club", "member"];
 
         groups.forEach(
             (groupName) =>

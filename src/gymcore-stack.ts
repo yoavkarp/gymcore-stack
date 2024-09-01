@@ -24,8 +24,6 @@ class GymcoreCdkStack extends Stack {
             layerFolder: 'aws-sdk-layer',
         });
 
-        console.log("WALLE", props.tables)
-
         this.auth = new CognitoConstruct(this, 'Auth', {
             tenantName: props.tenantName,
             tenantId: props.tenantId
