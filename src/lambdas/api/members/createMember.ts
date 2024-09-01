@@ -1,4 +1,4 @@
-import { IMutationCreateMemberArgs } from "@/appsync/schema.types";
+import { IMutationCreateMemberArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import * as AWS from 'aws-sdk';
 

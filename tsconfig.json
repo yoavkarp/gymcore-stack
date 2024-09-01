@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "lib",
-    "declaration": true,
+    "declaration": false,
     "sourceMap": false,
     "allowJs": true,
     "paths": {

@@ -1,11 +1,11 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 import path from 'path';
 import fs from 'fs'
+import { string } from 'zod';
 
 const filesOrder = [
     'scalars',
     'schema',
-    "user"
 ].map((f) => `${f}.gql`)
 
 export function createGraphQLSchema(directoryPath: string) {
@@ -29,16 +29,25 @@ export function createGraphQLSchema(directoryPath: string) {
 const f = createGraphQLSchema(path.join(__dirname, "src", "appsync", "graphql"));
 fs.writeFileSync(path.join("src", "appsync", "schema.graphql"), f, 'utf-8');
 
+
 const config: CodegenConfig = {
     overwrite: true,
     schema: path.join("src", "appsync", "schema.graphql"),
     generates: {
-        [path.join("src", "appsync", "schema.types.ts")]: {
-            plugins: ["typescript"],
+        [path.join("src", "appsync", "schema.ts")]: {
+            plugins: ["typescript", "typescript-operations", "typescript-react-apollo"],
             config: {
                 scalars: {
+                    "AWSDate": "string",
+                    "AWSDateTime": "string",
+                    "AWSTime": "string",
+                    "AWSJSON": "{ [x: string]: any }",
+                    "AWSPhone": "string",
+                    "AWSURL": "string",
+                    "AWSEmail": "string",
+                    "AWSTimestamp": "number"
                 },
-                typesPrefix: "I"
+                typesPrefix: "I",
             }
         }
     },

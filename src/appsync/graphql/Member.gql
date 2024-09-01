@@ -2,16 +2,16 @@ type Member {
     id: ID!
     tenantId: ID!
 
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
+    name: String
+    email: AWSEmail
+    phone_number: AWSPhone
 
     profile_picture: AWSURL
     address: String
-    birthdate: AWSDate!
-    gender: String!
+    birthdate: AWSDate
+    gender: String
     
-    clubsIds: [ID!]!
+    clubsIds: [ID!]
 
     measurement: Measurement
 

@@ -1,4 +1,4 @@
-import { IMember, IQuery, IQueryGetMemberByIdArgs } from "@/appsync/schema.types";
+import { IMember, IQuery, IQueryGetMemberByIdArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import { dynamodb } from "../connection";
 

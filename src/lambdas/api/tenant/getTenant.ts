@@ -1,4 +1,4 @@
-import { IQuery, ITenant } from "@/appsync/schema.types";
+import { IQuery, ITenant } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import { dynamodb } from "../connection";
 

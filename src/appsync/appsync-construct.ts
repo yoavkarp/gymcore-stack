@@ -7,6 +7,9 @@ import { UserPool } from 'aws-cdk-lib/aws-cognito';
 import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { DynamoDBStack } from '@/dynamodb/dynamodb-stack';
+import fs from 'fs'
+import { resolver } from './resolvers/Query';
+import { ResolverData, ResolverType } from './types/ResolverType';
 
 type AppSyncConstructProps = {
     userPool: UserPool;
@@ -15,6 +18,8 @@ type AppSyncConstructProps = {
     tenantId: string;
     tables: DynamoDBStack['tables'];
 }
+
+const schemaPath = path.join("src", "appsync", 'schema.graphql');
 
 export class AppSyncConstruct extends Construct {
     public readonly api: GraphqlApi;
@@ -26,7 +31,7 @@ export class AppSyncConstruct extends Construct {
         // Define the AppSync API
         this.api = new GraphqlApi(this, "api", {
             name: `${props.tenantName}_API`,
-            schema: SchemaFile.fromAsset(path.join("src", "appsync", 'schema.graphql')),
+            schema: SchemaFile.fromAsset(schemaPath),
             authorizationConfig: {
                 defaultAuthorization: {
                     authorizationType: AuthorizationType.USER_POOL,
@@ -67,12 +72,6 @@ export class AppSyncConstruct extends Construct {
 
         const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);
 
-        this.api.createResolver("createMember", {
-            typeName: "Mutation",
-            fieldName: "createMember",
-            dataSource: api_lambda_ds
-        })
-
         this.dataSources = [
             // api lambda
             api_lambda_ds
@@ -81,9 +80,40 @@ export class AppSyncConstruct extends Construct {
                 // tables
                 Object.keys(props.tables).map((key) => {
                     return this.api.addDynamoDbDataSource(key, props.tables[key as keyof DynamoDBStack['tables']], {
-                        name: props.tables[key as keyof DynamoDBStack['tables']].tableName + "_DataSource"
+                        name: props.tables[key as keyof DynamoDBStack['tables']].tableName
                     })
                 }))
+
+        const resolversPath = path.join(__dirname, "resolvers");
+        const resolversFiles = fs.readdirSync(resolversPath);
+
+        resolversFiles.map((file) => {
+            console.log(file);
+            return {
+                typeName: file.split('.')[0],
+                resolver: require(path.join(resolversPath, file)).resolver as ResolverType<any>
+            }
+        }).forEach(({ resolver, typeName }) => {
+            const fields = Object.keys(resolver);
+
+            fields.forEach((fieldName) => {
+
+                const f = resolver[fieldName as keyof typeof resolver]! as ResolverData;
+                if (typeof (f) === 'string') return;
+
+                const dataSource = this.dataSources.find((ds) => ds.name === f.dataSourceName);
+                if (!dataSource) throw new Error(`DataSource not found: ${f.dataSourceName}`);
+
+                dataSource.createResolver(`${typeName}.${fieldName}`, {
+                    fieldName,
+                    typeName,
+                    requestMappingTemplate: f.req,
+                    responseMappingTemplate: f.res,
+                })
+            })
+        })
+
+
 
         new CfnOutput(this, 'GRAPHQL_URL', {
             value: this.api.graphqlUrl,

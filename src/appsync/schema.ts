@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -12,15 +13,15 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  AWSDate: { input: any; output: any; }
-  AWSDateTime: { input: any; output: any; }
-  AWSEmail: { input: any; output: any; }
+  AWSDate: { input: string; output: string; }
+  AWSDateTime: { input: string; output: string; }
+  AWSEmail: { input: string; output: string; }
   AWSIPAddress: { input: any; output: any; }
-  AWSJSON: { input: any; output: any; }
-  AWSPhone: { input: any; output: any; }
-  AWSTime: { input: any; output: any; }
-  AWSTimestamp: { input: any; output: any; }
-  AWSURL: { input: any; output: any; }
+  AWSJSON: { input: { [x: string]: any }; output: { [x: string]: any }; }
+  AWSPhone: { input: string; output: string; }
+  AWSTime: { input: string; output: string; }
+  AWSTimestamp: { input: number; output: number; }
+  AWSURL: { input: string; output: string; }
 };
 
 export type IClub = {

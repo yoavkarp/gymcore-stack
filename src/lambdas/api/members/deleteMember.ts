@@ -1,4 +1,4 @@
-import { IMember, IMutation, IMutationDeleteMemberArgs } from "@/appsync/schema.types";
+import { IMember, IMutation, IMutationDeleteMemberArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import { cognito, dynamodb } from "../connection";
 

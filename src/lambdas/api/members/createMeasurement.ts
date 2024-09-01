@@ -1,4 +1,4 @@
-import { IMeasurement, IMutation, IMutationCreateMeasurementArgs } from "@/appsync/schema.types";
+import { IMeasurement, IMutation, IMutationCreateMeasurementArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import { dynamodb } from "../connection";
 import { randomUUID } from "crypto";

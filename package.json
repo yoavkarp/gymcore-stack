@@ -12,6 +12,10 @@
     "codegen": "graphql-codegen --config codegen.config.ts"
   },
   "devDependencies": {
+    "@graphql-codegen/typescript": "^4.0.9",
+    "@graphql-codegen/typescript-operations": "^4.2.3",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.0",
+    "@graphql-codegen/typescript-resolvers": "^4.2.1",
     "@types/aws-lambda": "^8.10.142",
     "@types/node": "^22.0.0",
     "aws-cdk": "2.150.0",
@@ -20,7 +24,9 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.5",
     "@aws-cdk/aws-appsync": "^1.204.0",
+    "@aws-cdk/aws-appsync-alpha": "^2.59.0-alpha.0",
     "@aws-cdk/aws-cognito-identitypool-alpha": "^2.150.0-alpha.0",
     "@graphql-codegen/cli": "^5.0.2",
     "amazon-cognito-identity-js": "^6.3.12",

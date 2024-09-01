@@ -1,4 +1,4 @@
-import { IClub, IQuery } from "@/appsync/schema.types";
+import { IClub, IQuery } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import { dynamodb } from "../connection";
 
