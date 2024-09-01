@@ -1,17 +1,11 @@
 import AWS from 'aws-sdk'
 import { cognito } from '../auth-client/cognito';
-
-AWS.config.region = 'eu-central-1'
-AWS.config.credentials = new AWS.SharedIniFileCredentials({
-    profile: "yoav",
-})
-
-const CognitoISP = new AWS.CognitoIdentityServiceProvider();
+import { cognitoisp } from '../client/cognito-isp';
 
 const main = async () => {
     const Username = "0505716749"
     try {
-        await CognitoISP.adminCreateUser({
+        await cognitoisp.adminCreateUser({
             Username,
             UserPoolId: "eu-central-1_rPC74KFyx",
             TemporaryPassword: "Abcd1234!@",
