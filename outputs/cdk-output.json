@@ -16,7 +16,7 @@
     "ExportsOutputFnGetAttMemberTableConstructMemberTableAB546BC2ArnB5C5E960": "arn:aws:dynamodb:eu-central-1:181032208684:table/MemberTable"
   },
   "DevCDKStack": {
-    "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
+    "awssdklayerLayerPathD25219AF": "src\\layers\\aws-sdk-layer",
     "AuthIdentityPoolIdFB6655FB": "eu-central-1:a437609e-de62-479a-be93-01946fca3a54",
     "AuthUserPoolIdC0605E59": "eu-central-1_rPC74KFyx",
     "ApiGRAPHQLURL06B0C7F4": "https://dnatrtlngrc4voltuatgkjb5ke.appsync-api.eu-central-1.amazonaws.com/graphql",

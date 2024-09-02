@@ -4,7 +4,7 @@ import { cognito, dynamodb } from "../connection";
 
 export const handler: AppSyncResolver<IMutationUpdateAuthenticatedMemberArgs, IMutation['updateAuthenticatedMember']> = async (event, context, callback) => {
 
-    const { input } = event.arguments;
+    const { input: { id, ...input } } = event.arguments;
 
     try {
         const { Attributes } = await dynamodb.update({
@@ -18,6 +18,9 @@ export const handler: AppSyncResolver<IMutationUpdateAuthenticatedMemberArgs, IM
             }, "SET ").slice(0, -1),
             ExpressionAttributeNames: Object.keys(input).reduce((acc, key) => {
                 return { ...acc, [`#${key}`]: key }
+            }, {}),
+            ExpressionAttributeValues: Object.keys(input).reduce((acc, key) => {
+                return { ...acc, [`:${key}`]: input[key as keyof typeof input] }
             }, {}),
             ReturnValues: "ALL_NEW",
         }).promise()

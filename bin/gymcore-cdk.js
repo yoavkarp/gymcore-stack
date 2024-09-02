@@ -8,7 +8,7 @@ const app = new cdk.App();
 
 const dbStack = new DynamoDBStack(app, 'GymcoreDatabaseStack', {
   env: {
-    region: "eu-central-1"
+    region: "eu-central-1",
   }
 })
 

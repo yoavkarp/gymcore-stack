@@ -37,6 +37,10 @@ export const handler: AppSyncResolver<IMutationFirstTimeMemberRegisterArgs, IMut
                     {
                         Name: "email",
                         Value: input.email
+                    },
+                    {
+                        Name: "email_verified",
+                        Value: "true"
                     }
                 ]
             }).promise()

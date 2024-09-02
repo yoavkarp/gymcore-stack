@@ -5,6 +5,7 @@
     "gymcore-cdk": "bin/gymcore-cdk.js"
   },
   "scripts": {
+    "link": "npm link",
     "build": "tsc && graphql-codegen --config codegen.config.ts",
     "cdk": "cdk",
     "test": "jest",
