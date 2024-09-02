@@ -37,3 +37,12 @@ input UpdateMemberInput {
     birthdate: AWSDate
     gender: String
 }
+
+input FirstTimeMemberRegisterInput {
+    name: String!
+    email: AWSEmail
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate!
+    gender: String!
+}

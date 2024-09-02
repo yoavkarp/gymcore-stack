@@ -13,5 +13,8 @@ export const resolver: ResolverType<IMutation> = {
     },
     deleteMember: {
         dataSourceName: "api"
+    },
+    firstTimeMemberRegister: {
+        dataSourceName: "api"
     }
 }

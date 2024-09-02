@@ -8,15 +8,13 @@ const app = new cdk.App();
 
 const dbStack = new DynamoDBStack(app, 'GymcoreDatabaseStack', {
   env: {
-    region: "eu-central-1",
-    account: "181032208684",
+    region: "eu-central-1"
   }
 })
 
 new GymcoreCdkStack(app, 'DevCDKStack', {
   env: {
     region: "eu-central-1",
-    account: "181032208684"
   },
   tenantName: "Dev_Israel",
   tenantId: "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c",

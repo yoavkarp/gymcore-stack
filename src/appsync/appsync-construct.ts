@@ -80,7 +80,7 @@ export class AppSyncConstruct extends Construct {
                 // tables
                 Object.keys(props.tables).map((key) => {
                     return this.api.addDynamoDbDataSource(key, props.tables[key as keyof DynamoDBStack['tables']], {
-                        name: props.tables[key as keyof DynamoDBStack['tables']].tableName
+                        name: props.tables[key as keyof DynamoDBStack['tables']].tableName + "_DataSource"
                     })
                 }))
 
@@ -88,7 +88,6 @@ export class AppSyncConstruct extends Construct {
         const resolversFiles = fs.readdirSync(resolversPath);
 
         resolversFiles.map((file) => {
-            console.log(file);
             return {
                 typeName: file.split('.')[0],
                 resolver: require(path.join(resolversPath, file)).resolver as ResolverType<any>

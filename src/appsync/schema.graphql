@@ -1,4 +1,99 @@
-# Club.gql
+# Member.gql
+type Member {
+    id: ID!
+    tenantId: ID!
+
+    name: String
+    email: AWSEmail
+    phone_number: AWSPhone
+
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate
+    gender: String
+    
+    clubsIds: [ID!]
+
+    measurement: Measurement
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type MemberConnection {
+    items: [Member!]
+    nextToken: String
+}
+
+input CreateMemberInput {
+    phone_number: AWSPhone!
+}
+
+input UpdateMemberInput {
+    id: ID!
+    name: String
+    email: AWSEmail
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate
+    gender: String
+}
+
+input FirstTimeMemberRegisterInput {
+    name: String!
+    email: AWSEmail
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate!
+    gender: String!
+}
+
+# Mutation.gql
+type Mutation {
+    # Member
+    createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
+    deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+
+    updateAuthenticatedMember(input: UpdateMemberInput!): Member @aws_auth(cognito_groups: ["member"])
+    firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])
+
+    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
+}
+
+# Query.gql
+type Query {
+    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["admin", "club"])
+    getAuthenticatedMember: Member @aws_auth(cognito_groups: ["member"])
+
+    getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["admin", "club", "member"])
+    getAuthenticatedClub: Club @aws_auth(cognito_groups: ["club"])
+
+    getTenant: Tenant @aws_auth(cognito_groups: ["admin", "club", "member"])
+}
+
+# Trainer.gql
+type Trainer {
+    id: String!
+    clubId: ID!
+    tenantId: ID!
+
+    clubsIds: [ID!]!
+
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type TrainerConnection {
+    items: [Trainer!]
+    nextToken: String
+}
+
+# club.gql
 type Club {
     id: ID!
     tenantId: ID!
@@ -13,7 +108,7 @@ type Club {
     updated_at: AWSTimestamp!
 }
 
-# Measurement.gql
+# measurement.gql
 type Measurement {
     id: ID!
     tenantId: ID!
@@ -42,86 +137,7 @@ input CreateMeasurementInput {
     heart_rate: Float
 }
 
-# Member.gql
-type Member {
-    id: ID!
-    tenantId: ID!
-
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-
-    profile_picture: AWSURL
-    address: String
-    birthdate: AWSDate!
-    gender: String!
-    
-    clubsIds: [ID!]!
-
-    measurement: Measurement
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
-}
-
-type MemberConnection {
-    items: [Member!]
-    nextToken: String
-}
-
-input CreateMemberInput {
-    phone_number: AWSPhone!
-}
-
-input UpdateMemberInput {
-    id: ID!
-    name: String
-    email: AWSEmail
-    profile_picture: AWSURL
-    address: String
-    birthdate: AWSDate
-    gender: String
-}
-
-# Mutation.gql
-type Mutation {
-    # Member
-    createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
-    deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
-
-    updateAuthenticatedMember(input: UpdateMemberInput!): Member @aws_auth(cognito_groups: ["member"])
-
-    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
-}
-
-# Query.gql
-type Query {
-    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["admin", "club"])
-    getAuthenticatedMember: Member @aws_auth(cognito_groups: ["member"])
-
-    getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["admin", "club", "member"])
-    getAuthenticatedClub: Club @aws_auth(cognito_groups: ["club"])
-
-    getTenant: Tenant @aws_auth(cognito_groups: ["admin", "club", "member"])
-}
-
-# Schema.gql
-scalar AWSTimestamp
-scalar AWSURL
-scalar AWSJSON
-scalar AWSDateTime
-scalar AWSDate
-scalar AWSTime
-scalar AWSPhone
-scalar AWSIPAddress
-scalar AWSEmail
-
-schema {
-    query: Query
-    mutation: Mutation
-}
-
-# Tenant.gql
+# tenant.gql
 type Tenant {
     id: ID!
 
@@ -135,24 +151,18 @@ type Tenant {
     updated_at: AWSDateTime!
 }
 
-# Trainer.gql
-type Trainer {
-    id: String!
-    clubId: ID!
-    tenantId: ID!
+# schema.gql
+scalar AWSTimestamp
+scalar AWSURL
+scalar AWSJSON
+scalar AWSDateTime
+scalar AWSDate
+scalar AWSTime
+scalar AWSPhone
+scalar AWSIPAddress
+scalar AWSEmail
 
-    clubsIds: [ID!]!
-
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-    profile_picture: AWSURL
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
-}
-
-type TrainerConnection {
-    items: [Trainer!]
-    nextToken: String
+schema {
+    query: Query
+    mutation: Mutation
 }

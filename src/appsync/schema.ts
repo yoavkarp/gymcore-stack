@@ -49,6 +49,15 @@ export type ICreateMemberInput = {
   phone_number: Scalars['AWSPhone']['input'];
 };
 
+export type IFirstTimeMemberRegisterInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  birthdate: Scalars['AWSDate']['input'];
+  email?: InputMaybe<Scalars['AWSEmail']['input']>;
+  gender: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
+};
+
 export type IMeasurement = {
   __typename?: 'Measurement';
   clubId?: Maybe<Scalars['ID']['output']>;
@@ -72,15 +81,15 @@ export type IMeasurementConnection = {
 export type IMember = {
   __typename?: 'Member';
   address?: Maybe<Scalars['String']['output']>;
-  birthdate: Scalars['AWSDate']['output'];
-  clubsIds: Array<Scalars['ID']['output']>;
+  birthdate?: Maybe<Scalars['AWSDate']['output']>;
+  clubsIds?: Maybe<Array<Scalars['ID']['output']>>;
   created_at: Scalars['AWSDateTime']['output'];
-  email: Scalars['AWSEmail']['output'];
-  gender: Scalars['String']['output'];
+  email?: Maybe<Scalars['AWSEmail']['output']>;
+  gender?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   measurement?: Maybe<IMeasurement>;
-  name: Scalars['String']['output'];
-  phone_number: Scalars['AWSPhone']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  phone_number?: Maybe<Scalars['AWSPhone']['output']>;
   profile_picture?: Maybe<Scalars['AWSURL']['output']>;
   tenantId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
@@ -97,6 +106,7 @@ export type IMutation = {
   createMeasurement?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
   deleteMember?: Maybe<IMember>;
+  firstTimeMemberRegister?: Maybe<IMember>;
   updateAuthenticatedMember?: Maybe<IMember>;
 };
 
@@ -113,6 +123,11 @@ export type IMutationCreateMemberArgs = {
 
 export type IMutationDeleteMemberArgs = {
   memberId: Scalars['ID']['input'];
+};
+
+
+export type IMutationFirstTimeMemberRegisterArgs = {
+  input: IFirstTimeMemberRegisterInput;
 };
 
 

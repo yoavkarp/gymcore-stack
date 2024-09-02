@@ -14,6 +14,7 @@ const fnMap: FnMap = {
         deleteMember: "./members/deleteMember",
         updateAuthenticatedMember: "./members/updateAuthenticatedMember",
         createMeasurement: "./members/createMeasurement",
+        firstTimeMemberRegister: "./members/firstTimeMemberRegister",
     },
     Query: {
         getMemberById: "./members/getMemberById",
