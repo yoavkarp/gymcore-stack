@@ -1,12 +1,16 @@
-import { IMember, IMutation, IMutationFirstTimeMemberRegisterArgs, IMutationUpdateAuthenticatedMemberArgs } from "@/appsync/schema";
+import { IMember, IMutation, IMutationFirstTimeMemberRegisterArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "../../appsync.types";
 import { cognito, dynamodb } from "../connection";
 
 export const handler: AppSyncResolver<IMutationFirstTimeMemberRegisterArgs, IMutation['firstTimeMemberRegister']> = async (event, context, callback) => {
 
     const { input } = event.arguments;
+    Object.assign(input, { registered: true });
+
+    const Username = event.identity?.claims?.phone_number;
 
     try {
+
         const { Attributes } = await dynamodb.update({
             TableName: "MemberTable",
             Key: {
@@ -23,6 +27,7 @@ export const handler: AppSyncResolver<IMutationFirstTimeMemberRegisterArgs, IMut
                 return { ...acc, [`:${key}`]: input[key as keyof typeof input] }
             }, {}),
             ReturnValues: "ALL_NEW",
+            ConditionExpression: "attribute_not_exists(registered)"
         }).promise()
 
         if (!Attributes) {
@@ -32,7 +37,7 @@ export const handler: AppSyncResolver<IMutationFirstTimeMemberRegisterArgs, IMut
         if (input.email) {
             await cognito.adminUpdateUserAttributes({
                 UserPoolId: process.env.USER_POOL_ID,
-                Username: Attributes.phone_number,
+                Username,
                 UserAttributes: [
                     {
                         Name: "email",

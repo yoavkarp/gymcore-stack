@@ -3,7 +3,7 @@ type Mutation {
     createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
     deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
 
-    updateAuthenticatedMember(input: UpdateMemberInput!): Member @aws_auth(cognito_groups: ["member"])
+    updateAuthenticatedMember(input: UpdateAuthenticatedMemberInput!): Member @aws_auth(cognito_groups: ["member"])
     firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])
 
     createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])

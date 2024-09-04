@@ -91,6 +91,7 @@ export type IMember = {
   name?: Maybe<Scalars['String']['output']>;
   phone_number?: Maybe<Scalars['AWSPhone']['output']>;
   profile_picture?: Maybe<Scalars['AWSURL']['output']>;
+  registered?: Maybe<Scalars['Boolean']['output']>;
   tenantId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
 };
@@ -132,7 +133,7 @@ export type IMutationFirstTimeMemberRegisterArgs = {
 
 
 export type IMutationUpdateAuthenticatedMemberArgs = {
-  input: IUpdateMemberInput;
+  input: IUpdateAuthenticatedMemberInput;
 };
 
 export type IQuery = {
@@ -186,12 +187,11 @@ export type ITrainerConnection = {
   nextToken?: Maybe<Scalars['String']['output']>;
 };
 
-export type IUpdateMemberInput = {
+export type IUpdateAuthenticatedMemberInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate?: InputMaybe<Scalars['AWSDate']['input']>;
   email?: InputMaybe<Scalars['AWSEmail']['input']>;
   gender?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['ID']['input'];
   name?: InputMaybe<Scalars['String']['input']>;
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
 };

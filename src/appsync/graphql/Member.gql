@@ -10,6 +10,8 @@ type Member {
     address: String
     birthdate: AWSDate
     gender: String
+
+    registered: Boolean
     
     clubsIds: [ID!]
 
@@ -28,8 +30,7 @@ input CreateMemberInput {
     phone_number: AWSPhone!
 }
 
-input UpdateMemberInput {
-    id: ID!
+input UpdateAuthenticatedMemberInput {
     name: String
     email: AWSEmail
     profile_picture: AWSURL

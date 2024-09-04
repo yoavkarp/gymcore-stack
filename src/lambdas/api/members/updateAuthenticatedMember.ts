@@ -4,7 +4,7 @@ import { cognito, dynamodb } from "../connection";
 
 export const handler: AppSyncResolver<IMutationUpdateAuthenticatedMemberArgs, IMutation['updateAuthenticatedMember']> = async (event, context, callback) => {
 
-    const { input: { id, ...input } } = event.arguments;
+    const { input } = event.arguments;
 
     try {
         const { Attributes } = await dynamodb.update({
