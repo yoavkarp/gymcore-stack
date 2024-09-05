@@ -19,7 +19,7 @@ type MeasurementConnection {
 }
 
 input CreateMeasurementInput {
-    memberId: ID!
+    memberId: ID
     weight: Float
     height: Float
     fat: Float

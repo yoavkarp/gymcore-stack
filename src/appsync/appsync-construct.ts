@@ -68,21 +68,23 @@ export class AppSyncConstruct extends Construct {
         props.tables.userTable.grantFullAccess(api_lambda)
         props.tables.trainerTable.grantFullAccess(api_lambda)
         props.tables.measurementTable.grantFullAccess(api_lambda)
+        props.tables.goalTable.grantFullAccess(api_lambda)
         props.userPool.grant(api_lambda, 'cognito-idp:*')
 
         const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);
 
         this.dataSources = [
             // api lambda
-            api_lambda_ds
+            api_lambda_ds,
+            this.api.addDynamoDbDataSource("club", props.tables.clubTable, { name: "ClubTable" }),
+            this.api.addDynamoDbDataSource("member", props.tables.memberTable, { name: "MemberTable" }),
+            this.api.addDynamoDbDataSource("tenant", props.tables.tenantTable, { name: "TenantTable" }),
+            this.api.addDynamoDbDataSource("user", props.tables.userTable, { name: "UserTable" }),
+            this.api.addDynamoDbDataSource("trainer", props.tables.trainerTable, { name: "TrainerTable" }),
+            this.api.addDynamoDbDataSource("measurement", props.tables.measurementTable, { name: "MeasurementTable" }),
+            this.api.addDynamoDbDataSource("event", props.tables.eventTable, { name: "EventTable" }),
+            this.api.addDynamoDbDataSource("goal", props.tables.goalTable, { name: "GoalTable" }),
         ]
-            .concat(
-                // tables
-                Object.keys(props.tables).map((key) => {
-                    return this.api.addDynamoDbDataSource(key, props.tables[key as keyof DynamoDBStack['tables']], {
-                        name: props.tables[key as keyof DynamoDBStack['tables']].tableName + "_DataSource"
-                    })
-                }))
 
         const resolversPath = path.join(__dirname, "resolvers");
         const resolversFiles = fs.readdirSync(resolversPath);

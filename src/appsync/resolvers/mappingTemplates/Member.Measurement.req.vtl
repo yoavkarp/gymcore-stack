@@ -1,0 +1,19 @@
+#set($tenantId = $ctx.source.tenantId)
+#set($memberId = $ctx.source.id)
+
+{
+  "version": "2018-05-29",
+  "operation": "Query",
+  "index": "measurements-by-member-id",
+  "limit": $util.defaultIfNull(${ctx.args.limit}, 1),
+  "scanIndexForward": false,
+  "query": {
+    "expression": "#PK = :PK",
+    "expressionNames": {
+      "#PK": "tenantId#memberId",
+    },
+    "expressionValues": {
+      ":PK": $util.dynamodb.toStringJson("$tenantId#$memberId"),
+    }
+  },
+}

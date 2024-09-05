@@ -13,6 +13,49 @@ type Club {
     updated_at: AWSTimestamp!
 }
 
+# Goal.gql
+type Goal {
+    id: ID!
+    tenantId: ID!
+    memberId: ID!
+    clubId: ID
+
+    title: String!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+
+    completed: Boolean
+    completed_at: AWSDateTime
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type GoalConnection {
+    items: [Goal!]
+    nextToken: String
+}
+
+input CreateGoalInput {
+    memberId: ID
+    title: String!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}
+
+input UpdateGoalInput {
+    memberId: ID
+    title: String
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}
+
 # Measurement.gql
 type Measurement {
     id: ID!
@@ -35,7 +78,7 @@ type MeasurementConnection {
 }
 
 input CreateMeasurementInput {
-    memberId: ID!
+    memberId: ID
     weight: Float
     height: Float
     fat: Float
@@ -61,6 +104,7 @@ type Member {
     clubsIds: [ID!]
 
     measurement: Measurement
+    goal: Goal
 
     created_at: AWSDateTime!
     updated_at: AWSDateTime!
@@ -102,7 +146,9 @@ type Mutation {
     updateAuthenticatedMember(input: UpdateAuthenticatedMemberInput!): Member @aws_auth(cognito_groups: ["member"])
     firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])
 
-    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
+    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
+    createGoal(input: CreateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
+    updateGoal(goalId: ID!, input: UpdateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
 }
 
 # Query.gql

@@ -37,11 +37,20 @@ export type IClub = {
   updated_at: Scalars['AWSTimestamp']['output'];
 };
 
+export type ICreateGoalInput = {
+  fat?: InputMaybe<Scalars['Float']['input']>;
+  heart_rate?: InputMaybe<Scalars['Float']['input']>;
+  height?: InputMaybe<Scalars['Float']['input']>;
+  memberId?: InputMaybe<Scalars['ID']['input']>;
+  title: Scalars['String']['input'];
+  weight?: InputMaybe<Scalars['Float']['input']>;
+};
+
 export type ICreateMeasurementInput = {
   fat?: InputMaybe<Scalars['Float']['input']>;
   heart_rate?: InputMaybe<Scalars['Float']['input']>;
   height?: InputMaybe<Scalars['Float']['input']>;
-  memberId: Scalars['ID']['input'];
+  memberId?: InputMaybe<Scalars['ID']['input']>;
   weight?: InputMaybe<Scalars['Float']['input']>;
 };
 
@@ -56,6 +65,29 @@ export type IFirstTimeMemberRegisterInput = {
   gender: Scalars['String']['input'];
   name: Scalars['String']['input'];
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
+};
+
+export type IGoal = {
+  __typename?: 'Goal';
+  clubId?: Maybe<Scalars['ID']['output']>;
+  completed?: Maybe<Scalars['Boolean']['output']>;
+  completed_at?: Maybe<Scalars['AWSDateTime']['output']>;
+  created_at: Scalars['AWSDateTime']['output'];
+  fat?: Maybe<Scalars['Float']['output']>;
+  heart_rate?: Maybe<Scalars['Float']['output']>;
+  height?: Maybe<Scalars['Float']['output']>;
+  id: Scalars['ID']['output'];
+  memberId: Scalars['ID']['output'];
+  tenantId: Scalars['ID']['output'];
+  title: Scalars['String']['output'];
+  updated_at: Scalars['AWSDateTime']['output'];
+  weight?: Maybe<Scalars['Float']['output']>;
+};
+
+export type IGoalConnection = {
+  __typename?: 'GoalConnection';
+  items?: Maybe<Array<IGoal>>;
+  nextToken?: Maybe<Scalars['String']['output']>;
 };
 
 export type IMeasurement = {
@@ -86,6 +118,7 @@ export type IMember = {
   created_at: Scalars['AWSDateTime']['output'];
   email?: Maybe<Scalars['AWSEmail']['output']>;
   gender?: Maybe<Scalars['String']['output']>;
+  goal?: Maybe<IGoal>;
   id: Scalars['ID']['output'];
   measurement?: Maybe<IMeasurement>;
   name?: Maybe<Scalars['String']['output']>;
@@ -104,11 +137,18 @@ export type IMemberConnection = {
 
 export type IMutation = {
   __typename?: 'Mutation';
+  createGoal?: Maybe<IGoal>;
   createMeasurement?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
   deleteMember?: Maybe<IMember>;
   firstTimeMemberRegister?: Maybe<IMember>;
   updateAuthenticatedMember?: Maybe<IMember>;
+  updateGoal?: Maybe<IGoal>;
+};
+
+
+export type IMutationCreateGoalArgs = {
+  input: ICreateGoalInput;
 };
 
 
@@ -134,6 +174,12 @@ export type IMutationFirstTimeMemberRegisterArgs = {
 
 export type IMutationUpdateAuthenticatedMemberArgs = {
   input: IUpdateAuthenticatedMemberInput;
+};
+
+
+export type IMutationUpdateGoalArgs = {
+  goalId: Scalars['ID']['input'];
+  input: IUpdateGoalInput;
 };
 
 export type IQuery = {
@@ -194,4 +240,13 @@ export type IUpdateAuthenticatedMemberInput = {
   gender?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
+};
+
+export type IUpdateGoalInput = {
+  fat?: InputMaybe<Scalars['Float']['input']>;
+  heart_rate?: InputMaybe<Scalars['Float']['input']>;
+  height?: InputMaybe<Scalars['Float']['input']>;
+  memberId?: InputMaybe<Scalars['ID']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  weight?: InputMaybe<Scalars['Float']['input']>;
 };

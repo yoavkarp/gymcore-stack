@@ -1,0 +1,41 @@
+type Goal {
+    id: ID!
+    tenantId: ID!
+    memberId: ID!
+    clubId: ID
+
+    title: String!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+
+    completed: Boolean
+    completed_at: AWSDateTime
+
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type GoalConnection {
+    items: [Goal!]
+    nextToken: String
+}
+
+input CreateGoalInput {
+    memberId: ID
+    title: String!
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}
+
+input UpdateGoalInput {
+    memberId: ID
+    title: String
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}

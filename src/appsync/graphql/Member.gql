@@ -16,6 +16,7 @@ type Member {
     clubsIds: [ID!]
 
     measurement: Measurement
+    goal: Goal
 
     created_at: AWSDateTime!
     updated_at: AWSDateTime!

@@ -6,5 +6,7 @@ type Mutation {
     updateAuthenticatedMember(input: UpdateAuthenticatedMemberInput!): Member @aws_auth(cognito_groups: ["member"])
     firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])
 
-    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
+    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
+    createGoal(input: CreateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
+    updateGoal(goalId: ID!, input: UpdateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
 }

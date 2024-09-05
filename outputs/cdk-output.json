@@ -3,17 +3,19 @@
     "ExportsOutputFnGetAttMeasurementTableConstructMeasurementTable2D6B5B46ArnDE48480B": "arn:aws:dynamodb:eu-central-1:181032208684:table/MeasurementTable",
     "ExportsOutputFnGetAttTrainerTableConstructTrainerTableD2C070DEArn340101E0": "arn:aws:dynamodb:eu-central-1:181032208684:table/TrainerTable",
     "ExportsOutputFnGetAttEventTableConstructEventTableE5522A0CArn6966C042": "arn:aws:dynamodb:eu-central-1:181032208684:table/EventTable",
+    "ExportsOutputFnGetAttGoalTableConstructGoalTable4B21C4DAArnE6FBD9D9": "arn:aws:dynamodb:eu-central-1:181032208684:table/GoalTable",
     "ExportsOutputFnGetAttClubTableConstructClubTableB990B280ArnD8EB3EE8": "arn:aws:dynamodb:eu-central-1:181032208684:table/ClubTable",
-    "ExportsOutputRefMeasurementTableConstructMeasurementTable2D6B5B46881295A1": "MeasurementTable",
     "ExportsOutputRefTrainerTableConstructTrainerTableD2C070DE5596FF4F": "TrainerTable",
+    "ExportsOutputRefMeasurementTableConstructMeasurementTable2D6B5B46881295A1": "MeasurementTable",
     "ExportsOutputFnGetAttUserTableConstructUserTable3E2278F6Arn7EB206C9": "arn:aws:dynamodb:eu-central-1:181032208684:table/UserTable",
     "ExportsOutputRefTenantTableConstructTenantTable3AFA7E50131AF5B5": "TenantTable",
     "ExportsOutputRefClubTableConstructClubTableB990B28095CFACDC": "ClubTable",
     "ExportsOutputRefUserTableConstructUserTable3E2278F6F67CBD4B": "UserTable",
     "ExportsOutputRefMemberTableConstructMemberTableAB546BC23F111482": "MemberTable",
     "ExportsOutputFnGetAttTenantTableConstructTenantTable3AFA7E50ArnC0BA387B": "arn:aws:dynamodb:eu-central-1:181032208684:table/TenantTable",
+    "ExportsOutputFnGetAttMemberTableConstructMemberTableAB546BC2ArnB5C5E960": "arn:aws:dynamodb:eu-central-1:181032208684:table/MemberTable",
     "ExportsOutputRefEventTableConstructEventTableE5522A0CD30CFC6A": "EventTable",
-    "ExportsOutputFnGetAttMemberTableConstructMemberTableAB546BC2ArnB5C5E960": "arn:aws:dynamodb:eu-central-1:181032208684:table/MemberTable"
+    "ExportsOutputRefGoalTableConstructGoalTable4B21C4DA148CEACC": "GoalTable"
   },
   "DevCDKStack": {
     "awssdklayerLayerPathD25219AF": "src\\layers\\aws-sdk-layer",

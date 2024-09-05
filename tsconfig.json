@@ -13,11 +13,12 @@
     "declaration": false,
     "sourceMap": false,
     "allowJs": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    },
+    }
   },
   "include": [
     "src/**/*.ts"

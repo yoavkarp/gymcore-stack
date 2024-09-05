@@ -6,7 +6,7 @@
   },
   "scripts": {
     "link": "npm link",
-    "build": "tsc && graphql-codegen --config codegen.config.ts",
+    "build": "ts-node scripts/build",
     "cdk": "cdk",
     "test": "jest",
     "ydeploy": "npx aws-cdk deploy --all --outputs-file outputs/cdk-output.json --require-approval never --profile yoav",

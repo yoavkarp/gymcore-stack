@@ -12,6 +12,8 @@ export class DynamoDBStack extends Stack {
         clubTable: Table;
         trainerTable: Table;
         measurementTable: Table;
+        eventTable: Table;
+        goalTable: Table;
     }
 
     constructor(scope: Construct, id: string, props: StackProps) {
@@ -20,6 +22,7 @@ export class DynamoDBStack extends Stack {
         const files = fs.readdirSync(path.join(__dirname, "tables"));
         const tables: Record<string, Table> = {}
         for (const file of files) {
+            console.log(file)
             if (file.endsWith('-table.ts') || file.endsWith('-table.js')) {
                 const filePath = path.join(__dirname, "tables", file);
                 const tableConstruct = require(filePath); // Dynamically import table construct

@@ -16,5 +16,11 @@ export const resolver: ResolverType<IMutation> = {
     },
     firstTimeMemberRegister: {
         dataSourceName: "api"
+    },
+    createGoal: {
+        dataSourceName: "api"
+    },
+    updateGoal: {
+        dataSourceName: "api"
     }
 }
