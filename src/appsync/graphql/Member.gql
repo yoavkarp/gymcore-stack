@@ -13,8 +13,6 @@ type Member {
 
     registered: Boolean
     
-    clubsIds: [ID!]
-
     measurement: Measurement
     goal: Goal
 

@@ -101,8 +101,6 @@ type Member {
 
     registered: Boolean
     
-    clubsIds: [ID!]
-
     measurement: Measurement
     goal: Goal
 
@@ -142,6 +140,7 @@ type Mutation {
     # Member
     createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
     deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+    createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
 
     updateAuthenticatedMember(input: UpdateAuthenticatedMemberInput!): Member @aws_auth(cognito_groups: ["member"])
     firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])
@@ -153,13 +152,16 @@ type Mutation {
 
 # Query.gql
 type Query {
-    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["admin", "club"])
+    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
     getAuthenticatedMember: Member @aws_auth(cognito_groups: ["member"])
 
-    getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["admin", "club", "member"])
+    getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
     getAuthenticatedClub: Club @aws_auth(cognito_groups: ["club"])
 
-    getTenant: Tenant @aws_auth(cognito_groups: ["admin", "club", "member"])
+    getTrainersByClubId(clubId: ID!): [Trainer!] @aws_auth(cognito_groups: ["club"])
+    getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
+
+    getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
 }
 
 # Schema.gql
@@ -195,10 +197,7 @@ type Tenant {
 # Trainer.gql
 type Trainer {
     id: String!
-    clubId: ID!
     tenantId: ID!
-
-    clubsIds: [ID!]!
 
     name: String!
     email: AWSEmail!
@@ -212,4 +211,12 @@ type Trainer {
 type TrainerConnection {
     items: [Trainer!]
     nextToken: String
+}
+
+input CreateTrainerInput {
+    phone_number: AWSPhone!
+    name: String!
+    email: AWSEmail!
+    profile_picture: AWSURL
+    birthdate: AWSDate!
 }

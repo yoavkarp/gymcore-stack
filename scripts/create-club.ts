@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk'
 import { cognito } from '../auth-client/cognito';
-import { cognitoisp } from '../client/cognito-isp';
+import { cognitoisp } from '../aws-providers/cognito-isp';
 
 const main = async () => {
     const Username = "0505716749"

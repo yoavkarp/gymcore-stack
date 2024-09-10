@@ -26,7 +26,8 @@ class GymcoreCdkStack extends Stack {
 
         this.auth = new CognitoConstruct(this, 'Auth', {
             tenantName: props.tenantName,
-            tenantId: props.tenantId
+            tenantId: props.tenantId,
+            awsSdkLayer: this.awsSdkLayer.layerVersion
         })
 
         this.api = new AppSyncConstruct(this, 'Api', {

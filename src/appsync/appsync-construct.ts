@@ -116,16 +116,17 @@ export class AppSyncConstruct extends Construct {
 
 
 
-        new CfnOutput(this, 'GRAPHQL_URL', {
+        new CfnOutput(this, 'endpoint', {
             value: this.api.graphqlUrl,
         })
 
-        new CfnOutput(this, 'API_ID', {
+        new CfnOutput(this, 'ApiId', {
             value: this.api.apiId,
         })
 
-        new CfnOutput(this, 'API_KEY', {
-            value: this.api.apiKey || "",
-        })
+        if (this.api.apiKey)
+            new CfnOutput(this, 'ApiKey', {
+                value: this.api.apiKey,
+            })
     }
 }

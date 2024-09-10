@@ -52,6 +52,17 @@ export const handler: AppSyncResolver<IMutationCreateMemberArgs> = async (event,
         ConditionExpression: "attribute_not_exists(id)"
     }).promise()
 
+    await dynamodb.put({
+        TableName: "MemberClubTable",
+        Item: {
+            tenantId: process.env.TENANT_ID,
+            id: memberItem.id,
+            clubId: event.identity?.sub,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        },
+    }).promise()
+
     return callback(undefined, memberItem)
 
 }

@@ -2,6 +2,7 @@ type Mutation {
     # Member
     createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
     deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+    createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
 
     updateAuthenticatedMember(input: UpdateAuthenticatedMemberInput!): Member @aws_auth(cognito_groups: ["member"])
     firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])

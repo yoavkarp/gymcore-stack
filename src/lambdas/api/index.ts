@@ -17,13 +17,16 @@ const fnMap: FnMap = {
         firstTimeMemberRegister: "./members/firstTimeMemberRegister",
         createGoal: "./members/createGoal",
         updateGoal: "./members/updateGoal",
+        createTrainer: "./clubs/createTrainer",
     },
     Query: {
         getMemberById: "./members/getMemberById",
         getAuthenticatedMember: "./members/getAuthenticatedMember",
         getAuthenticatedClub: "./clubs/getAuthenticatedClub",
         getClubById: "./clubs/getClubById",
-        getTenant: "./tenant/getTenant"
+        getTenant: "./tenant/getTenant",
+        getTrainerById: "./clubs/getTrainerById",
+        getTrainersByClubId: "./clubs/getTrainersByClubId",
     }
 }
 

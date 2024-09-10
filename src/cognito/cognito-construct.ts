@@ -1,15 +1,19 @@
 import { Construct } from 'constructs';
-import { CfnOutput, RemovalPolicy, StackProps } from 'aws-cdk-lib';
-import { AccountRecovery, CfnUserPoolGroup, StringAttribute, UserPool, UserPoolClient, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
+import { CfnOutput, Duration, RemovalPolicy, StackProps } from 'aws-cdk-lib';
+import { AccountRecovery, CfnUserPoolGroup, UserPool, UserPoolClient, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
 import { IRole } from 'aws-cdk-lib/aws-iam';
 import {
     IdentityPool,
     UserPoolAuthenticationProvider,
 } from '@aws-cdk/aws-cognito-identitypool-alpha'
+import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
+import path from 'path';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 
 interface CognitoConstructProps extends StackProps {
     readonly tenantName: string
     readonly tenantId: string
+    readonly awsSdkLayer: ILayerVersion
 }
 
 
@@ -57,12 +61,41 @@ export class CognitoConstruct extends Construct {
                 phoneNumber: {
                     required: true,
                     mutable: true
-                }
+                },
+                birthdate: {
+                    required: true,
+                    mutable: true
+                },
+                givenName: {
+                    required: true,
+                    mutable: true
+                },
+                profilePicture: {
+                    required: false,
+                    mutable: true
+                },
+                lastUpdateTime: {
+                    required: false,
+                    mutable: true
+                },
+            },
+            lambdaTriggers: {
+                peTokenGeneration: new Function(this, 'PreTokenGeneration', {
+                    runtime: Runtime.NODEJS_18_X,
+                    handler: 'index.handler',
+                    code: Code.fromAsset(path.join(__dirname, "..", "lambdas", 'preTokenGeneration')),
+                    layers: [props.awsSdkLayer],
+                    logRetention: RetentionDays.TWO_WEEKS,
+                    environment: {
+                        TENANT_ID: props.tenantId,
+                    },
+                    timeout: Duration.seconds(10)
+                })
             },
             userPoolName: `${props.tenantName} UserPool`,
         })
 
-        const groups = ["admin", "club", "member"];
+        const groups = ["admin", "club", "trainer", "member"];
 
         groups.forEach(
             (groupName) =>

@@ -19,13 +19,12 @@
   },
   "DevCDKStack": {
     "awssdklayerLayerPathD25219AF": "src\\layers\\aws-sdk-layer",
-    "AuthIdentityPoolIdFB6655FB": "eu-central-1:a437609e-de62-479a-be93-01946fca3a54",
-    "AuthUserPoolIdC0605E59": "eu-central-1_rPC74KFyx",
-    "ApiGRAPHQLURL06B0C7F4": "https://dnatrtlngrc4voltuatgkjb5ke.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "AuthIdentityPoolIdFB6655FB": "eu-central-1:36d5a34f-8c1c-4712-a919-780d8ea04d82",
+    "AuthUserPoolIdC0605E59": "eu-central-1_a8jZzZw0Y",
     "tenantName": "Dev_Israel",
+    "ApiApiId0792E3A7": "ia47lug5qngehpop7abfph3bqq",
+    "Apiendpoint7E94D3BB": "https://lgskkt5w65a47foo34u6kis7lq.appsync-api.eu-central-1.amazonaws.com/graphql",
     "tenantId": "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c",
-    "ApiAPIIDEBF2D2C5": "4fmpc3bd6fas3fvexj5o7lnsiy",
-    "ApiAPIKEY6DAC4802": "",
-    "AuthUserPoolClientId8216BF9A": "cc6hkh9nqjvvjj93dpmhu6kln"
+    "AuthUserPoolClientId8216BF9A": "m3b4ubo8e2ejjn8tf3h2bi0vs"
   }
 }

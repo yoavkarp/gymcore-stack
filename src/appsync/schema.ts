@@ -58,6 +58,14 @@ export type ICreateMemberInput = {
   phone_number: Scalars['AWSPhone']['input'];
 };
 
+export type ICreateTrainerInput = {
+  birthdate: Scalars['AWSDate']['input'];
+  email: Scalars['AWSEmail']['input'];
+  name: Scalars['String']['input'];
+  phone_number: Scalars['AWSPhone']['input'];
+  profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
+};
+
 export type IFirstTimeMemberRegisterInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate: Scalars['AWSDate']['input'];
@@ -114,7 +122,6 @@ export type IMember = {
   __typename?: 'Member';
   address?: Maybe<Scalars['String']['output']>;
   birthdate?: Maybe<Scalars['AWSDate']['output']>;
-  clubsIds?: Maybe<Array<Scalars['ID']['output']>>;
   created_at: Scalars['AWSDateTime']['output'];
   email?: Maybe<Scalars['AWSEmail']['output']>;
   gender?: Maybe<Scalars['String']['output']>;
@@ -140,6 +147,7 @@ export type IMutation = {
   createGoal?: Maybe<IGoal>;
   createMeasurement?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
+  createTrainer?: Maybe<ITrainer>;
   deleteMember?: Maybe<IMember>;
   firstTimeMemberRegister?: Maybe<IMember>;
   updateAuthenticatedMember?: Maybe<IMember>;
@@ -159,6 +167,11 @@ export type IMutationCreateMeasurementArgs = {
 
 export type IMutationCreateMemberArgs = {
   input: ICreateMemberInput;
+};
+
+
+export type IMutationCreateTrainerArgs = {
+  input: ICreateTrainerInput;
 };
 
 
@@ -189,6 +202,8 @@ export type IQuery = {
   getClubById?: Maybe<IClub>;
   getMemberById?: Maybe<IMember>;
   getTenant?: Maybe<ITenant>;
+  getTrainerById?: Maybe<ITrainer>;
+  getTrainersByClubId?: Maybe<Array<ITrainer>>;
 };
 
 
@@ -199,6 +214,16 @@ export type IQueryGetClubByIdArgs = {
 
 export type IQueryGetMemberByIdArgs = {
   memberId: Scalars['ID']['input'];
+};
+
+
+export type IQueryGetTrainerByIdArgs = {
+  trainerId: Scalars['ID']['input'];
+};
+
+
+export type IQueryGetTrainersByClubIdArgs = {
+  clubId: Scalars['ID']['input'];
 };
 
 export type ITenant = {
@@ -215,8 +240,6 @@ export type ITenant = {
 
 export type ITrainer = {
   __typename?: 'Trainer';
-  clubId: Scalars['ID']['output'];
-  clubsIds: Array<Scalars['ID']['output']>;
   created_at: Scalars['AWSDateTime']['output'];
   email: Scalars['AWSEmail']['output'];
   id: Scalars['String']['output'];
