@@ -19,7 +19,6 @@ interface CognitoConstructProps extends StackProps {
 
 export class CognitoConstruct extends Construct {
     public readonly userPool: UserPool;
-    public readonly identityPoolId: CfnOutput
     public readonly authenticatedRole: IRole
     public readonly unauthenticatedRole: IRole
 
@@ -62,18 +61,6 @@ export class CognitoConstruct extends Construct {
                     required: true,
                     mutable: true
                 },
-                birthdate: {
-                    required: true,
-                    mutable: true
-                },
-                givenName: {
-                    required: true,
-                    mutable: true
-                },
-                profilePicture: {
-                    required: false,
-                    mutable: true
-                },
                 lastUpdateTime: {
                     required: false,
                     mutable: true
@@ -83,6 +70,7 @@ export class CognitoConstruct extends Construct {
                 peTokenGeneration: new Function(this, 'PreTokenGeneration', {
                     runtime: Runtime.NODEJS_18_X,
                     handler: 'index.handler',
+                    functionName: props.tenantName + "_preTokenGeneration",
                     code: Code.fromAsset(path.join(__dirname, "..", "lambdas", 'preTokenGeneration')),
                     layers: [props.awsSdkLayer],
                     logRetention: RetentionDays.TWO_WEEKS,
@@ -135,15 +123,15 @@ export class CognitoConstruct extends Construct {
         this.authenticatedRole = identityPool.authenticatedRole
         this.unauthenticatedRole = identityPool.unauthenticatedRole
 
-        this.identityPoolId = new CfnOutput(this, 'IdentityPoolId', {
+        new CfnOutput(scope, 'IdentityPoolId', {
             value: identityPool.identityPoolId,
         })
 
-        new CfnOutput(this, 'UserPoolId', {
+        new CfnOutput(scope, 'UserPoolId', {
             value: this.userPool.userPoolId,
         })
 
-        new CfnOutput(this, 'UserPoolClientId', {
+        new CfnOutput(scope, 'UserPoolClientId', {
             value: userPoolClient.userPoolClientId,
         })
 

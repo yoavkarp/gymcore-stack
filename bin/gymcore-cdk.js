@@ -17,6 +17,6 @@ new GymcoreCdkStack(app, 'DevCDKStack', {
     region: "eu-central-1",
   },
   tenantName: "Dev_Israel",
-  tenantId: "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c",
+  tenantId: "23b498e2-f0c1-7047-3bd1-a9fe0cd7f383",
   tables: dbStack.tables
 });

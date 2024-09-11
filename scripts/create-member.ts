@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk'
+import aws_exports from '../auth-client/aws-exports';
 
 AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "yoav" })
 AWS.config.region = "eu-central-1"
@@ -12,7 +13,7 @@ const createMember = async ({ phone_number, tenantId }: { phone_number: string, 
     const Username = phone_number;
 
     const { User: user } = await cognito.adminCreateUser({
-        UserPoolId: "eu-central-1_rPC74KFyx",
+        UserPoolId: aws_exports.Auth.Cognito.userPoolId,
         Username: phone_number.substring(4),
         TemporaryPassword: "Abcd1234!@",
         UserAttributes: [
@@ -29,7 +30,7 @@ const createMember = async ({ phone_number, tenantId }: { phone_number: string, 
 
     await cognito.adminAddUserToGroup({
         Username,
-        UserPoolId: "eu-central-1_rPC74KFyx",
+        UserPoolId: aws_exports.Auth.Cognito.userPoolId,
         GroupName: "member"
     }).promise()
 

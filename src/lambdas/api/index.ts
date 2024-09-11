@@ -1,6 +1,7 @@
 import { IMutation, IQuery } from "@/appsync/schema";
 import { AppSyncResolver } from "../appsync.types";
 import AWS from "aws-sdk";
+
 AWS.config.update({ region: 'eu-central-1' });
 
 type FnMap = {

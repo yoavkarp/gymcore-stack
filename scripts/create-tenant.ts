@@ -1,13 +1,15 @@
 import AWS from 'aws-sdk'
 import { cognito } from '../auth-client/cognito';
 import { cognitoisp } from '../aws-providers/cognito-isp';
+import aws_exports from '../auth-client/aws-exports';
+import { dynamodb } from '../aws-providers/dynamodb-client';
 
 const main = async () => {
     const Username = "0505716749"
     try {
-        await cognitoisp.adminCreateUser({
+        const { User: user } = await cognitoisp.adminCreateUser({
             Username,
-            UserPoolId: "eu-central-1_rPC74KFyx",
+            UserPoolId: aws_exports.Auth.Cognito.userPoolId,
             TemporaryPassword: "Abcd1234!@",
             UserAttributes: [
                 {
@@ -19,8 +21,12 @@ const main = async () => {
                     Value: "true"
                 },
                 {
+                    Name: "name",
+                    Value: "Dev Club"
+                },
+                {
                     Name: "email",
-                    Value: "yoavkarp@gmail.com"
+                    Value: "tenant@tenant.com"
                 },
                 {
                     Name: "email_verified",
@@ -28,10 +34,26 @@ const main = async () => {
                 }
             ]
         }).promise()
+
+        await dynamodb.put({
+            TableName: "TenantTable",
+            Item: {
+                id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
+                name: "Dev Tenant",
+                ...user?.Attributes?.reduce((acc, attr) => {
+                    return { ...acc, [attr.Name]: attr.Value }
+                }, {}),
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            },
+            ConditionExpression: "attribute_not_exists(id)"
+        }).promise()
     }
     catch (e) {
         console.log(e)
     }
+
+
 
     await cognito.login("+9720505716749", "Abcd1234!@")
 }

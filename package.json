@@ -5,12 +5,12 @@
     "gymcore-cdk": "bin/gymcore-cdk.js"
   },
   "scripts": {
-    "link": "npm link",
     "build": "ts-node scripts/build",
     "cdk": "cdk",
     "test": "jest",
     "ydeploy": "npx aws-cdk deploy --all --outputs-file outputs/cdk-output.json --require-approval never --profile yoav",
-    "codegen": "graphql-codegen --config codegen.config.ts"
+    "codegen": "graphql-codegen --config codegen.config.ts",
+    "publish": "npm run build; npm run ydeploy"
   },
   "devDependencies": {
     "@graphql-codegen/typescript": "^4.0.9",
@@ -21,6 +21,7 @@
     "@types/node": "^22.0.0",
     "aws-cdk": "2.150.0",
     "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },

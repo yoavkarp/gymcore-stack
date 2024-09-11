@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "lib",
+    "outDir": "./lib",
     "declaration": false,
     "sourceMap": false,
     "allowJs": true,

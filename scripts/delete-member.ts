@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk'
+import aws_exports from '../auth-client/aws-exports';
 
 AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "yoav" })
 AWS.config.region = "eu-central-1"
@@ -9,12 +10,12 @@ const cognito = new AWS.CognitoIdentityServiceProvider()
 const deleteMember = async ({ phone_number, tenantId }: { phone_number: string, tenantId: string }) => {
 
     const { Username, UserAttributes } = await cognito.adminGetUser({
-        UserPoolId: "eu-central-1_rPC74KFyx",
+        UserPoolId: aws_exports.Auth.Cognito.userPoolId,
         Username: phone_number.substring(4),
     }).promise()
 
     const res = await cognito.adminDeleteUser({
-        UserPoolId: "eu-central-1_rPC74KFyx",
+        UserPoolId: aws_exports.Auth.Cognito.userPoolId,
         Username
     }).promise()
 

@@ -46,6 +46,11 @@ class GymcoreCdkStack extends Stack {
             value: props.tenantName
         })
 
+        if (props.env?.region)
+            new CfnOutput(this, "region", {
+                value: props.env?.region
+            })
+
     }
 }
 

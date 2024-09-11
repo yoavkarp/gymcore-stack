@@ -88,7 +88,6 @@ export class AppSyncConstruct extends Construct {
 
         const resolversPath = path.join(__dirname, "resolvers");
         const resolversFiles = fs.readdirSync(resolversPath);
-
         resolversFiles.map((file) => {
             return {
                 typeName: file.split('.')[0],
@@ -116,16 +115,16 @@ export class AppSyncConstruct extends Construct {
 
 
 
-        new CfnOutput(this, 'endpoint', {
+        new CfnOutput(scope, 'ApiEndpoint', {
             value: this.api.graphqlUrl,
         })
 
-        new CfnOutput(this, 'ApiId', {
+        new CfnOutput(scope, 'ApiId', {
             value: this.api.apiId,
         })
 
         if (this.api.apiKey)
-            new CfnOutput(this, 'ApiKey', {
+            new CfnOutput(scope, 'ApiKey', {
                 value: this.api.apiKey,
             })
     }
