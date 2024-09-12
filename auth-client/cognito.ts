@@ -35,7 +35,7 @@ const login = (username: string, password: string) => {
         cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess: function (session) {
                 cognitoUser.setSignInUserSession(session)
-                console.log(session.getIdToken().getJwtToken())
+                console.log(session.getIdToken().decodePayload())
                 res({
                     session,
                     cognitoUser,

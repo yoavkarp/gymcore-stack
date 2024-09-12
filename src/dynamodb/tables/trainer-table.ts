@@ -18,6 +18,34 @@ export class TrainerTableConstruct extends Construct {
             tableName: "TrainerTable"
         })
 
+        this.table.addGlobalSecondaryIndex({
+            indexName: "trainers-by-club-id",
+            partitionKey: { name: 'tenantId#clubId', type: AttributeType.STRING },
+            sortKey: { name: 'id', type: AttributeType.STRING }
+        })
+
+        // attrs to create
+        // tenantId: String
+        // id: String
+        // clubId: String
+        // phone_number: String
+        // email: String
+        // name: String
+
+        const memberTableServiceRole = new Role(this, 'MemberTableServiceRole', {
+            assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
+        })
+
+        memberTableServiceRole.addToPolicy(
+            new PolicyStatement({
+                effect: Effect.ALLOW,
+                resources: [
+                    `${this.table.tableArn}/index/members-by-user-id`,
+                ],
+                actions: ['dymamodb:Query'],
+            })
+        )
+
 
     }
 }

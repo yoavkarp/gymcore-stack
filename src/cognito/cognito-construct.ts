@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 import { CfnOutput, Duration, RemovalPolicy, StackProps } from 'aws-cdk-lib';
-import { AccountRecovery, CfnUserPoolGroup, UserPool, UserPoolClient, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
-import { IRole } from 'aws-cdk-lib/aws-iam';
+import { AccountRecovery, CfnUserPoolGroup, UserPool, UserPoolClient, UserPoolOperation, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
+import { IRole, Policy, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import {
     IdentityPool,
     UserPoolAuthenticationProvider,
@@ -9,11 +9,13 @@ import {
 import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import path from 'path';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { DynamoDBStack } from '@/dynamodb/dynamodb-stack';
 
 interface CognitoConstructProps extends StackProps {
     readonly tenantName: string
     readonly tenantId: string
     readonly awsSdkLayer: ILayerVersion
+    tables: DynamoDBStack['tables']
 }
 
 
@@ -26,6 +28,23 @@ export class CognitoConstruct extends Construct {
         super(scope, id);
 
         // Define the Cognito API
+
+
+        // pre token generation
+
+        const preTokenGenerationLambda = new Function(scope, 'PreTokenGeneration', {
+            runtime: Runtime.NODEJS_18_X,
+            handler: 'index.handler',
+            functionName: props.tenantName + "_preTokenGeneration",
+            code: Code.fromAsset(path.join(__dirname, "..", "lambdas", 'preTokenGeneration')),
+            layers: [props.awsSdkLayer],
+            logRetention: RetentionDays.TWO_WEEKS,
+            environment: {
+                TENANT_ID: props.tenantId,
+            },
+            timeout: Duration.seconds(10),
+        })
+
         this.userPool = new UserPool(this, "UserPool", {
             selfSignUpEnabled: false,
             removalPolicy: RemovalPolicy.DESTROY,
@@ -65,20 +84,6 @@ export class CognitoConstruct extends Construct {
                     required: false,
                     mutable: true
                 },
-            },
-            lambdaTriggers: {
-                peTokenGeneration: new Function(this, 'PreTokenGeneration', {
-                    runtime: Runtime.NODEJS_18_X,
-                    handler: 'index.handler',
-                    functionName: props.tenantName + "_preTokenGeneration",
-                    code: Code.fromAsset(path.join(__dirname, "..", "lambdas", 'preTokenGeneration')),
-                    layers: [props.awsSdkLayer],
-                    logRetention: RetentionDays.TWO_WEEKS,
-                    environment: {
-                        TENANT_ID: props.tenantId,
-                    },
-                    timeout: Duration.seconds(10)
-                })
             },
             userPoolName: `${props.tenantName} UserPool`,
         })
@@ -122,6 +127,20 @@ export class CognitoConstruct extends Construct {
 
         this.authenticatedRole = identityPool.authenticatedRole
         this.unauthenticatedRole = identityPool.unauthenticatedRole
+
+
+        this.userPool.addTrigger(UserPoolOperation.PRE_TOKEN_GENERATION, preTokenGenerationLambda)
+
+        // Attach the policy to the Lambda
+        preTokenGenerationLambda.role!.attachInlinePolicy(new Policy(this, 'userpool-policy', {
+            statements: [new PolicyStatement({
+                actions: ['cognito-idp:*'],
+                resources: [this.userPool.userPoolArn],
+            })],
+        }));
+
+        props.tables.memberTable.grantFullAccess(preTokenGenerationLambda)
+        props.tables.clubTable.grantFullAccess(preTokenGenerationLambda)
 
         new CfnOutput(scope, 'IdentityPoolId', {
             value: identityPool.identityPoolId,

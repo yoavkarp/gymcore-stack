@@ -2,10 +2,8 @@ import { spawn } from "child_process";
 
 export const execAsync = (command: string, ...args: string[]) => new Promise((resolve, reject) => {
     const child = spawn(command, args, {
-        stdio: "inherit", cwd: process.cwd(), env: {
-            ...process.env,
-            FORCE_COLOR: '1',
-        },
+        stdio: "inherit", cwd: process.cwd(),
+        shell: true
     });
 
     child.on("message", console.log)
