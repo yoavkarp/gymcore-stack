@@ -24,26 +24,41 @@ export type Scalars = {
   AWSURL: { input: string; output: string; }
 };
 
-export type IClub = {
+export type IClub = IDocument & {
   __typename?: 'Club';
   address: Scalars['String']['output'];
-  created_at: Scalars['AWSTimestamp']['output'];
+  created_at: Scalars['AWSDateTime']['output'];
   email: Scalars['AWSEmail']['output'];
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
   phone_number: Scalars['AWSPhone']['output'];
   profile_picture: Scalars['AWSURL']['output'];
   tenantId: Scalars['ID']['output'];
-  updated_at: Scalars['AWSTimestamp']['output'];
+  updated_at: Scalars['AWSDateTime']['output'];
 };
 
-export type ICreateGoalInput = {
-  fat?: InputMaybe<Scalars['Float']['input']>;
-  heart_rate?: InputMaybe<Scalars['Float']['input']>;
-  height?: InputMaybe<Scalars['Float']['input']>;
-  memberId?: InputMaybe<Scalars['ID']['input']>;
-  title: Scalars['String']['input'];
-  weight?: InputMaybe<Scalars['Float']['input']>;
+export type IClubConnection = {
+  __typename?: 'ClubConnection';
+  items?: Maybe<Array<IClub>>;
+  nextToken?: Maybe<Scalars['String']['output']>;
+};
+
+export type ICreateExerciseInput = {
+  angle?: InputMaybe<IExerciseValueInput>;
+  distance?: InputMaybe<IExerciseValueInput>;
+  duration?: InputMaybe<IExerciseValueInput>;
+  intensity?: InputMaybe<IExerciseValueInput>;
+  machine_number?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  notes?: InputMaybe<Scalars['String']['input']>;
+  reps?: InputMaybe<IExerciseValueInput>;
+  resistance?: InputMaybe<IExerciseValueInput>;
+  rest?: InputMaybe<IExerciseValueInput>;
+  seat_height?: InputMaybe<Scalars['String']['input']>;
+  section: IExerciseSection;
+  sets?: InputMaybe<Scalars['Int']['input']>;
+  tempo?: InputMaybe<IExerciseValueInput>;
+  weight?: InputMaybe<IExerciseValueInput>;
 };
 
 export type ICreateMeasurementInput = {
@@ -55,27 +70,97 @@ export type ICreateMeasurementInput = {
 };
 
 export type ICreateMemberInput = {
-  phone_number: Scalars['AWSPhone']['input'];
-};
-
-export type ICreateTrainerInput = {
-  birthdate: Scalars['AWSDate']['input'];
-  email: Scalars['AWSEmail']['input'];
-  name: Scalars['String']['input'];
-  phone_number: Scalars['AWSPhone']['input'];
-  profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
-};
-
-export type IFirstTimeMemberRegisterInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate: Scalars['AWSDate']['input'];
   email?: InputMaybe<Scalars['AWSEmail']['input']>;
-  gender: Scalars['String']['input'];
+  gender: IGender;
+  measurement?: InputMaybe<ICreateMemberMeasurementInput>;
   name: Scalars['String']['input'];
-  profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
+  phone_number: Scalars['AWSPhone']['input'];
 };
 
-export type IGoal = {
+export type ICreateMemberMeasurementInput = {
+  fat?: InputMaybe<Scalars['Float']['input']>;
+  heart_rate?: InputMaybe<Scalars['Float']['input']>;
+  height?: InputMaybe<Scalars['Float']['input']>;
+  weight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type ICreateTrainerInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  birthdate: Scalars['AWSDate']['input'];
+  email?: InputMaybe<Scalars['AWSEmail']['input']>;
+  gender: IGender;
+  name: Scalars['String']['input'];
+  phone_number: Scalars['AWSPhone']['input'];
+};
+
+export type ICreateWorkoutInput = {
+  clubId: Scalars['ID']['input'];
+  exercises: Array<ICreateExerciseInput>;
+  memberId?: InputMaybe<Scalars['ID']['input']>;
+  name: Scalars['String']['input'];
+  notes?: InputMaybe<Scalars['String']['input']>;
+  trainerId: Scalars['ID']['input'];
+};
+
+export type IDocument = {
+  created_at: Scalars['AWSDateTime']['output'];
+  id: Scalars['ID']['output'];
+  tenantId: Scalars['ID']['output'];
+  updated_at: Scalars['AWSDateTime']['output'];
+};
+
+export type IExercise = {
+  __typename?: 'Exercise';
+  angle?: Maybe<IExerciseValue>;
+  distance?: Maybe<IExerciseValue>;
+  duration?: Maybe<IExerciseValue>;
+  id: Scalars['ID']['output'];
+  intensity?: Maybe<IExerciseValue>;
+  machine_number?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
+  reps?: Maybe<IExerciseValue>;
+  resistance?: Maybe<IExerciseValue>;
+  rest?: Maybe<IExerciseValue>;
+  seat_height?: Maybe<Scalars['String']['output']>;
+  section: IExerciseSection;
+  sets?: Maybe<Scalars['Int']['output']>;
+  tempo?: Maybe<IExerciseValue>;
+  weight?: Maybe<IExerciseValue>;
+  xid: Scalars['ID']['output'];
+};
+
+export enum IExerciseSection {
+  Cardio = 'CARDIO',
+  Cooldown = 'COOLDOWN',
+  Strength = 'STRENGTH',
+  Warmup = 'WARMUP'
+}
+
+export type IExerciseValue = {
+  __typename?: 'ExerciseValue';
+  max?: Maybe<Scalars['Float']['output']>;
+  min?: Maybe<Scalars['Float']['output']>;
+  unit?: Maybe<Scalars['String']['output']>;
+  val?: Maybe<Scalars['Float']['output']>;
+};
+
+export type IExerciseValueInput = {
+  max?: InputMaybe<Scalars['Float']['input']>;
+  min?: InputMaybe<Scalars['Float']['input']>;
+  unit?: InputMaybe<Scalars['String']['input']>;
+  val?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export enum IGender {
+  Female = 'FEMALE',
+  Male = 'MALE',
+  Other = 'OTHER'
+}
+
+export type IGoal = IDocument & {
   __typename?: 'Goal';
   clubId?: Maybe<Scalars['ID']['output']>;
   completed?: Maybe<Scalars['Boolean']['output']>;
@@ -98,7 +183,7 @@ export type IGoalConnection = {
   nextToken?: Maybe<Scalars['String']['output']>;
 };
 
-export type IMeasurement = {
+export type IMeasurement = IDocument & {
   __typename?: 'Measurement';
   clubId?: Maybe<Scalars['ID']['output']>;
   created_at: Scalars['AWSDateTime']['output'];
@@ -118,7 +203,7 @@ export type IMeasurementConnection = {
   nextToken?: Maybe<Scalars['String']['output']>;
 };
 
-export type IMember = {
+export type IMember = IDocument & {
   __typename?: 'Member';
   address?: Maybe<Scalars['String']['output']>;
   birthdate?: Maybe<Scalars['AWSDate']['output']>;
@@ -144,19 +229,12 @@ export type IMemberConnection = {
 
 export type IMutation = {
   __typename?: 'Mutation';
-  createGoal?: Maybe<IGoal>;
   createMeasurement?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
   createTrainer?: Maybe<ITrainer>;
-  deleteMember?: Maybe<IMember>;
-  firstTimeMemberRegister?: Maybe<IMember>;
-  updateAuthenticatedMember?: Maybe<IMember>;
-  updateGoal?: Maybe<IGoal>;
-};
-
-
-export type IMutationCreateGoalArgs = {
-  input: ICreateGoalInput;
+  createWorkout?: Maybe<IWorkout>;
+  register?: Maybe<IMember>;
+  updateMemberProfile?: Maybe<IMember>;
 };
 
 
@@ -175,35 +253,28 @@ export type IMutationCreateTrainerArgs = {
 };
 
 
-export type IMutationDeleteMemberArgs = {
-  memberId: Scalars['ID']['input'];
+export type IMutationCreateWorkoutArgs = {
+  input: ICreateWorkoutInput;
 };
 
 
-export type IMutationFirstTimeMemberRegisterArgs = {
-  input: IFirstTimeMemberRegisterInput;
+export type IMutationRegisterArgs = {
+  input: IRegisterInput;
 };
 
 
-export type IMutationUpdateAuthenticatedMemberArgs = {
-  input: IUpdateAuthenticatedMemberInput;
-};
-
-
-export type IMutationUpdateGoalArgs = {
-  goalId: Scalars['ID']['input'];
-  input: IUpdateGoalInput;
+export type IMutationUpdateMemberProfileArgs = {
+  input: IUpdateMemberProfileInput;
 };
 
 export type IQuery = {
   __typename?: 'Query';
-  getAuthenticatedClub?: Maybe<IClub>;
-  getAuthenticatedMember?: Maybe<IMember>;
   getClubById?: Maybe<IClub>;
   getMemberById?: Maybe<IMember>;
   getTenant?: Maybe<ITenant>;
   getTrainerById?: Maybe<ITrainer>;
-  getTrainersByClubId?: Maybe<Array<ITrainer>>;
+  getTrainers?: Maybe<Array<ITrainer>>;
+  getWorkoutById?: Maybe<IWorkout>;
 };
 
 
@@ -222,8 +293,17 @@ export type IQueryGetTrainerByIdArgs = {
 };
 
 
-export type IQueryGetTrainersByClubIdArgs = {
-  clubId: Scalars['ID']['input'];
+export type IQueryGetWorkoutByIdArgs = {
+  id: Scalars['ID']['input'];
+};
+
+export type IRegisterInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  birthdate: Scalars['AWSDate']['input'];
+  email?: InputMaybe<Scalars['AWSEmail']['input']>;
+  gender: IGender;
+  name: Scalars['String']['input'];
+  profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
 };
 
 export type ITenant = {
@@ -238,14 +318,16 @@ export type ITenant = {
   updated_at: Scalars['AWSDateTime']['output'];
 };
 
-export type ITrainer = {
+export type ITrainer = IDocument & {
   __typename?: 'Trainer';
+  address?: Maybe<Scalars['String']['output']>;
+  birthdate: Scalars['AWSDate']['output'];
   created_at: Scalars['AWSDateTime']['output'];
-  email: Scalars['AWSEmail']['output'];
-  id: Scalars['String']['output'];
+  email?: Maybe<Scalars['AWSEmail']['output']>;
+  gender: IGender;
+  id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
   phone_number: Scalars['AWSPhone']['output'];
-  profile_picture?: Maybe<Scalars['AWSURL']['output']>;
   tenantId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
 };
@@ -256,20 +338,24 @@ export type ITrainerConnection = {
   nextToken?: Maybe<Scalars['String']['output']>;
 };
 
-export type IUpdateAuthenticatedMemberInput = {
+export type IUpdateMemberProfileInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate?: InputMaybe<Scalars['AWSDate']['input']>;
   email?: InputMaybe<Scalars['AWSEmail']['input']>;
-  gender?: InputMaybe<Scalars['String']['input']>;
+  gender?: InputMaybe<IGender>;
   name?: InputMaybe<Scalars['String']['input']>;
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
 };
 
-export type IUpdateGoalInput = {
-  fat?: InputMaybe<Scalars['Float']['input']>;
-  heart_rate?: InputMaybe<Scalars['Float']['input']>;
-  height?: InputMaybe<Scalars['Float']['input']>;
-  memberId?: InputMaybe<Scalars['ID']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  weight?: InputMaybe<Scalars['Float']['input']>;
+export type IWorkout = IDocument & {
+  __typename?: 'Workout';
+  created_at: Scalars['AWSDateTime']['output'];
+  exercises: Array<IExercise>;
+  id: Scalars['ID']['output'];
+  memberId?: Maybe<Scalars['ID']['output']>;
+  name: Scalars['String']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
+  tenantId: Scalars['ID']['output'];
+  trainerId: Scalars['ID']['output'];
+  updated_at: Scalars['AWSDateTime']['output'];
 };

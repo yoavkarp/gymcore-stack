@@ -5,12 +5,6 @@ export const resolver: ResolverType<IQuery> = {
     getClubById: {
         dataSourceName: "api"
     },
-    getAuthenticatedClub: {
-        dataSourceName: "api"
-    },
-    getAuthenticatedMember: {
-        dataSourceName: "api"
-    },
     getMemberById: {
         dataSourceName: "api"
     },

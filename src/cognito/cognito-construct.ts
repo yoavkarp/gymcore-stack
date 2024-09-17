@@ -79,11 +79,7 @@ export class CognitoConstruct extends Construct {
                 phoneNumber: {
                     required: true,
                     mutable: true
-                },
-                lastUpdateTime: {
-                    required: false,
-                    mutable: true
-                },
+                }
             },
             userPoolName: `${props.tenantName} UserPool`,
         })

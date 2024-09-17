@@ -1,0 +1,25 @@
+type Member implements Document {
+    id: ID!
+    tenantId: ID!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+    
+    name: String
+    email: AWSEmail
+    phone_number: AWSPhone
+
+    profile_picture: AWSURL
+    address: String
+    birthdate: AWSDate
+    gender: String
+
+    registered: Boolean
+    
+    measurement: Measurement
+    goal: Goal
+}
+
+type MemberConnection {
+    items: [Member!]
+    nextToken: String
+}

@@ -1,0 +1,6 @@
+interface Document {
+    id: ID!
+    tenantId: ID!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}

@@ -1,0 +1,3 @@
+extend type Query {
+  getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+}

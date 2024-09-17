@@ -1,6 +1,9 @@
-type Goal {
+type Goal implements Document {
     id: ID!
     tenantId: ID!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+    
     memberId: ID!
     clubId: ID
 
@@ -12,30 +15,9 @@ type Goal {
 
     completed: Boolean
     completed_at: AWSDateTime
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
 }
 
 type GoalConnection {
     items: [Goal!]
     nextToken: String
-}
-
-input CreateGoalInput {
-    memberId: ID
-    title: String!
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-}
-
-input UpdateGoalInput {
-    memberId: ID
-    title: String
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
 }

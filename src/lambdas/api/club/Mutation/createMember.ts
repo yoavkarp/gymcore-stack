@@ -1,0 +1,41 @@
+import { IMutation, IMutationCreateMemberArgs } from "@/appsync/schema";
+import { AppSyncResolver } from "@/lambdas/appsync.types";
+import * as AWS from 'aws-sdk';
+import { randomUUID } from "crypto";
+import { createUser } from "../../actions/createUser";
+import { createMemberPayload } from "../../actions/createMember";
+
+const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'eu-central-1' });
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+
+export const handler: AppSyncResolver<IMutationCreateMemberArgs, IMutation['createMember']> = async (event, context, callback) => {
+
+    const {
+        input
+    } = event.arguments;
+
+    // define username
+    const user = await createUser(input.phone_number, "member");
+    const member = await createMemberPayload(user?.Attributes?.find((attribute) => attribute.Name === "sub")?.Value!, input);
+
+    if (Array.isArray(member)) {
+        await dynamodb.transactWrite({
+            TransactItems: member.map((item) => ({
+                Put: {
+                    TableName: item.TableName,
+                    Item: item,
+                    ConditionExpression: "attribute_not_exists(id)"
+                }
+            }))
+        }).promise()
+    } else {
+        await dynamodb.put({
+            TableName: member.TableName,
+            Item: member.Item,
+            ConditionExpression: "attribute_not_exists(id)"
+        }).promise()
+    }
+
+    return callback(undefined, Array.isArray(member) ? member[0].Item : member.Item);
+
+}

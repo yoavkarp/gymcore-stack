@@ -1,0 +1,20 @@
+extend type Mutation {
+  createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
+}
+
+input CreateMemberInput {
+    phone_number: AWSPhone!
+    name: String!
+    email: AWSEmail
+    birthdate: AWSDate!
+    gender: Gender!
+    address: String
+    measurement: CreateMemberMeasurementInput
+}
+
+input CreateMemberMeasurementInput {
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}

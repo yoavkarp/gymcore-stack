@@ -11,6 +11,7 @@ import fs from 'fs'
 import { resolver } from './resolvers/Query';
 import { ResolverData, ResolverType } from './types/ResolverType';
 
+// Export the merged schema
 type AppSyncConstructProps = {
     userPool: UserPool;
     tenantName: string;
@@ -31,7 +32,7 @@ export class AppSyncConstruct extends Construct {
         // Define the AppSync API
         this.api = new GraphqlApi(this, "api", {
             name: `${props.tenantName}_API`,
-            schema: SchemaFile.fromAsset(schemaPath),
+            schema: SchemaFile.fromAsset(path.join("src", "appsync", "schema.graphql")),
             authorizationConfig: {
                 defaultAuthorization: {
                     authorizationType: AuthorizationType.USER_POOL,

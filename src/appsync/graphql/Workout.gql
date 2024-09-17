@@ -1,0 +1,49 @@
+type Workout implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+
+  name: String!
+  notes: String
+  exercises: [Exercise!]!
+  trainerId: ID!
+  memberId: ID
+}
+
+type Exercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  section: ExerciseSection!
+  # common
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ExerciseValue
+  resistance: ExerciseValue
+  # strength
+  sets: Int
+  reps: ExerciseValue
+  rest: ExerciseValue
+  weight: ExerciseValue
+  # cardio
+  duration: ExerciseValue
+  distance: ExerciseValue
+  tempo: ExerciseValue
+  intensity: ExerciseValue
+}
+
+type ExerciseValue {
+  min: Float
+  max: Float
+  val: Float
+  unit: String
+}
+
+enum ExerciseSection {
+  WARMUP
+  STRENGTH
+  CARDIO
+  COOLDOWN
+}

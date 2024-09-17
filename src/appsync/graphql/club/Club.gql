@@ -1,0 +1,17 @@
+type Club implements Document {
+    id: ID!
+    tenantId: ID!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+    
+    name: String!
+    email: AWSEmail!
+    phone_number: AWSPhone!
+    profile_picture: AWSURL!
+    address: String!
+}
+
+type ClubConnection {
+    items: [Club!]
+    nextToken: String
+}

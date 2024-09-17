@@ -4,7 +4,7 @@ export interface AppSyncResolverEvent<TArguments = any> {
     arguments: TArguments;
     identity?: Omit<AppSyncIdentityCognito, "claims"> & {
         claims?: {
-            "cognito:groups"?: string[];
+            "cognito:groups"?: Array<"club" | "member">;
             "custom:clubId"?: string;
             [key: string]: any;
         }
@@ -23,5 +23,9 @@ export interface AppSyncResolverEvent<TArguments = any> {
     prev: { result: { [key: string]: any } } | null;
     stash: { [key: string]: any };
 }
+
+type NonNullableKeysType<T> = {
+    [K in keyof T]: Exclude<T[K], null>;
+};
 
 export type AppSyncResolver<TArguments = any, TResult = any> = (event: AppSyncResolverEvent<TArguments>, context: Context, callback: Callback<TResult>) => ReturnType<Callback>;

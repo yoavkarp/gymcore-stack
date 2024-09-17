@@ -1,6 +1,9 @@
-type Measurement {
+type Measurement implements Document {
     id: ID!
     tenantId: ID!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+    
     memberId: ID!
     clubId: ID
 
@@ -8,9 +11,6 @@ type Measurement {
     height: Float
     fat: Float
     heart_rate: Float
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
 }
 
 type MeasurementConnection {

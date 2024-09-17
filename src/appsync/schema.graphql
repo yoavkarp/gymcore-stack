@@ -1,222 +1,292 @@
-# Club.gql
-type Club {
-    id: ID!
-    tenantId: ID!
-    
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-    profile_picture: AWSURL!
-    address: String!
-
-    created_at: AWSTimestamp!
-    updated_at: AWSTimestamp!
+interface Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
 }
 
-# Goal.gql
-type Goal {
-    id: ID!
-    tenantId: ID!
-    memberId: ID!
-    clubId: ID
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
 
-    title: String!
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-
-    completed: Boolean
-    completed_at: AWSDateTime
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
+type Goal implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  memberId: ID!
+  clubId: ID
+  title: String!
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+  completed: Boolean
+  completed_at: AWSDateTime
 }
 
 type GoalConnection {
-    items: [Goal!]
-    nextToken: String
+  items: [Goal!]
+  nextToken: String
 }
 
-input CreateGoalInput {
-    memberId: ID
-    title: String!
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-}
-
-input UpdateGoalInput {
-    memberId: ID
-    title: String
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-}
-
-# Measurement.gql
-type Measurement {
-    id: ID!
-    tenantId: ID!
-    memberId: ID!
-    clubId: ID
-
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
+type Measurement implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  memberId: ID!
+  clubId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
 }
 
 type MeasurementConnection {
-    items: [Measurement!]
-    nextToken: String
+  items: [Measurement!]
+  nextToken: String
 }
 
 input CreateMeasurementInput {
-    memberId: ID
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
+  memberId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
 }
 
-# Member.gql
-type Member {
-    id: ID!
-    tenantId: ID!
-
-    name: String
-    email: AWSEmail
-    phone_number: AWSPhone
-
-    profile_picture: AWSURL
-    address: String
-    birthdate: AWSDate
-    gender: String
-
-    registered: Boolean
-    
-    measurement: Measurement
-    goal: Goal
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
-}
-
-type MemberConnection {
-    items: [Member!]
-    nextToken: String
-}
-
-input CreateMemberInput {
-    phone_number: AWSPhone!
-}
-
-input UpdateAuthenticatedMemberInput {
-    name: String
-    email: AWSEmail
-    profile_picture: AWSURL
-    address: String
-    birthdate: AWSDate
-    gender: String
-}
-
-input FirstTimeMemberRegisterInput {
-    name: String!
-    email: AWSEmail
-    profile_picture: AWSURL
-    address: String
-    birthdate: AWSDate!
-    gender: String!
-}
-
-# Mutation.gql
 type Mutation {
-    # Member
-    createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
-    deleteMember(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
-    createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
-
-    updateAuthenticatedMember(input: UpdateAuthenticatedMemberInput!): Member @aws_auth(cognito_groups: ["member"])
-    firstTimeMemberRegister(input: FirstTimeMemberRegisterInput!): Member @aws_auth(cognito_groups: ["member"])
-
-    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
-    createGoal(input: CreateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
-    updateGoal(goalId: ID!, input: UpdateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
+  createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
+  createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
+  createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
+  createWorkout(input: CreateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
+  updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
 }
 
-# Query.gql
 type Query {
-    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
-    getAuthenticatedMember: Member @aws_auth(cognito_groups: ["member"])
-
-    getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
-    getAuthenticatedClub: Club @aws_auth(cognito_groups: ["club"])
-
-    getTrainersByClubId(clubId: ID!): [Trainer!] @aws_auth(cognito_groups: ["club"])
-    getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
-
-    getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
+  getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
+  getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
+  getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
+  getWorkoutById(id: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
+  getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+  getTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
 }
 
-# Schema.gql
 scalar AWSTimestamp
+
 scalar AWSURL
+
 scalar AWSJSON
+
 scalar AWSDateTime
+
 scalar AWSDate
+
 scalar AWSTime
+
 scalar AWSPhone
+
 scalar AWSIPAddress
+
 scalar AWSEmail
 
 schema {
-    query: Query
-    mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 
-# Tenant.gql
 type Tenant {
-    id: ID!
-
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-    profile_picture: AWSURL!
-    address: String!
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
+  id: ID!
+  name: String!
+  email: AWSEmail!
+  phone_number: AWSPhone!
+  profile_picture: AWSURL!
+  address: String!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
 }
 
-# Trainer.gql
-type Trainer {
-    id: String!
-    tenantId: ID!
-
-    name: String!
-    email: AWSEmail!
-    phone_number: AWSPhone!
-    profile_picture: AWSURL
-
-    created_at: AWSDateTime!
-    updated_at: AWSDateTime!
+type Trainer implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  phone_number: AWSPhone!
+  name: String!
+  email: AWSEmail
+  birthdate: AWSDate!
+  gender: Gender!
+  address: String
 }
 
 type TrainerConnection {
-    items: [Trainer!]
-    nextToken: String
+  items: [Trainer!]
+  nextToken: String
+}
+
+type Workout implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  name: String!
+  notes: String
+  exercises: [Exercise!]!
+  trainerId: ID!
+  memberId: ID
+}
+
+type Exercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  section: ExerciseSection!
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ExerciseValue
+  resistance: ExerciseValue
+  sets: Int
+  reps: ExerciseValue
+  rest: ExerciseValue
+  weight: ExerciseValue
+  duration: ExerciseValue
+  distance: ExerciseValue
+  tempo: ExerciseValue
+  intensity: ExerciseValue
+}
+
+type ExerciseValue {
+  min: Float
+  max: Float
+  val: Float
+  unit: String
+}
+
+enum ExerciseSection {
+  WARMUP
+  STRENGTH
+  CARDIO
+  COOLDOWN
+}
+
+type Club implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  name: String!
+  email: AWSEmail!
+  phone_number: AWSPhone!
+  profile_picture: AWSURL!
+  address: String!
+}
+
+type ClubConnection {
+  items: [Club!]
+  nextToken: String
+}
+
+type Member implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  name: String
+  email: AWSEmail
+  phone_number: AWSPhone
+  profile_picture: AWSURL
+  address: String
+  birthdate: AWSDate
+  gender: String
+  registered: Boolean
+  measurement: Measurement
+  goal: Goal
+}
+
+type MemberConnection {
+  items: [Member!]
+  nextToken: String
+}
+
+input CreateMemberInput {
+  phone_number: AWSPhone!
+  name: String!
+  email: AWSEmail
+  birthdate: AWSDate!
+  gender: Gender!
+  address: String
+  measurement: CreateMemberMeasurementInput
+}
+
+input CreateMemberMeasurementInput {
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
 }
 
 input CreateTrainerInput {
-    phone_number: AWSPhone!
-    name: String!
-    email: AWSEmail!
-    profile_picture: AWSURL
-    birthdate: AWSDate!
+  phone_number: AWSPhone!
+  name: String!
+  email: AWSEmail
+  birthdate: AWSDate!
+  gender: Gender!
+  address: String
+}
+
+input CreateWorkoutInput {
+  name: String!
+  notes: String
+  exercises: [CreateExerciseInput!]!
+  trainerId: ID!
+  memberId: ID
+  clubId: ID!
+}
+
+input CreateExerciseInput {
+  name: String!
+  section: ExerciseSection!
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ExerciseValueInput
+  resistance: ExerciseValueInput
+  sets: Int
+  reps: ExerciseValueInput
+  rest: ExerciseValueInput
+  weight: ExerciseValueInput
+  duration: ExerciseValueInput
+  distance: ExerciseValueInput
+  tempo: ExerciseValueInput
+  intensity: ExerciseValueInput
+}
+
+input ExerciseValueInput {
+  min: Float
+  max: Float
+  val: Float
+  unit: String
+}
+
+input RegisterInput {
+  name: String!
+  email: AWSEmail
+  profile_picture: AWSURL
+  address: String
+  birthdate: AWSDate!
+  gender: Gender!
+}
+
+input UpdateMemberProfileInput {
+  name: String
+  email: AWSEmail
+  profile_picture: AWSURL
+  address: String
+  birthdate: AWSDate
+  gender: Gender
 }

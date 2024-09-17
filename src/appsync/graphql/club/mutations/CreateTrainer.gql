@@ -1,0 +1,12 @@
+extend type Mutation {
+  createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
+}
+
+input CreateTrainerInput {
+    phone_number: AWSPhone!
+    name: String!
+    email: AWSEmail
+    birthdate: AWSDate!
+    gender: Gender!
+    address: String
+}

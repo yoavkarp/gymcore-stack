@@ -1,7 +1,12 @@
 import { PreTokenGenerationNewPasswordChallengeTriggerEvent, PreTokenGenerationTriggerHandler } from "aws-lambda";
 import { cognito, dynamodb } from "./connection";
 
-export const handler: PreTokenGenerationTriggerHandler = async (event) => {
+const groupTableMap = {
+    member: "MemberTable",
+    club: "ClubTable"
+}
+
+export const handler: PreTokenGenerationTriggerHandler = async (event, context, callback) => {
 
     const { Groups } = await cognito.adminListGroupsForUser({
         UserPoolId: event.userPoolId,
@@ -12,13 +17,17 @@ export const handler: PreTokenGenerationTriggerHandler = async (event) => {
         throw new Error('User not found');
     }
 
-    const group = Groups.filter(group => ["member", "club"].includes(group.GroupName || ""))[0].GroupName;
+    const group = Groups.filter(group => ["member", "club"].includes(group.GroupName || ""))?.[0]?.GroupName as keyof typeof groupTableMap;
 
     if (!group) {
-        throw new Error('Group not found');
+        return callback(new Error('Group not found'));
     }
 
+    let attributes: { [key: string]: string } = {};
+
+
     if (event.triggerSource === "TokenGeneration_NewPasswordChallenge") {
+        const attributeKeys = Object.keys(event.request.userAttributes).filter((key) => ["#", ":"].every((char) => !key.includes(char)));
 
         const { Attributes } = await dynamodb.update({
             Key: {
@@ -26,14 +35,14 @@ export const handler: PreTokenGenerationTriggerHandler = async (event) => {
                 id: event.request.userAttributes.sub
             },
             TableName: group === 'member' ? "MemberTable" : group === 'club' ? "ClubTable" : "",
-            UpdateExpression: Object.keys(event.request.userAttributes).reduce((acc, key) => {
+            UpdateExpression: attributeKeys.reduce((acc, key) => {
                 return acc + `#${key} = :${key},`
             }, "set ").slice(0, -1),
-            ExpressionAttributeValues: Object.keys(event.request.userAttributes).reduce<any>((acc, key) => {
+            ExpressionAttributeValues: attributeKeys.reduce<any>((acc, key) => {
                 acc[`:${key}`] = event.request.userAttributes[key];
                 return acc;
             }, {}),
-            ExpressionAttributeNames: Object.keys(event.request.userAttributes).reduce<any>((acc, key) => {
+            ExpressionAttributeNames: attributeKeys.reduce<any>((acc, key) => {
                 acc[`#${key}`] = key;
                 return acc;
             }, {}),
@@ -44,22 +53,11 @@ export const handler: PreTokenGenerationTriggerHandler = async (event) => {
             return event;
         }
 
-        event.response.claimsOverrideDetails = {
-            claimsToAddOrOverride: {
-                'role': group,
-                ...Object.keys(Attributes).reduce<{ [x: `member:${string}`]: string }>((acc, key) => {
-                    acc[`member:${key}`] = Attributes[key];
-                    return acc;
-                }, {})
-            }
-        }
-
-        return event;
+        attributes = Attributes;
     }
-
-    if (Groups.find(group => group.GroupName === "club")) {
+    else {
         const { Item } = await dynamodb.get({
-            TableName: "ClubTable",
+            TableName: groupTableMap[group],
             Key: {
                 tenantId: process.env.TENANT_ID,
                 id: event.request.userAttributes.sub
@@ -67,42 +65,22 @@ export const handler: PreTokenGenerationTriggerHandler = async (event) => {
         }).promise();
 
         if (!Item) {
-            throw new Error('Club not found');
+            return callback(new Error('not found'));
         }
 
-        event.response.claimsOverrideDetails = {
-            claimsToAddOrOverride: {
-                'role': 'club',
-                ...Object.keys(Item).reduce<{ [x: `club:${string}`]: string }>((acc, key) => {
-                    acc[`club:${key}`] = Item[key];
-                    return acc;
-                }, {})
-            }
+        attributes = Item;
+    }
+
+
+    event.response.claimsOverrideDetails = {
+        claimsToAddOrOverride: {
+            'role': group,
+            ...Object.keys(attributes).reduce<{ [x: `${typeof group}:${string}`]: string }>((acc, key) => {
+                acc[`${group}:${key}`] = attributes[key];
+                return acc;
+            }, {})
         }
     }
-    else if (Groups.find(group => group.GroupName === "member")) {
 
-        const { Item } = await dynamodb.get({
-            TableName: "MemberTable",
-            Key: {
-                tenantId: process.env.TENANT_ID,
-                id: event.request.userAttributes.sub
-            }
-        }).promise();
-
-        if (!Item) {
-            throw new Error('Club not found');
-        }
-
-        event.response.claimsOverrideDetails = {
-            claimsToAddOrOverride: {
-                'role': 'member',
-                ...Object.keys(Item).reduce<{ [x: `member:${string}`]: string }>((acc, key) => {
-                    acc[`member:${key}`] = Item[key];
-                    return acc;
-                }, {})
-            }
-        }
-    }
     return event;
 }

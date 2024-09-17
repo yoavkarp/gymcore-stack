@@ -1,12 +1,6 @@
 type Query {
-    getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
-    getAuthenticatedMember: Member @aws_auth(cognito_groups: ["member"])
-
     getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
-    getAuthenticatedClub: Club @aws_auth(cognito_groups: ["club"])
-
-    getTrainersByClubId(clubId: ID!): [Trainer!] @aws_auth(cognito_groups: ["club"])
     getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
-
     getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
+    getWorkoutById(id: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
 }

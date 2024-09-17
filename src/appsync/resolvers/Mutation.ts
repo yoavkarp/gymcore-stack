@@ -7,20 +7,5 @@ export const resolver: ResolverType<IMutation> = {
     },
     createMember: {
         dataSourceName: "api"
-    },
-    updateAuthenticatedMember: {
-        dataSourceName: "api"
-    },
-    deleteMember: {
-        dataSourceName: "api"
-    },
-    firstTimeMemberRegister: {
-        dataSourceName: "api"
-    },
-    createGoal: {
-        dataSourceName: "api"
-    },
-    updateGoal: {
-        dataSourceName: "api"
     }
 }
