@@ -14,7 +14,8 @@ type Member implements Document {
     gender: String
 
     registered: Boolean
-    
+    status: AWSJSON
+
     measurement: Measurement
     goal: Goal
 }

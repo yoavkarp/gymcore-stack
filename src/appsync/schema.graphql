@@ -74,6 +74,7 @@ type Query {
   getWorkoutById(id: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
   getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
   getTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
+  searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
 }
 
 scalar AWSTimestamp
@@ -204,6 +205,7 @@ type Member implements Document {
   birthdate: AWSDate
   gender: String
   registered: Boolean
+  status: AWSJSON
   measurement: Measurement
   goal: Goal
 }

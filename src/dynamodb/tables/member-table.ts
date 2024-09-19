@@ -18,25 +18,19 @@ export class MemberTableConstruct extends Construct {
             tableName: "MemberTable"
         })
 
-        this.table.addGlobalSecondaryIndex({
-            indexName: "members-by-user-id",
-            partitionKey: { name: 'tenantId', type: AttributeType.STRING },
-            sortKey: { name: 'userId', type: AttributeType.STRING }
-        })
+        // const memberTableServiceRole = new Role(this, 'MemberTableServiceRole', {
+        //     assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
+        // })
 
-        const memberTableServiceRole = new Role(this, 'MemberTableServiceRole', {
-            assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
-        })
-
-        memberTableServiceRole.addToPolicy(
-            new PolicyStatement({
-                effect: Effect.ALLOW,
-                resources: [
-                    `${this.table.tableArn}/index/members-by-user-id`,
-                ],
-                actions: ['dymamodb:Query'],
-            })
-        )
+        // memberTableServiceRole.addToPolicy(
+        //     new PolicyStatement({
+        //         effect: Effect.ALLOW,
+        //         resources: [
+        //             `${this.table.tableArn}/index/members-by-user-id`,
+        //         ],
+        //         actions: ['dymamodb:Query'],
+        //     })
+        // )
 
     }
 }

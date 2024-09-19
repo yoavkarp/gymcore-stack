@@ -217,6 +217,7 @@ export type IMember = IDocument & {
   phone_number?: Maybe<Scalars['AWSPhone']['output']>;
   profile_picture?: Maybe<Scalars['AWSURL']['output']>;
   registered?: Maybe<Scalars['Boolean']['output']>;
+  status?: Maybe<Scalars['AWSJSON']['output']>;
   tenantId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
 };
@@ -275,6 +276,7 @@ export type IQuery = {
   getTrainerById?: Maybe<ITrainer>;
   getTrainers?: Maybe<Array<ITrainer>>;
   getWorkoutById?: Maybe<IWorkout>;
+  searchMembers?: Maybe<Array<Maybe<IMember>>>;
 };
 
 
@@ -295,6 +297,11 @@ export type IQueryGetTrainerByIdArgs = {
 
 export type IQueryGetWorkoutByIdArgs = {
   id: Scalars['ID']['input'];
+};
+
+
+export type IQuerySearchMembersArgs = {
+  text: Scalars['String']['input'];
 };
 
 export type IRegisterInput = {
