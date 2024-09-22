@@ -231,6 +231,7 @@ export type IMemberConnection = {
 export type IMutation = {
   __typename?: 'Mutation';
   createMeasurement?: Maybe<IMeasurement>;
+  createMeasurementForMember?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
   createTrainer?: Maybe<ITrainer>;
   createWorkout?: Maybe<IWorkout>;
@@ -241,6 +242,12 @@ export type IMutation = {
 
 export type IMutationCreateMeasurementArgs = {
   input: ICreateMeasurementInput;
+};
+
+
+export type IMutationCreateMeasurementForMemberArgs = {
+  input: ICreateMeasurementInput;
+  memberId: Scalars['ID']['input'];
 };
 
 

@@ -7,10 +7,10 @@ import { DynamoDBPut } from "../dynamodb-types";
 type Input = Omit<ICreateMeasurementInput, "memberId">
 
 const schema = z.object({
-    fat: z.number().min(0).max(100),
-    weight: z.number().min(0),
-    height: z.number().min(0),
-    heart_rate: z.number().min(0).max(100),
+    fat: z.preprocess(i => Number(i) || undefined, z.number().min(1).max(100).optional()),
+    weight: z.preprocess(i => Number(i) || undefined, z.number().min(1).optional()),
+    height: z.preprocess(i => Number(i) || undefined, z.number().min(1).optional()),
+    heart_rate: z.preprocess(i => Number(i) || undefined, z.number().min(1).max(300).optional()),
 }).refine((data) => {
     // Check that at least one property is present (not undefined or null)
     return Object.values(data).some(value => value !== undefined && value !== null);

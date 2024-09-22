@@ -25,5 +25,5 @@ export type DynamoDBUpdate<T = { [x: string]: any }> = {
 export type DynamoDBGet<T = { [x: string]: any }> = {
     type: "get",
     TableName: string,
-    Key: T,
+    Key: { [key: string]: any },
 }

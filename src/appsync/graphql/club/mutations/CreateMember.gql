@@ -11,10 +11,3 @@ input CreateMemberInput {
     address: String
     measurement: CreateMemberMeasurementInput
 }
-
-input CreateMemberMeasurementInput {
-    weight: Float
-    height: Float
-    fat: Float
-    heart_rate: Float
-}

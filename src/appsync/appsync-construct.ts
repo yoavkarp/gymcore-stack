@@ -88,7 +88,7 @@ export class AppSyncConstruct extends Construct {
         ]
 
         const resolversPath = path.join(__dirname, "resolvers");
-        const resolversFiles = fs.readdirSync(resolversPath);
+        const resolversFiles = fs.readdirSync(resolversPath).filter(file => !fs.fstatSync(fs.openSync(path.join(resolversPath, file), 'r')).isDirectory());
         resolversFiles.map((file) => {
             return {
                 typeName: file.split('.')[0],

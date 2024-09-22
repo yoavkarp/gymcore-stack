@@ -1,0 +1,10 @@
+extend type Mutation {
+  createMeasurementForMember(memberId: ID!, input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
+}
+
+input CreateMemberMeasurementInput {
+    weight: Float
+    height: Float
+    fat: Float
+    heart_rate: Float
+}
