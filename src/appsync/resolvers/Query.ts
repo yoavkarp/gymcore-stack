@@ -13,5 +13,8 @@ export const resolver: ResolverType<IQuery> = {
     },
     searchMembers: {
         dataSourceName: "api"
+    },
+    getClubTrainers: {
+        dataSourceName: "api"
     }
 }

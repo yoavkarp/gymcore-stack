@@ -1,3 +1,0 @@
-extend type Query {
-  getTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
-}

@@ -278,10 +278,10 @@ export type IMutationUpdateMemberProfileArgs = {
 export type IQuery = {
   __typename?: 'Query';
   getClubById?: Maybe<IClub>;
+  getClubTrainers?: Maybe<Array<ITrainer>>;
   getMemberById?: Maybe<IMember>;
   getTenant?: Maybe<ITenant>;
   getTrainerById?: Maybe<ITrainer>;
-  getTrainers?: Maybe<Array<ITrainer>>;
   getWorkoutById?: Maybe<IWorkout>;
   searchMembers?: Maybe<Array<Maybe<IMember>>>;
 };

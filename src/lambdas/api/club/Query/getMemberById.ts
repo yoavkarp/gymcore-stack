@@ -1,7 +1,7 @@
 import { IMember, IQuery, IQueryGetMemberByIdArgs, IQuerySearchMembersArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "@/lambdas/appsync.types";
-import { searchMembers } from "../../actions/searchMembers";
-import { getMemberByIdPayload } from "../../actions/getMemberById";
+import { searchMembers } from "../../actions/searchMembersPayload";
+import { getMemberByIdPayload } from "../../actions/getMemberByIdPayload";
 import { dynamodb } from "../../connection";
 
 export const handler: AppSyncResolver<IQueryGetMemberByIdArgs, IQuery['getMemberById']> = async (event, context, callback) => {

@@ -18,12 +18,6 @@ export class TrainerTableConstruct extends Construct {
             tableName: "TrainerTable"
         })
 
-        this.table.addGlobalSecondaryIndex({
-            indexName: "trainers-by-club-id",
-            partitionKey: { name: 'tenantId#clubId', type: AttributeType.STRING },
-            sortKey: { name: 'id', type: AttributeType.STRING }
-        })
-
         // attrs to create
         // tenantId: String
         // id: String

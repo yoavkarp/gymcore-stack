@@ -2,9 +2,9 @@ import { IMeasurement, IMutation, IMutationCreateMeasurementForMemberArgs, IMuta
 import { AppSyncResolver } from "@/lambdas/appsync.types";
 import * as AWS from 'aws-sdk';
 import { randomUUID } from "crypto";
-import { createUser } from "../../actions/createUser";
-import { createMemberPayload } from "../../actions/createMember";
-import { createMeasurementPayload } from "../../actions/createMeasurement";
+import { createUser } from "../../actions/createUserPayload";
+import { createMemberPayload } from "../../actions/createMemberPayload";
+import { createMeasurementPayload } from "../../actions/createMeasurementPayload";
 
 const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'eu-central-1' });
 const dynamodb = new AWS.DynamoDB.DocumentClient();

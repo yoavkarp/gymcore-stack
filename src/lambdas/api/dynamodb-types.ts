@@ -1,18 +1,19 @@
+import { DocumentClient } from "aws-sdk/clients/dynamodb"
 import { dynamodb } from "./connection"
 
-export type DynamoDBPut<T = { [x: string]: any }> = {
+export type DynamoDBPut<T = { [x: string]: any }> = DocumentClient.PutItemInput & {
     type: "put",
     TableName: string,
     Item: T,
 }
 
-export type DynamoDBDelete<T = { [x: string]: any }> = {
+export type DynamoDBDelete<T = { [x: string]: any }> = DocumentClient.DeleteItemInput & {
     type: "delete",
     TableName: string,
     Item: T,
 }
 
-export type DynamoDBUpdate<T = { [x: string]: any }> = {
+export type DynamoDBUpdate<T = { [x: string]: any }> = DocumentClient.UpdateItemInput & {
     type: "update",
     TableName: string,
     Key: T,
@@ -22,8 +23,14 @@ export type DynamoDBUpdate<T = { [x: string]: any }> = {
     ReturnValues: "UPDATED_NEW"
 }
 
-export type DynamoDBGet<T = { [x: string]: any }> = {
+export type DynamoDBGetItem = DocumentClient.GetItemInput & {
     type: "get",
-    TableName: string,
-    Key: { [key: string]: any },
+}
+
+export type DynamoDBQuery = DocumentClient.QueryInput & {
+    type: "query"
+}
+
+export type DynamoDBBatchGetItem = DocumentClient.BatchGetItemInput & {
+    type: "batchGet"
 }

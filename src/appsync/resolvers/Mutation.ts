@@ -10,5 +10,8 @@ export const resolver: ResolverType<IMutation> = {
     },
     createMeasurementForMember: {
         dataSourceName: "api"
+    },
+    createTrainer: {
+        dataSourceName: "api"
     }
 }

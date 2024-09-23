@@ -2,8 +2,8 @@ import { IMutation, IMutationCreateMemberArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "@/lambdas/appsync.types";
 import * as AWS from 'aws-sdk';
 import { randomUUID } from "crypto";
-import { createUser } from "../../actions/createUser";
-import { createMemberPayload } from "../../actions/createMember";
+import { createUser } from "../../actions/createUserPayload";
+import { createMemberPayload } from "../../actions/createMemberPayload";
 
 const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'eu-central-1' });
 const dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -15,7 +15,7 @@ export const handler: AppSyncResolver<IMutationCreateMemberArgs, IMutation['crea
     } = event.arguments;
 
     // define username
-    const user = await createUser(input.phone_number, "member");
+    const user = await createUser({ phone_number: input.phone_number, email: input.email || undefined }, "member");
     const member = await createMemberPayload(user?.Attributes?.find((attribute) => attribute.Name === "sub")?.Value!, input);
 
     if (Array.isArray(member)) {

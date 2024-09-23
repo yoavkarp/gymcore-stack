@@ -1,10 +1,10 @@
-import { ICreateTrainerInput, IMeasurement, ITrainer } from "@/appsync/schema";
+import { ICreateMemberInput, IMeasurement, IMember } from "@/appsync/schema";
 import { dynamodb } from "../connection";
 import { z } from 'zod';
 import { DynamoDBPut } from "../dynamodb-types";
-import { createMeasurementPayload } from "./createMeasurement";
+import { createMeasurementPayload } from "./createMeasurementPayload";
 
-type Input = ICreateTrainerInput
+type Input = ICreateMemberInput
 
 const schema = z.object({
     address: z.string().optional(),
@@ -15,13 +15,19 @@ const schema = z.object({
     phone_number: z.string().regex(/^\+[1-9]\d{1,14}$/, "Invalid phone number")
 })
 
-type Result = DynamoDBPut<ITrainer>;
+type Result = [DynamoDBPut<IMember>, DynamoDBPut<IMeasurement>] | DynamoDBPut<IMember>;
 
-export const createTrainerPayload: (id: string, input: Input) => Promise<Result> = async (id, input) => {
+export const createMemberPayload: (id: string, input: Input) => Promise<Result> = async (id, input) => {
 
     const validate = schema.safeParse(input)
     if (!validate.success) {
         throw new Error(validate.error.errors.at(0)?.message)
+    }
+
+    let measurementPayload: DynamoDBPut<IMeasurement> | undefined;
+
+    if (input.measurement) {
+        measurementPayload = createMeasurementPayload(id, input.measurement);
     }
 
     const Item = {
@@ -30,12 +36,17 @@ export const createTrainerPayload: (id: string, input: Input) => Promise<Result>
         updated_at: new Date().toISOString(),
         id,
         tenantId: process.env.TENANT_ID,
-    } satisfies ITrainer
+        measurement: measurementPayload?.Item
+    } satisfies IMember
 
     const result: Result = {
-        TableName: "TrainerTable",
+        TableName: "MemberTable",
         Item: Item,
         type: "put"
+    }
+
+    if (measurementPayload) {
+        return [result, measurementPayload]
     }
 
     return result;

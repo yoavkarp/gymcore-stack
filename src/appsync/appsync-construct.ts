@@ -44,7 +44,7 @@ export class AppSyncConstruct extends Construct {
             logConfig: {
                 fieldLogLevel: FieldLogLevel.ALL,
             },
-            xrayEnabled: false,
+            xrayEnabled: false
         })
 
         const api_lambda = new Function(scope, "api", {
@@ -70,6 +70,7 @@ export class AppSyncConstruct extends Construct {
         props.tables.trainerTable.grantFullAccess(api_lambda)
         props.tables.measurementTable.grantFullAccess(api_lambda)
         props.tables.goalTable.grantFullAccess(api_lambda)
+        props.tables.trainerIndexTable.grantFullAccess(api_lambda)
         props.userPool.grant(api_lambda, 'cognito-idp:*')
 
         const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);

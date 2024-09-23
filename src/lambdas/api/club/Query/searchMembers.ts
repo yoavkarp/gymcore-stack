@@ -1,6 +1,6 @@
 import { IQuery, IQuerySearchMembersArgs } from "@/appsync/schema";
 import { AppSyncResolver } from "@/lambdas/appsync.types";
-import { searchMembers } from "../../actions/searchMembers";
+import { searchMembers } from "../../actions/searchMembersPayload";
 
 export const handler: AppSyncResolver<IQuerySearchMembersArgs, IQuery['searchMembers']> = async (event, context, callback) => {
 

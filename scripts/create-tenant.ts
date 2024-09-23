@@ -5,7 +5,7 @@ import aws_exports from '../auth-client/aws-exports';
 import { dynamodb } from '../aws-providers/dynamodb-client';
 
 const main = async () => {
-    const Username = "0505716749"
+    const Username = "0501111111"
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
             Username,
@@ -14,7 +14,7 @@ const main = async () => {
             UserAttributes: [
                 {
                     Name: 'phone_number',
-                    Value: "+9720505716749"
+                    Value: `+972${Username}`
                 },
                 {
                     Name: "phone_number_verified",
@@ -55,7 +55,7 @@ const main = async () => {
 
 
 
-    await cognito.login("+9720505716749", "Abcd1234!@")
+    await cognito.login(`+972${Username}`, "Abcd1234!@")
 }
 
 main();

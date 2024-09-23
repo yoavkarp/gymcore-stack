@@ -35,7 +35,6 @@ const login = (username: string, password: string) => {
         cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess: function (session) {
                 cognitoUser.setSignInUserSession(session)
-                console.log(session.getIdToken().decodePayload())
                 res({
                     session,
                     cognitoUser,
@@ -46,7 +45,6 @@ const login = (username: string, password: string) => {
                 cognitoUser.completeNewPasswordChallenge("Abcd1234!@", {}, {
                     onSuccess(session) {
                         cognitoUser.setSignInUserSession(session);
-                        console.log(session.getIdToken().getJwtToken())
                         res({
                             session,
                             cognitoUser,

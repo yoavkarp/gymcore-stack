@@ -1,10 +1,10 @@
 import { ICreateTrainerInput, IMeasurement, IMember, ITrainer } from "@/appsync/schema";
 import { dynamodb } from "../connection";
 import { z } from 'zod';
-import { DynamoDBGet, DynamoDBPut } from "../dynamodb-types";
-import { createMeasurementPayload } from "./createMeasurement";
+import { DynamoDBGetItem, DynamoDBPut } from "../dynamodb-types";
+import { createMeasurementPayload } from "./createMeasurementPayload";
 
-type Result = DynamoDBGet<IMember>;
+type Result = DynamoDBGetItem;
 
 export const getMemberByIdPayload: (id: string) => Promise<Result> = async (id) => {
 
