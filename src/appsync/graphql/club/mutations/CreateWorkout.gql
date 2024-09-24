@@ -13,26 +13,36 @@ input CreateWorkoutInput {
 
 input CreateExerciseInput {
     name: String!
-    section: ExerciseSection!
     # common
     notes: String
     machine_number: String
     seat_height: String
-    angle: ExerciseValueInput
-    resistance: ExerciseValueInput
+    angle: ParameterInput
+    resistance: ParameterInput
     # strength
-    sets: Int
-    reps: ExerciseValueInput
-    rest: ExerciseValueInput
-    weight: ExerciseValueInput
+    sets: [StrengthExerciseSetInput]
     # cardio
-    duration: ExerciseValueInput
-    distance: ExerciseValueInput
-    tempo: ExerciseValueInput
-    intensity: ExerciseValueInput
+    intervals: [CardioExerciseIntervalInput]
 }
 
-input ExerciseValueInput {
+input StrengthExerciseSetInput {
+  reps: ParameterInput
+  rest: ParameterInput
+  weight: ParameterInput
+  times: ParameterInput
+}
+
+input CardioExerciseIntervalInput {
+  duration: ParameterInput
+  distance: ParameterInput
+  tempo: ParameterInput
+  intensity: ParameterInput
+  angle: ParameterInput
+  resistance: ParameterInput
+  rest: ParameterInput
+}
+
+input ParameterInput {
     min: Float
     max: Float
     val: Float

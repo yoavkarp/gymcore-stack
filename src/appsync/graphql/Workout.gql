@@ -11,39 +11,63 @@ type Workout implements Document {
   memberId: ID
 }
 
-type Exercise {
+union Exercise = StrengthExercise | CardioExercise
+
+type StrengthExercise {
   id: ID!
   xid: ID!
   name: String!
-  section: ExerciseSection!
   # common
   notes: String
   machine_number: String
   seat_height: String
-  angle: ExerciseValue
-  resistance: ExerciseValue
+  angle: Parameter
+  resistance: Parameter
   # strength
-  sets: Int
-  reps: ExerciseValue
-  rest: ExerciseValue
-  weight: ExerciseValue
-  # cardio
-  duration: ExerciseValue
-  distance: ExerciseValue
-  tempo: ExerciseValue
-  intensity: ExerciseValue
+  sets: [StrengthExerciseSet]
 }
 
-type ExerciseValue {
+type CardioExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  # common
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: Parameter
+  resistance: Parameter
+  # cardio
+  intervals: [CardioExerciseInterval]
+}
+
+type StrengthExerciseSet {
+  reps: Parameter
+  rest: Parameter
+  weight: Parameter
+  times: Parameter
+}
+
+type CardioExerciseInterval {
+  duration: Parameter
+  distance: Parameter
+  tempo: Parameter
+  intensity: Parameter
+  angle: Parameter
+  resistance: Parameter
+  rest: Parameter
+}
+
+type Parameter {
   min: Float
   max: Float
   val: Float
   unit: String
 }
 
-enum ExerciseSection {
-  WARMUP
-  STRENGTH
-  CARDIO
-  COOLDOWN
+fragment ParameterFragment on Parameter {
+  min
+  max
+  val
+  unit
 }
