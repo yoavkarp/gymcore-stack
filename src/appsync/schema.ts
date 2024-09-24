@@ -52,6 +52,7 @@ export type ICardioExerciseIntervalInput = {
   angle?: InputMaybe<IParameterInput>;
   distance?: InputMaybe<IParameterInput>;
   duration?: InputMaybe<IParameterInput>;
+  id: Scalars['ID']['input'];
   intensity?: InputMaybe<IParameterInput>;
   resistance?: InputMaybe<IParameterInput>;
   rest?: InputMaybe<IParameterInput>;
@@ -86,6 +87,7 @@ export type ICreateExerciseInput = {
   resistance?: InputMaybe<IParameterInput>;
   seat_height?: InputMaybe<Scalars['String']['input']>;
   sets?: InputMaybe<Array<InputMaybe<IStrengthExerciseSetInput>>>;
+  type: IExerciseType;
 };
 
 export type ICreateMeasurementInput = {
@@ -123,7 +125,6 @@ export type ICreateTrainerInput = {
 };
 
 export type ICreateWorkoutInput = {
-  clubId: Scalars['ID']['input'];
   exercises: Array<ICreateExerciseInput>;
   memberId?: InputMaybe<Scalars['ID']['input']>;
   name: Scalars['String']['input'];
@@ -139,6 +140,11 @@ export type IDocument = {
 };
 
 export type IExercise = ICardioExercise | IStrengthExercise;
+
+export enum IExerciseType {
+  Cardio = 'CARDIO',
+  Strength = 'STRENGTH'
+}
 
 export enum IGender {
   Female = 'FEMALE',
@@ -343,6 +349,7 @@ export type IStrengthExerciseSet = {
 };
 
 export type IStrengthExerciseSetInput = {
+  id: Scalars['ID']['input'];
   reps?: InputMaybe<IParameterInput>;
   rest?: InputMaybe<IParameterInput>;
   times?: InputMaybe<IParameterInput>;

@@ -8,11 +8,11 @@ input CreateWorkoutInput {
   exercises: [CreateExerciseInput!]!
   trainerId: ID!
   memberId: ID
-  clubId: ID!
 }
 
 input CreateExerciseInput {
     name: String!
+    type: ExerciseType!
     # common
     notes: String
     machine_number: String
@@ -26,6 +26,7 @@ input CreateExerciseInput {
 }
 
 input StrengthExerciseSetInput {
+  id: ID!
   reps: ParameterInput
   rest: ParameterInput
   weight: ParameterInput
@@ -33,6 +34,7 @@ input StrengthExerciseSetInput {
 }
 
 input CardioExerciseIntervalInput {
+  id: ID!
   duration: ParameterInput
   distance: ParameterInput
   tempo: ParameterInput
@@ -47,4 +49,9 @@ input ParameterInput {
     max: Float
     val: Float
     unit: String
+}
+
+enum ExerciseType {
+  STRENGTH
+  CARDIO
 }
