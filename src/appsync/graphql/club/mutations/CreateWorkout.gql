@@ -11,6 +11,8 @@ input CreateWorkoutInput {
 }
 
 input CreateExerciseInput {
+    id: ID!
+    xid: ID!
     name: String!
     type: ExerciseType!
     # common
@@ -45,9 +47,8 @@ input CardioExerciseIntervalInput {
 }
 
 input ParameterInput {
-    min: Float
-    max: Float
     val: Float
+    max: Float
     unit: String
 }
 

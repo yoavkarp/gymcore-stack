@@ -24,7 +24,7 @@ type StrengthExercise {
   angle: Parameter
   resistance: Parameter
   # strength
-  sets: [StrengthExerciseSet]
+  sets: [StrengthExerciseSet]!
 }
 
 type CardioExercise {
@@ -38,7 +38,7 @@ type CardioExercise {
   angle: Parameter
   resistance: Parameter
   # cardio
-  intervals: [CardioExerciseInterval]
+  intervals: [CardioExerciseInterval]!
 }
 
 type StrengthExerciseSet {
@@ -59,14 +59,12 @@ type CardioExerciseInterval {
 }
 
 type Parameter {
-  min: Float
-  max: Float
   val: Float
+  max: Float
   unit: String
 }
 
 fragment ParameterFragment on Parameter {
-  min
   max
   val
   unit

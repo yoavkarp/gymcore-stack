@@ -28,7 +28,7 @@ export type ICardioExercise = {
   __typename?: 'CardioExercise';
   angle?: Maybe<IParameter>;
   id: Scalars['ID']['output'];
-  intervals?: Maybe<Array<Maybe<ICardioExerciseInterval>>>;
+  intervals: Array<Maybe<ICardioExerciseInterval>>;
   machine_number?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
   notes?: Maybe<Scalars['String']['output']>;
@@ -80,6 +80,7 @@ export type IClubConnection = {
 
 export type ICreateExerciseInput = {
   angle?: InputMaybe<IParameterInput>;
+  id: Scalars['ID']['input'];
   intervals?: InputMaybe<Array<InputMaybe<ICardioExerciseIntervalInput>>>;
   machine_number?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
@@ -88,6 +89,7 @@ export type ICreateExerciseInput = {
   seat_height?: InputMaybe<Scalars['String']['input']>;
   sets?: InputMaybe<Array<InputMaybe<IStrengthExerciseSetInput>>>;
   type: IExerciseType;
+  xid: Scalars['ID']['input'];
 };
 
 export type ICreateMeasurementInput = {
@@ -270,14 +272,12 @@ export type IMutationUpdateMemberProfileArgs = {
 export type IParameter = {
   __typename?: 'Parameter';
   max?: Maybe<Scalars['Float']['output']>;
-  min?: Maybe<Scalars['Float']['output']>;
   unit?: Maybe<Scalars['String']['output']>;
   val?: Maybe<Scalars['Float']['output']>;
 };
 
 export type IParameterInput = {
   max?: InputMaybe<Scalars['Float']['input']>;
-  min?: InputMaybe<Scalars['Float']['input']>;
   unit?: InputMaybe<Scalars['String']['input']>;
   val?: InputMaybe<Scalars['Float']['input']>;
 };
@@ -336,7 +336,7 @@ export type IStrengthExercise = {
   notes?: Maybe<Scalars['String']['output']>;
   resistance?: Maybe<IParameter>;
   seat_height?: Maybe<Scalars['String']['output']>;
-  sets?: Maybe<Array<Maybe<IStrengthExerciseSet>>>;
+  sets: Array<Maybe<IStrengthExerciseSet>>;
   xid: Scalars['ID']['output'];
 };
 

@@ -19,7 +19,7 @@
     "ExportsOutputRefGoalTableConstructGoalTable4B21C4DA148CEACC": "GoalTable"
   },
   "DevCDKStack": {
-    "awssdklayerLayerPathD25219AF": "src\\layers\\aws-sdk-layer",
+    "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
     "UserPoolClientId": "4ag9ln84hh390vgooirokuesh7",
     "UserPoolId": "eu-central-1_jojyHt59I",
     "tenantName": "Dev_Israel",
