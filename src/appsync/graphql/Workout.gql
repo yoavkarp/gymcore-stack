@@ -1,6 +1,8 @@
 type Workout implements Document {
   id: ID!
   tenantId: ID!
+  clubId: ID!
+  
   created_at: AWSDateTime!
   updated_at: AWSDateTime!
 

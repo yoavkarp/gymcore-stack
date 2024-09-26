@@ -13,5 +13,8 @@ export const resolver: ResolverType<IMutation> = {
     },
     createTrainer: {
         dataSourceName: "api"
+    },
+    createWorkout: {
+        dataSourceName: "api"
     }
 }

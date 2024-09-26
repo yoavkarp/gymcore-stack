@@ -4,6 +4,7 @@
     "ExportsOutputFnGetAttTrainerTableConstructTrainerTableD2C070DEArn340101E0": "arn:aws:dynamodb:eu-central-1:181032208684:table/TrainerTable",
     "ExportsOutputFnGetAttEventTableConstructEventTableE5522A0CArn6966C042": "arn:aws:dynamodb:eu-central-1:181032208684:table/EventTable",
     "ExportsOutputFnGetAttGoalTableConstructGoalTable4B21C4DAArnE6FBD9D9": "arn:aws:dynamodb:eu-central-1:181032208684:table/GoalTable",
+    "ExportsOutputFnGetAttWorkoutTableConstructWorkoutTableE11DE2CCArn7E5D6F43": "arn:aws:dynamodb:eu-central-1:181032208684:table/WorkoutTable",
     "ExportsOutputFnGetAttClubTableConstructClubTableB990B280ArnD8EB3EE8": "arn:aws:dynamodb:eu-central-1:181032208684:table/ClubTable",
     "ExportsOutputRefTrainerTableConstructTrainerTableD2C070DE5596FF4F": "TrainerTable",
     "ExportsOutputRefMeasurementTableConstructMeasurementTable2D6B5B46881295A1": "MeasurementTable",
@@ -19,7 +20,7 @@
     "ExportsOutputRefGoalTableConstructGoalTable4B21C4DA148CEACC": "GoalTable"
   },
   "DevCDKStack": {
-    "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
+    "awssdklayerLayerPathD25219AF": "src\\layers\\aws-sdk-layer",
     "UserPoolClientId": "4ag9ln84hh390vgooirokuesh7",
     "UserPoolId": "eu-central-1_jojyHt59I",
     "tenantName": "Dev_Israel",

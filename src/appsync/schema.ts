@@ -310,7 +310,7 @@ export type IQueryGetTrainerByIdArgs = {
 
 
 export type IQueryGetWorkoutByIdArgs = {
-  id: Scalars['ID']['input'];
+  workoutId: Scalars['ID']['input'];
 };
 
 
@@ -399,6 +399,7 @@ export type IUpdateMemberProfileInput = {
 
 export type IWorkout = IDocument & {
   __typename?: 'Workout';
+  clubId: Scalars['ID']['output'];
   created_at: Scalars['AWSDateTime']['output'];
   exercises: Array<IExercise>;
   id: Scalars['ID']['output'];

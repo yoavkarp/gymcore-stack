@@ -2,5 +2,5 @@ type Query {
     getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
     getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
     getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
-    getWorkoutById(id: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
+    getWorkoutById(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
 }

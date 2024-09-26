@@ -32,6 +32,32 @@ type GoalConnection {
   nextToken: String
 }
 
+type Measurement implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  memberId: ID!
+  clubId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+}
+
+type MeasurementConnection {
+  items: [Measurement!]
+  nextToken: String
+}
+
+input CreateMeasurementInput {
+  memberId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+}
+
 type Mutation {
   createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
   createMeasurementForMember(memberId: ID!, input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
@@ -46,10 +72,44 @@ type Query {
   getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
   getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
   getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
-  getWorkoutById(id: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
+  getWorkoutById(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
   getClubTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
   getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
+}
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Tenant {
+  id: ID!
+  name: String!
+  email: AWSEmail!
+  phone_number: AWSPhone!
+  profile_picture: AWSURL!
+  address: String!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
 }
 
 type Trainer implements Document {
@@ -73,6 +133,7 @@ type TrainerConnection {
 type Workout implements Document {
   id: ID!
   tenantId: ID!
+  clubId: ID!
   created_at: AWSDateTime!
   updated_at: AWSDateTime!
   name: String!
@@ -129,66 +190,6 @@ type Parameter {
   val: Float
   max: Float
   unit: String
-}
-
-type Measurement implements Document {
-  id: ID!
-  tenantId: ID!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
-  memberId: ID!
-  clubId: ID
-  weight: Float
-  height: Float
-  fat: Float
-  heart_rate: Float
-}
-
-type MeasurementConnection {
-  items: [Measurement!]
-  nextToken: String
-}
-
-input CreateMeasurementInput {
-  memberId: ID
-  weight: Float
-  height: Float
-  fat: Float
-  heart_rate: Float
-}
-
-scalar AWSTimestamp
-
-scalar AWSURL
-
-scalar AWSJSON
-
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
-}
-
-type Tenant {
-  id: ID!
-  name: String!
-  email: AWSEmail!
-  phone_number: AWSPhone!
-  profile_picture: AWSURL!
-  address: String!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
 }
 
 type Club implements Document {
