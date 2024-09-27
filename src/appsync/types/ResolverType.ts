@@ -13,5 +13,6 @@ export type ResolverData = {
     "MeasurementTable" |
     "MemberTable" |
     "TenantTable" |
-    "GoalTable"
+    "GoalTable" |
+    "WorkoutTable"
 }

@@ -6,11 +6,17 @@ type Workout implements Document {
   created_at: AWSDateTime!
   updated_at: AWSDateTime!
 
-  name: String!
-  notes: String
-  exercises: [Exercise!]!
   trainerId: ID!
   memberId: ID
+
+  name: String!
+  notes: String
+  exercises: [Exercise!]
+}
+
+type WorkoutConnection {
+  items: [Workout!]
+  nextToken: String
 }
 
 union Exercise = StrengthExercise | CardioExercise
@@ -26,7 +32,7 @@ type StrengthExercise {
   angle: Parameter
   resistance: Parameter
   # strength
-  sets: [StrengthExerciseSet]!
+  sets: [StrengthExerciseSet]
 }
 
 type CardioExercise {
@@ -40,10 +46,11 @@ type CardioExercise {
   angle: Parameter
   resistance: Parameter
   # cardio
-  intervals: [CardioExerciseInterval]!
+  intervals: [CardioExerciseInterval]
 }
 
 type StrengthExerciseSet {
+  id: ID!
   reps: Parameter
   rest: Parameter
   weight: Parameter
@@ -51,6 +58,7 @@ type StrengthExerciseSet {
 }
 
 type CardioExerciseInterval {
+  id: ID!
   duration: Parameter
   distance: Parameter
   tempo: Parameter

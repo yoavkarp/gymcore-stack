@@ -24,11 +24,17 @@ export type Scalars = {
   AWSURL: { input: string; output: string; }
 };
 
+export type IAddExerciseToWorkoutInput = {
+  name: Scalars['String']['input'];
+  type: IExerciseType;
+  xid: Scalars['ID']['input'];
+};
+
 export type ICardioExercise = {
   __typename?: 'CardioExercise';
   angle?: Maybe<IParameter>;
   id: Scalars['ID']['output'];
-  intervals: Array<Maybe<ICardioExerciseInterval>>;
+  intervals?: Maybe<Array<Maybe<ICardioExerciseInterval>>>;
   machine_number?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
   notes?: Maybe<Scalars['String']['output']>;
@@ -42,21 +48,11 @@ export type ICardioExerciseInterval = {
   angle?: Maybe<IParameter>;
   distance?: Maybe<IParameter>;
   duration?: Maybe<IParameter>;
+  id: Scalars['ID']['output'];
   intensity?: Maybe<IParameter>;
   resistance?: Maybe<IParameter>;
   rest?: Maybe<IParameter>;
   tempo?: Maybe<IParameter>;
-};
-
-export type ICardioExerciseIntervalInput = {
-  angle?: InputMaybe<IParameterInput>;
-  distance?: InputMaybe<IParameterInput>;
-  duration?: InputMaybe<IParameterInput>;
-  id: Scalars['ID']['input'];
-  intensity?: InputMaybe<IParameterInput>;
-  resistance?: InputMaybe<IParameterInput>;
-  rest?: InputMaybe<IParameterInput>;
-  tempo?: InputMaybe<IParameterInput>;
 };
 
 export type IClub = IDocument & {
@@ -76,20 +72,6 @@ export type IClubConnection = {
   __typename?: 'ClubConnection';
   items?: Maybe<Array<IClub>>;
   nextToken?: Maybe<Scalars['String']['output']>;
-};
-
-export type ICreateExerciseInput = {
-  angle?: InputMaybe<IParameterInput>;
-  id: Scalars['ID']['input'];
-  intervals?: InputMaybe<Array<InputMaybe<ICardioExerciseIntervalInput>>>;
-  machine_number?: InputMaybe<Scalars['String']['input']>;
-  name: Scalars['String']['input'];
-  notes?: InputMaybe<Scalars['String']['input']>;
-  resistance?: InputMaybe<IParameterInput>;
-  seat_height?: InputMaybe<Scalars['String']['input']>;
-  sets?: InputMaybe<Array<InputMaybe<IStrengthExerciseSetInput>>>;
-  type: IExerciseType;
-  xid: Scalars['ID']['input'];
 };
 
 export type ICreateMeasurementInput = {
@@ -127,10 +109,9 @@ export type ICreateTrainerInput = {
 };
 
 export type ICreateWorkoutInput = {
-  exercises: Array<ICreateExerciseInput>;
   memberId?: InputMaybe<Scalars['ID']['input']>;
   name: Scalars['String']['input'];
-  notes?: InputMaybe<Scalars['String']['input']>;
+  planId?: InputMaybe<Scalars['ID']['input']>;
   trainerId: Scalars['ID']['input'];
 };
 
@@ -177,6 +158,16 @@ export type IGoalConnection = {
   nextToken?: Maybe<Scalars['String']['output']>;
 };
 
+export type IIntervalInput = {
+  angle?: InputMaybe<IParameterInput>;
+  distance?: InputMaybe<IParameterInput>;
+  duration?: InputMaybe<IParameterInput>;
+  intensity?: InputMaybe<IParameterInput>;
+  resistance?: InputMaybe<IParameterInput>;
+  rest?: InputMaybe<IParameterInput>;
+  tempo?: InputMaybe<IParameterInput>;
+};
+
 export type IMeasurement = IDocument & {
   __typename?: 'Measurement';
   clubId?: Maybe<Scalars['ID']['output']>;
@@ -210,6 +201,7 @@ export type IMember = IDocument & {
   name?: Maybe<Scalars['String']['output']>;
   phone_number?: Maybe<Scalars['AWSPhone']['output']>;
   profile_picture?: Maybe<Scalars['AWSURL']['output']>;
+  profile_workouts?: Maybe<IWorkoutConnection>;
   registered?: Maybe<Scalars['Boolean']['output']>;
   status?: Maybe<Scalars['AWSJSON']['output']>;
   tenantId: Scalars['ID']['output'];
@@ -224,13 +216,40 @@ export type IMemberConnection = {
 
 export type IMutation = {
   __typename?: 'Mutation';
+  addExerciseToWorkout?: Maybe<IWorkout>;
+  addIntervalToExercise?: Maybe<IWorkout>;
+  addSetToExercise?: Maybe<IWorkout>;
   createMeasurement?: Maybe<IMeasurement>;
   createMeasurementForMember?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
   createTrainer?: Maybe<ITrainer>;
   createWorkout?: Maybe<IWorkout>;
   register?: Maybe<IMember>;
+  updateExerciseInWorkout?: Maybe<IWorkout>;
+  updateIntervalInExercise?: Maybe<IWorkout>;
   updateMemberProfile?: Maybe<IMember>;
+  updateSetInExercise?: Maybe<IWorkout>;
+  updateWorkout?: Maybe<IWorkout>;
+};
+
+
+export type IMutationAddExerciseToWorkoutArgs = {
+  input: IAddExerciseToWorkoutInput;
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationAddIntervalToExerciseArgs = {
+  exerciseId: Scalars['ID']['input'];
+  input: IIntervalInput;
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationAddSetToExerciseArgs = {
+  exerciseId: Scalars['ID']['input'];
+  input: ISetInput;
+  workoutId: Scalars['ID']['input'];
 };
 
 
@@ -265,8 +284,37 @@ export type IMutationRegisterArgs = {
 };
 
 
+export type IMutationUpdateExerciseInWorkoutArgs = {
+  exerciseId: Scalars['ID']['input'];
+  input: IUpdateExerciseInWorkoutInput;
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationUpdateIntervalInExerciseArgs = {
+  exerciseId: Scalars['ID']['input'];
+  input: IIntervalInput;
+  intervalId: Scalars['ID']['input'];
+  workoutId: Scalars['ID']['input'];
+};
+
+
 export type IMutationUpdateMemberProfileArgs = {
   input: IUpdateMemberProfileInput;
+};
+
+
+export type IMutationUpdateSetInExerciseArgs = {
+  exerciseId: Scalars['ID']['input'];
+  input: ISetInput;
+  setId: Scalars['ID']['input'];
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationUpdateWorkoutArgs = {
+  input: IUpdateWorkoutInput;
+  workoutId: Scalars['ID']['input'];
 };
 
 export type IParameter = {
@@ -327,6 +375,13 @@ export type IRegisterInput = {
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
 };
 
+export type ISetInput = {
+  reps?: InputMaybe<IParameterInput>;
+  rest?: InputMaybe<IParameterInput>;
+  times?: InputMaybe<IParameterInput>;
+  weight?: InputMaybe<IParameterInput>;
+};
+
 export type IStrengthExercise = {
   __typename?: 'StrengthExercise';
   angle?: Maybe<IParameter>;
@@ -336,24 +391,17 @@ export type IStrengthExercise = {
   notes?: Maybe<Scalars['String']['output']>;
   resistance?: Maybe<IParameter>;
   seat_height?: Maybe<Scalars['String']['output']>;
-  sets: Array<Maybe<IStrengthExerciseSet>>;
+  sets?: Maybe<Array<Maybe<IStrengthExerciseSet>>>;
   xid: Scalars['ID']['output'];
 };
 
 export type IStrengthExerciseSet = {
   __typename?: 'StrengthExerciseSet';
+  id: Scalars['ID']['output'];
   reps?: Maybe<IParameter>;
   rest?: Maybe<IParameter>;
   times?: Maybe<IParameter>;
   weight?: Maybe<IParameter>;
-};
-
-export type IStrengthExerciseSetInput = {
-  id: Scalars['ID']['input'];
-  reps?: InputMaybe<IParameterInput>;
-  rest?: InputMaybe<IParameterInput>;
-  times?: InputMaybe<IParameterInput>;
-  weight?: InputMaybe<IParameterInput>;
 };
 
 export type ITenant = {
@@ -388,6 +436,17 @@ export type ITrainerConnection = {
   nextToken?: Maybe<Scalars['String']['output']>;
 };
 
+export type IUpdateExerciseInWorkoutInput = {
+  angle?: InputMaybe<IParameterInput>;
+  machine_number?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  resistance?: InputMaybe<IParameterInput>;
+  seat_height?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<IExerciseType>;
+  xid?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type IUpdateMemberProfileInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate?: InputMaybe<Scalars['AWSDate']['input']>;
@@ -397,11 +456,16 @@ export type IUpdateMemberProfileInput = {
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
 };
 
+export type IUpdateWorkoutInput = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type IWorkout = IDocument & {
   __typename?: 'Workout';
   clubId: Scalars['ID']['output'];
   created_at: Scalars['AWSDateTime']['output'];
-  exercises: Array<IExercise>;
+  exercises?: Maybe<Array<IExercise>>;
   id: Scalars['ID']['output'];
   memberId?: Maybe<Scalars['ID']['output']>;
   name: Scalars['String']['output'];
@@ -409,4 +473,10 @@ export type IWorkout = IDocument & {
   tenantId: Scalars['ID']['output'];
   trainerId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
+};
+
+export type IWorkoutConnection = {
+  __typename?: 'WorkoutConnection';
+  items?: Maybe<Array<IWorkout>>;
+  nextToken?: Maybe<Scalars['String']['output']>;
 };

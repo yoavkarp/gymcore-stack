@@ -32,6 +32,120 @@ type GoalConnection {
   nextToken: String
 }
 
+type Mutation {
+  createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
+  createMeasurementForMember(memberId: ID!, input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
+  createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
+  createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
+  createWorkout(input: CreateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateWorkout(workoutId: ID!, input: UpdateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addExerciseToWorkout(workoutId: ID!, input: AddExerciseToWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateExerciseInWorkout(workoutId: ID!, exerciseId: ID!, input: UpdateExerciseInWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addSetToExercise(workoutId: ID!, exerciseId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addIntervalToExercise(workoutId: ID!, exerciseId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateSetInExercise(workoutId: ID!, exerciseId: ID!, setId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateIntervalInExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
+  register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
+  updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
+}
+
+type Query {
+  getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
+  getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
+  getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
+  getWorkoutById(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
+  getClubTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
+  getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+  searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
+}
+
+type Trainer implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  phone_number: AWSPhone!
+  name: String!
+  email: AWSEmail
+  birthdate: AWSDate!
+  gender: Gender!
+  address: String
+}
+
+type TrainerConnection {
+  items: [Trainer!]
+  nextToken: String
+}
+
+type Workout implements Document {
+  id: ID!
+  tenantId: ID!
+  clubId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  trainerId: ID!
+  memberId: ID
+  name: String!
+  notes: String
+  exercises: [Exercise!]
+}
+
+type WorkoutConnection {
+  items: [Workout!]
+  nextToken: String
+}
+
+union Exercise = StrengthExercise | CardioExercise
+
+type StrengthExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: Parameter
+  resistance: Parameter
+  sets: [StrengthExerciseSet]
+}
+
+type CardioExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: Parameter
+  resistance: Parameter
+  intervals: [CardioExerciseInterval]
+}
+
+type StrengthExerciseSet {
+  id: ID!
+  reps: Parameter
+  rest: Parameter
+  weight: Parameter
+  times: Parameter
+}
+
+type CardioExerciseInterval {
+  id: ID!
+  duration: Parameter
+  distance: Parameter
+  tempo: Parameter
+  intensity: Parameter
+  angle: Parameter
+  resistance: Parameter
+  rest: Parameter
+}
+
+type Parameter {
+  val: Float
+  max: Float
+  unit: String
+}
+
 type Measurement implements Document {
   id: ID!
   tenantId: ID!
@@ -56,26 +170,6 @@ input CreateMeasurementInput {
   height: Float
   fat: Float
   heart_rate: Float
-}
-
-type Mutation {
-  createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
-  createMeasurementForMember(memberId: ID!, input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
-  createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
-  createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
-  createWorkout(input: CreateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
-  register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
-  updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
-}
-
-type Query {
-  getClubById(clubId: ID!): Club @aws_auth(cognito_groups: ["club", "member"])
-  getTrainerById(trainerId: ID!): Trainer @aws_auth(cognito_groups: ["club", "member"])
-  getTenant: Tenant @aws_auth(cognito_groups: ["club", "member"])
-  getWorkoutById(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
-  getClubTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
-  getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
-  searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
 }
 
 scalar AWSTimestamp
@@ -112,86 +206,6 @@ type Tenant {
   updated_at: AWSDateTime!
 }
 
-type Trainer implements Document {
-  id: ID!
-  tenantId: ID!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
-  phone_number: AWSPhone!
-  name: String!
-  email: AWSEmail
-  birthdate: AWSDate!
-  gender: Gender!
-  address: String
-}
-
-type TrainerConnection {
-  items: [Trainer!]
-  nextToken: String
-}
-
-type Workout implements Document {
-  id: ID!
-  tenantId: ID!
-  clubId: ID!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
-  name: String!
-  notes: String
-  exercises: [Exercise!]!
-  trainerId: ID!
-  memberId: ID
-}
-
-union Exercise = StrengthExercise | CardioExercise
-
-type StrengthExercise {
-  id: ID!
-  xid: ID!
-  name: String!
-  notes: String
-  machine_number: String
-  seat_height: String
-  angle: Parameter
-  resistance: Parameter
-  sets: [StrengthExerciseSet]!
-}
-
-type CardioExercise {
-  id: ID!
-  xid: ID!
-  name: String!
-  notes: String
-  machine_number: String
-  seat_height: String
-  angle: Parameter
-  resistance: Parameter
-  intervals: [CardioExerciseInterval]!
-}
-
-type StrengthExerciseSet {
-  reps: Parameter
-  rest: Parameter
-  weight: Parameter
-  times: Parameter
-}
-
-type CardioExerciseInterval {
-  duration: Parameter
-  distance: Parameter
-  tempo: Parameter
-  intensity: Parameter
-  angle: Parameter
-  resistance: Parameter
-  rest: Parameter
-}
-
-type Parameter {
-  val: Float
-  max: Float
-  unit: String
-}
-
 type Club implements Document {
   id: ID!
   tenantId: ID!
@@ -225,6 +239,7 @@ type Member implements Document {
   status: AWSJSON
   measurement: Measurement
   goal: Goal
+  profile_workouts: WorkoutConnection
 }
 
 type MemberConnection {
@@ -258,38 +273,43 @@ input CreateTrainerInput {
   address: String
 }
 
-input CreateWorkoutInput {
-  name: String!
+input UpdateWorkoutInput {
+  name: String
   notes: String
-  exercises: [CreateExerciseInput!]!
-  trainerId: ID!
-  memberId: ID
 }
 
-input CreateExerciseInput {
-  id: ID!
+input CreateWorkoutInput {
+  name: String!
+  trainerId: ID!
+  memberId: ID
+  planId: ID
+}
+
+input AddExerciseToWorkoutInput {
   xid: ID!
   name: String!
   type: ExerciseType!
+}
+
+input UpdateExerciseInWorkoutInput {
+  xid: ID
+  name: String
+  type: ExerciseType
   notes: String
   machine_number: String
   seat_height: String
   angle: ParameterInput
   resistance: ParameterInput
-  sets: [StrengthExerciseSetInput]
-  intervals: [CardioExerciseIntervalInput]
 }
 
-input StrengthExerciseSetInput {
-  id: ID!
+input SetInput {
   reps: ParameterInput
   rest: ParameterInput
   weight: ParameterInput
   times: ParameterInput
 }
 
-input CardioExerciseIntervalInput {
-  id: ID!
+input IntervalInput {
   duration: ParameterInput
   distance: ParameterInput
   tempo: ParameterInput

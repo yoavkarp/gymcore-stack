@@ -15,5 +15,10 @@ export const resolver: ResolverType<IMember> = {
         dataSourceName: "GoalTable",
         req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Member.Goal.req.vtl")),
         res: MappingTemplate.fromString(oneQueryResult),
+    },
+    profile_workouts: {
+        dataSourceName: "WorkoutTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Member.ProfileWorkouts.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
     }
 }

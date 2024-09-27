@@ -34,6 +34,22 @@ const config: CodegenConfig = {
                 },
                 typesPrefix: "I",
             }
+        },
+        [path.join("src", "appsync", "schema.ts")]: {
+            plugins: ["typescript", "typescript-operations", "typescript-react-apollo"],
+            config: {
+                scalars: {
+                    "AWSDate": "string",
+                    "AWSDateTime": "string",
+                    "AWSTime": "string",
+                    "AWSJSON": "{ [x: string]: any }",
+                    "AWSPhone": "string",
+                    "AWSURL": "string",
+                    "AWSEmail": "string",
+                    "AWSTimestamp": "number"
+                },
+                typesPrefix: "I",
+            }
         }
     },
 };

@@ -16,5 +16,26 @@ export const resolver: ResolverType<IMutation> = {
     },
     createWorkout: {
         dataSourceName: "api"
+    },
+    addExerciseToWorkout: {
+        dataSourceName: "api"
+    },
+    updateExerciseInWorkout: {
+        dataSourceName: "api"
+    },
+    addSetToExercise: {
+        dataSourceName: "api"
+    },
+    updateSetInExercise: {
+        dataSourceName: "api"
+    },
+    addIntervalToExercise: {
+        dataSourceName: "api"
+    },
+    updateIntervalInExercise: {
+        dataSourceName: "api"
+    },
+    updateWorkout: {
+        dataSourceName: "api"
     }
 }

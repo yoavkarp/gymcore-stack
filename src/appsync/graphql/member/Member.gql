@@ -18,6 +18,8 @@ type Member implements Document {
 
     measurement: Measurement
     goal: Goal
+
+    profile_workouts: WorkoutConnection
 }
 
 type MemberConnection {

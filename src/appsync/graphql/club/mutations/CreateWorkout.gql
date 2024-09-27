@@ -1,42 +1,52 @@
 extend type Mutation {
   createWorkout(input: CreateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateWorkout(workoutId: ID!, input: UpdateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addExerciseToWorkout(workoutId: ID!, input: AddExerciseToWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateExerciseInWorkout(workoutId: ID!, exerciseId: ID!, input: UpdateExerciseInWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addSetToExercise(workoutId: ID!, exerciseId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addIntervalToExercise(workoutId: ID!, exerciseId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateSetInExercise(workoutId: ID!, exerciseId: ID!, setId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateIntervalInExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
+}
+
+input UpdateWorkoutInput {
+  name: String
+  notes: String
 }
 
 input CreateWorkoutInput {
   name: String!
-  notes: String
-  exercises: [CreateExerciseInput!]!
   trainerId: ID!
   memberId: ID
+  planId: ID
 }
 
-input CreateExerciseInput {
-    id: ID!
-    xid: ID!
-    name: String!
-    type: ExerciseType!
-    # common
-    notes: String
-    machine_number: String
-    seat_height: String
-    angle: ParameterInput
-    resistance: ParameterInput
-    # strength
-    sets: [StrengthExerciseSetInput]
-    # cardio
-    intervals: [CardioExerciseIntervalInput]
+input AddExerciseToWorkoutInput {
+  xid: ID!
+  name: String!
+  type: ExerciseType!
 }
 
-input StrengthExerciseSetInput {
-  id: ID!
+input UpdateExerciseInWorkoutInput {
+  xid: ID
+  name: String
+  type: ExerciseType
+  # common
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ParameterInput
+  resistance: ParameterInput
+}
+
+input SetInput {
   reps: ParameterInput
   rest: ParameterInput
   weight: ParameterInput
   times: ParameterInput
 }
 
-input CardioExerciseIntervalInput {
-  id: ID!
+input IntervalInput {
   duration: ParameterInput
   distance: ParameterInput
   tempo: ParameterInput

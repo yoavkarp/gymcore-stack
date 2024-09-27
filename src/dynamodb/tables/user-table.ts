@@ -24,19 +24,26 @@ export class UserTableConstruct extends Construct {
             stream: dynamodb.StreamViewType.NEW_IMAGE
         })
 
-        // const userTableServiceRole = new Role(this, 'UserTableServiceRole', {
-        //     assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
-        // })
+        this.table.addGlobalSecondaryIndex({
+            indexName: "trainers-by-club-id",
+            partitionKey: { name: 'tenantId', type: AttributeType.STRING },
+            sortKey: { name: 'clubId', type: AttributeType.STRING },
+        })
 
-        // userTableServiceRole.addToPolicy(
-        //     new PolicyStatement({
-        //         effect: Effect.ALLOW,
-        //         resources: [
-        //             `${this.table.tableArn}/index/???`,
-        //         ],
-        //         actions: ['dymamodb:Query'],
-        //     })
-        // )
+        const trainerTableServiceRole = new Role(this, 'TrainerTableServiceRole', {
+            assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
+        })
+
+        trainerTableServiceRole.addToPolicy(
+            new PolicyStatement({
+                effect: Effect.ALLOW,
+                resources: [
+                    `${this.table.tableArn}/index/trainers-by-club-id`,
+                ],
+                actions: ['dymamodb:Query'],
+            })
+        )
+
 
     }
 }
