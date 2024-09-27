@@ -224,6 +224,10 @@ export type IMutation = {
   createMember?: Maybe<IMember>;
   createTrainer?: Maybe<ITrainer>;
   createWorkout?: Maybe<IWorkout>;
+  deleteExerciseFromWorkout?: Maybe<IWorkout>;
+  deleteIntervalFromExercise?: Maybe<IWorkout>;
+  deleteSetFromExercise?: Maybe<IWorkout>;
+  deleteWorkout?: Maybe<IWorkout>;
   register?: Maybe<IMember>;
   updateExerciseInWorkout?: Maybe<IWorkout>;
   updateIntervalInExercise?: Maybe<IWorkout>;
@@ -276,6 +280,31 @@ export type IMutationCreateTrainerArgs = {
 
 export type IMutationCreateWorkoutArgs = {
   input: ICreateWorkoutInput;
+};
+
+
+export type IMutationDeleteExerciseFromWorkoutArgs = {
+  exerciseId: Scalars['ID']['input'];
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationDeleteIntervalFromExerciseArgs = {
+  exerciseId: Scalars['ID']['input'];
+  intervalId: Scalars['ID']['input'];
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationDeleteSetFromExerciseArgs = {
+  exerciseId: Scalars['ID']['input'];
+  setId: Scalars['ID']['input'];
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationDeleteWorkoutArgs = {
+  workoutId: Scalars['ID']['input'];
 };
 
 
