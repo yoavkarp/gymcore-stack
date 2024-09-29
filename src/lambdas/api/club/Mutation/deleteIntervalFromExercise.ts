@@ -22,7 +22,15 @@ export const handler: AppSyncResolver<IMutationDeleteIntervalFromExerciseArgs, I
 
     const prev = prevItem as IWorkout;
     const exerciseIndex = prev.exercises?.findIndex((exercise) => exercise.id === exerciseId) || -1;
-    const intervalIndex = (prev.exercises?.[exerciseIndex] as ICardioExercise).intervals?.findIndex((interval) => interval?.id === intervalId) || -1;
+    if (typeof (exerciseIndex) !== 'number' || exerciseIndex === -1) {
+        return callback(new Error('Exercise not found'))
+    }
+
+    const intervalIndex = (prev.exercises?.[exerciseIndex] as ICardioExercise).intervals?.findIndex((interval) => interval?.id === intervalId);
+
+    if (typeof (intervalIndex) !== 'number' || intervalIndex === -1) {
+        return callback(new Error('Set not found'))
+    }
 
     // define username
     const { Attributes } = await dynamodb.update({
@@ -31,7 +39,13 @@ export const handler: AppSyncResolver<IMutationDeleteIntervalFromExerciseArgs, I
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `REMOVE exercises[${exerciseIndex}].intervals[${intervalIndex}], SET #updated_at = :updated_at`, // Replace '2' with the index of the item to remove
+        UpdateExpression: `REMOVE exercises[${exerciseIndex}].intervals[${intervalIndex}] SET #updated_at = :updated_at`, // Replace '2' with the index of the item to remove
+        ExpressionAttributeValues: {
+            ':updated_at': new Date().toISOString(),
+        },
+        ExpressionAttributeNames: {
+            '#updated_at': 'updated_at',
+        },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes      
     }).promise()
 

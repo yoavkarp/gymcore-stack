@@ -40,10 +40,14 @@ export const handler: AppSyncResolver<IMutationDeleteSetFromExerciseArgs, IMutat
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `REMOVE #exercises[${exerciseIndex}].#sets[${setIndex}], SET #updated_at = :updated_at`, // Replace '2' with the index of the item to remove
+        UpdateExpression: `REMOVE #exercises[${exerciseIndex}].#sets[${setIndex}] SET #updated_at = :updated_at`, // Replace '2' with the index of the item to remove
         ExpressionAttributeNames: {
             "#exercises": "exercises",
-            "#sets": "sets"
+            "#sets": "sets",
+            '#updated_at': 'updated_at',
+        },
+        ExpressionAttributeValues: {
+            ':updated_at': new Date().toISOString(),
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     }).promise()

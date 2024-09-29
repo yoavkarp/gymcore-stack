@@ -56,7 +56,15 @@ type StrengthExerciseSet {
   reps: Parameter
   rest: Parameter
   weight: Parameter
-  times: Parameter
+  times: Int
+  dropsets: [StrengthExerciseDropSet!]
+}
+
+type StrengthExerciseDropSet {
+  id: ID!
+  reps: Parameter
+  weight: Parameter
+  times: Int
 }
 
 type CardioExerciseInterval {

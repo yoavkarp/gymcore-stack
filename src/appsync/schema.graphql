@@ -134,7 +134,15 @@ type StrengthExerciseSet {
   reps: Parameter
   rest: Parameter
   weight: Parameter
-  times: Parameter
+  times: Int
+  dropsets: [StrengthExerciseDropSet!]
+}
+
+type StrengthExerciseDropSet {
+  id: ID!
+  reps: Parameter
+  weight: Parameter
+  times: Int
 }
 
 type CardioExerciseInterval {
@@ -297,6 +305,9 @@ input AddExerciseToWorkoutInput {
   xid: ID!
   name: String!
   type: ExerciseType!
+  machine_number: String
+  seat_height: String
+  notes: String
 }
 
 input UpdateExerciseInWorkoutInput {
@@ -306,15 +317,20 @@ input UpdateExerciseInWorkoutInput {
   notes: String
   machine_number: String
   seat_height: String
-  angle: ParameterInput
-  resistance: ParameterInput
 }
 
 input SetInput {
   reps: ParameterInput
   rest: ParameterInput
   weight: ParameterInput
-  times: ParameterInput
+  times: Int
+  dropsets: [StrengthExerciseDropSetInput!]
+}
+
+input StrengthExerciseDropSetInput {
+  reps: ParameterInput
+  weight: ParameterInput
+  times: Int
 }
 
 input IntervalInput {

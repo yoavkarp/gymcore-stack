@@ -25,7 +25,10 @@ export type Scalars = {
 };
 
 export type IAddExerciseToWorkoutInput = {
+  machine_number?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
+  notes?: InputMaybe<Scalars['String']['input']>;
+  seat_height?: InputMaybe<Scalars['String']['input']>;
   type: IExerciseType;
   xid: Scalars['ID']['input'];
 };
@@ -419,9 +422,10 @@ export type IRegisterInput = {
 };
 
 export type ISetInput = {
+  dropsets?: InputMaybe<Array<IStrengthExerciseDropSetInput>>;
   reps?: InputMaybe<IParameterInput>;
   rest?: InputMaybe<IParameterInput>;
-  times?: InputMaybe<IParameterInput>;
+  times?: InputMaybe<Scalars['Int']['input']>;
   weight?: InputMaybe<IParameterInput>;
 };
 
@@ -439,12 +443,27 @@ export type IStrengthExercise = {
   xid: Scalars['ID']['output'];
 };
 
+export type IStrengthExerciseDropSet = {
+  __typename?: 'StrengthExerciseDropSet';
+  id: Scalars['ID']['output'];
+  reps?: Maybe<IParameter>;
+  times?: Maybe<Scalars['Int']['output']>;
+  weight?: Maybe<IParameter>;
+};
+
+export type IStrengthExerciseDropSetInput = {
+  reps?: InputMaybe<IParameterInput>;
+  times?: InputMaybe<Scalars['Int']['input']>;
+  weight?: InputMaybe<IParameterInput>;
+};
+
 export type IStrengthExerciseSet = {
   __typename?: 'StrengthExerciseSet';
+  dropsets?: Maybe<Array<IStrengthExerciseDropSet>>;
   id: Scalars['ID']['output'];
   reps?: Maybe<IParameter>;
   rest?: Maybe<IParameter>;
-  times?: Maybe<IParameter>;
+  times?: Maybe<Scalars['Int']['output']>;
   weight?: Maybe<IParameter>;
 };
 
@@ -481,11 +500,9 @@ export type ITrainerConnection = {
 };
 
 export type IUpdateExerciseInWorkoutInput = {
-  angle?: InputMaybe<IParameterInput>;
   machine_number?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   notes?: InputMaybe<Scalars['String']['input']>;
-  resistance?: InputMaybe<IParameterInput>;
   seat_height?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<IExerciseType>;
   xid?: InputMaybe<Scalars['ID']['input']>;
