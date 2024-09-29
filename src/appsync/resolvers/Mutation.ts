@@ -37,5 +37,20 @@ export const resolver: ResolverType<IMutation> = {
     },
     updateWorkout: {
         dataSourceName: "api"
+    },
+    deleteExerciseFromWorkout: {
+        dataSourceName: "api"
+    },
+    deleteIntervalFromExercise: {
+        dataSourceName: "api"
+    },
+    deleteSetFromExercise: {
+        dataSourceName: "api"
+    },
+    deleteWorkout: {
+        dataSourceName: "api"
+    },
+    addWorkoutToLibrary: {
+        dataSourceName: "api"
     }
 }

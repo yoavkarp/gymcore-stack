@@ -14,6 +14,8 @@ extend type Mutation {
   addIntervalToExercise(workoutId: ID!, exerciseId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
   updateIntervalInExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
   deleteIntervalFromExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+
+  addWorkoutToLibrary(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
 }
 
 input UpdateWorkoutInput {

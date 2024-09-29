@@ -30,7 +30,7 @@ export const handler: AppSyncResolver<IMutationDeleteExerciseFromWorkoutArgs, IM
             id: workoutId
         },
         UpdateExpression: `REMOVE exercises[${exerciseIndex}]`, // Replace '2' with the index of the item to remove
-        ReturnValues: 'UPDATED_NEW', // Returns the updated attributes      
+        ReturnValues: 'ALL_NEW', // Returns the updated attributes      
     }).promise()
 
     return callback(undefined, Attributes as IWorkout);

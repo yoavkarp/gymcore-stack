@@ -25,6 +25,7 @@ type StrengthExercise {
   id: ID!
   xid: ID!
   name: String!
+  type: ExerciseType!
   # common
   notes: String
   machine_number: String
@@ -39,6 +40,7 @@ type CardioExercise {
   id: ID!
   xid: ID!
   name: String!
+  type: ExerciseType!
   # common
   notes: String
   machine_number: String

@@ -15,8 +15,5 @@
     "expressionValues": {
       ":PK": $util.dynamodb.toStringJson("$tenantId#$memberId"),
     }
-  },
-  "filter": {
-    "expression": "attribute_not_exists(completed)",
   }
 }

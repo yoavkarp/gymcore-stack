@@ -27,6 +27,18 @@ export const handler: AppSyncResolver<IMutationUpdateExerciseInWorkoutArgs, IMut
     }).promise()
 
     const indexOfExercise = existItem?.exercises.findIndex((exercise: IExercise) => exercise.id === exerciseId)
+    if (indexOfExercise === -1) {
+        return callback(new Error('Exercise not found'))
+    }
+
+    const workout = existItem as IWorkout;
+    if (!workout.exercises) {
+        return callback(new Error('Workout has no exercises'))
+    }
+
+    const exercise = workout.exercises[indexOfExercise];
+
+    Object.assign(exercise, input);
 
     const Item = {
         TableName: 'WorkoutTable',
@@ -34,19 +46,16 @@ export const handler: AppSyncResolver<IMutationUpdateExerciseInWorkoutArgs, IMut
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#exercises[${indexOfExercise}].${param} = :${param}`).join(', ')}, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${indexOfExercise}] = :newExercise, #updated_at = :updated_at`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ...paramsToUpdate.reduce<any>((acc, param) => {
-                acc[`:${param}`] = input[param as keyof typeof input]
-                return acc
-            }, {})
+            ':newExercise': exercise
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
-            "#exercises": "exercises"
+            '#exercises': 'exercises'
         },
-        ReturnValues: 'UPDATED_NEW', // Returns the updated attributes
+        ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };
 
     // define username

@@ -36,7 +36,7 @@ export const handler: AppSyncResolver<IMutationUpdateWorkoutArgs, IMutation['upd
                 return acc
             }, {})
         },
-        ReturnValues: 'UPDATED_NEW', // Returns the updated attributes
+        ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };
 
     // define username

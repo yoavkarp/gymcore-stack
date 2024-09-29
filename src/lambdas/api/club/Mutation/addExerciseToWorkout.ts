@@ -34,7 +34,7 @@ export const handler: AppSyncResolver<IMutationAddExerciseToWorkoutArgs, IMutati
             '#updated_at': 'updated_at',
             "#exercises": "exercises"
         },
-        ReturnValues: 'UPDATED_NEW', // Returns the updated attributes
+        ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };
 
     // define username

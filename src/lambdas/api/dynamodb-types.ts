@@ -20,7 +20,7 @@ export type DynamoDBUpdate<T = { [x: string]: any }> = DocumentClient.UpdateItem
     UpdateExpression: string,
     ExpressionAttributeValues: { [key: string]: string },
     ExpressionAttributeNames: { [key: string]: string },
-    ReturnValues: "UPDATED_NEW"
+    ReturnValues: "ALL_NEW"
 }
 
 export type DynamoDBGetItem = DocumentClient.GetItemInput & {

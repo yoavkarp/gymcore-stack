@@ -40,6 +40,7 @@ export type ICardioExercise = {
   notes?: Maybe<Scalars['String']['output']>;
   resistance?: Maybe<IParameter>;
   seat_height?: Maybe<Scalars['String']['output']>;
+  type: IExerciseType;
   xid: Scalars['ID']['output'];
 };
 
@@ -219,6 +220,7 @@ export type IMutation = {
   addExerciseToWorkout?: Maybe<IWorkout>;
   addIntervalToExercise?: Maybe<IWorkout>;
   addSetToExercise?: Maybe<IWorkout>;
+  addWorkoutToLibrary?: Maybe<IWorkout>;
   createMeasurement?: Maybe<IMeasurement>;
   createMeasurementForMember?: Maybe<IMeasurement>;
   createMember?: Maybe<IMember>;
@@ -253,6 +255,11 @@ export type IMutationAddIntervalToExerciseArgs = {
 export type IMutationAddSetToExerciseArgs = {
   exerciseId: Scalars['ID']['input'];
   input: ISetInput;
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationAddWorkoutToLibraryArgs = {
   workoutId: Scalars['ID']['input'];
 };
 
@@ -367,6 +374,7 @@ export type IQuery = {
   getTenant?: Maybe<ITenant>;
   getTrainerById?: Maybe<ITrainer>;
   getWorkoutById?: Maybe<IWorkout>;
+  listLibraryWorkouts?: Maybe<IWorkoutConnection>;
   searchMembers?: Maybe<Array<Maybe<IMember>>>;
 };
 
@@ -388,6 +396,12 @@ export type IQueryGetTrainerByIdArgs = {
 
 export type IQueryGetWorkoutByIdArgs = {
   workoutId: Scalars['ID']['input'];
+};
+
+
+export type IQueryListLibraryWorkoutsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  nextToken?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -421,6 +435,7 @@ export type IStrengthExercise = {
   resistance?: Maybe<IParameter>;
   seat_height?: Maybe<Scalars['String']['output']>;
   sets?: Maybe<Array<Maybe<IStrengthExerciseSet>>>;
+  type: IExerciseType;
   xid: Scalars['ID']['output'];
 };
 

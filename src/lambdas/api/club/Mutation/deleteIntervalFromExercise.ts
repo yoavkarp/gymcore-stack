@@ -31,8 +31,8 @@ export const handler: AppSyncResolver<IMutationDeleteIntervalFromExerciseArgs, I
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `REMOVE exercises[${exerciseIndex}].intervals[${intervalIndex}]`, // Replace '2' with the index of the item to remove
-        ReturnValues: 'UPDATED_NEW', // Returns the updated attributes      
+        UpdateExpression: `REMOVE exercises[${exerciseIndex}].intervals[${intervalIndex}], SET #updated_at = :updated_at`, // Replace '2' with the index of the item to remove
+        ReturnValues: 'ALL_NEW', // Returns the updated attributes      
     }).promise()
 
     return callback(undefined, Attributes as IWorkout);

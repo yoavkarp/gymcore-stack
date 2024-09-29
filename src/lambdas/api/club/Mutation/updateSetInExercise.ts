@@ -35,7 +35,7 @@ export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutatio
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#exercises[${indexOfExercise}].sets[${indexOfSet}].${param} = :${param}`).join(', ')}, #updated_at = :updated_at`,
+        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#exercises[${indexOfExercise}].#sets[${indexOfSet}].${param} = :${param}`).join(', ')}, #updated_at = :updated_at`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
             ...paramsToUpdate.reduce<any>((acc, param) => {
@@ -45,9 +45,10 @@ export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutatio
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
-            "#exercises": "exercises"
+            "#exercises": "exercises",
+            '#sets': 'sets'
         },
-        ReturnValues: 'UPDATED_NEW', // Returns the updated attributes
+        ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };
 
     // define username

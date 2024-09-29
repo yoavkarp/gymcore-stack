@@ -25,6 +25,12 @@ export class WorkoutTableConstruct extends Construct {
             sortKey: { name: 'updated_at', type: AttributeType.STRING },
         })
 
+        this.table.addGlobalSecondaryIndex({
+            indexName: "workouts-by-club-library",
+            partitionKey: { name: 'tenantId#clubId#lib', type: AttributeType.STRING },
+            sortKey: { name: 'created_at', type: AttributeType.STRING },
+        })
+
         const workoutTableServiceRole = new Role(this, 'WorkoutTableServiceRole', {
             assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
         })
@@ -34,6 +40,7 @@ export class WorkoutTableConstruct extends Construct {
                 effect: Effect.ALLOW,
                 resources: [
                     `${this.table.tableArn}/index/workouts-by-member-id`,
+                    `${this.table.tableArn}/index/workouts-by-club-library`
                 ],
                 actions: ['dymamodb:Query'],
             })

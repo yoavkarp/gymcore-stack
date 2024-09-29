@@ -87,7 +87,7 @@ export class AppSyncConstruct extends Construct {
             this.api.addDynamoDbDataSource("measurement", props.tables.measurementTable, { name: "MeasurementTable" }),
             this.api.addDynamoDbDataSource("event", props.tables.eventTable, { name: "EventTable" }),
             this.api.addDynamoDbDataSource("goal", props.tables.goalTable, { name: "GoalTable" }),
-            this.api.addDynamoDbDataSource("workout", props.tables.goalTable, { name: "WorkoutTable" }),
+            this.api.addDynamoDbDataSource("workout", props.tables.workoutTable, { name: "WorkoutTable" }),
 
         ]
 

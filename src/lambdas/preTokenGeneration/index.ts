@@ -46,7 +46,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event, context, 
                 acc[`#${key}`] = key;
                 return acc;
             }, {}),
-            ReturnValues: "UPDATED_NEW"
+            ReturnValues: "ALL_NEW"
         }).promise()
 
         if (!Attributes) {

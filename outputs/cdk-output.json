@@ -8,6 +8,7 @@
     "ExportsOutputFnGetAttClubTableConstructClubTableB990B280ArnD8EB3EE8": "arn:aws:dynamodb:eu-central-1:181032208684:table/ClubTable",
     "ExportsOutputRefTrainerTableConstructTrainerTableD2C070DE5596FF4F": "TrainerTable",
     "ExportsOutputRefMeasurementTableConstructMeasurementTable2D6B5B46881295A1": "MeasurementTable",
+    "ExportsOutputRefWorkoutTableConstructWorkoutTableE11DE2CC05637EF8": "WorkoutTable",
     "ExportsOutputFnGetAttUserTableConstructUserTable3E2278F6Arn7EB206C9": "arn:aws:dynamodb:eu-central-1:181032208684:table/UserTable",
     "ExportsOutputRefTenantTableConstructTenantTable3AFA7E50131AF5B5": "TenantTable",
     "ExportsOutputRefClubTableConstructClubTableB990B28095CFACDC": "ClubTable",

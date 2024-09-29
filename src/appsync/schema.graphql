@@ -49,6 +49,7 @@ type Mutation {
   addIntervalToExercise(workoutId: ID!, exerciseId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
   updateIntervalInExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
   deleteIntervalFromExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  addWorkoutToLibrary(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
   register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
   updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
 }
@@ -60,6 +61,7 @@ type Query {
   getWorkoutById(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club", "member"])
   getClubTrainers: [Trainer!] @aws_auth(cognito_groups: ["club"])
   getMemberById(memberId: ID!): Member @aws_auth(cognito_groups: ["club"])
+  listLibraryWorkouts(limit: Int, nextToken: String): WorkoutConnection @aws_auth(cognito_groups: ["club"])
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
 }
 
@@ -105,6 +107,7 @@ type StrengthExercise {
   id: ID!
   xid: ID!
   name: String!
+  type: ExerciseType!
   notes: String
   machine_number: String
   seat_height: String
@@ -117,6 +120,7 @@ type CardioExercise {
   id: ID!
   xid: ID!
   name: String!
+  type: ExerciseType!
   notes: String
   machine_number: String
   seat_height: String
