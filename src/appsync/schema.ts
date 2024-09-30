@@ -473,7 +473,6 @@ export type IStrengthExerciseDropSet = {
   __typename?: 'StrengthExerciseDropSet';
   id: Scalars['ID']['output'];
   reps?: Maybe<IParameter>;
-  times?: Maybe<Scalars['Int']['output']>;
   weight?: Maybe<IParameter>;
 };
 
@@ -489,7 +488,6 @@ export type IStrengthExerciseSet = {
   id: Scalars['ID']['output'];
   reps?: Maybe<IParameter>;
   rest?: Maybe<IParameter>;
-  times?: Maybe<Scalars['Int']['output']>;
   weight?: Maybe<IParameter>;
 };
 

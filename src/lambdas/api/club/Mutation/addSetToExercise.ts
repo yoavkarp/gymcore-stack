@@ -27,7 +27,13 @@ export const handler: AppSyncResolver<IMutationAddSetToExerciseArgs, IMutation['
         }
     }).promise()
 
-    Object.assign(input, { id: randomUUID() })
+    const listOfInputs = new Array(input.times || 1)
+        .fill(null)
+        .map(() => ({
+            ...input,
+            times: undefined,
+            id: randomUUID()
+        }))
 
     const indexOfExercise = existItem?.exercises.findIndex((exercise: IExercise) => exercise.id === exerciseId)
 
@@ -40,7 +46,7 @@ export const handler: AppSyncResolver<IMutationAddSetToExerciseArgs, IMutation['
         UpdateExpression: `SET #exercises[${indexOfExercise}].#sets = list_append(if_not_exists(#exercises[${indexOfExercise}].#sets, :empty_list), :new_set), #updated_at = :updated_at`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ':new_set': [input], // Replace with the new friend ID,
+            ':new_set': listOfInputs, // Replace with the new friend ID,
             ':empty_list': [], // Handles the case where the 'friends' attribute doesn't exist
         },
         ExpressionAttributeNames: {

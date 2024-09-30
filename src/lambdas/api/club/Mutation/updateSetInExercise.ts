@@ -30,6 +30,7 @@ export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutatio
     const indexOfSet = existItem?.exercises[indexOfExercise].sets.findIndex((set: IStrengthExerciseSet) => set.id === setId)
 
     Object.assign(input, { id: setId });
+    delete input.times;
 
     const Item = {
         TableName: 'WorkoutTable',
