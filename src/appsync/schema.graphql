@@ -50,6 +50,9 @@ type Mutation {
   updateIntervalInExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
   deleteIntervalFromExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!): Workout @aws_auth(cognito_groups: ["club"])
   addWorkoutToLibrary(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  moveSetInExercise(workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+  moveIntervalInExercise(workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+  moveExerciseInWorkout(workoutId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
   register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
   updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
 }

@@ -29,19 +29,18 @@ export const handler: AppSyncResolver<IMutationUpdateIntervalInExerciseArgs, IMu
     const indexOfExercise = existItem?.exercises.findIndex((exercise: IExercise) => exercise.id === exerciseId)
     const indexOfInterval = existItem?.exercises[indexOfExercise].intervals.findIndex((interval: ICardioExerciseInterval) => interval.id === intervalId)
 
+    Object.assign(input, { id: intervalId });
+
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#exercises[${indexOfExercise}].intervals[${indexOfInterval}].${param} = :${param}`).join(', ')}, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${indexOfExercise}].intervals[${indexOfInterval}] = :new_interval, #updated_at = :updated_at`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ...paramsToUpdate.reduce<any>((acc, param) => {
-                acc[`:${param}`] = input[param as keyof typeof input]
-                return acc
-            }, {})
+            ':new_interval': input
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',

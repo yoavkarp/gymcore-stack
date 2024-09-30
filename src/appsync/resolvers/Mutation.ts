@@ -52,5 +52,14 @@ export const resolver: ResolverType<IMutation> = {
     },
     addWorkoutToLibrary: {
         dataSourceName: "api"
-    }
+    },
+    moveExerciseInWorkout: {
+        dataSourceName: "api"
+    },
+    moveIntervalInExercise: {
+        dataSourceName: "api"
+    },
+    moveSetInExercise: {
+        dataSourceName: "api"
+    },
 }

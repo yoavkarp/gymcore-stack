@@ -29,19 +29,18 @@ export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutatio
     const indexOfExercise = existItem?.exercises.findIndex((exercise: IExercise) => exercise.id === exerciseId)
     const indexOfSet = existItem?.exercises[indexOfExercise].sets.findIndex((set: IStrengthExerciseSet) => set.id === setId)
 
+    Object.assign(input, { id: setId });
+
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#exercises[${indexOfExercise}].#sets[${indexOfSet}].${param} = :${param}`).join(', ')}, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${indexOfExercise}].#sets[${indexOfSet}] = :new_set, #updated_at = :updated_at`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ...paramsToUpdate.reduce<any>((acc, param) => {
-                acc[`:${param}`] = input[param as keyof typeof input]
-                return acc
-            }, {})
+            ':new_set': input
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
