@@ -32,6 +32,32 @@ type GoalConnection {
   nextToken: String
 }
 
+type Measurement implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  memberId: ID!
+  clubId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+}
+
+type MeasurementConnection {
+  items: [Measurement!]
+  nextToken: String
+}
+
+input CreateMeasurementInput {
+  memberId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+}
+
 type Mutation {
   createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
   createMeasurementForMember(memberId: ID!, input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
@@ -172,32 +198,6 @@ type Parameter {
   val: Float
   max: Float
   unit: String
-}
-
-type Measurement implements Document {
-  id: ID!
-  tenantId: ID!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
-  memberId: ID!
-  clubId: ID
-  weight: Float
-  height: Float
-  fat: Float
-  heart_rate: Float
-}
-
-type MeasurementConnection {
-  items: [Measurement!]
-  nextToken: String
-}
-
-input CreateMeasurementInput {
-  memberId: ID
-  weight: Float
-  height: Float
-  fat: Float
-  heart_rate: Float
 }
 
 scalar AWSTimestamp

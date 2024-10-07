@@ -5,27 +5,7 @@ import { buildClient, KmsKeyringNode, CommitmentPolicy } from '@aws-crypto/clien
 import b64 from 'base64-js';
 
 
-export const handler: CustomSMSSenderTriggerHandler = async (event, context, callback) => {
-
-    const { encrypt, decrypt } = buildClient(CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT);
-    const generatorKeyId = process.env.KEY_ALIAS;
-    const keyIds = [process.env.KEY_ARN || ""];
-    const keyring = new KmsKeyringNode({ generatorKeyId, keyIds })
-
-    let plainTextCode;
-    if (event.request.code) {
-        const { plaintext, messageHeader } = await decrypt(keyring, b64.toByteArray(event.request.code));
-        plainTextCode = plaintext.toString();
-    }
-
-    console.log("data", {
-        plainTextCode,
-        code: event.request.code,
-        GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
-        API_KEY: process.env.API_KEY
-    });
-
-
+const sendSMS = async (phoneNumber: string, message: string) => {
     const res = await fetch(process.env.GRAPHQL_ENDPOINT!, {
         method: "POST",
         headers: {
@@ -34,29 +14,53 @@ export const handler: CustomSMSSenderTriggerHandler = async (event, context, cal
         },
         body: JSON.stringify({
             query: `
-            mutation {
-                createSMSQueue(
-                    input: {
-                        id: "${randomUUID()}",
-                        body: "Code for verification: ${plainTextCode}",
-                        des: ["${event.request.userAttributes.phone_number}"],
-                        created_at: "${new Date().toISOString()}"
-                    }
-                ) {
-                    id
-                    body
-                    des
-                    created_at
-                    }
-            }
-            `
+        mutation {
+            createSMSQueue(
+                input: {
+                    id: "${randomUUID()}",
+                    body: "${message}",
+                    des: ["${phoneNumber}"],
+                    created_at: "${new Date().toISOString()}"
+                }
+            ) {
+                id
+                body
+                des
+                created_at
+                }
+        }
+        `
         })
     })
 
     const jso = await res.json();
+    return jso as any;
+}
 
-    console.log("RESPONSE", jso);
+export const handler: CustomSMSSenderTriggerHandler = async (event, context, callback) => {
 
-    console.log("<CODE>", event.request.code);
+    if (event.triggerSource === "CustomSMSSender_Authentication") {
+
+        const { decrypt } = buildClient(CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT);
+        const generatorKeyId = process.env.KEY_ALIAS;
+        const keyIds = [process.env.KEY_ARN || ""];
+        const keyring = new KmsKeyringNode({ generatorKeyId, keyIds })
+
+        let plainTextCode;
+        if (event.request.code) {
+            const { plaintext, messageHeader } = await decrypt(keyring, b64.toByteArray(event.request.code));
+            plainTextCode = plaintext.toString();
+        }
+
+        try {
+            await sendSMS(event.request.userAttributes.phone_number, `Your verification code is ${plainTextCode}`);
+        }
+        catch (e) {
+            console.error("Error: Failed to send SMS", e);
+            callback(new Error("Failed to send SMS"));
+        }
+    }
+
+    return event;
 
 }

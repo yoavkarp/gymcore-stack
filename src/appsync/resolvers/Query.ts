@@ -24,7 +24,7 @@ export const resolver: ResolverType<IQuery> = {
         dataSourceName: "api"
     },
     listLibraryWorkouts: {
-        dataSourceName: "WorkoutTable",
+        dataSourceName: "LibraryTable",
         req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListLibraryWorkouts.req.vtl")),
         res: MappingTemplate.dynamoDbResultItem(),
     }

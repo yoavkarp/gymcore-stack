@@ -51,6 +51,10 @@ export class CognitoConstruct extends Construct {
                 emailStyle: VerificationEmailStyle.CODE,
             },
             mfa: Mfa.REQUIRED,
+            mfaSecondFactor: {
+                sms: true,
+                otp: true,
+            },
             signInAliases: {
                 username: true,
                 email: true,
