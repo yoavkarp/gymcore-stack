@@ -1,0 +1,140 @@
+input CreateSMSQueueInput {
+	id: ID!
+	body: String!
+	des: [String]!
+	created_at: AWSDateTime!
+}
+
+input DeleteSMSQueueInput {
+	id: ID!
+	created_at: AWSDateTime!
+}
+
+input ModelSizeInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+}
+
+type SMSQueue {
+	id: ID!
+	body: String!
+	des: [String]!
+	created_at: AWSDateTime!
+}
+
+type SMSQueueConnection {
+	items: [SMSQueue]
+	nextToken: String
+}
+
+input TableBooleanFilterInput {
+	ne: Boolean
+	eq: Boolean
+	attributeExists: Boolean
+}
+
+input TableFloatFilterInput {
+	ne: Float
+	eq: Float
+	le: Float
+	lt: Float
+	ge: Float
+	gt: Float
+	between: [Float]
+	attributeExists: Boolean
+}
+
+input TableIDFilterInput {
+	ne: ID
+	eq: ID
+	le: ID
+	lt: ID
+	ge: ID
+	gt: ID
+	contains: ID
+	notContains: ID
+	between: [ID]
+	beginsWith: ID
+	attributeExists: Boolean
+	size: ModelSizeInput
+}
+
+input TableIntFilterInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+	attributeExists: Boolean
+}
+
+input TableSMSQueueFilterInput {
+	id: TableIDFilterInput
+	body: TableStringFilterInput
+	des: TableStringFilterInput
+	created_at: TableStringFilterInput
+}
+
+input TableStringFilterInput {
+	ne: String
+	eq: String
+	le: String
+	lt: String
+	ge: String
+	gt: String
+	contains: String
+	notContains: String
+	between: [String]
+	beginsWith: String
+	attributeExists: Boolean
+	size: ModelSizeInput
+}
+
+input UpdateSMSQueueInput {
+	id: ID!
+	body: String
+	des: [String]
+	created_at: AWSDateTime!
+}
+
+type Mutation {
+	createSMSQueue(input: CreateSMSQueueInput!): SMSQueue
+	updateSMSQueue(input: UpdateSMSQueueInput!): SMSQueue
+	deleteSMSQueue(input: DeleteSMSQueueInput!): SMSQueue
+}
+
+type Query {
+	getSMSQueue(id: ID!, created_at: AWSDateTime!): SMSQueue
+	listSMSQueues(filter: TableSMSQueueFilterInput, limit: Int, nextToken: String): SMSQueueConnection
+}
+
+type Subscription {
+	onCreateSMSQueue(
+		id: ID,
+		body: String,
+		des: [String],
+		created_at: AWSDateTime
+	): SMSQueue
+		@aws_subscribe(mutations: ["createSMSQueue"])
+	onUpdateSMSQueue(
+		id: ID,
+		body: String,
+		des: [String],
+		created_at: AWSDateTime
+	): SMSQueue
+		@aws_subscribe(mutations: ["updateSMSQueue"])
+	onDeleteSMSQueue(
+		id: ID,
+		body: String,
+		des: [String],
+		created_at: AWSDateTime
+	): SMSQueue
+		@aws_subscribe(mutations: ["deleteSMSQueue"])
+}

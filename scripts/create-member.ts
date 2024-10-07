@@ -52,4 +52,4 @@ const createMember = async ({ phone_number, tenantId }: { phone_number: string, 
 
 }
 
-createMember({ phone_number: "+9720505716745", tenantId: "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c" })
+createMember({ phone_number: "+9720505716749", tenantId: "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c" })

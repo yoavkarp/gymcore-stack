@@ -65,7 +65,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event, context, 
         }).promise();
 
         if (!Item) {
-            return callback(new Error('not found'));
+            return event;
         }
 
         attributes = Item;

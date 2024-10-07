@@ -1,0 +1,14 @@
+{
+    "name": "sms-send-layer",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "main": "index.js",
+    "dependencies": {
+        "aws-sdk": "^2.1549.0",
+        "zod": "^3.23.8",
+        "@aws-crypto/client-node": "^4.0.1"
+    }
+}

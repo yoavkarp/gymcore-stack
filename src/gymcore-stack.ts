@@ -4,11 +4,15 @@ import { AppSyncConstruct } from './appsync/appsync-construct';
 import { CognitoConstruct } from './cognito/cognito-construct';
 import { LayerConstruct } from './layers/layer-construct';
 import { DynamoDBStack } from './dynamodb/dynamodb-stack';
+import { Function } from 'aws-cdk-lib/aws-lambda';
+import { IKey } from 'aws-cdk-lib/aws-kms';
 
 type GymcoreCdkStackProps = StackProps & {
     tenantName: string;
     tenantId: string;
     tables: DynamoDBStack['tables'];
+    SMS_SENDLambda: Function;
+    SmsVerifyKmsKey: IKey;
 }
 
 class GymcoreCdkStack extends Stack {
@@ -28,7 +32,9 @@ class GymcoreCdkStack extends Stack {
             tenantName: props.tenantName,
             tenantId: props.tenantId,
             awsSdkLayer: this.awsSdkLayer.layerVersion,
-            tables: props.tables
+            tables: props.tables,
+            SMS_SENDLambda: props.SMS_SENDLambda,
+            KmsKey: props.SmsVerifyKmsKey
         })
 
         this.api = new AppSyncConstruct(this, 'Api', {
@@ -36,7 +42,7 @@ class GymcoreCdkStack extends Stack {
             tenantName: props.tenantName,
             layers: [this.awsSdkLayer.layerVersion],
             tenantId: props.tenantId,
-            tables: props.tables
+            tables: props.tables,
         })
 
         new CfnOutput(this, "tenantId", {

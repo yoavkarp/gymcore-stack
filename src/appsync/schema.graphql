@@ -68,6 +68,17 @@ type Query {
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
 }
 
+type Tenant {
+  id: ID!
+  name: String!
+  email: AWSEmail!
+  phone_number: AWSPhone!
+  profile_picture: AWSURL!
+  address: String!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+}
+
 type Trainer implements Document {
   id: ID!
   tenantId: ID!
@@ -210,17 +221,6 @@ scalar AWSEmail
 schema {
   query: Query
   mutation: Mutation
-}
-
-type Tenant {
-  id: ID!
-  name: String!
-  email: AWSEmail!
-  phone_number: AWSPhone!
-  profile_picture: AWSURL!
-  address: String!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
 }
 
 type Club implements Document {

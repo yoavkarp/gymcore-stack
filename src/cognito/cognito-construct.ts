@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { CfnOutput, Duration, RemovalPolicy, StackProps } from 'aws-cdk-lib';
-import { AccountRecovery, CfnUserPoolGroup, UserPool, UserPoolClient, UserPoolOperation, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
+import { AccountRecovery, CfnUserPoolGroup, Mfa, UserPool, UserPoolClient, UserPoolOperation, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
 import { IRole, Policy, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import {
     IdentityPool,
@@ -10,12 +10,15 @@ import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import path from 'path';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { DynamoDBStack } from '@/dynamodb/dynamodb-stack';
+import { IKey, Key } from 'aws-cdk-lib/aws-kms';
 
 interface CognitoConstructProps extends StackProps {
     readonly tenantName: string
     readonly tenantId: string
     readonly awsSdkLayer: ILayerVersion
     tables: DynamoDBStack['tables']
+    readonly SMS_SENDLambda: Function;
+    readonly KmsKey: IKey;
 }
 
 
@@ -26,11 +29,6 @@ export class CognitoConstruct extends Construct {
 
     constructor(scope: Construct, id: string, props: CognitoConstructProps) {
         super(scope, id);
-
-        // Define the Cognito API
-
-
-        // pre token generation
 
         const preTokenGenerationLambda = new Function(scope, 'PreTokenGeneration', {
             runtime: Runtime.NODEJS_18_X,
@@ -52,6 +50,7 @@ export class CognitoConstruct extends Construct {
             userVerification: {
                 emailStyle: VerificationEmailStyle.CODE,
             },
+            mfa: Mfa.REQUIRED,
             signInAliases: {
                 username: true,
                 email: true,
@@ -81,6 +80,10 @@ export class CognitoConstruct extends Construct {
                     mutable: true
                 }
             },
+            lambdaTriggers: {
+                customSmsSender: props.SMS_SENDLambda
+            },
+            customSenderKmsKey: props.KmsKey,
             userPoolName: `${props.tenantName} UserPool`,
         })
 
