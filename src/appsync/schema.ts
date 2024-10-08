@@ -113,6 +113,7 @@ export type ICreateTrainerInput = {
 };
 
 export type ICreateWorkoutInput = {
+  library?: InputMaybe<Scalars['Boolean']['input']>;
   memberId?: InputMaybe<Scalars['ID']['input']>;
   name: Scalars['String']['input'];
   planId?: InputMaybe<Scalars['ID']['input']>;
@@ -160,6 +161,11 @@ export type IGoalConnection = {
   __typename?: 'GoalConnection';
   items?: Maybe<Array<IGoal>>;
   nextToken?: Maybe<Scalars['String']['output']>;
+};
+
+export type IImportWorkoutFromLibraryInput = {
+  memberId?: InputMaybe<Scalars['ID']['input']>;
+  planId?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type IIntervalInput = {
@@ -233,6 +239,7 @@ export type IMutation = {
   deleteIntervalFromExercise?: Maybe<IWorkout>;
   deleteSetFromExercise?: Maybe<IWorkout>;
   deleteWorkout?: Maybe<IWorkout>;
+  importWorkoutFromLibrary?: Maybe<IWorkout>;
   moveExerciseInWorkout?: Maybe<IWorkout>;
   moveIntervalInExercise?: Maybe<IWorkout>;
   moveSetInExercise?: Maybe<IWorkout>;
@@ -317,6 +324,12 @@ export type IMutationDeleteSetFromExerciseArgs = {
 
 
 export type IMutationDeleteWorkoutArgs = {
+  workoutId: Scalars['ID']['input'];
+};
+
+
+export type IMutationImportWorkoutFromLibraryArgs = {
+  input: IImportWorkoutFromLibraryInput;
   workoutId: Scalars['ID']['input'];
 };
 
@@ -552,6 +565,7 @@ export type IWorkout = IDocument & {
   created_at: Scalars['AWSDateTime']['output'];
   exercises?: Maybe<Array<IExercise>>;
   id: Scalars['ID']['output'];
+  library?: Maybe<Scalars['Boolean']['output']>;
   memberId?: Maybe<Scalars['ID']['output']>;
   name: Scalars['String']['output'];
   notes?: Maybe<Scalars['String']['output']>;

@@ -3,16 +3,16 @@
 {
   "version": "2018-05-29",
   "operation": "Query",
-  "index": "library-by-club-id",
+  "index": "workouts-by-club-library",
   "limit": $util.defaultIfNull(${ctx.args.limit}, 5),
   "scanIndexForward": false,
   "query": {
     "expression": "#PK = :PK",
     "expressionNames": {
-      "#PK": "clubId",
+      "#PK": "tenantId#clubId#lib",
     },
     "expressionValues": {
-      ":PK": $util.dynamodb.toStringJson("$clubId"),
+      ":PK": $util.dynamodb.toStringJson("23b498e2-f0c1-7047-3bd1-a9fe0cd7f383#$clubId#1"),
     }
   }
 }

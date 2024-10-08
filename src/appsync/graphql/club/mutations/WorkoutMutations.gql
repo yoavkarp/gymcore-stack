@@ -16,10 +16,16 @@ extend type Mutation {
   deleteIntervalFromExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!): Workout @aws_auth(cognito_groups: ["club"])
 
   addWorkoutToLibrary(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  importWorkoutFromLibrary(workoutId: ID!, input: ImportWorkoutFromLibraryInput!): Workout @aws_auth(cognito_groups: ["club"])
 
   moveSetInExercise(workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
   moveIntervalInExercise(workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
   moveExerciseInWorkout(workoutId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+}
+
+input ImportWorkoutFromLibraryInput {
+  memberId: ID
+  planId: ID
 }
 
 input UpdateWorkoutInput {
@@ -32,6 +38,7 @@ input CreateWorkoutInput {
   trainerId: ID!
   memberId: ID
   planId: ID
+  library: Boolean
 }
 
 input AddExerciseToWorkoutInput {

@@ -12,6 +12,7 @@ type Workout implements Document {
   name: String!
   notes: String
   exercises: [Exercise!]
+  library: Boolean
 }
 
 type WorkoutConnection {

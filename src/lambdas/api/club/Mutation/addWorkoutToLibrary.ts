@@ -9,6 +9,8 @@ export const handler: AppSyncResolver<IMutationAddWorkoutToLibraryArgs, IMutatio
         workoutId
     } = event.arguments;
 
+    const clubId = event.identity?.sub;
+
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
@@ -30,10 +32,12 @@ export const handler: AppSyncResolver<IMutationAddWorkoutToLibraryArgs, IMutatio
         id: randomUUID(),
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
+        "tenantId#clubId#lib": `${process.env.TENANT_ID}#${clubId}#1`,
+        library: true
     });
 
     const { Attributes } = await dynamodb.put({
-        TableName: "LibraryTable",
+        TableName: "WorkoutTable",
         Item: workoutToAdd,
         ConditionExpression: 'attribute_not_exists(id)'
     }).promise()

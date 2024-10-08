@@ -72,7 +72,6 @@ export class AppSyncConstruct extends Construct {
         props.tables.goalTable.grantFullAccess(api_lambda)
         props.tables.trainerIndexTable.grantFullAccess(api_lambda)
         props.tables.workoutTable.grantFullAccess(api_lambda)
-        props.tables.libraryTable.grantFullAccess(api_lambda)
         props.userPool.grant(api_lambda, 'cognito-idp:*')
 
         const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);
@@ -89,7 +88,6 @@ export class AppSyncConstruct extends Construct {
             this.api.addDynamoDbDataSource("event", props.tables.eventTable, { name: "EventTable" }),
             this.api.addDynamoDbDataSource("goal", props.tables.goalTable, { name: "GoalTable" }),
             this.api.addDynamoDbDataSource("workout", props.tables.workoutTable, { name: "WorkoutTable" }),
-            this.api.addDynamoDbDataSource("library", props.tables.libraryTable, { name: "LibraryTable" }),
         ]
 
         const resolversPath = path.join(__dirname, "resolvers");

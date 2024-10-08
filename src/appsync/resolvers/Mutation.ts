@@ -62,4 +62,7 @@ export const resolver: ResolverType<IMutation> = {
     moveSetInExercise: {
         dataSourceName: "api"
     },
+    importWorkoutFromLibrary: {
+        dataSourceName: "api"
+    }
 }

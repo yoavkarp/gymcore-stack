@@ -7,7 +7,10 @@ import { dynamodb } from "../../connection";
 export const handler: AppSyncResolver<IMutationCreateWorkoutArgs, IMutation['createWorkout']> = async (event, context, callback) => {
 
     const {
-        input
+        input: {
+            library,
+            ...input
+        },
     } = event.arguments;
 
     const clubId = event.identity?.sub!;
@@ -16,8 +19,20 @@ export const handler: AppSyncResolver<IMutationCreateWorkoutArgs, IMutation['cre
         id: randomUUID(),
         clubId,
         ...input,
-        'tenantId#memberId': input.memberId ? `${process.env.TENANT_ID}#${input.memberId}` : undefined
     }, clubId)
+
+    if (library) {
+        Object.assign(Item, {
+            "tenantId#clubId#lib": `${process.env.TENANT_ID}#${clubId}#1`,
+            library: true
+        });
+    }
+
+    if (input.memberId) {
+        Object.assign(Item, {
+            "tenantId#memberId": `${process.env.TENANT_ID}#${input.memberId}`,
+        });
+    }
 
     // define username
     const { Attributes } = await dynamodb.put({
