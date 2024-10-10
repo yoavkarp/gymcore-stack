@@ -1,0 +1,19 @@
+#set($tenantId = $ctx.source.tenantId)
+#set($planId = $ctx.source.id)
+
+{
+  "version": "2018-05-29",
+  "operation": "Query",
+  "index": "workouts-by-plan-id",
+  "limit": $util.defaultIfNull(${ctx.args.limit}, 10),
+  "scanIndexForward": false,
+  "query": {
+    "expression": "#PK = :PK",
+    "expressionNames": {
+      "#PK": "tenantId#planId",
+    },
+    "expressionValues": {
+      ":PK": $util.dynamodb.toStringJson("$tenantId#$planId"),
+    }
+  }
+}

@@ -6,7 +6,8 @@ import { dynamodb } from "../../connection";
 export const handler: AppSyncResolver<IMutationAddWorkoutToLibraryArgs, IMutation['addWorkoutToLibrary']> = async (event, context, callback) => {
 
     const {
-        workoutId
+        workoutId,
+        trainerId
     } = event.arguments;
 
     const clubId = event.identity?.sub;
@@ -33,7 +34,8 @@ export const handler: AppSyncResolver<IMutationAddWorkoutToLibraryArgs, IMutatio
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
         "tenantId#clubId#lib": `${process.env.TENANT_ID}#${clubId}#1`,
-        library: true
+        library: true,
+        trainerId
     });
 
     const { Attributes } = await dynamodb.put({

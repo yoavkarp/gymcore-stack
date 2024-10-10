@@ -8,7 +8,8 @@ export const handler: AppSyncResolver<IMutationDeleteExerciseFromWorkoutArgs, IM
 
     const {
         workoutId,
-        exerciseId
+        exerciseId,
+        trainerId
     } = event.arguments;
 
     const { Item: prevItem } = await dynamodb.get({
@@ -29,7 +30,13 @@ export const handler: AppSyncResolver<IMutationDeleteExerciseFromWorkoutArgs, IM
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `REMOVE exercises[${exerciseIndex}]`, // Replace '2' with the index of the item to remove
+        UpdateExpression: `REMOVE exercises[${exerciseIndex}] SET #trainerId = :trainerId`, // Replace '2' with the index of the item to remove
+        ExpressionAttributeValues: {
+            ':trainerId': trainerId
+        },
+        ExpressionAttributeNames: {
+            '#trainerId': 'trainerId'
+        },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes      
     }).promise()
 

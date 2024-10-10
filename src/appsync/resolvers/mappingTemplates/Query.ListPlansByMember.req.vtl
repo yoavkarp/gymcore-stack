@@ -1,0 +1,18 @@
+#set($clubId = $ctx.identity.sub)
+
+{
+  "version": "2018-05-29",
+  "operation": "Query",
+  "index": "plans-by-member-id",
+  "limit": $util.defaultIfNull(${ctx.args.limit}, 5),
+  "scanIndexForward": false,
+  "query": {
+    "expression": "#PK = :PK",
+    "expressionNames": {
+      "#PK": "tenantId#memberId",
+    },
+    "expressionValues": {
+      ":PK": $util.dynamodb.toStringJson("23b498e2-f0c1-7047-3bd1-a9fe0cd7f383#$ctx.args.memberId"),
+    }
+  }
+}

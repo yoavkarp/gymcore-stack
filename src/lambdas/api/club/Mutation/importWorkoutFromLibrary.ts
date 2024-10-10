@@ -8,7 +8,8 @@ export const handler: AppSyncResolver<IMutationImportWorkoutFromLibraryArgs, IMu
 
     const {
         input,
-        workoutId
+        workoutId,
+        trainerId
     } = event.arguments;
 
     if (Object.keys(input).length !== 1) {
@@ -41,14 +42,21 @@ export const handler: AppSyncResolver<IMutationImportWorkoutFromLibraryArgs, IMu
         id: randomUUID(),
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
+        trainerId
     });
 
     if (input.memberId) {
-        Object.assign(workoutToImport,
-            input.memberId ?
-                { memberId: input.memberId, }
-                : { planId: input.planId }
-        );
+        Object.assign(workoutToImport, {
+            memberId: input.memberId,
+            'tenantId#memberId': `${process.env.TENANT_ID}#${input.memberId}`
+        });
+    }
+
+    if (input.planId) {
+        Object.assign(workoutToImport, {
+            planId: input.planId,
+            'tenantId#planId': `${process.env.TENANT_ID}#${input.planId}`
+        });
     }
 
     await dynamodb.put({

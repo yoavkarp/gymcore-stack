@@ -7,6 +7,7 @@ export const handler: AppSyncResolver<IMutationUpdateWorkoutArgs, IMutation['upd
     const {
         input,
         workoutId,
+        trainerId
     } = event.arguments;
 
     const paramsToUpdate = Object.keys(input);
@@ -21,20 +22,22 @@ export const handler: AppSyncResolver<IMutationUpdateWorkoutArgs, IMutation['upd
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#${param} = :${param}`).join(', ')}, #updated_at = :updated_at`,
+        UpdateExpression: `SET ${paramsToUpdate.map((param) => `#${param} = :${param}`).join(', ')}, #updated_at = :updated_at, #trainerId = :trainerId`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
             ...paramsToUpdate.reduce<any>((acc, param) => {
                 acc[`:${param}`] = input[param as keyof typeof input]
                 return acc
-            }, {})
+            }, {}),
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
             ...paramsToUpdate.reduce<any>((acc, param) => {
                 acc[`#${param}`] = param
                 return acc
-            }, {})
+            }, {}),
+            '#trainerId': 'trainerId'
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

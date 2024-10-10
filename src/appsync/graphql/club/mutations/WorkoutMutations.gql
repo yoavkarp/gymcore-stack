@@ -1,26 +1,26 @@
 extend type Mutation {
-  createWorkout(input: CreateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
-  updateWorkout(workoutId: ID!, input: UpdateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  createWorkout(trainerId: ID!, input: CreateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateWorkout(trainerId: ID!, workoutId: ID!, input: UpdateWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
   deleteWorkout(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
 
-  addExerciseToWorkout(workoutId: ID!, input: AddExerciseToWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
-  updateExerciseInWorkout(workoutId: ID!, exerciseId: ID!, input: UpdateExerciseInWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
-  deleteExerciseFromWorkout(workoutId: ID!, exerciseId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  addExerciseToWorkout(trainerId: ID!, workoutId: ID!, input: AddExerciseToWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateExerciseInWorkout(trainerId: ID!, workoutId: ID!, exerciseId: ID!, input: UpdateExerciseInWorkoutInput!): Workout @aws_auth(cognito_groups: ["club"])
+  deleteExerciseFromWorkout(trainerId: ID!, workoutId: ID!, exerciseId: ID!): Workout @aws_auth(cognito_groups: ["club"])
 
-  addSetToExercise(workoutId: ID!, exerciseId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
-  updateSetInExercise(workoutId: ID!, exerciseId: ID!, setId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
-  deleteSetFromExercise(workoutId: ID!, exerciseId: ID!, setId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  addSetToExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateSetInExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, setId: ID!, input: SetInput!): Workout @aws_auth(cognito_groups: ["club"])
+  deleteSetFromExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, setId: ID!): Workout @aws_auth(cognito_groups: ["club"])
 
-  addIntervalToExercise(workoutId: ID!, exerciseId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
-  updateIntervalInExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
-  deleteIntervalFromExercise(workoutId: ID!, exerciseId: ID!, intervalId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  addIntervalToExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
+  updateIntervalInExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, intervalId: ID!, input: IntervalInput!): Workout @aws_auth(cognito_groups: ["club"])
+  deleteIntervalFromExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, intervalId: ID!): Workout @aws_auth(cognito_groups: ["club"])
 
-  addWorkoutToLibrary(workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
-  importWorkoutFromLibrary(workoutId: ID!, input: ImportWorkoutFromLibraryInput!): Workout @aws_auth(cognito_groups: ["club"])
+  addWorkoutToLibrary(trainerId: ID!, workoutId: ID!): Workout @aws_auth(cognito_groups: ["club"])
+  importWorkoutFromLibrary(trainerId: ID!, workoutId: ID!, input: ImportWorkoutFromLibraryInput!): Workout @aws_auth(cognito_groups: ["club"])
 
-  moveSetInExercise(workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
-  moveIntervalInExercise(workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
-  moveExerciseInWorkout(workoutId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+  moveSetInExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+  moveIntervalInExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+  moveExerciseInWorkout(trainerId: ID!, workoutId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
 }
 
 input ImportWorkoutFromLibraryInput {
@@ -35,7 +35,6 @@ input UpdateWorkoutInput {
 
 input CreateWorkoutInput {
   name: String!
-  trainerId: ID!
   memberId: ID
   planId: ID
   library: Boolean
@@ -71,7 +70,7 @@ input SetInput {
 input StrengthExerciseDropSetInput {
   reps: ParameterInput
   weight: ParameterInput
-  times: Int
+  id: ID
 }
 
 input IntervalInput {

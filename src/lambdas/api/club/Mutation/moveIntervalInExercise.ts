@@ -5,6 +5,7 @@ import { dynamodb } from "../../connection";
 export const handler: AppSyncResolver<IMutationMoveIntervalInExerciseArgs, IMutation['moveIntervalInExercise']> = async (event, context, callback) => {
 
     const {
+        trainerId,
         from,
         to,
         workoutId,
@@ -50,15 +51,17 @@ export const handler: AppSyncResolver<IMutationMoveIntervalInExerciseArgs, IMuta
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET #exercises[${exerciseIndex}].#intervals = :new_intervals, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${exerciseIndex}].#intervals = :new_intervals, #updated_at = :updated_at, #trainerId = :trainerId`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ':new_intervals': intervals
+            ':new_intervals': intervals,
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
             '#exercises': 'exercises',
-            '#intervals': 'intervals'
+            '#intervals': 'intervals',
+            '#trainerId': 'trainerId'
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

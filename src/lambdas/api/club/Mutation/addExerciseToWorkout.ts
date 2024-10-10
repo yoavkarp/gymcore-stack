@@ -8,7 +8,8 @@ export const handler: AppSyncResolver<IMutationAddExerciseToWorkoutArgs, IMutati
 
     const {
         input,
-        workoutId
+        workoutId,
+        trainerId
     } = event.arguments;
 
     Object.assign(input, {
@@ -24,15 +25,17 @@ export const handler: AppSyncResolver<IMutationAddExerciseToWorkoutArgs, IMutati
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: 'SET #exercises = list_append(if_not_exists(#exercises, :empty_list), :new_exercise), #updated_at = :updated_at',
+        UpdateExpression: 'SET #exercises = list_append(if_not_exists(#exercises, :empty_list), :new_exercise), #updated_at = :updated_at, #trainerId = :trainerId',
         ExpressionAttributeValues: {
             ':new_exercise': [input], // Replace with the new friend ID
             ':empty_list': [], // Handles the case where the 'friends' attribute doesn't exist
-            ':updated_at': new Date().toISOString()
+            ':updated_at': new Date().toISOString(),
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
-            "#exercises": "exercises"
+            "#exercises": "exercises",
+            '#trainerId': 'trainerId'
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

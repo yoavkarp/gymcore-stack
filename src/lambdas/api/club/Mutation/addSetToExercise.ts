@@ -9,7 +9,8 @@ export const handler: AppSyncResolver<IMutationAddSetToExerciseArgs, IMutation['
     const {
         input,
         workoutId,
-        exerciseId
+        exerciseId,
+        trainerId
     } = event.arguments;
 
     const clubId = event.identity?.sub!;
@@ -43,16 +44,18 @@ export const handler: AppSyncResolver<IMutationAddSetToExerciseArgs, IMutation['
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET #exercises[${indexOfExercise}].#sets = list_append(if_not_exists(#exercises[${indexOfExercise}].#sets, :empty_list), :new_set), #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${indexOfExercise}].#sets = list_append(if_not_exists(#exercises[${indexOfExercise}].#sets, :empty_list), :new_set), #updated_at = :updated_at, #trainerId = :trainerId`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
             ':new_set': listOfInputs, // Replace with the new friend ID,
             ':empty_list': [], // Handles the case where the 'friends' attribute doesn't exist
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
             "#exercises": "exercises",
-            '#sets': 'sets'
+            '#sets': 'sets',
+            '#trainerId': 'trainerId'
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

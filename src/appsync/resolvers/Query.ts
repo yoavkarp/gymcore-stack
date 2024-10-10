@@ -24,8 +24,26 @@ export const resolver: ResolverType<IQuery> = {
         dataSourceName: "api"
     },
     listLibraryWorkouts: {
-        dataSourceName: "LibraryTable",
+        dataSourceName: "WorkoutTable",
         req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListLibraryWorkouts.req.vtl")),
         res: MappingTemplate.dynamoDbResultItem(),
+    },
+    listPlansByMemberId: {
+        dataSourceName: "PlanTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListPlansByMember.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
+    },
+    listPlansByClub: {
+        dataSourceName: "PlanTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListPlansByClub.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
+    },
+    listPlansByTrainerId: {
+        dataSourceName: "PlanTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListPlansByTrainer.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
+    },
+    getPlanById: {
+        dataSourceName: "api"
     }
 }

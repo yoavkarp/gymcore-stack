@@ -1,0 +1,19 @@
+#set($clubId = $ctx.identity.sub)
+#set($trainerId = $ctx.args.trainerId)
+
+{
+  "version": "2018-05-29",
+  "operation": "Query",
+  "index": "plans-by-trainer-id",
+  "limit": $util.defaultIfNull(${ctx.args.limit}, 5),
+  "scanIndexForward": false,
+  "query": {
+    "expression": "#PK = :PK",
+    "expressionNames": {
+      "#PK": "tenantId#trainerId",
+    },
+    "expressionValues": {
+      ":PK": $util.dynamodb.toStringJson("23b498e2-f0c1-7047-3bd1-a9fe0cd7f383#$trainerId"),
+    }
+  }
+}

@@ -64,5 +64,17 @@ export const resolver: ResolverType<IMutation> = {
     },
     importWorkoutFromLibrary: {
         dataSourceName: "api"
-    }
+    },
+    createPlan: {
+        dataSourceName: "api"
+    },
+    deletePlan: {
+        dataSourceName: "api"
+    },
+    deleteEvent: {
+        dataSourceName: "api"
+    },
+    createEvent: {
+        dataSourceName: "api"
+    },
 }

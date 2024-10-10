@@ -13,7 +13,7 @@ export const handler: AppSyncResolver<IMutationCreateMeasurementForMemberArgs, I
 
     const {
         memberId,
-        input
+        input,
     } = event.arguments;
 
     // define username

@@ -8,7 +8,8 @@ export const handler: AppSyncResolver<IMutationUpdateIntervalInExerciseArgs, IMu
         input,
         workoutId,
         exerciseId,
-        intervalId
+        intervalId,
+        trainerId
     } = event.arguments;
 
     const clubId = event.identity?.sub!;
@@ -37,14 +38,16 @@ export const handler: AppSyncResolver<IMutationUpdateIntervalInExerciseArgs, IMu
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET #exercises[${indexOfExercise}].intervals[${indexOfInterval}] = :new_interval, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${indexOfExercise}].intervals[${indexOfInterval}] = :new_interval, #updated_at = :updated_at, #trainerId = :trainerId`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ':new_interval': input
+            ':new_interval': input,
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
-            "#exercises": "exercises"
+            "#exercises": "exercises",
+            '#trainerId': 'trainerId',
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

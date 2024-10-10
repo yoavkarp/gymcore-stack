@@ -1,0 +1,10 @@
+extend type Mutation {
+  createPlan(trainerId: ID!, input: CreatePlanInput!): Plan @aws_auth(cognito_groups: ["club"])
+  deletePlan(planId: ID!): Plan @aws_auth(cognito_groups: ["club"])
+}
+
+input CreatePlanInput {
+  memberId: ID!
+  weeks: Int!
+  meetings: Int!
+}

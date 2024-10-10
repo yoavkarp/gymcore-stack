@@ -9,7 +9,8 @@ export const handler: AppSyncResolver<IMutationDeleteSetFromExerciseArgs, IMutat
     const {
         workoutId,
         exerciseId,
-        setId
+        setId,
+        trainerId
     } = event.arguments;
 
     const { Item: prevItem } = await dynamodb.get({
@@ -40,14 +41,16 @@ export const handler: AppSyncResolver<IMutationDeleteSetFromExerciseArgs, IMutat
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `REMOVE #exercises[${exerciseIndex}].#sets[${setIndex}] SET #updated_at = :updated_at`, // Replace '2' with the index of the item to remove
+        UpdateExpression: `REMOVE #exercises[${exerciseIndex}].#sets[${setIndex}] SET #updated_at = :updated_at, #trainerId = :trainerId`, // Replace '2' with the index of the item to remove
         ExpressionAttributeNames: {
             "#exercises": "exercises",
             "#sets": "sets",
             '#updated_at': 'updated_at',
+            '#trainerId': 'trainerId'
         },
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
+            ':trainerId': trainerId
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     }).promise()

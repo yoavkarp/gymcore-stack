@@ -16,6 +16,7 @@ export class DynamoDBStack extends Stack {
         goalTable: Table;
         trainerIndexTable: Table;
         workoutTable: Table;
+        planTable: Table;
     }
 
     constructor(scope: Construct, id: string, props: StackProps) {

@@ -26,6 +26,12 @@ export class WorkoutTableConstruct extends Construct {
         })
 
         this.table.addGlobalSecondaryIndex({
+            indexName: "workouts-by-plan-id",
+            partitionKey: { name: 'tenantId#planId', type: AttributeType.STRING },
+            sortKey: { name: 'updated_at', type: AttributeType.STRING },
+        })
+
+        this.table.addGlobalSecondaryIndex({
             indexName: "workouts-by-club-library",
             partitionKey: { name: 'tenantId#clubId#lib', type: AttributeType.STRING },
             sortKey: { name: 'created_at', type: AttributeType.STRING },
@@ -40,7 +46,8 @@ export class WorkoutTableConstruct extends Construct {
                 effect: Effect.ALLOW,
                 resources: [
                     `${this.table.tableArn}/index/workouts-by-member-id`,
-                    `${this.table.tableArn}/index/workouts-by-club-library`
+                    `${this.table.tableArn}/index/workouts-by-club-library`,
+                    `${this.table.tableArn}/index/workouts-by-plan-id`,
                 ],
                 actions: ['dymamodb:Query'],
             })

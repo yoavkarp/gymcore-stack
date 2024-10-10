@@ -1,0 +1,9 @@
+extend type Mutation {
+  createEvent(input: CreateEventInput!): Event @aws_auth(cognito_groups: ["club"])
+  deleteEvent(eventId: ID!): Event @aws_auth(cognito_groups: ["club"])
+}
+
+input CreateEventInput {
+  start_at: AWSDateTime!
+  planId: ID!
+}

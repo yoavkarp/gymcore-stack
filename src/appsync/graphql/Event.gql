@@ -1,0 +1,15 @@
+type Event {
+    tenantId: ID!
+    id: ID!
+    clubId: ID!
+    trainerId: ID!
+    memberId: ID!
+    start_at: AWSDateTime!
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+}
+
+type EventConnection {
+    items: [Event!]
+    nextToken: String
+}

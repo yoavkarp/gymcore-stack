@@ -1,6 +1,7 @@
 import { IExercise, IMutation, IMutationUpdateSetInExerciseArgs, IStrengthExerciseSet, IWorkout } from "@/appsync/schema";
 import { AppSyncResolver } from "@/lambdas/appsync.types";
 import { dynamodb } from "../../connection";
+import { randomUUID } from "crypto";
 
 export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutation['updateSetInExercise']> = async (event, context, callback) => {
 
@@ -8,7 +9,8 @@ export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutatio
         input,
         workoutId,
         exerciseId,
-        setId
+        setId,
+        trainerId
     } = event.arguments;
 
     const clubId = event.identity?.sub!;
@@ -32,21 +34,29 @@ export const handler: AppSyncResolver<IMutationUpdateSetInExerciseArgs, IMutatio
     Object.assign(input, { id: setId });
     delete input.times;
 
+    input.dropsets = input.dropsets?.map((ds) => ({
+        ...ds,
+        id: ds.id || randomUUID()
+    }))
+
+
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET #exercises[${indexOfExercise}].#sets[${indexOfSet}] = :new_set, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises[${indexOfExercise}].#sets[${indexOfSet}] = :new_set, #updated_at = :updated_at, #trainerId = :trainerId`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ':new_set': input
+            ':new_set': input,
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
             "#exercises": "exercises",
-            '#sets': 'sets'
+            '#sets': 'sets',
+            '#trainerId': 'trainerId'
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

@@ -1,0 +1,5 @@
+extend type Query {
+    listPlansByMemberId(memberId: ID!, limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
+    listPlansByTrainerId(trainerId: ID!, limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
+    listPlansByClub(limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
+}

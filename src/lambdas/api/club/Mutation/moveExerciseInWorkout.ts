@@ -8,6 +8,7 @@ export const handler: AppSyncResolver<IMutationMoveExerciseInWorkoutArgs, IMutat
         from,
         to,
         workoutId,
+        trainerId
     } = event.arguments;
 
     if (from < 0 || to < 0 || from === to) {
@@ -37,14 +38,16 @@ export const handler: AppSyncResolver<IMutationMoveExerciseInWorkoutArgs, IMutat
             tenantId: process.env.TENANT_ID,
             id: workoutId
         },
-        UpdateExpression: `SET #exercises = :exercises, #updated_at = :updated_at`,
+        UpdateExpression: `SET #exercises = :exercises, #updated_at = :updated_at, #trainerId = :trainerId`,
         ExpressionAttributeValues: {
             ':updated_at': new Date().toISOString(),
-            ':exercises': exercises
+            ':exercises': exercises,
+            ':trainerId': trainerId
         },
         ExpressionAttributeNames: {
             '#updated_at': 'updated_at',
-            '#exercises': 'exercises'
+            '#exercises': 'exercises',
+            '#trainerId': 'trainerId'
         },
         ReturnValues: 'ALL_NEW', // Returns the updated attributes
     };

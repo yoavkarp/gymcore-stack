@@ -1,0 +1,37 @@
+type Plan implements Document {
+    id: ID!
+    tenantId: ID!
+    memberId: ID!
+    trainerId: ID!
+
+    notes: String
+
+    workouts: WorkoutConnection
+    clubId: ID!
+
+    weeks: Int!
+    meetings: Int!
+    # completed: [CompletedWorkout!]
+        
+    created_at: AWSDateTime!
+    updated_at: AWSDateTime!
+
+    member: Member
+    events: EventConnection
+
+    # events: EventConnection
+}
+
+# type CompletedWorkout {
+#     activeWorkoutId: ID!
+#     activeWorkout: ActiveWorkout
+#     workoutId: ID!
+#     workout: Workout
+#     time: AWSDateTime!
+# }
+
+type PlanConnection {
+    items: [Plan!]
+    nextToken: String
+}
+

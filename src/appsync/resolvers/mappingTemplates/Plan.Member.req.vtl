@@ -1,0 +1,11 @@
+#set($tenantId = $ctx.source.tenantId)
+#set($memberId = $ctx.source.memberId)
+
+{
+  "version": "2018-05-29",
+  "operation": "GetItem",
+  "key": {
+    "tenantId": $util.dynamodb.toStringJson("$tenantId"),
+    "id": $util.dynamodb.toStringJson("$memberId")
+  }
+}
