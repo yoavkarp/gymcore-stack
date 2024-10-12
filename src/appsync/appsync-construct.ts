@@ -73,6 +73,8 @@ export class AppSyncConstruct extends Construct {
         props.tables.trainerIndexTable.grantFullAccess(api_lambda)
         props.tables.workoutTable.grantFullAccess(api_lambda)
         props.tables.planTable.grantFullAccess(api_lambda)
+        props.tables.eventTable.grantFullAccess(api_lambda)
+
         props.userPool.grant(api_lambda, 'cognito-idp:*')
 
         const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);

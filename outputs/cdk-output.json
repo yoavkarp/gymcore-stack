@@ -1,4 +1,12 @@
 {
+  "GymcoreSMSQueueStack": {
+    "ExportsOutputFnGetAttVerifySMSKmsKey6ACD05CFArnCD0B7E87": "arn:aws:kms:eu-central-1:181032208684:key/8ed97552-9eba-4709-9f68-1a72c2e3b008",
+    "ApiKey": "da2-5bmhcu4cdven7dyqqbhkicrkqq",
+    "smssendlayerLayerPath1B437C01": "src\\layers\\sms-send-layer",
+    "ExportsOutputFnGetAttSMSSEND553619A6Arn1A3EF644": "arn:aws:lambda:eu-central-1:181032208684:function:SMS_SEND_Trigger",
+    "ApiEndpoint": "https://pygspgmmarbv3ceilht6euzjgm.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "ApiId": "z775qpjrzfe4tai2hb45phxqva"
+  },
   "GymcoreDatabaseStack": {
     "ExportsOutputFnGetAttMeasurementTableConstructMeasurementTable2D6B5B46ArnDE48480B": "arn:aws:dynamodb:eu-central-1:181032208684:table/MeasurementTable",
     "ExportsOutputFnGetAttTrainerTableConstructTrainerTableD2C070DEArn340101E0": "arn:aws:dynamodb:eu-central-1:181032208684:table/TrainerTable",
@@ -22,16 +30,8 @@
     "ExportsOutputRefEventTableConstructEventTableE5522A0CD30CFC6A": "EventTable",
     "ExportsOutputRefGoalTableConstructGoalTable4B21C4DA148CEACC": "GoalTable"
   },
-  "GymcoreSMSQueueStack": {
-    "ExportsOutputFnGetAttVerifySMSKmsKey6ACD05CFArnCD0B7E87": "arn:aws:kms:eu-central-1:181032208684:key/8ed97552-9eba-4709-9f68-1a72c2e3b008",
-    "ApiKey": "da2-5bmhcu4cdven7dyqqbhkicrkqq",
-    "smssendlayerLayerPath1B437C01": "src/layers/sms-send-layer",
-    "ExportsOutputFnGetAttSMSSEND553619A6Arn1A3EF644": "arn:aws:lambda:eu-central-1:181032208684:function:SMS_SEND_Trigger",
-    "ApiEndpoint": "https://pygspgmmarbv3ceilht6euzjgm.appsync-api.eu-central-1.amazonaws.com/graphql",
-    "ApiId": "z775qpjrzfe4tai2hb45phxqva"
-  },
   "DevCDKStack": {
-    "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
+    "awssdklayerLayerPathD25219AF": "src\\layers\\aws-sdk-layer",
     "UserPoolClientId": "4ag9ln84hh390vgooirokuesh7",
     "UserPoolId": "eu-central-1_jojyHt59I",
     "tenantName": "Dev_Israel",

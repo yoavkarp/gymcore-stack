@@ -36,6 +36,12 @@ export class EventTableConstruct extends Construct {
             sortKey: { name: 'clubId', type: AttributeType.STRING }
         })
 
+        this.table.addGlobalSecondaryIndex({
+            indexName: "events-by-plan-id",
+            partitionKey: { name: 'tenantId#planId', type: AttributeType.STRING },
+            sortKey: { name: 'start_at', type: AttributeType.STRING }
+        })
+
         const eventTableServiceRole = new Role(this, 'EventTableServiceRole', {
             assumedBy: new ServicePrincipal('dynamodb.amazonaws.com'),
         })
