@@ -140,29 +140,6 @@ type Query {
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
 }
 
-scalar AWSTimestamp
-
-scalar AWSURL
-
-scalar AWSJSON
-
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
-}
-
 type Tenant {
   id: ID!
   name: String!
@@ -268,6 +245,29 @@ type Parameter {
   val: Float
   max: Float
   unit: String
+}
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
 }
 
 type Club implements Document {

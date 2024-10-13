@@ -27,7 +27,7 @@ export const createUser = async (attrs: { phone_number: string, email?: string }
                 Name: "email_verified",
                 Value: "true"
             }
-        ] : [])
+        ] : []),
     }).promise()
 
     await cognito.adminAddUserToGroup({
