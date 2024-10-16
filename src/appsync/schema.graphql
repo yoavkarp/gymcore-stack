@@ -1,3 +1,82 @@
+type ActiveWorkout implements Document {
+  id: ID!
+  tenantId: ID!
+  clubId: ID!
+  workoutId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  started_at: AWSDateTime!
+  end_at: AWSDateTime
+  exercises: [ActiveExercise!]
+  memberId: ID!
+  planId: ID
+}
+
+type ActiveWorkoutConnection {
+  items: [ActiveWorkout!]
+  nextToken: String
+}
+
+union ActiveExercise = ActiveStrengthExercise | ActiveCardioExercise
+
+type ActiveStrengthExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  type: ExerciseType!
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ActiveParameter
+  resistance: ActiveParameter
+  sets: [ActiveStrengthExerciseSet]
+}
+
+type ActiveCardioExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  type: ExerciseType!
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ActiveParameter
+  resistance: ActiveParameter
+  intervals: [ActiveCardioExerciseInterval]
+}
+
+type ActiveStrengthExerciseSet {
+  id: ID!
+  reps: ActiveParameter
+  rest: ActiveParameter
+  weight: ActiveParameter
+  dropsets: [ActiveStrengthExerciseDropSet!]
+}
+
+type ActiveStrengthExerciseDropSet {
+  id: ID!
+  reps: ActiveParameter
+  weight: ActiveParameter
+}
+
+type ActiveCardioExerciseInterval {
+  id: ID!
+  duration: ActiveParameter
+  distance: ActiveParameter
+  tempo: ActiveParameter
+  intensity: ActiveParameter
+  angle: ActiveParameter
+  resistance: ActiveParameter
+  rest: ActiveParameter
+}
+
+type ActiveParameter {
+  val: Float
+  max: Float
+  unit: String
+  done: Float
+}
+
 interface Document {
   id: ID!
   tenantId: ID!
@@ -100,6 +179,12 @@ type Mutation {
   moveSetInExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
   moveIntervalInExercise(trainerId: ID!, workoutId: ID!, exerciseId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
   moveExerciseInWorkout(trainerId: ID!, workoutId: ID!, from: Int!, to: Int!): Workout @aws_auth(cognito_groups: ["club"])
+  startActiveWorkout(workoutId: ID!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkoutInterval(input: EndIntervalInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkoutSet(input: EndSetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkoutDropset(input: EndDropsetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
   register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
   updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
 }
@@ -138,6 +223,29 @@ type Query {
   listPlansByTrainerId(trainerId: ID!, limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   listPlansByClub(limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
+}
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
 }
 
 type Tenant {
@@ -245,29 +353,6 @@ type Parameter {
   val: Float
   max: Float
   unit: String
-}
-
-scalar AWSTimestamp
-
-scalar AWSURL
-
-scalar AWSJSON
-
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
 }
 
 type Club implements Document {
@@ -417,6 +502,32 @@ input ParameterInput {
 enum ExerciseType {
   STRENGTH
   CARDIO
+}
+
+input EndIntervalInput {
+  exerciseId: ID!
+  intervalId: ID!
+  duration: Float
+  distance: Float
+  tempo: Float
+  intensity: Float
+  angle: Float
+  resistance: Float
+  rest: Float
+}
+
+input EndSetInput {
+  exerciseId: ID!
+  setId: ID!
+  weight: Float
+  rest: Float
+}
+
+input EndDropsetInput {
+  exerciseId: ID!
+  setId: ID!
+  dropsetId: ID!
+  weight: Float
 }
 
 input RegisterInput {

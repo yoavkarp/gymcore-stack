@@ -8,6 +8,7 @@
     "main": "index.js",
     "dependencies": {
         "aws-sdk": "^2.1549.0",
+        "gymcore-cdk": "file:../../../..",
         "zod": "^3.23.8"
     }
 }

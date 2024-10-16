@@ -1,0 +1,37 @@
+extend type Mutation {
+  startActiveWorkout(workoutId: ID!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkoutInterval(input: EndIntervalInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkoutSet(input: EndSetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  endActiveWorkoutDropset(input: EndDropsetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
+}
+
+input EndIntervalInput {
+  exerciseId: ID!
+  intervalId: ID!
+
+  duration: Float
+  distance: Float
+  tempo: Float
+  intensity: Float
+  angle: Float
+  resistance: Float
+  rest: Float
+}
+
+input EndSetInput {
+  exerciseId: ID!
+  setId: ID!
+
+  weight: Float
+  rest: Float
+}
+
+input EndDropsetInput {
+  exerciseId: ID!
+  setId: ID!
+  dropsetId: ID!
+
+  weight: Float
+}

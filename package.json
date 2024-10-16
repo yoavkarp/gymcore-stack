@@ -12,7 +12,8 @@
     "codegen": "graphql-codegen --config codegen.config.ts",
     "publish": "npm run build; npm run ydeploy",
     "create-tenant": "ts-node scripts/create-tenant",
-    "create-club": "ts-node scripts/create-club"
+    "create-club": "ts-node scripts/create-club",
+    "layers": "ts-node scripts/install-layer-modules.ts"
   },
   "devDependencies": {
     "@aws-crypto/client-node": "^4.0.1",

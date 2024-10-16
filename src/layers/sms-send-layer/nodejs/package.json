@@ -7,8 +7,9 @@
     "license": "ISC",
     "main": "index.js",
     "dependencies": {
+        "@aws-crypto/client-node": "^4.0.1",
         "aws-sdk": "^2.1549.0",
-        "zod": "^3.23.8",
-        "@aws-crypto/client-node": "^4.0.1"
+        "gymcore-cdk": "file:../../../..",
+        "zod": "^3.23.8"
     }
 }

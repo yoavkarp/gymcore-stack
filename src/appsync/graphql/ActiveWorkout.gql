@@ -1,0 +1,92 @@
+type ActiveWorkout implements Document {
+  id: ID!
+  tenantId: ID!
+  clubId: ID!
+  workoutId: ID!
+  
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  started_at: AWSDateTime!
+  end_at: AWSDateTime
+
+  exercises: [ActiveExercise!]
+
+  memberId: ID!
+  planId: ID
+}
+
+type ActiveWorkoutConnection {
+  items: [ActiveWorkout!]
+  nextToken: String
+}
+
+union ActiveExercise = ActiveStrengthExercise | ActiveCardioExercise
+
+type ActiveStrengthExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  type: ExerciseType!
+  # common
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ActiveParameter
+  resistance: ActiveParameter
+  # strength
+  sets: [ActiveStrengthExerciseSet]
+}
+
+type ActiveCardioExercise {
+  id: ID!
+  xid: ID!
+  name: String!
+  type: ExerciseType!
+  # common
+  notes: String
+  machine_number: String
+  seat_height: String
+  angle: ActiveParameter
+  resistance: ActiveParameter
+  # cardio
+  intervals: [ActiveCardioExerciseInterval]
+}
+
+type ActiveStrengthExerciseSet {
+  id: ID!
+  reps: ActiveParameter
+  rest: ActiveParameter
+  weight: ActiveParameter
+  dropsets: [ActiveStrengthExerciseDropSet!]
+}
+
+type ActiveStrengthExerciseDropSet {
+  id: ID!
+  reps: ActiveParameter
+  weight: ActiveParameter
+}
+
+type ActiveCardioExerciseInterval {
+  id: ID!
+  duration: ActiveParameter
+  distance: ActiveParameter
+  tempo: ActiveParameter
+  intensity: ActiveParameter
+  angle: ActiveParameter
+  resistance: ActiveParameter
+  rest: ActiveParameter
+}
+
+type ActiveParameter {
+  val: Float
+  max: Float
+  unit: String
+  done: Float
+}
+
+fragment ActiveParameterFragment on ActiveParameter {
+  max
+  val
+  unit
+  done
+}
