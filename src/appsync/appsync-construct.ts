@@ -20,8 +20,6 @@ type AppSyncConstructProps = {
     tables: DynamoDBStack['tables'];
 }
 
-const schemaPath = path.join("src", "appsync", 'schema.graphql');
-
 export class AppSyncConstruct extends Construct {
     public readonly api: GraphqlApi;
     public readonly dataSources: BackedDataSource[];
@@ -63,36 +61,34 @@ export class AppSyncConstruct extends Construct {
             timeout: Duration.seconds(10)
         })
 
-        props.tables.clubTable.grantFullAccess(api_lambda)
-        props.tables.memberTable.grantFullAccess(api_lambda)
-        props.tables.tenantTable.grantFullAccess(api_lambda)
-        props.tables.userTable.grantFullAccess(api_lambda)
-        props.tables.trainerTable.grantFullAccess(api_lambda)
-        props.tables.measurementTable.grantFullAccess(api_lambda)
-        props.tables.goalTable.grantFullAccess(api_lambda)
-        props.tables.trainerIndexTable.grantFullAccess(api_lambda)
-        props.tables.workoutTable.grantFullAccess(api_lambda)
-        props.tables.planTable.grantFullAccess(api_lambda)
-        props.tables.eventTable.grantFullAccess(api_lambda)
+        const API_TABLES: Array<keyof typeof props.tables> = [
+            "activeWorkoutTable",
+            "clubTable",
+            "eventTable",
+            "goalTable",
+            "measurementTable",
+            "memberTable",
+            "planTable",
+            "tenantTable",
+            "trainerTable",
+            "userTable",
+            "workoutTable",
+            "trainerIndexTable"
+        ];
 
+        API_TABLES.forEach((table) => {
+            props.tables[table].grantFullAccess(api_lambda)
+        })
         props.userPool.grant(api_lambda, 'cognito-idp:*')
 
         const api_lambda_ds = this.api.addLambdaDataSource("api", api_lambda);
-
         this.dataSources = [
             // api lambda
             api_lambda_ds,
-            this.api.addDynamoDbDataSource("club", props.tables.clubTable, { name: "ClubTable" }),
-            this.api.addDynamoDbDataSource("member", props.tables.memberTable, { name: "MemberTable" }),
-            this.api.addDynamoDbDataSource("tenant", props.tables.tenantTable, { name: "TenantTable" }),
-            this.api.addDynamoDbDataSource("user", props.tables.userTable, { name: "UserTable" }),
-            this.api.addDynamoDbDataSource("trainer", props.tables.trainerTable, { name: "TrainerTable" }),
-            this.api.addDynamoDbDataSource("measurement", props.tables.measurementTable, { name: "MeasurementTable" }),
-            this.api.addDynamoDbDataSource("event", props.tables.eventTable, { name: "EventTable" }),
-            this.api.addDynamoDbDataSource("goal", props.tables.goalTable, { name: "GoalTable" }),
-            this.api.addDynamoDbDataSource("workout", props.tables.workoutTable, { name: "WorkoutTable" }),
-            this.api.addDynamoDbDataSource("plan", props.tables.planTable, { name: "PlanTable" }),
-
+            // DynamoDB tables
+            ...API_TABLES.map((table) => {
+                return this.api.addDynamoDbDataSource(table.replace("Table", ""), props.tables[table], { name: `${table[0].toUpperCase()}${table.substring(1)}` })
+            }),
         ]
 
         const resolversPath = path.join(__dirname, "resolvers");

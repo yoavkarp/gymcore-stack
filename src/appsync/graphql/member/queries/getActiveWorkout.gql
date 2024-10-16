@@ -1,0 +1,3 @@
+extend type Query {
+  getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
+}

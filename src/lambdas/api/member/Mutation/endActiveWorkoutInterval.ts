@@ -35,9 +35,24 @@ export const handler: AppSyncResolver<IMutationEndActiveWorkoutIntervalArgs, IMu
     const indexOfExercise = existItem?.exercises.findIndex((exercise: IActiveExercise) => exercise.id === exerciseId)
     const indexOfInterval = existItem?.exercises[indexOfExercise].intervals.findIndex((interval: IActiveCardioExerciseInterval) => interval.id === intervalId)
 
+    const interval = existItem?.exercises[indexOfExercise].intervals[indexOfInterval];
+
     Object.keys(input).forEach(key => {
-        existItem.exercises[indexOfExercise].intervals[indexOfInterval][key].done = input[key as keyof typeof input]
+        interval[key].done = input[key as keyof typeof input]
     })
+
+    const updatedActiveWorkout = await dynamodb.update({
+        TableName: "ActiveWorkoutTable",
+        Key: {
+            tenantId: process.env.TENANT_ID,
+            id: existItem.id
+        },
+        UpdateExpression: `SET exercises[${indexOfExercise}].intervals[${indexOfInterval}] = :interval`,
+        ExpressionAttributeValues: {
+            ":interval": interval
+        },
+        ReturnValues: "ALL_NEW"
+    }).promise()
 
     callback(undefined, updatedActiveWorkout.Attributes as IActiveWorkout)
 }

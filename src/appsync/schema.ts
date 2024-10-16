@@ -389,7 +389,6 @@ export type IMutation = {
   endActiveWorkoutDropset?: Maybe<IActiveWorkout>;
   endActiveWorkoutInterval?: Maybe<IActiveWorkout>;
   endActiveWorkoutSet?: Maybe<IActiveWorkout>;
-  getActiveWorkout?: Maybe<IActiveWorkout>;
   importWorkoutFromLibrary?: Maybe<IWorkout>;
   moveExerciseInWorkout?: Maybe<IWorkout>;
   moveIntervalInExercise?: Maybe<IWorkout>;
@@ -642,6 +641,7 @@ export type IPlanConnection = {
 
 export type IQuery = {
   __typename?: 'Query';
+  getActiveWorkout?: Maybe<IActiveWorkout>;
   getClubById?: Maybe<IClub>;
   getClubTrainers?: Maybe<Array<ITrainer>>;
   getMemberById?: Maybe<IMember>;
@@ -649,6 +649,7 @@ export type IQuery = {
   getTenant?: Maybe<ITenant>;
   getTrainerById?: Maybe<ITrainer>;
   getWorkoutById?: Maybe<IWorkout>;
+  listActiveWorkoutsHistory?: Maybe<IActiveWorkoutConnection>;
   listLibraryWorkouts?: Maybe<IWorkoutConnection>;
   listPlansByClub?: Maybe<IPlanConnection>;
   listPlansByMemberId?: Maybe<IPlanConnection>;

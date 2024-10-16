@@ -45,5 +45,13 @@ export const resolver: ResolverType<IQuery> = {
     },
     getPlanById: {
         dataSourceName: "api"
+    },
+    getActiveWorkout: {
+        dataSourceName: "api"
+    },
+    listActiveWorkoutsHistory: {
+        dataSourceName: "ActiveWorkoutTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListActiveWorkoutsHistory.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
     }
 }

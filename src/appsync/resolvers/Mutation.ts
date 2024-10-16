@@ -77,4 +77,19 @@ export const resolver: ResolverType<IMutation> = {
     createEvent: {
         dataSourceName: "api"
     },
+    endActiveWorkout: {
+        dataSourceName: "api"
+    },
+    endActiveWorkoutDropset: {
+        dataSourceName: "api"
+    },
+    endActiveWorkoutInterval: {
+        dataSourceName: "api"
+    },
+    endActiveWorkoutSet: {
+        dataSourceName: "api"
+    },
+    startActiveWorkout: {
+        dataSourceName: "api"
+    }
 }

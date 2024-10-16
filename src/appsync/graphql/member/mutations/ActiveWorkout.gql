@@ -4,7 +4,6 @@ extend type Mutation {
   endActiveWorkoutInterval(input: EndIntervalInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
   endActiveWorkoutSet(input: EndSetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
   endActiveWorkoutDropset(input: EndDropsetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
-  getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
 }
 
 input EndIntervalInput {

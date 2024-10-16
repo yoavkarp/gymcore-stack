@@ -1,0 +1,19 @@
+#set($memberId = $ctx.identity.sub)
+#set($tenantId = $ctx.source.tenantId)
+
+{
+  "version": "2018-05-29",
+  "operation": "Query",
+  "index": "active-workouts-by-member-id",
+  "limit": $util.defaultIfNull(${ctx.args.limit}, 5),
+  "scanIndexForward": false,
+  "query": {
+    "expression": "#PK = :PK",
+    "expressionNames": {
+      "#PK": "tenantId#memberId",
+    },
+    "expressionValues": {
+      ":PK": $util.dynamodb.toStringJson("$tenantId#$memberId"),
+    }
+  },
+}

@@ -184,7 +184,6 @@ type Mutation {
   endActiveWorkoutInterval(input: EndIntervalInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
   endActiveWorkoutSet(input: EndSetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
   endActiveWorkoutDropset(input: EndDropsetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
-  getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
   register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
   updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
 }
@@ -223,29 +222,8 @@ type Query {
   listPlansByTrainerId(trainerId: ID!, limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   listPlansByClub(limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
-}
-
-scalar AWSTimestamp
-
-scalar AWSURL
-
-scalar AWSJSON
-
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
+  getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  listActiveWorkoutsHistory: ActiveWorkoutConnection @aws_auth(cognito_groups: ["member"])
 }
 
 type Tenant {
@@ -353,6 +331,29 @@ type Parameter {
   val: Float
   max: Float
   unit: String
+}
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
 }
 
 type Club implements Document {
