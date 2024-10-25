@@ -25,6 +25,7 @@ input EndSetInput {
 
   weight: Float
   rest: Float
+  reps: Int
 }
 
 input EndDropsetInput {
@@ -33,4 +34,5 @@ input EndDropsetInput {
   dropsetId: ID!
 
   weight: Float
+  reps: Int
 }

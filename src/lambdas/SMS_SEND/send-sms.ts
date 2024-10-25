@@ -1,6 +1,8 @@
 import { randomUUID } from "crypto";
 
 export const sendSMS = async (phoneNumber: string, message: string) => {
+    console.log("SENDING SMS", phoneNumber, process.env.GRAPHQL_ENDPOINT, process.env.API_KEY);
+
     const res = await fetch(process.env.GRAPHQL_ENDPOINT!, {
         method: "POST",
         headers: {
@@ -29,5 +31,7 @@ export const sendSMS = async (phoneNumber: string, message: string) => {
     })
 
     const jso = await res.json();
+
+    console.log("JSO", jso);
     return jso as any;
 }

@@ -98,6 +98,8 @@ export type IActiveWorkout = IDocument & {
   exercises?: Maybe<Array<IActiveExercise>>;
   id: Scalars['ID']['output'];
   memberId: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
   planId?: Maybe<Scalars['ID']['output']>;
   started_at: Scalars['AWSDateTime']['output'];
   tenantId: Scalars['ID']['output'];
@@ -227,6 +229,7 @@ export type IDocument = {
 export type IEndDropsetInput = {
   dropsetId: Scalars['ID']['input'];
   exerciseId: Scalars['ID']['input'];
+  reps?: InputMaybe<Scalars['Int']['input']>;
   setId: Scalars['ID']['input'];
   weight?: InputMaybe<Scalars['Float']['input']>;
 };
@@ -245,6 +248,7 @@ export type IEndIntervalInput = {
 
 export type IEndSetInput = {
   exerciseId: Scalars['ID']['input'];
+  reps?: InputMaybe<Scalars['Int']['input']>;
   rest?: InputMaybe<Scalars['Float']['input']>;
   setId: Scalars['ID']['input'];
   weight?: InputMaybe<Scalars['Float']['input']>;
@@ -351,11 +355,13 @@ export type IMember = IDocument & {
   measurement?: Maybe<IMeasurement>;
   name?: Maybe<Scalars['String']['output']>;
   phone_number?: Maybe<Scalars['AWSPhone']['output']>;
+  picture?: Maybe<Scalars['AWSURL']['output']>;
   plans?: Maybe<IPlanConnection>;
   profile_picture?: Maybe<Scalars['AWSURL']['output']>;
   profile_workouts?: Maybe<IWorkoutConnection>;
   registered?: Maybe<Scalars['Boolean']['output']>;
   status?: Maybe<Scalars['AWSJSON']['output']>;
+  tenant?: Maybe<ITenant>;
   tenantId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
 };
@@ -395,6 +401,7 @@ export type IMutation = {
   moveSetInExercise?: Maybe<IWorkout>;
   register?: Maybe<IMember>;
   startActiveWorkout?: Maybe<IActiveWorkout>;
+  test?: Maybe<IMeasurement>;
   updateExerciseInWorkout?: Maybe<IWorkout>;
   updateIntervalInExercise?: Maybe<IWorkout>;
   updateMemberProfile?: Maybe<IMember>;
@@ -566,6 +573,11 @@ export type IMutationStartActiveWorkoutArgs = {
 };
 
 
+export type IMutationTestArgs = {
+  input: ICreateMeasurementInput;
+};
+
+
 export type IMutationUpdateExerciseInWorkoutArgs = {
   exerciseId: Scalars['ID']['input'];
   input: IUpdateExerciseInWorkoutInput;
@@ -627,6 +639,7 @@ export type IPlan = IDocument & {
   memberId: Scalars['ID']['output'];
   notes?: Maybe<Scalars['String']['output']>;
   tenantId: Scalars['ID']['output'];
+  trainer?: Maybe<ITrainer>;
   trainerId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
   weeks: Scalars['Int']['output'];
@@ -644,6 +657,7 @@ export type IQuery = {
   getActiveWorkout?: Maybe<IActiveWorkout>;
   getClubById?: Maybe<IClub>;
   getClubTrainers?: Maybe<Array<ITrainer>>;
+  getCurrentMember?: Maybe<IMember>;
   getMemberById?: Maybe<IMember>;
   getPlanById?: Maybe<IPlan>;
   getTenant?: Maybe<ITenant>;
@@ -788,6 +802,7 @@ export type ITrainer = IDocument & {
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
   phone_number: Scalars['AWSPhone']['output'];
+  picture?: Maybe<Scalars['AWSURL']['output']>;
   tenantId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
 };
@@ -813,6 +828,7 @@ export type IUpdateMemberProfileInput = {
   email?: InputMaybe<Scalars['AWSEmail']['input']>;
   gender?: InputMaybe<IGender>;
   name?: InputMaybe<Scalars['String']['input']>;
+  picture?: InputMaybe<Scalars['AWSURL']['input']>;
   profile_picture?: InputMaybe<Scalars['AWSURL']['input']>;
 };
 
@@ -832,6 +848,7 @@ export type IWorkout = IDocument & {
   name: Scalars['String']['output'];
   notes?: Maybe<Scalars['String']['output']>;
   tenantId: Scalars['ID']['output'];
+  trainer?: Maybe<ITrainer>;
   trainerId: Scalars['ID']['output'];
   updated_at: Scalars['AWSDateTime']['output'];
 };

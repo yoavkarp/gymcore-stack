@@ -25,5 +25,10 @@ export const resolver: ResolverType<IMember> = {
         dataSourceName: "PlanTable",
         req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Member.Plans.req.vtl")),
         res: MappingTemplate.dynamoDbResultItem(),
+    },
+    tenant: {
+        dataSourceName: "TenantTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Member.Tenant.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
     }
 }

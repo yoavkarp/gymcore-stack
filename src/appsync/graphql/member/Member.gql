@@ -21,6 +21,10 @@ type Member implements Document {
 
     profile_workouts: WorkoutConnection
     plans: PlanConnection
+
+    tenant: Tenant
+
+    picture: AWSURL
 }
 
 type MemberConnection {

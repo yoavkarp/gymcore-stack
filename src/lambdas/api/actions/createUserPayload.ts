@@ -36,6 +36,7 @@ export const createUser = async (attrs: { phone_number: string, email?: string }
         GroupName: group
     }).promise()
 
+
     return user;
 
 }

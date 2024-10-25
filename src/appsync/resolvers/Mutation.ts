@@ -91,5 +91,8 @@ export const resolver: ResolverType<IMutation> = {
     },
     startActiveWorkout: {
         dataSourceName: "api"
+    },
+    updateMemberProfile: {
+        dataSourceName: "api"
     }
 }

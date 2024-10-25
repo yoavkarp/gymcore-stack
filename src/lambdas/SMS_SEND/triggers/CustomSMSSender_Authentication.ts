@@ -4,6 +4,7 @@ import b64 from 'base64-js';
 import { sendSMS } from "../send-sms";
 
 export const handler: Handler<CustomSMSSenderAuthenticationUserTriggerEvent> = async (event, context, callback) => {
+    console.log("IM HERE!");
     const { decrypt } = buildClient(CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT);
     const generatorKeyId = process.env.KEY_ALIAS;
     const keyIds = [process.env.KEY_ARN || ""];
@@ -17,6 +18,7 @@ export const handler: Handler<CustomSMSSenderAuthenticationUserTriggerEvent> = a
 
     try {
         await sendSMS(event.request.userAttributes.phone_number, `Your verification code is ${plainTextCode}`);
+        return event;
     }
     catch (e) {
         console.error("Error: Failed to send SMS", e);

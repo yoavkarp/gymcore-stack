@@ -1,5 +1,5 @@
 type Mutation {
-    createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
+    test(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
     # createGoal(input: CreateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
     # updateGoal(goalId: ID!, input: UpdateGoalInput!): Goal @aws_auth(cognito_groups: ["club", "member"])
 }

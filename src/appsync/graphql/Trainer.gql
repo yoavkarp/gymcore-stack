@@ -10,6 +10,8 @@ type Trainer implements Document {
     birthdate: AWSDate!
     gender: Gender!
     address: String
+
+    picture: AWSURL
 }
 
 type TrainerConnection {

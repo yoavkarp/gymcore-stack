@@ -17,6 +17,7 @@ type Plan implements Document {
     updated_at: AWSDateTime!
 
     member: Member
+    trainer: Trainer
     events: EventConnection
 
     # events: EventConnection

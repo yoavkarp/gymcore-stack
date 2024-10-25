@@ -53,5 +53,10 @@ export const resolver: ResolverType<IQuery> = {
         dataSourceName: "ActiveWorkoutTable",
         req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.ListActiveWorkoutsHistory.req.vtl")),
         res: MappingTemplate.dynamoDbResultItem(),
+    },
+    getCurrentMember: {
+        dataSourceName: "MemberTable",
+        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Query.GetCurrentMember.req.vtl")),
+        res: MappingTemplate.dynamoDbResultItem(),
     }
 }

@@ -2,7 +2,7 @@ import { Construct } from 'constructs';
 import { AuthorizationType, Code, FieldLogLevel, FunctionRuntime, SchemaFile } from 'aws-cdk-lib/aws-appsync';
 import { GraphqlApi } from 'aws-cdk-lib/aws-appsync';
 import path from 'path';
-import { CfnOutput } from 'aws-cdk-lib';
+import { CfnOutput, Duration, Expiration } from 'aws-cdk-lib';
 import { ITable } from 'aws-cdk-lib/aws-dynamodb';
 
 // Export the merged schema
@@ -26,6 +26,9 @@ export class SMSQueueAPIConstruct extends Construct {
             authorizationConfig: {
                 defaultAuthorization: {
                     authorizationType: AuthorizationType.API_KEY,
+                    apiKeyConfig: {
+                        expires: Expiration.after(Duration.days(365))
+                    }
                 },
             },
             logConfig: {

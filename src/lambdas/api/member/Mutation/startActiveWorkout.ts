@@ -39,13 +39,19 @@ export const handler: AppSyncResolver<IMutationStartActiveWorkoutArgs, IMutation
     const Item = addCreateMetadata({
         id: randomUUID(),
         workoutId: workout.id,
-        exercises: workout.exercises,
+        exercises: workout.exercises.map((ex: any) => {
+            return {
+                ...ex,
+                __typename: "Active" + ex.__typename
+            }
+        }),
         clubId: workout.clubId,
-        'tenantId#memberId': workout["tenantId#memberId"],
+        'tenantId#memberId': `${process.env.TENANT_ID}#${event.identity?.sub}`,
         'tenantId#planId': workout["tenantId#planId"],
         started_at: new Date().toISOString(),
         planId: workout.planId,
-        memberId: workout.memberId,
+        memberId: event.identity?.sub!,
+        name: workout.name
     }, event.identity?.sub!) satisfies IActiveWorkout
 
     await dynamodb.put({

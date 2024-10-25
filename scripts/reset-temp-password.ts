@@ -7,7 +7,7 @@ AWS.config.region = "eu-central-1"
 const dynamodb = new AWS.DynamoDB.DocumentClient()
 const cognito = new AWS.CognitoIdentityServiceProvider()
 
-const username = "+9720505111113"
+const username = "+9720505716749"
 const password = "Abcd1234!@"
 const userPoolId = aws_exports.Auth.Cognito.userPoolId
 const userPoolClientId = aws_exports.Auth.Cognito.userPoolClientId

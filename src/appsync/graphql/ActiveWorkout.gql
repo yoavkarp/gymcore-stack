@@ -9,10 +9,12 @@ type ActiveWorkout implements Document {
   started_at: AWSDateTime!
   end_at: AWSDateTime
 
+  name: String!
   exercises: [ActiveExercise!]
 
   memberId: ID!
   planId: ID
+  notes: String
 }
 
 type ActiveWorkoutConnection {

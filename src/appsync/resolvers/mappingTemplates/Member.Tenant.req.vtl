@@ -1,0 +1,9 @@
+#set($tenantId = $ctx.source.tenantId)
+
+{
+  "version": "2018-05-29",
+  "operation": "GetItem",
+  "key": {
+    "id": $util.dynamodb.toStringJson("$tenantId")
+  }
+}

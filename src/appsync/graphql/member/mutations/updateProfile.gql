@@ -1,0 +1,11 @@
+extend type Mutation {
+  updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
+}
+
+input UpdateMemberProfileInput {
+    name: String
+    picture: AWSURL
+    address: String
+    birthdate: AWSDate
+    gender: Gender
+}

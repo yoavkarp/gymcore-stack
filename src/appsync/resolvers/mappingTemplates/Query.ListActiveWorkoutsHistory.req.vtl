@@ -1,5 +1,4 @@
 #set($memberId = $ctx.identity.sub)
-#set($tenantId = $ctx.source.tenantId)
 
 {
   "version": "2018-05-29",
@@ -13,7 +12,10 @@
       "#PK": "tenantId#memberId",
     },
     "expressionValues": {
-      ":PK": $util.dynamodb.toStringJson("$tenantId#$memberId"),
+      ":PK": $util.dynamodb.toStringJson("23b498e2-f0c1-7047-3bd1-a9fe0cd7f383#$memberId"),
     }
   },
+  "filter": {
+    "expression": "attribute_exists(end_at)",
+  }
 }

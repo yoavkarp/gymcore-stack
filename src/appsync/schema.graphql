@@ -7,9 +7,11 @@ type ActiveWorkout implements Document {
   updated_at: AWSDateTime!
   started_at: AWSDateTime!
   end_at: AWSDateTime
+  name: String!
   exercises: [ActiveExercise!]
   memberId: ID!
   planId: ID
+  notes: String
 }
 
 type ActiveWorkoutConnection {
@@ -154,7 +156,7 @@ input CreateMeasurementInput {
 }
 
 type Mutation {
-  createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
+  test(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club", "member"])
   createMeasurementForMember(memberId: ID!, input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["club"])
   createMember(input: CreateMemberInput!): Member @aws_auth(cognito_groups: ["club"])
   createTrainer(input: CreateTrainerInput!): Trainer @aws_auth(cognito_groups: ["club"])
@@ -184,6 +186,7 @@ type Mutation {
   endActiveWorkoutInterval(input: EndIntervalInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
   endActiveWorkoutSet(input: EndSetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
   endActiveWorkoutDropset(input: EndDropsetInput!): ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  createMeasurement(input: CreateMeasurementInput!): Measurement @aws_auth(cognito_groups: ["member"])
   register(input: RegisterInput!): Member @aws_auth(cognito_groups: ["member"])
   updateMemberProfile(input: UpdateMemberProfileInput!): Member @aws_auth(cognito_groups: ["member"])
 }
@@ -201,6 +204,7 @@ type Plan implements Document {
   created_at: AWSDateTime!
   updated_at: AWSDateTime!
   member: Member
+  trainer: Trainer
   events: EventConnection
 }
 
@@ -223,6 +227,7 @@ type Query {
   listPlansByClub(limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
   getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
+  getCurrentMember: Member @aws_auth(cognito_groups: ["member"])
   listActiveWorkoutsHistory: ActiveWorkoutConnection @aws_auth(cognito_groups: ["member"])
 }
 
@@ -248,6 +253,7 @@ type Trainer implements Document {
   birthdate: AWSDate!
   gender: Gender!
   address: String
+  picture: AWSURL
 }
 
 type TrainerConnection {
@@ -267,6 +273,7 @@ type Workout implements Document {
   notes: String
   exercises: [Exercise!]
   library: Boolean
+  trainer: Trainer
 }
 
 type WorkoutConnection {
@@ -391,6 +398,8 @@ type Member implements Document {
   goal: Goal
   profile_workouts: WorkoutConnection
   plans: PlanConnection
+  tenant: Tenant
+  picture: AWSURL
 }
 
 type MemberConnection {
@@ -522,6 +531,7 @@ input EndSetInput {
   setId: ID!
   weight: Float
   rest: Float
+  reps: Int
 }
 
 input EndDropsetInput {
@@ -529,6 +539,7 @@ input EndDropsetInput {
   setId: ID!
   dropsetId: ID!
   weight: Float
+  reps: Int
 }
 
 input RegisterInput {
@@ -547,4 +558,5 @@ input UpdateMemberProfileInput {
   address: String
   birthdate: AWSDate
   gender: Gender
+  picture: AWSURL
 }

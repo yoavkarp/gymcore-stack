@@ -17,5 +17,6 @@ export type ResolverData = {
     "WorkoutTable" |
     "PlanTable" |
     "EventTable" |
-    "ActiveWorkoutTable"
+    "ActiveWorkoutTable" |
+    "TrainerTable"
 }
