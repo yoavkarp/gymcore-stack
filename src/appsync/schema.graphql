@@ -206,6 +206,7 @@ type Plan implements Document {
   member: Member
   trainer: Trainer
   events: EventConnection
+  activeWorkouts: ActiveWorkoutConnection
 }
 
 type PlanConnection {
@@ -229,6 +230,29 @@ type Query {
   getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
   getCurrentMember: Member @aws_auth(cognito_groups: ["member"])
   listActiveWorkoutsHistory: ActiveWorkoutConnection @aws_auth(cognito_groups: ["member"])
+}
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
 }
 
 type Tenant {
@@ -338,29 +362,6 @@ type Parameter {
   val: Float
   max: Float
   unit: String
-}
-
-scalar AWSTimestamp
-
-scalar AWSURL
-
-scalar AWSJSON
-
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
 }
 
 type Club implements Document {

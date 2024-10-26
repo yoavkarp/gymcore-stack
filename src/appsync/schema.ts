@@ -630,6 +630,7 @@ export type IParameterInput = {
 
 export type IPlan = IDocument & {
   __typename?: 'Plan';
+  activeWorkouts?: Maybe<IActiveWorkoutConnection>;
   clubId: Scalars['ID']['output'];
   created_at: Scalars['AWSDateTime']['output'];
   events?: Maybe<IEventConnection>;

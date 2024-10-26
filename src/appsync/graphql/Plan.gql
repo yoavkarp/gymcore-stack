@@ -20,6 +20,8 @@ type Plan implements Document {
     trainer: Trainer
     events: EventConnection
 
+    activeWorkouts: ActiveWorkoutConnection
+
     # events: EventConnection
 }
 
