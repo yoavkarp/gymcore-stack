@@ -43,10 +43,12 @@ export type IActiveCardioExerciseInterval = {
   angle?: Maybe<IActiveParameter>;
   distance?: Maybe<IActiveParameter>;
   duration?: Maybe<IActiveParameter>;
+  end_at?: Maybe<Scalars['AWSDateTime']['output']>;
   id: Scalars['ID']['output'];
   intensity?: Maybe<IActiveParameter>;
   resistance?: Maybe<IActiveParameter>;
   rest?: Maybe<IActiveParameter>;
+  target_heart_rate?: Maybe<IActiveParameter>;
   tempo?: Maybe<IActiveParameter>;
 };
 
@@ -55,6 +57,7 @@ export type IActiveExercise = IActiveCardioExercise | IActiveStrengthExercise;
 export type IActiveParameter = {
   __typename?: 'ActiveParameter';
   done?: Maybe<Scalars['Float']['output']>;
+  end_at?: Maybe<Scalars['AWSDateTime']['output']>;
   max?: Maybe<Scalars['Float']['output']>;
   unit?: Maybe<Scalars['String']['output']>;
   val?: Maybe<Scalars['Float']['output']>;
@@ -76,6 +79,7 @@ export type IActiveStrengthExercise = {
 
 export type IActiveStrengthExerciseDropSet = {
   __typename?: 'ActiveStrengthExerciseDropSet';
+  end_at?: Maybe<Scalars['AWSDateTime']['output']>;
   id: Scalars['ID']['output'];
   reps?: Maybe<IActiveParameter>;
   weight?: Maybe<IActiveParameter>;
@@ -84,6 +88,7 @@ export type IActiveStrengthExerciseDropSet = {
 export type IActiveStrengthExerciseSet = {
   __typename?: 'ActiveStrengthExerciseSet';
   dropsets?: Maybe<Array<IActiveStrengthExerciseDropSet>>;
+  end_at?: Maybe<Scalars['AWSDateTime']['output']>;
   id: Scalars['ID']['output'];
   reps?: Maybe<IActiveParameter>;
   rest?: Maybe<IActiveParameter>;
@@ -132,6 +137,7 @@ export type ICardioExercise = {
   notes?: Maybe<Scalars['String']['output']>;
   resistance?: Maybe<IParameter>;
   seat_height?: Maybe<Scalars['String']['output']>;
+  target_heart_rate?: Maybe<IParameter>;
   type: IExerciseType;
   xid: Scalars['ID']['output'];
 };
@@ -145,6 +151,7 @@ export type ICardioExerciseInterval = {
   intensity?: Maybe<IParameter>;
   resistance?: Maybe<IParameter>;
   rest?: Maybe<IParameter>;
+  target_heart_rate?: Maybe<IParameter>;
   tempo?: Maybe<IParameter>;
 };
 
@@ -243,6 +250,7 @@ export type IEndIntervalInput = {
   intervalId: Scalars['ID']['input'];
   resistance?: InputMaybe<Scalars['Float']['input']>;
   rest?: InputMaybe<Scalars['Float']['input']>;
+  target_heart_rate?: InputMaybe<Scalars['Float']['input']>;
   tempo?: InputMaybe<Scalars['Float']['input']>;
 };
 
@@ -320,6 +328,7 @@ export type IIntervalInput = {
   intensity?: InputMaybe<IParameterInput>;
   resistance?: InputMaybe<IParameterInput>;
   rest?: InputMaybe<IParameterInput>;
+  target_heart_rate?: InputMaybe<IParameterInput>;
   tempo?: InputMaybe<IParameterInput>;
 };
 

@@ -53,12 +53,14 @@ type ActiveStrengthExerciseSet {
   rest: ActiveParameter
   weight: ActiveParameter
   dropsets: [ActiveStrengthExerciseDropSet!]
+  end_at: AWSDateTime
 }
 
 type ActiveStrengthExerciseDropSet {
   id: ID!
   reps: ActiveParameter
   weight: ActiveParameter
+  end_at: AWSDateTime
 }
 
 type ActiveCardioExerciseInterval {
@@ -70,6 +72,8 @@ type ActiveCardioExerciseInterval {
   angle: ActiveParameter
   resistance: ActiveParameter
   rest: ActiveParameter
+  target_heart_rate: ActiveParameter
+  end_at: AWSDateTime
 }
 
 type ActiveParameter {
@@ -77,6 +81,7 @@ type ActiveParameter {
   max: Float
   unit: String
   done: Float
+  end_at: AWSDateTime
 }
 
 interface Document {
@@ -232,29 +237,6 @@ type Query {
   listActiveWorkoutsHistory: ActiveWorkoutConnection @aws_auth(cognito_groups: ["member"])
 }
 
-scalar AWSTimestamp
-
-scalar AWSURL
-
-scalar AWSJSON
-
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
-}
-
 type Tenant {
   id: ID!
   name: String!
@@ -330,6 +312,7 @@ type CardioExercise {
   seat_height: String
   angle: Parameter
   resistance: Parameter
+  target_heart_rate: Parameter
   intervals: [CardioExerciseInterval]
 }
 
@@ -356,12 +339,36 @@ type CardioExerciseInterval {
   angle: Parameter
   resistance: Parameter
   rest: Parameter
+  target_heart_rate: Parameter
 }
 
 type Parameter {
   val: Float
   max: Float
   unit: String
+}
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
 }
 
 type Club implements Document {
@@ -502,6 +509,7 @@ input IntervalInput {
   angle: ParameterInput
   resistance: ParameterInput
   rest: ParameterInput
+  target_heart_rate: ParameterInput
 }
 
 input ParameterInput {
@@ -525,6 +533,7 @@ input EndIntervalInput {
   angle: Float
   resistance: Float
   rest: Float
+  target_heart_rate: Float
 }
 
 input EndSetInput {

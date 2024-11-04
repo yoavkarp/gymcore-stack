@@ -50,6 +50,7 @@ type CardioExercise {
   seat_height: String
   angle: Parameter
   resistance: Parameter
+  target_heart_rate: Parameter
   # cardio
   intervals: [CardioExerciseInterval]
 }
@@ -77,6 +78,7 @@ type CardioExerciseInterval {
   angle: Parameter
   resistance: Parameter
   rest: Parameter
+  target_heart_rate: Parameter
 }
 
 type Parameter {

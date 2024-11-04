@@ -60,12 +60,14 @@ type ActiveStrengthExerciseSet {
   rest: ActiveParameter
   weight: ActiveParameter
   dropsets: [ActiveStrengthExerciseDropSet!]
+  end_at: AWSDateTime
 }
 
 type ActiveStrengthExerciseDropSet {
   id: ID!
   reps: ActiveParameter
   weight: ActiveParameter
+  end_at: AWSDateTime
 }
 
 type ActiveCardioExerciseInterval {
@@ -77,6 +79,8 @@ type ActiveCardioExerciseInterval {
   angle: ActiveParameter
   resistance: ActiveParameter
   rest: ActiveParameter
+  target_heart_rate: ActiveParameter
+  end_at: AWSDateTime
 }
 
 type ActiveParameter {
@@ -84,6 +88,7 @@ type ActiveParameter {
   max: Float
   unit: String
   done: Float
+  end_at: AWSDateTime
 }
 
 fragment ActiveParameterFragment on ActiveParameter {

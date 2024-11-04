@@ -81,6 +81,7 @@ input IntervalInput {
   angle: ParameterInput
   resistance: ParameterInput
   rest: ParameterInput
+  target_heart_rate: ParameterInput
 }
 
 input ParameterInput {

@@ -36,9 +36,11 @@ export const handler: AppSyncResolver<IMutationEndActiveWorkoutIntervalArgs, IMu
     const indexOfInterval = existItem?.exercises[indexOfExercise].intervals.findIndex((interval: IActiveCardioExerciseInterval) => interval.id === intervalId)
 
     const interval = existItem?.exercises[indexOfExercise].intervals[indexOfInterval];
+    interval.end_at = new Date().toISOString();
 
     Object.keys(input).forEach(key => {
         interval[key].done = input[key as keyof typeof input]
+        interval[key].end_at = new Date().toISOString()
     })
 
     const updatedActiveWorkout = await dynamodb.update({

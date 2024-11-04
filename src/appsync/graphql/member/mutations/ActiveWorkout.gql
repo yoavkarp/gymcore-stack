@@ -17,6 +17,7 @@ input EndIntervalInput {
   angle: Float
   resistance: Float
   rest: Float
+  target_heart_rate: Float
 }
 
 input EndSetInput {

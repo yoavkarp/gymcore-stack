@@ -1,8 +1,6 @@
-import { IMutation, IMutationStartActiveWorkoutArgs, IActiveWorkout, IMutationEndActiveWorkoutSetArgs, IActiveExercise, IActiveCardioExercise, IActiveCardioExerciseInterval, IActiveStrengthExerciseSet } from "@/appsync/schema";
+import { IMutation, IActiveWorkout, IMutationEndActiveWorkoutSetArgs, IActiveExercise, IActiveCardioExercise, IActiveCardioExerciseInterval, IActiveStrengthExerciseSet } from "@/appsync/schema";
 import { AppSyncResolver } from "@/lambdas/appsync.types";
 import { dynamodb } from "../../connection";
-import { addCreateMetadata } from "../../actions/addMetadata";
-import { randomUUID } from "crypto";
 
 export const handler: AppSyncResolver<IMutationEndActiveWorkoutSetArgs, IMutation['endActiveWorkoutSet']> = async (event, context, callback) => {
 
@@ -36,9 +34,11 @@ export const handler: AppSyncResolver<IMutationEndActiveWorkoutSetArgs, IMutatio
     const indexOfSet = existItem?.exercises[indexOfExercise].sets.findIndex((set: IActiveStrengthExerciseSet) => set.id === setId)
 
     const set = existItem?.exercises[indexOfExercise].sets[indexOfSet];
+    set.end_at = new Date().toISOString();
 
     Object.keys(input).forEach(key => {
         set[key].done = input[key as keyof typeof input]
+        set[key].end_at = new Date().toISOString();
     })
 
     const updatedActiveWorkout = await dynamodb.update({

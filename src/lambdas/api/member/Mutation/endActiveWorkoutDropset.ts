@@ -37,9 +37,11 @@ export const handler: AppSyncResolver<IMutationEndActiveWorkoutDropsetArgs, IMut
     const indexOfDropset = existItem?.exercises[indexOfExercise].sets[indexOfSet].dropsets.findIndex((dropset: IActiveStrengthExerciseDropSet) => dropset.id === dropsetId)
 
     const dropset = existItem?.exercises[indexOfExercise].sets[indexOfDropset].dropsets[indexOfDropset];
+    dropset.end_at = new Date().toISOString();
 
     Object.keys(input).forEach(key => {
         dropset[key].done = input[key as keyof typeof input]
+        dropset[key].end_at = new Date().toISOString()
     })
 
     const updatedActiveWorkout = await dynamodb.update({
