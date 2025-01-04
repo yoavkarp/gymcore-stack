@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk'
 import aws_exports from '../auth-client/aws-exports';
 
-AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "yoav" })
+AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "pumpreact" })
 AWS.config.region = "eu-central-1"
 
 const dynamodb = new AWS.DynamoDB.DocumentClient()

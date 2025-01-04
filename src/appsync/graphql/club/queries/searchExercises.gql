@@ -1,0 +1,3 @@
+extend type Query {
+    searchExercises(query: String!): ExerciseList @aws_auth(cognito_groups: ["club"])
+}

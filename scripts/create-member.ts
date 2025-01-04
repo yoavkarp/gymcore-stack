@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk'
 import aws_exports from '../auth-client/aws-exports';
 
-AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "yoav" })
+AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "pumpreact" })
 AWS.config.region = "eu-central-1"
 
 const dynamodb = new AWS.DynamoDB.DocumentClient()
@@ -52,4 +52,4 @@ const createMember = async ({ phone_number, tenantId }: { phone_number: string, 
 
 }
 
-createMember({ phone_number: "+9720505716749", tenantId: "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c" })
+createMember({ phone_number: "+9720505716749", tenantId: "6334c862-6041-7018-7094-9d7686054bd9" })

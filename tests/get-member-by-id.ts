@@ -7,7 +7,7 @@ dynamodb.query({
         "#PK": "tenantId#memberId"
     },
     ExpressionAttributeValues: {
-        ":PK": "23b498e2-f0c1-7047-3bd1-a9fe0cd7f383#0314e872-9071-7076-f22e-9e6102cceda1"
+        ":PK": "6334c862-6041-7018-7094-9d7686054bd9#0314e872-9071-7076-f22e-9e6102cceda1"
     },
     TableName: "WorkoutTable"
 }, (err, data) => {

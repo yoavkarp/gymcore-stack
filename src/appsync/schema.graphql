@@ -24,6 +24,7 @@ union ActiveExercise = ActiveStrengthExercise | ActiveCardioExercise
 type ActiveStrengthExercise {
   id: ID!
   xid: ID!
+  video_url: String!
   name: String!
   type: ExerciseType!
   notes: String
@@ -37,6 +38,7 @@ type ActiveStrengthExercise {
 type ActiveCardioExercise {
   id: ID!
   xid: ID!
+  video_url: String!
   name: String!
   type: ExerciseType!
   notes: String
@@ -107,6 +109,20 @@ type EventConnection {
   nextToken: String
 }
 
+type ExerciseListItem {
+  id: ID!
+  exercise: String!
+  hebrew: String!
+  equipment: String!
+  equipment_hebrew: String!
+  search: String!
+}
+
+type ExerciseList {
+  items: [ExerciseListItem!]
+  nextToken: String
+}
+
 enum Gender {
   MALE
   FEMALE
@@ -132,32 +148,6 @@ type Goal implements Document {
 type GoalConnection {
   items: [Goal!]
   nextToken: String
-}
-
-type Measurement implements Document {
-  id: ID!
-  tenantId: ID!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
-  memberId: ID!
-  clubId: ID
-  weight: Float
-  height: Float
-  fat: Float
-  heart_rate: Float
-}
-
-type MeasurementConnection {
-  items: [Measurement!]
-  nextToken: String
-}
-
-input CreateMeasurementInput {
-  memberId: ID
-  weight: Float
-  height: Float
-  fat: Float
-  heart_rate: Float
 }
 
 type Mutation {
@@ -232,20 +222,33 @@ type Query {
   listPlansByTrainerId(trainerId: ID!, limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   listPlansByClub(limit: Int, nextToken: String): PlanConnection @aws_auth(cognito_groups: ["club"])
   searchMembers(text: String!): [Member] @aws_auth(cognito_groups: ["club"])
+  searchExercises(query: String!): ExerciseList @aws_auth(cognito_groups: ["club"])
   getActiveWorkout: ActiveWorkout @aws_auth(cognito_groups: ["member"])
   getCurrentMember: Member @aws_auth(cognito_groups: ["member"])
   listActiveWorkoutsHistory: ActiveWorkoutConnection @aws_auth(cognito_groups: ["member"])
 }
 
-type Tenant {
-  id: ID!
-  name: String!
-  email: AWSEmail!
-  phone_number: AWSPhone!
-  profile_picture: AWSURL!
-  address: String!
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
+scalar AWSTimestamp
+
+scalar AWSURL
+
+scalar AWSJSON
+
+scalar AWSDateTime
+
+scalar AWSDate
+
+scalar AWSTime
+
+scalar AWSPhone
+
+scalar AWSIPAddress
+
+scalar AWSEmail
+
+schema {
+  query: Query
+  mutation: Mutation
 }
 
 type Trainer implements Document {
@@ -348,27 +351,41 @@ type Parameter {
   unit: String
 }
 
-scalar AWSTimestamp
+type Measurement implements Document {
+  id: ID!
+  tenantId: ID!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
+  memberId: ID!
+  clubId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+}
 
-scalar AWSURL
+type MeasurementConnection {
+  items: [Measurement!]
+  nextToken: String
+}
 
-scalar AWSJSON
+input CreateMeasurementInput {
+  memberId: ID
+  weight: Float
+  height: Float
+  fat: Float
+  heart_rate: Float
+}
 
-scalar AWSDateTime
-
-scalar AWSDate
-
-scalar AWSTime
-
-scalar AWSPhone
-
-scalar AWSIPAddress
-
-scalar AWSEmail
-
-schema {
-  query: Query
-  mutation: Mutation
+type Tenant {
+  id: ID!
+  name: String!
+  email: AWSEmail!
+  phone_number: AWSPhone!
+  profile_picture: AWSURL!
+  address: String!
+  created_at: AWSDateTime!
+  updated_at: AWSDateTime!
 }
 
 type Club implements Document {

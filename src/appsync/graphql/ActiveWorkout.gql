@@ -27,6 +27,7 @@ union ActiveExercise = ActiveStrengthExercise | ActiveCardioExercise
 type ActiveStrengthExercise {
   id: ID!
   xid: ID!
+  video_url: String!
   name: String!
   type: ExerciseType!
   # common
@@ -42,6 +43,7 @@ type ActiveStrengthExercise {
 type ActiveCardioExercise {
   id: ID!
   xid: ID!
+  video_url: String!
   name: String!
   type: ExerciseType!
   # common

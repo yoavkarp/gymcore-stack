@@ -35,6 +35,7 @@ export type IActiveCardioExercise = {
   resistance?: Maybe<IActiveParameter>;
   seat_height?: Maybe<Scalars['String']['output']>;
   type: IExerciseType;
+  video_url: Scalars['String']['output'];
   xid: Scalars['ID']['output'];
 };
 
@@ -74,6 +75,7 @@ export type IActiveStrengthExercise = {
   seat_height?: Maybe<Scalars['String']['output']>;
   sets?: Maybe<Array<Maybe<IActiveStrengthExerciseSet>>>;
   type: IExerciseType;
+  video_url: Scalars['String']['output'];
   xid: Scalars['ID']['output'];
 };
 
@@ -281,6 +283,22 @@ export type IEventConnection = {
 };
 
 export type IExercise = ICardioExercise | IStrengthExercise;
+
+export type IExerciseList = {
+  __typename?: 'ExerciseList';
+  items?: Maybe<Array<IExerciseListItem>>;
+  nextToken?: Maybe<Scalars['String']['output']>;
+};
+
+export type IExerciseListItem = {
+  __typename?: 'ExerciseListItem';
+  equipment: Scalars['String']['output'];
+  equipment_hebrew: Scalars['String']['output'];
+  exercise: Scalars['String']['output'];
+  hebrew: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  search: Scalars['String']['output'];
+};
 
 export enum IExerciseType {
   Cardio = 'CARDIO',
@@ -678,6 +696,7 @@ export type IQuery = {
   listPlansByClub?: Maybe<IPlanConnection>;
   listPlansByMemberId?: Maybe<IPlanConnection>;
   listPlansByTrainerId?: Maybe<IPlanConnection>;
+  searchExercises?: Maybe<IExerciseList>;
   searchMembers?: Maybe<Array<Maybe<IMember>>>;
 };
 
@@ -730,6 +749,11 @@ export type IQueryListPlansByTrainerIdArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   nextToken?: InputMaybe<Scalars['String']['input']>;
   trainerId: Scalars['ID']['input'];
+};
+
+
+export type IQuerySearchExercisesArgs = {
+  query: Scalars['String']['input'];
 };
 
 

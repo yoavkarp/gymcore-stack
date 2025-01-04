@@ -1,0 +1,13 @@
+type ExerciseListItem {
+    id: ID!
+    exercise: String!
+    hebrew: String!
+    equipment: String!
+    equipment_hebrew: String!
+    search: String!
+}
+
+type ExerciseList {
+    items: [ExerciseListItem!]
+    nextToken: String
+}

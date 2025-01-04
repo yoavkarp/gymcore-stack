@@ -9,5 +9,5 @@ export const resolver: ResolverType<IWorkout> = {
         dataSourceName: "TrainerTable",
         req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Source.Trainer.req.vtl")),
         res: MappingTemplate.dynamoDbResultItem(),
-    },
+    }
 }

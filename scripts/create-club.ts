@@ -48,7 +48,7 @@ const main = async () => {
         await dynamodb.put({
             TableName: "ClubTable",
             Item: {
-                tenantId: "23b498e2-f0c1-7047-3bd1-a9fe0cd7f383",
+                tenantId: "6334c862-6041-7018-7094-9d7686054bd9",
                 id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
                 name: "Dev Club",
                 ...user?.Attributes?.reduce((acc, attr) => {

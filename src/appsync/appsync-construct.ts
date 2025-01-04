@@ -10,6 +10,8 @@ import { DynamoDBStack } from '@/dynamodb/dynamodb-stack';
 import fs from 'fs'
 import { resolver } from './resolvers/Query';
 import { ResolverData, ResolverType } from './types/ResolverType';
+import { Table } from 'aws-cdk-lib/aws-dynamodb';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 
 // Export the merged schema
 type AppSyncConstructProps = {
@@ -76,6 +78,12 @@ export class AppSyncConstruct extends Construct {
             "trainerIndexTable"
         ];
 
+        const s3bucketexercises = s3.Bucket.fromBucketName(this, 'gymcore-exercises', 'gymcore-exercises');
+        s3bucketexercises.grantReadWrite(api_lambda);
+
+        const exercisesCollectionTable = Table.fromTableName(this, "ExercisesCollection", "ExercisesCollection");
+        exercisesCollectionTable.grantFullAccess(api_lambda);
+
         API_TABLES.forEach((table) => {
             props.tables[table].grantFullAccess(api_lambda)
         })
@@ -89,6 +97,7 @@ export class AppSyncConstruct extends Construct {
             ...API_TABLES.map((table) => {
                 return this.api.addDynamoDbDataSource(table.replace("Table", ""), props.tables[table], { name: `${table[0].toUpperCase()}${table.substring(1)}` })
             }),
+            this.api.addDynamoDbDataSource("ExercisesCollection", exercisesCollectionTable, { name: "ExercisesCollection" })
         ]
 
         const resolversPath = path.join(__dirname, "resolvers");

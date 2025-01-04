@@ -1,0 +1,4250 @@
+[
+  {
+    "exercise": "90 90 Stretch",
+    "hebrew": "מתיחת 90 90",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9ee0d022-d3e1-4839-967b-a98818bde699",
+    "video_object": "exercises/90 90 Stretch.webm",
+    "search": "90 90 stretch"
+  },
+  {
+    "exercise": "Above Head Chest Stretch",
+    "hebrew": "מתיחת חזה מעל הראש",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1b0dd5d2-e366-4d2c-ace7-cb70195f7fad",
+    "video_object": "exercises/Above head chest stretch.webm",
+    "search": "above head chest stretch"
+  },
+  {
+    "exercise": "Across Chest Shoulder Stretch",
+    "hebrew": "מתיחת כתף לרוחב החזה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "51805f20-84b3-4f51-bb56-90c72e59b16f",
+    "video_object": "exercises/Across chest shoulder stretch.webm",
+    "search": "across chest shoulder stretch"
+  },
+  {
+    "exercise": "Alternate Leg Pull",
+    "hebrew": "משיכת רגל חלופית",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3de20ae4-8c54-4b4c-aac1-8342b1345354",
+    "video_object": "exercises/Alternate Leg Pull.webm",
+    "search": "alternate leg pull"
+  },
+  {
+    "exercise": "Alternate Leg Raise From Reverse Plank Position",
+    "hebrew": "הרמת רגל חלופית ממצב פלאנק הפוך",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "aa1887fb-2e21-4a6c-9d93-bd453c419369",
+    "video_object": "exercises/Alternate leg raise from reverse plank position.webm",
+    "search": "alternate leg raise from reverse plank position"
+  },
+  {
+    "exercise": "Alternate Leg Raise",
+    "hebrew": "הרמת רגל חלופית",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "785c5fb0-d77b-4e56-8c97-f43cf9c76e5b",
+    "video_object": "exercises/Alternate leg raise.webm",
+    "search": "alternate leg raise"
+  },
+  {
+    "exercise": "Alternate Oblique Crunch",
+    "hebrew": "כיווץ אלכסונים חלופי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "bfb67921-14f4-465f-9f34-63c17cd47de8",
+    "video_object": "exercises/Alternate oblique crunch .webm",
+    "search": "alternate oblique crunch"
+  },
+  {
+    "exercise": "Alternating Db Lateral Raise With Pause",
+    "hebrew": "הרמות צד עם משקולת עם הפסקה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "d813fdc2-408e-4d02-9f8a-7b21d55da283",
+    "video_object": "exercises/Alternating DB Lateral Raise with Pause.webm",
+    "search": "alternating db lateral raise with pause"
+  },
+  {
+    "exercise": "Alternating Dumbbell Curls With Pause",
+    "hebrew": "כפיפות משקולת חלופיות עם הפסקה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "d186c418-409d-47c0-bfbc-588687267f72",
+    "video_object": "exercises/Alternating Dummbell Curls with Pause .webm",
+    "search": "alternating dumbbell curls with pause"
+  },
+  {
+    "exercise": "Archer Push Up",
+    "hebrew": "שכיבות סמיכה בסגנון קשת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "e2682aba-397e-4fb8-99fd-9d4e7a87db01",
+    "video_object": "exercises/Archer Push up.webm",
+    "search": "archer push up"
+  },
+  {
+    "exercise": "Arm Circles",
+    "hebrew": "מעגלי ידיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "baa4129f-bb2e-4989-957d-a3d2d06647e9",
+    "video_object": "exercises/Arm Circles.webm",
+    "search": "arm circles"
+  },
+  {
+    "exercise": "Arnold Press",
+    "hebrew": "לחיצת ארנולד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "4d904d2a-e64b-406b-b0ce-34a6a176cbdb",
+    "video_object": "exercises/Arnold Press.webm",
+    "search": "arnold press"
+  },
+  {
+    "exercise": "Bird Dog",
+    "hebrew": "תנוחת כלב ציפור",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9df387cd-efeb-4952-acb7-9e9680ab8bfd",
+    "video_object": "exercises/BIRD DOG.webm",
+    "search": "bird dog"
+  },
+  {
+    "exercise": "Box Jumps",
+    "hebrew": "קפיצות קופסה",
+    "equipment": "Box",
+    "equipment_hebrew": "קופסה",
+    "id": "995f0fbe-ead6-4b24-8529-b9efca9a2914",
+    "video_object": "exercises/BOX JUMPS.webm",
+    "search": "box jumps"
+  },
+  {
+    "exercise": "Back Machine Extension",
+    "hebrew": "פשיטת גב במכונה",
+    "equipment": "Machine",
+    "equipment_hebrew": "מכונה",
+    "id": "a17eeb36-9f01-4352-af12-6c06d980deb1",
+    "video_object": "exercises/Back Machine Extension.webm",
+    "search": "back machine extension"
+  },
+  {
+    "exercise": "Back Squats",
+    "hebrew": "סקוואט אחורי",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "d043c8ed-d613-499f-8c34-a24d759015c6",
+    "video_object": "exercises/Back Squats.webm",
+    "search": "back squats"
+  },
+  {
+    "exercise": "Banded Clam Shells",
+    "hebrew": "קלאמס עם גומייה",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "9144c43d-2c07-425a-9765-3dc94f4779e5",
+    "video_object": "exercises/Banded Clam Shells.webm",
+    "search": "banded clam shells"
+  },
+  {
+    "exercise": "Barbell 21's",
+    "hebrew": "21 עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "ad9f280d-2c17-433d-952c-f8a61514e2ee",
+    "video_object": "exercises/Barbell 21_s.webm",
+    "search": "barbell 21's"
+  },
+  {
+    "exercise": "Barbell Bench Press Medium Grip",
+    "hebrew": "לחיצת חזה במוט - אחיזה בינונית",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "9b13490e-3fb5-495d-90e9-fb56cf3913da",
+    "video_object": "exercises/Barbell Bench Press - Medium Grip.webm",
+    "search": "barbell bench press medium grip"
+  },
+  {
+    "exercise": "Barbell Curl",
+    "hebrew": "כפיפת מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "6c46958f-03c8-48ce-917c-c5c6aab84c96",
+    "video_object": "exercises/Barbell Curl.webm",
+    "search": "barbell curl"
+  },
+  {
+    "exercise": "Barbell Deadlift",
+    "hebrew": "דדליפט עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "aa3a8ee7-71d5-4d10-af99-02d24c26ca9f",
+    "video_object": "exercises/Barbell Deadlift.webm",
+    "search": "barbell deadlift"
+  },
+  {
+    "exercise": "Barbell Good Mornings",
+    "hebrew": "גוד מורנינגס עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "bbf522b2-365f-4686-9295-8d4d111c0d2d",
+    "video_object": "exercises/Barbell Good Mornings.webm",
+    "search": "barbell good mornings"
+  },
+  {
+    "exercise": "Barbell Hip Thrusts",
+    "hebrew": "היפ טראסט עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "8d676927-281f-4df7-b3e9-04e4d48a76d0",
+    "video_object": "exercises/Barbell Hip Thrusts.webm",
+    "search": "barbell hip thrusts"
+  },
+  {
+    "exercise": "Barbell Incline Bench Press Medium Grip",
+    "hebrew": "לחיצת חזה בשיפוע עם מוט - אחיזה בינונית",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "17d1b90f-9ebc-4898-9e40-f654ed2d5bca",
+    "video_object": "exercises/Barbell Incline Bench Press - Medium Grip.webm",
+    "search": "barbell incline bench press medium grip"
+  },
+  {
+    "exercise": "Barbell Pendlay Rows",
+    "hebrew": "חתירות פנדלי עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "bebf5f05-0bdf-4b70-9836-f74f0fb5c70d",
+    "video_object": "exercises/Barbell Pendlay Rows.webm",
+    "search": "barbell pendlay rows"
+  },
+  {
+    "exercise": "Barbell Row",
+    "hebrew": "חתירה עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "803beb4b-cf04-444c-941f-24cf9e7e863c",
+    "video_object": "exercises/Barbell Row.webm",
+    "search": "barbell row"
+  },
+  {
+    "exercise": "Barbell Seated Calf Raise",
+    "hebrew": "הרמת עגלים ישיבה עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "99a5a25a-e856-4e5f-bdac-82d59644d75d",
+    "video_object": "exercises/Barbell Seated Calf Raise.webm",
+    "search": "barbell seated calf raise"
+  },
+  {
+    "exercise": "Barbell Shrugs",
+    "hebrew": "הרמת כתפיים עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "e0161e15-4f4a-40cb-aef9-7af67c0a6e3b",
+    "video_object": "exercises/Barbell Shrugs.webm",
+    "search": "barbell shrugs"
+  },
+  {
+    "exercise": "Barbell Sumo Squats",
+    "hebrew": "סקוואט סומו עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "c32cd6ce-7ce9-4078-8728-ee93a2b374bb",
+    "video_object": "exercises/Barbell Sumo Squats.webm",
+    "search": "barbell sumo squats"
+  },
+  {
+    "exercise": "Barbell Upright Rows",
+    "hebrew": "חתירה אנכית עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "1bf5ea97-70a2-45df-8141-2682fc76fbb1",
+    "video_object": "exercises/Barbell Upright Rows.webm",
+    "search": "barbell upright rows"
+  },
+  {
+    "exercise": "Bat Wings",
+    "hebrew": "כנפי עטלף",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "5649c846-6d60-47bd-b66b-1d3daf53cd91",
+    "video_object": "exercises/Bat wings.webm",
+    "search": "bat wings"
+  },
+  {
+    "exercise": "Behind Neck Press",
+    "hebrew": "לחיצה מאחורי הצוואר",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "59b27a59-c282-4b93-9f68-202b8c696a1e",
+    "video_object": "exercises/Behind Neck Press.webm",
+    "search": "behind neck press"
+  },
+  {
+    "exercise": "Bent Over Dumbbell Kickbacks",
+    "hebrew": "בעיטות משקולת כפופות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "e28ed9a2-06a1-466d-b7d5-0c97f125ffd1",
+    "video_object": "exercises/Bent Over Dumbbell Kickbacks.webm",
+    "search": "bent over dumbbell kickbacks"
+  },
+  {
+    "exercise": "Bent Over One Arm Cable Chest Press",
+    "hebrew": "לחיצת חזה כבל עם יד אחת כפופה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "5f09cdcc-045a-421e-9d50-78806c4ca9d7",
+    "video_object": "exercises/Bent Over One Arm Cable Chest Press.webm",
+    "search": "bent over one arm cable chest press"
+  },
+  {
+    "exercise": "Bent Over Side Raises",
+    "hebrew": "הרמות צד כפופות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c5bfa4c6-e260-4ed2-801e-a5be36ca747b",
+    "video_object": "exercises/Bent Over Side Raises.webm",
+    "search": "bent over side raises"
+  },
+  {
+    "exercise": "Bent Over Smith Machine Rows",
+    "hebrew": "חתירות במכונת סמית כפופות",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית",
+    "id": "ce9b515e-57df-4cd7-b8aa-4bc4f925dc99",
+    "video_object": "exercises/Bent Over Smith Machine Rows.webm",
+    "search": "bent over smith machine rows"
+  },
+  {
+    "exercise": "Bicep Push Up",
+    "hebrew": "שכיבות סמיכה לביספס",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "68c57ab6-80cb-457e-a496-a59b14d71ef8",
+    "video_object": "exercises/Bicep Push Up.webm",
+    "search": "bicep push up"
+  },
+  {
+    "exercise": "Bicycle Ab Exercise",
+    "hebrew": "תרגיל בטן אופניים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "18fdc5f9-d09b-424e-a401-6632d4da2ce0",
+    "video_object": "exercises/Bicycle Ab Exercise.webm",
+    "search": "bicycle ab exercise"
+  },
+  {
+    "exercise": "Bodyweight Front Plank To Downward Dog",
+    "hebrew": "מעבר מפלאנק לכלב מביט מטה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "5ec55656-af0d-4f9b-9e33-2bb2cb8a6f2f",
+    "video_object": "exercises/Bodyweight Front Plank to Downward Dog.webm",
+    "search": "bodyweight front plank to downward dog"
+  },
+  {
+    "exercise": "Bodyweight Squats",
+    "hebrew": "סקוואט עם משקל גוף",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7b83272f-59b7-46b5-a298-f2962dc4030c",
+    "video_object": "exercises/Bodyweight Squats.webm",
+    "search": "bodyweight squats"
+  },
+  {
+    "exercise": "Box Jumps With Bench",
+    "hebrew": "קפיצות על ספסל",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "21ba8763-7dc6-4acb-b830-7db86f96a0ca",
+    "video_object": "exercises/Box Jumps with Bench.webm",
+    "search": "box jumps with bench"
+  },
+  {
+    "exercise": "Broad Jumps",
+    "hebrew": "קפיצות רחבות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3cfef52a-1624-41b1-961c-9e12de1084f5",
+    "video_object": "exercises/Broad Jumps.webm",
+    "search": "broad jumps"
+  },
+  {
+    "exercise": "Bulgarian Split Squat Left",
+    "hebrew": "ספליט סקוואט בולגרי - רגל שמאל",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "c903a5a4-6f5d-4944-a838-bf0b75112a54",
+    "video_object": "exercises/Bulgarian Split Squat Left.webm",
+    "search": "bulgarian split squat left"
+  },
+  {
+    "exercise": "Bulgarian Split Squat Right",
+    "hebrew": "ספליט סקוואט בולגרי - רגל ימין",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "9b42e403-0008-43c6-89df-bad6d0e90331",
+    "video_object": "exercises/Bulgarian Split Squat Right.webm",
+    "search": "bulgarian split squat right"
+  },
+  {
+    "exercise": "Bulgarian Split Squats",
+    "hebrew": "ספליט סקוואט בולגרי",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "4428a7fb-cbfd-427d-8b0d-68b6ac7551c7",
+    "video_object": "exercises/Bulgarian Split Squats.webm",
+    "search": "bulgarian split squats"
+  },
+  {
+    "exercise": "Burpees",
+    "hebrew": "בורפיז",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6a8615ca-145a-40f5-a4cd-8834991ec5e1",
+    "video_object": "exercises/Burpees.webm",
+    "search": "burpees"
+  },
+  {
+    "exercise": "Butt Kicks",
+    "hebrew": "בעיטות אחוריות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "86b010fd-9572-458c-8746-4339b2733770",
+    "video_object": "exercises/Butt Kicks.webm",
+    "search": "butt kicks"
+  },
+  {
+    "exercise": "Butterfly Stretch",
+    "hebrew": "מתיחת פרפר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "de8f9ca2-ff63-403b-a248-0568613970d3",
+    "video_object": "exercises/Butterfly Stretch.webm",
+    "search": "butterfly stretch"
+  },
+  {
+    "exercise": "Clap Push Up",
+    "hebrew": "שכיבת סמיכה עם מחיאת כף",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "f5ab5e75-d9c6-42fd-a7fb-af7da0f199b2",
+    "video_object": "exercises/CLAP PUSH UP.webm",
+    "search": "clap push up"
+  },
+  {
+    "exercise": "Cable Abduction",
+    "hebrew": "חטיפת כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "e2fe1849-d60c-4552-82d7-7e230c8eed1c",
+    "video_object": "exercises/Cable Abduction.webm",
+    "search": "cable abduction"
+  },
+  {
+    "exercise": "Cable Bent Over Rear Delt Fly",
+    "hebrew": "כבל הרמת דלת אחורית כפופה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "b76dab64-e1f8-4659-9756-d1c8799a1342",
+    "video_object": "exercises/Cable Bent Over Rear Delt Fly.webm",
+    "search": "cable bent over rear delt fly"
+  },
+  {
+    "exercise": "Cable Chest Fly Low To High-",
+    "hebrew": "פרפר חזה עם כבל - נמוך לגבוה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "157156b9-ffd2-47ae-8a29-f9a5b3c849e1",
+    "video_object": "exercises/Cable Chest Fly - Low to High-.webm",
+    "search": "cable chest fly low to high"
+  },
+  {
+    "exercise": "Cable Cross Over",
+    "hebrew": "כבל קרוס אובר",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "f2472549-0bb1-47d7-9d81-49da86339760",
+    "video_object": "exercises/Cable Cross Over.webm",
+    "search": "cable cross over"
+  },
+  {
+    "exercise": "Cable Crossover Lateral Raise",
+    "hebrew": "הרמת צד בקרוס אובר",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "728b7097-7ef1-4a5b-b8cd-d946a636f23f",
+    "video_object": "exercises/Cable Crossover Lateral Raise.webm",
+    "search": "cable crossover lateral raise"
+  },
+  {
+    "exercise": "Cable Crunch Reverse",
+    "hebrew": "כיווץ בטן הפוך עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "3ac4ae01-b394-4f34-952f-a64eb7fae370",
+    "video_object": "exercises/Cable Crunch Reverse.webm",
+    "search": "cable crunch reverse"
+  },
+  {
+    "exercise": "Cable Crunch",
+    "hebrew": "כיווץ בטן עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "7f050847-271d-4ddf-a7fa-1fdb5e892e3d",
+    "video_object": "exercises/Cable Crunch.webm",
+    "search": "cable crunch"
+  },
+  {
+    "exercise": "Cable External Shoulder Rotation",
+    "hebrew": "סיבוב כתף חיצוני עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "a111546a-f9de-4258-9b3e-78993316c5e4",
+    "video_object": "exercises/Cable External Shoulder Rotation.webm",
+    "search": "cable external shoulder rotation"
+  },
+  {
+    "exercise": "Cable French Press Rope Overhead Extension From Low",
+    "hebrew": "לחיצה צרפתית עם כבל - מתיחה מעל הראש",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "0f7fd7c9-d17e-4675-bd46-7d21dacc96a8",
+    "video_object": "exercises/Cable French Press - Rope Overhead Extension from Low.webm",
+    "search": "cable french press rope overhead extension from low"
+  },
+  {
+    "exercise": "Cable Front Raise Double Arm",
+    "hebrew": "הרמת כבל קדמית עם שתי ידיים",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "defa6140-04d1-4b48-9801-0e6602c5acb3",
+    "video_object": "exercises/Cable Front Raise Double Arm.webm",
+    "search": "cable front raise double arm"
+  },
+  {
+    "exercise": "Cable Front Raise Single Arm",
+    "hebrew": "הרמת כבל קדמית עם יד אחת",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "1b6b5ec6-41d5-4277-82d5-d3bf04ab8d18",
+    "video_object": "exercises/Cable Front Raise Single Arm.webm",
+    "search": "cable front raise single arm"
+  },
+  {
+    "exercise": "Cable Handles Bicep Curl",
+    "hebrew": "כפיפת בייספס עם ידיות כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "5296f26f-6bc9-49d2-8284-d3cfe2ef1d25",
+    "video_object": "exercises/Cable Handles Bicep Curl.webm",
+    "search": "cable handles bicep curl"
+  },
+  {
+    "exercise": "Cable Kick Backs",
+    "hebrew": "בעיטות אחוריות עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "a34d1c50-edeb-4316-8e7e-3d6e7e1e009c",
+    "video_object": "exercises/Cable Kick Backs.webm",
+    "search": "cable kick backs"
+  },
+  {
+    "exercise": "Cable Lat Pull Overs",
+    "hebrew": "משיכות לאטיסימוס עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "168dd991-a894-47ee-812c-25e3cd142aee",
+    "video_object": "exercises/Cable Lat Pull Overs.webm",
+    "search": "cable lat pull overs"
+  },
+  {
+    "exercise": "Cable Pallof Press Vo",
+    "hebrew": "לחיצת פלוף עם כבל - VO",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "c3f303bb-e1c8-4fdd-aaf6-f615225c03e0",
+    "video_object": "exercises/Cable Pallof Press - VO.webm",
+    "search": "cable pallof press vo"
+  },
+  {
+    "exercise": "Cable Palloff Press",
+    "hebrew": "לחיצת פלוף עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "1aeec435-453b-4930-a763-06d5938e3175",
+    "video_object": "exercises/Cable Palloff Press.webm",
+    "search": "cable palloff press"
+  },
+  {
+    "exercise": "Cable Reverse Grip Bar Curl",
+    "hebrew": "כפיפת מוט הפוכה עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "95b49a0a-3252-4488-862b-8f641f484e17",
+    "video_object": "exercises/Cable Reverse Grip Bar Curl.webm",
+    "search": "cable reverse grip bar curl"
+  },
+  {
+    "exercise": "Cable Rope Curls",
+    "hebrew": "כפיפות עם חבל כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "3b93f13b-2f34-4739-a63d-d5e238ca8a5e",
+    "video_object": "exercises/Cable Rope Curls.webm",
+    "search": "cable rope curls"
+  },
+  {
+    "exercise": "Cable Rope Pulldown",
+    "hebrew": "משיכת חבל עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "c87652e3-6b2e-4f58-bcc5-248bb9e87fd4",
+    "video_object": "exercises/Cable Rope Pulldown.webm",
+    "search": "cable rope pulldown"
+  },
+  {
+    "exercise": "Cable Rope Upright Row",
+    "hebrew": "חתירה אנכית עם חבל כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "e953fd93-a876-4648-9fce-a2f22a8814d4",
+    "video_object": "exercises/Cable Rope Upright Row.webm",
+    "search": "cable rope upright row"
+  },
+  {
+    "exercise": "Cable Shoulder Press",
+    "hebrew": "לחיצת כתפיים עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "abe6e69c-8cc5-4f94-a559-180c84ac1739",
+    "video_object": "exercises/Cable Shoulder Press.webm",
+    "search": "cable shoulder press"
+  },
+  {
+    "exercise": "Cable Shrugs",
+    "hebrew": "הרמת כתפיים עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "2d628137-9a58-4bef-9308-0988f68770c9",
+    "video_object": "exercises/Cable Shrugs.webm",
+    "search": "cable shrugs"
+  },
+  {
+    "exercise": "Cable Squat Bicep Curls",
+    "hebrew": "כפיפות בייספס סקוואט עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "e1163ab6-2bd1-4c32-b863-9eb98be86476",
+    "video_object": "exercises/Cable Squat Bicep Curls.webm",
+    "search": "cable squat bicep curls"
+  },
+  {
+    "exercise": "Cable Standing Russian Twist",
+    "hebrew": "פיתול רוסי בעמידה עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "c19ff066-32e5-41e2-84f5-b34849ae00f9",
+    "video_object": "exercises/Cable Standing Russian Twist.webm",
+    "search": "cable standing russian twist"
+  },
+  {
+    "exercise": "Cable Tricep Kick Back",
+    "hebrew": "בעיטת טרייספס עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "110a6fe4-4449-47da-aaee-97daeb06964c",
+    "video_object": "exercises/Cable Tricep Kick back.webm",
+    "search": "cable tricep kick back"
+  },
+  {
+    "exercise": "Cable Upright Rear Delt Fly",
+    "hebrew": "הרמת דלת אחורית אנכית עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "295971ac-62d9-47fb-835b-59b1ba41e1d4",
+    "video_object": "exercises/Cable Upright Rear Delt Fly.webm",
+    "search": "cable upright rear delt fly"
+  },
+  {
+    "exercise": "Cable Wood Chop",
+    "hebrew": "חיתוך עץ עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "3e45df3b-3dcb-4402-8717-971207f51046",
+    "video_object": "exercises/Cable Wood Chop.webm",
+    "search": "cable wood chop"
+  },
+  {
+    "exercise": "Calf Press On The Leg Press Machine",
+    "hebrew": "לחיצת שוקיים במכונת רגליים",
+    "equipment": "Leg Press Machine",
+    "equipment_hebrew": "מכונת לחיצת רגליים",
+    "id": "c1bb2b4e-5e70-4637-86a6-1af969f7262b",
+    "video_object": "exercises/Calf Press On The Leg Press Machine.webm",
+    "search": "calf press on the leg press machine"
+  },
+  {
+    "exercise": "Calf Stretch",
+    "hebrew": "מתיחת שוקיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "bd23f6bf-e4d5-4c0d-8dcb-d96024d344f4",
+    "video_object": "exercises/Calf Stretch.webm",
+    "search": "calf stretch"
+  },
+  {
+    "exercise": "Cat Cow Stretch",
+    "hebrew": "מתיחת חתול-פרה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "368b82cc-d8bc-4d68-a7c0-9453dae488ab",
+    "video_object": "exercises/Cat Cow Stretch.webm",
+    "search": "cat cow stretch"
+  },
+  {
+    "exercise": "Chest Dips",
+    "hebrew": "מקבילים לחזה",
+    "equipment": "Parallel Bars",
+    "equipment_hebrew": "מקבילים",
+    "id": "04bd8941-b1e8-49af-a72a-031d8d82e05f",
+    "video_object": "exercises/Chest Dips.webm",
+    "search": "chest dips"
+  },
+  {
+    "exercise": "Chest Tap Push-up",
+    "hebrew": "שכיבת סמיכה עם נגיעה בחזה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "31d364fb-45da-4747-9ce7-53d841e4ebf9",
+    "video_object": "exercises/Chest Tap Push-up.webm",
+    "search": "chest tap push up"
+  },
+  {
+    "exercise": "Chest Out Hands Behind (hold)",
+    "hebrew": "מתיחת חזה ידיים מאחורי הגב",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "f576f5c9-ee07-4283-a300-b12d5c020cea",
+    "video_object": "exercises/Chest out hands behind (hold).webm",
+    "search": "chest out hands behind (hold)"
+  },
+  {
+    "exercise": "Close Grip Barbell Curls",
+    "hebrew": "כפיפות מוט אחיזה צמודה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "78dfd496-718f-4095-a042-71f4a0239784",
+    "video_object": "exercises/Close Grip Barbell Curls.webm",
+    "search": "close grip barbell curls"
+  },
+  {
+    "exercise": "Close Grip Lat Pulldown",
+    "hebrew": "משיכת לאטיסימוס אחיזה צמודה",
+    "equipment": "Lat Pulldown Machine",
+    "equipment_hebrew": "מכונת משיכת לאטיסימוס",
+    "id": "e61b7ca2-4536-470e-b518-6de3aed2e9c4",
+    "video_object": "exercises/Close Grip Lat Pulldown.webm",
+    "search": "close grip lat pulldown"
+  },
+  {
+    "exercise": "Close Grip Preacher Curls",
+    "hebrew": "כפיפות מטיף אחיזה צמודה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "c222fb34-b60a-454d-a616-d644d06d0285",
+    "video_object": "exercises/Close Grip Preacher Curls.webm",
+    "search": "close grip preacher curls"
+  },
+  {
+    "exercise": "Close-grip Barbell Bench Press",
+    "hebrew": "לחיצת חזה מוט אחיזה צמודה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "1415f079-6416-4f45-9c62-30c984e2891c",
+    "video_object": "exercises/Close-Grip Barbell Bench Press.webm",
+    "search": "close grip barbell bench press"
+  },
+  {
+    "exercise": "Commando Push Up",
+    "hebrew": "שכיבת סמיכה קומנדו",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7db3967b-9ae3-4230-8e5a-57e1ca2bce8c",
+    "video_object": "exercises/Commando Push up.webm",
+    "search": "commando push up"
+  },
+  {
+    "exercise": "Copenhagen Plank",
+    "hebrew": "פלאנק קופנהגן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "09ca1da6-f046-4ac1-8f5e-2bbd64b9427b",
+    "video_object": "exercises/Copenhagen Plank.webm",
+    "search": "copenhagen plank"
+  },
+  {
+    "exercise": "Cossack Squat",
+    "hebrew": "סקוואט קוזאקי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1cb3b1ca-4ebb-4c27-8f21-e5c3cb143cb0",
+    "video_object": "exercises/Cossack Squat.webm",
+    "search": "cossack squat"
+  },
+  {
+    "exercise": "Crucifix Curl Cable Single Arm",
+    "hebrew": "כפיפת צלב עם כבל - יד אחת",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "3219b001-dda4-4427-ae79-bbf7d07c79fc",
+    "video_object": "exercises/Crucifix Curl Cable - Single Arm.webm",
+    "search": "crucifix curl cable single arm"
+  },
+  {
+    "exercise": "Crunch With Stability Ball",
+    "hebrew": "כפיפות בטן עם כדור יציבות",
+    "equipment": "Stability Ball",
+    "equipment_hebrew": "כדור יציבות",
+    "id": "cfad0c42-9d79-431e-b464-509304ac753b",
+    "video_object": "exercises/Crunch with Stability Ball.webm",
+    "search": "crunch with stability ball"
+  },
+  {
+    "exercise": "Crunches Raised Legs",
+    "hebrew": "כפיפות בטן עם רגליים מורמות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "2ad52467-3900-4c2e-b2f3-fbe654c2cfb1",
+    "video_object": "exercises/Crunches raised legs.webm",
+    "search": "crunches raised legs"
+  },
+  {
+    "exercise": "Crunches",
+    "hebrew": "כפיפות בטן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d2ff3a3a-b56e-4955-bd24-eb4851657236",
+    "video_object": "exercises/Crunches.webm",
+    "search": "crunches"
+  },
+  {
+    "exercise": "Db Alternating Curls",
+    "hebrew": "כפיפות משקולת חלופיות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "70128ef2-e42d-4b72-be3d-ed6323c1fc2d",
+    "video_object": "exercises/DB Alternating Curls.webm",
+    "search": "db alternating curls"
+  },
+  {
+    "exercise": "Db Arnold Curl",
+    "hebrew": "כפיפת ארנולד עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "e3036c5d-343b-4f51-b719-cbe0c8dbbeb6",
+    "video_object": "exercises/DB Arnold Curl.webm",
+    "search": "db arnold curl"
+  },
+  {
+    "exercise": "Db Bent Over Rows",
+    "hebrew": "חתירות כפופות עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "6e4113c4-3828-4878-abb3-f0b2bde6f137",
+    "video_object": "exercises/DB Bent Over Rows.webm",
+    "search": "db bent over rows"
+  },
+  {
+    "exercise": "Db Bent Over Flyes",
+    "hebrew": "פרפר כפוף עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "8791feb0-20e7-4e63-a749-176408dde753",
+    "video_object": "exercises/DB Bent over flyes.webm",
+    "search": "db bent over flyes"
+  },
+  {
+    "exercise": "Db Cross Curl",
+    "hebrew": "כפיפת צלב עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ba060858-496b-4b47-becb-ec0e80882910",
+    "video_object": "exercises/DB CROSS CURL.webm",
+    "search": "db cross curl"
+  },
+  {
+    "exercise": "Db Calf Raises",
+    "hebrew": "הרמות שוקיים עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "aee24250-c10c-44da-903e-0e3d52fa33ee",
+    "video_object": "exercises/DB Calf Raises.webm",
+    "search": "db calf raises"
+  },
+  {
+    "exercise": "Db Curl Twist Reverse Db Curl",
+    "hebrew": "כפיפות משקולת עם סיבוב לאחור",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "08f9a058-5212-4e06-840b-5c2c5aeee560",
+    "video_object": "exercises/DB Curl Twist Reverse DB curl.webm",
+    "search": "db curl twist reverse db curl"
+  },
+  {
+    "exercise": "Db Curls Close Grip",
+    "hebrew": "כפיפות משקולת אחיזה צמודה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "d41b45f6-180c-4204-82b0-20a59cba414f",
+    "video_object": "exercises/DB Curls Close Grip.webm",
+    "search": "db curls close grip"
+  },
+  {
+    "exercise": "Db External Rotation",
+    "hebrew": "סיבוב חיצוני עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ba88323b-1069-44d6-857e-70730f89bcce",
+    "video_object": "exercises/DB External Rotation.webm",
+    "search": "db external rotation"
+  },
+  {
+    "exercise": "Db Fly On Step",
+    "hebrew": "פרפר עם משקולת על מדרגה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "536fdae9-2b6c-455e-ba0c-744c62d10778",
+    "video_object": "exercises/DB Fly on step.webm",
+    "search": "db fly on step"
+  },
+  {
+    "exercise": "Db Front Raises",
+    "hebrew": "הרמות קדמיות עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c03c5e8b-94a9-4243-be53-4a628f607696",
+    "video_object": "exercises/DB Front Raises.webm",
+    "search": "db front raises"
+  },
+  {
+    "exercise": "Db Goblet Squat",
+    "hebrew": "סקוואט גביע עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "30f5db93-501e-480f-ba53-f90aee6eef42",
+    "video_object": "exercises/DB Goblet Squat.webm",
+    "search": "db goblet squat"
+  },
+  {
+    "exercise": "Db Hammer Curls",
+    "hebrew": "כפיפות פטיש עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "a60f06cc-a672-4a1a-b536-7de528e99deb",
+    "video_object": "exercises/DB Hammer Curls.webm",
+    "search": "db hammer curls"
+  },
+  {
+    "exercise": "Db Leg Extensions",
+    "hebrew": "פשיטת רגליים עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "dda85c88-3edf-447b-a829-4827508d4ac3",
+    "video_object": "exercises/DB Leg Extensions.webm",
+    "search": "db leg extensions"
+  },
+  {
+    "exercise": "Db Lying Leg Curls",
+    "hebrew": "כפיפות רגליים בשכיבה עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "8c63f881-2c1e-47a9-b47a-084d9d407df3",
+    "video_object": "exercises/DB Lying Leg Curls.webm",
+    "search": "db lying leg curls"
+  },
+  {
+    "exercise": "Db One Arm Extension",
+    "hebrew": "פשיטת יד אחת עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "1b82b63c-df1f-48bb-b9a8-39c6f9566741",
+    "video_object": "exercises/DB One Arm Extension.webm",
+    "search": "db one arm extension"
+  },
+  {
+    "exercise": "Db Over Head Extensions With Pause",
+    "hebrew": "פשיטות מעל הראש עם משקולת והפסקה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "9d2b986a-cc83-4ef8-a31c-4d19b06f769f",
+    "video_object": "exercises/DB Over head Extensions With Pause.webm",
+    "search": "db over head extensions with pause"
+  },
+  {
+    "exercise": "Db Preacher Curl Single Arm",
+    "hebrew": "כפיפת מטיף יד אחת עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "2fd29ee1-13bd-4f90-90f0-26150224f49f",
+    "video_object": "exercises/DB Preacher Curl Single Arm.webm",
+    "search": "db preacher curl single arm"
+  },
+  {
+    "exercise": "Db Press On Step",
+    "hebrew": "לחיצה עם משקולת על מדרגה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ea16ebe3-af66-4ff9-b394-74e590077390",
+    "video_object": "exercises/DB Press on step.webm",
+    "search": "db press on step"
+  },
+  {
+    "exercise": "Db Pull Over",
+    "hebrew": "משיכת משקולת מעבר לראש",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "f93d8220-c70e-46e9-be4f-9bc85002c0db",
+    "video_object": "exercises/DB Pull Over.webm",
+    "search": "db pull over"
+  },
+  {
+    "exercise": "Db Renegade Rows",
+    "hebrew": "חתירות רנגד עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c5b4bf14-47f1-43d6-b4f0-12fc25e2a913",
+    "video_object": "exercises/DB Renegade Rows.webm",
+    "search": "db renegade rows"
+  },
+  {
+    "exercise": "Db Rotating Curls Single Arm",
+    "hebrew": "כפיפות מסתובבות יד אחת עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "d4e3c81a-a154-4bf0-b7c8-8fc1005bcdd7",
+    "video_object": "exercises/DB Rotating Curls Single Arm.webm",
+    "search": "db rotating curls single arm"
+  },
+  {
+    "exercise": "Db Rows Laying On Bench",
+    "hebrew": "חתירות עם משקולת בשכיבה על ספסל",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "43d06552-c7ba-478c-a925-5a3ff145aadf",
+    "video_object": "exercises/DB Rows laying on Bench.webm",
+    "search": "db rows laying on bench"
+  },
+  {
+    "exercise": "Db Seated Calf Raises",
+    "hebrew": "הרמות שוקיים בישיבה עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "78409f05-0e2e-46a7-a975-5ffa5ea32de7",
+    "video_object": "exercises/DB Seated Calf Raises.webm",
+    "search": "db seated calf raises"
+  },
+  {
+    "exercise": "Db Seated Lateral Raises",
+    "hebrew": "הרמות צד בישיבה עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "a8e21ae9-55d2-4639-bec3-f6bfb169879f",
+    "video_object": "exercises/DB Seated Lateral Raises.webm",
+    "search": "db seated lateral raises"
+  },
+  {
+    "exercise": "Db Shoulder Press",
+    "hebrew": "לחיצת כתפיים עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "1370e38e-48a2-4c9d-af47-e9145cd88daa",
+    "video_object": "exercises/DB Shoulder Press.webm",
+    "search": "db shoulder press"
+  },
+  {
+    "exercise": "Db Shrugs",
+    "hebrew": "הרמות כתפיים עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "776f8499-971b-4b9c-b401-adcc6d357714",
+    "video_object": "exercises/DB Shrugs.webm",
+    "search": "db shrugs"
+  },
+  {
+    "exercise": "Db Skull Crushers",
+    "hebrew": "שבירת גולגולת עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "e35251ba-749b-4447-8f7d-82ecbfd04fff",
+    "video_object": "exercises/DB Skull Crushers.webm",
+    "search": "db skull crushers"
+  },
+  {
+    "exercise": "Db Spider Curls",
+    "hebrew": "כפיפות עכביש עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "3209642d-0862-4419-8421-6a4594e66e18",
+    "video_object": "exercises/DB Spder Curls.webm",
+    "search": "db spider curls"
+  },
+  {
+    "exercise": "Db Squats",
+    "hebrew": "סקוואטים עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "6ba739a9-08a8-4819-9e69-5af6ff3e83ad",
+    "video_object": "exercises/DB Squats.webm",
+    "search": "db squats"
+  },
+  {
+    "exercise": "Db Step Up",
+    "hebrew": "עליית מדרגה עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "690c0696-664f-4065-85ba-b51a577510ff",
+    "video_object": "exercises/DB Step Up.webm",
+    "search": "db step up"
+  },
+  {
+    "exercise": "Db Sumo Squat",
+    "hebrew": "סקוואט סומו עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ed12f148-d395-4415-bcaa-3360ca5095f3",
+    "video_object": "exercises/DB Sumo Squat.webm",
+    "search": "db sumo squat"
+  },
+  {
+    "exercise": "Db Tate Press",
+    "hebrew": "לחיצת טייט עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "6d93b8da-b3e0-45aa-bac2-415ee16558c7",
+    "video_object": "exercises/DB Tate Press.webm",
+    "search": "db tate press"
+  },
+  {
+    "exercise": "Db Under Hand Row Bent Over",
+    "hebrew": "חתירה כפופה עם אחיזת תחתית ומשקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "023f904e-fc11-44db-8c00-37ec2c6fd4a4",
+    "video_object": "exercises/DB Under hand Row Bent Over.webm",
+    "search": "db under hand row bent over"
+  },
+  {
+    "exercise": "Db Wide Row",
+    "hebrew": "חתירה רחבה עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "850bce8d-66c1-4287-871c-7192be5f9e20",
+    "video_object": "exercises/DB Wide Row.webm",
+    "search": "db wide row"
+  },
+  {
+    "exercise": "Db Wrist Curls",
+    "hebrew": "כפיפות שורש כף היד עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "7309d46e-8b30-4020-9653-93ae4359180c",
+    "video_object": "exercises/DB Wrist Curls.webm",
+    "search": "db wrist curls"
+  },
+  {
+    "exercise": "Db Front & Side Raise Superset",
+    "hebrew": "הרמות קדמיות וצדדיות עם משקולת בסופרסט",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "59f4452d-e268-477b-8c32-a2c795760134",
+    "video_object": "exercises/DB front & side raise superset.webm",
+    "search": "db front & side raise superset"
+  },
+  {
+    "exercise": "Db Standing Upper Chest Flyes",
+    "hebrew": "פרפר חזה עליון בעמידה עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "79ca2b9a-5b70-4687-a410-9c0a276fc541",
+    "video_object": "exercises/DB standing Upper Chest Flyes.webm",
+    "search": "db standing upper chest flyes"
+  },
+  {
+    "exercise": "Dead Bugs",
+    "hebrew": "חרקים מתים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6182a59d-812a-4967-8bde-11327b83fd24",
+    "video_object": "exercises/Dead Bugs.webm",
+    "search": "dead bugs"
+  },
+  {
+    "exercise": "Dead Hang",
+    "hebrew": "תלייה מתה",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "e141e83a-b73a-4cb4-bc73-bf24f6899d60",
+    "video_object": "exercises/Dead Hang.webm",
+    "search": "dead hang"
+  },
+  {
+    "exercise": "Deadlift",
+    "hebrew": "דדליפט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "3ffec883-9b43-47d1-9b69-52a34b113fca",
+    "video_object": "exercises/Deadlift.webm",
+    "search": "deadlift"
+  },
+  {
+    "exercise": "Decline Barbell Bench Press",
+    "hebrew": "לחיצת חזה בשיפוע שלילי עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "bf9589b5-5eae-44c7-9755-5ad3b97c723f",
+    "video_object": "exercises/Decline Barbell Bench Press.webm",
+    "search": "decline barbell bench press"
+  },
+  {
+    "exercise": "Decline Crunch",
+    "hebrew": "כפיפות בטן בשיפוע שלילי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "55e7cf50-8611-4ad4-87e1-3ec02f1ab683",
+    "video_object": "exercises/Decline Crunch.webm",
+    "search": "decline crunch"
+  },
+  {
+    "exercise": "Decline Dumbbell Bench Press",
+    "hebrew": "לחיצת חזה בשיפוע שלילי עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "75583dad-9dae-4752-bc5d-3726f355c8a2",
+    "video_object": "exercises/Decline Dumbbell Bench Press.webm",
+    "search": "decline dumbbell bench press"
+  },
+  {
+    "exercise": "Decline Push Ups",
+    "hebrew": "שכיבות סמיכה בשיפוע שלילי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "70d294d0-445a-4dac-9c52-3871dd29fa34",
+    "video_object": "exercises/Decline Push Ups.webm",
+    "search": "decline push ups"
+  },
+  {
+    "exercise": "Decline Push Up",
+    "hebrew": "שכיבת סמיכה בשיפוע שלילי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "aacd3d04-60cb-4c4c-bd94-beaf6fe11a93",
+    "video_object": "exercises/Decline Push up.webm",
+    "search": "decline push up"
+  },
+  {
+    "exercise": "Diamond Push Ups On Knees",
+    "hebrew": "שכיבות סמיכה יהלום על הברכיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "e8f53159-59b9-4b2a-887b-f8f3e902b1f5",
+    "video_object": "exercises/Diamond Push Ups on Knees.webm",
+    "search": "diamond push ups on knees"
+  },
+  {
+    "exercise": "Diamond Push Ups",
+    "hebrew": "שכיבות סמיכה יהלום",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "661dd37d-47d9-4fbd-b249-78375eabd139",
+    "video_object": "exercises/Diamond Push Ups.webm",
+    "search": "diamond push ups"
+  },
+  {
+    "exercise": "Diamond Push Ups Close Grip Push Up",
+    "hebrew": "שכיבות סמיכה יהלום - אחיזה צמודה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "cae40f7a-c1bd-487d-8e6d-a31ba04e5851",
+    "video_object": "exercises/Diamond Push ups - Close grip push up.webm",
+    "search": "diamond push ups close grip push up"
+  },
+  {
+    "exercise": "Dips Machine",
+    "hebrew": "מקבילים במכונה",
+    "equipment": "Machine",
+    "equipment_hebrew": "מכונה",
+    "id": "6455ae91-6625-4a25-a5d1-a5f6f621b0d7",
+    "video_object": "exercises/Dips Machine.webm",
+    "search": "dips machine"
+  },
+  {
+    "exercise": "Dips Weighted Vo",
+    "hebrew": "מקבילים עם משקל VO",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9ffe2db9-9102-4501-a88f-0efd71b9e9d5",
+    "video_object": "exercises/Dips Weighted VO.webm",
+    "search": "dips weighted vo"
+  },
+  {
+    "exercise": "Dolphin Push Up",
+    "hebrew": "שכיבת סמיכה דולפין",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6ef31524-7c93-41cd-a520-437f8402e2aa",
+    "video_object": "exercises/Dolphin Push Up.webm",
+    "search": "dolphin push up"
+  },
+  {
+    "exercise": "Donkey Kicks Left",
+    "hebrew": "בעיטות חמורי שמאל",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1822c86b-421a-4c04-a1d3-639e55067571",
+    "video_object": "exercises/Donkey Kicks Left.webm",
+    "search": "donkey kicks left"
+  },
+  {
+    "exercise": "Donkey Kicks Right",
+    "hebrew": "בעיטות חמורי ימין",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7d2042eb-aab5-436f-99ea-7daf3e2f17ad",
+    "video_object": "exercises/Donkey Kicks Right.webm",
+    "search": "donkey kicks right"
+  },
+  {
+    "exercise": "Downward Dog",
+    "hebrew": "תנוחת כלב מביט מטה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "af620cb4-30df-4f93-b7a5-17a50e20c24e",
+    "video_object": "exercises/Downward Dog.webm",
+    "search": "downward dog"
+  },
+  {
+    "exercise": "Drag Curls",
+    "hebrew": "כפיפות גרירה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "52779da2-7edf-49f3-bb96-387f6a9e0728",
+    "video_object": "exercises/Drag Curls -.webm",
+    "search": "drag curls"
+  },
+  {
+    "exercise": "Duck Walks",
+    "hebrew": "הליכת ברווז",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b544b10b-1ebf-4a71-87a4-8fa3aa17d090",
+    "video_object": "exercises/Duck Walks.webm",
+    "search": "duck walks"
+  },
+  {
+    "exercise": "Dumbbell 21_s",
+    "hebrew": "21 עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "3123a718-f917-4922-9ff9-4a95d686c76a",
+    "video_object": "exercises/Dumbbell 21_s.webm",
+    "search": "dumbbell 21_s"
+  },
+  {
+    "exercise": "Dumbbell Arm Circles",
+    "hebrew": "מעגלי זרוע עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "916afbdd-8b19-4ee0-88ec-97d94148f595",
+    "video_object": "exercises/Dumbbell Arm Circles.webm",
+    "search": "dumbbell arm circles"
+  },
+  {
+    "exercise": "Dumbbell Bench Press",
+    "hebrew": "לחיצת ספסל עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "7f0f46c7-df27-47c8-8ba7-566a8495f393",
+    "video_object": "exercises/Dumbbell Bench Press.webm",
+    "search": "dumbbell bench press"
+  },
+  {
+    "exercise": "Dumbbell Bulgarian Split Squat",
+    "hebrew": "ספליט סקוואט בולגרי עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "36069562-035f-48f6-a9bc-4cb85461fe07",
+    "video_object": "exercises/Dumbbell Bulgarian Split Squat.webm",
+    "search": "dumbbell bulgarian split squat"
+  },
+  {
+    "exercise": "Dumbbell Chest Supported Row",
+    "hebrew": "חתירה עם תמיכת חזה ומשקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "d9efa148-7af6-49bd-b829-ba9690546e22",
+    "video_object": "exercises/Dumbbell Chest Supported Row.webm",
+    "search": "dumbbell chest supported row"
+  },
+  {
+    "exercise": "Dumbbell Curls",
+    "hebrew": "כפיפות עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "9391898c-99ab-48c4-932c-4d26538636bf",
+    "video_object": "exercises/Dumbbell Curls.webm",
+    "search": "dumbbell curls"
+  },
+  {
+    "exercise": "Dumbbell Dead Lifts Full Range",
+    "hebrew": "דדליפט משקולת יד - טווח מלא",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "55e7a55d-a3bc-4d9a-8fde-61c6628d2594",
+    "video_object": "exercises/Dumbbell Dead Lifts - Full Range.webm",
+    "search": "dumbbell dead lifts full range"
+  },
+  {
+    "exercise": "Dumbbell Deadlifts",
+    "hebrew": "דדליפט עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "9ce05ac7-6e08-4613-b804-83331f20468d",
+    "video_object": "exercises/Dumbbell Deadlifts.webm",
+    "search": "dumbbell deadlifts"
+  },
+  {
+    "exercise": "Dumbbell Flyes Floor",
+    "hebrew": "פרפר עם משקולת יד על הרצפה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "a72feaa7-4765-4119-abc4-1f3253107f68",
+    "video_object": "exercises/Dumbbell Flyes - floor.webm",
+    "search": "dumbbell flyes floor"
+  },
+  {
+    "exercise": "Dumbbell Flyes",
+    "hebrew": "פרפר עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "2417a1dd-9dba-460d-b848-6c1bb5b1ebae",
+    "video_object": "exercises/Dumbbell Flyes.webm",
+    "search": "dumbbell flyes"
+  },
+  {
+    "exercise": "Dumbbell Forearm Twists",
+    "hebrew": "סיבובי אמות עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "9deceabc-e970-4861-a0a8-feb9f778afa4",
+    "video_object": "exercises/Dumbbell Forearm Twists.webm",
+    "search": "dumbbell forearm twists"
+  },
+  {
+    "exercise": "Dumbbell Front Raise With Rear Delt Fly",
+    "hebrew": "הרמה קדמית עם פרפר אחורי ומשקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "620df159-a66c-4ed5-8c41-98b4a7f4368e",
+    "video_object": "exercises/Dumbbell Front Raise with Rear Delt Fly.webm",
+    "search": "dumbbell front raise with rear delt fly"
+  },
+  {
+    "exercise": "Dumbbell Front Raises Standing",
+    "hebrew": "הרמות קדמיות בעמידה עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "f9f20c7a-ed0a-435b-91bc-8432efedd32b",
+    "video_object": "exercises/Dumbbell Front Raises Standing.webm",
+    "search": "dumbbell front raises standing"
+  },
+  {
+    "exercise": "Dumbbell Good Mornings",
+    "hebrew": "גוד מורנינג עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "4fff36e8-6ed5-448e-827c-c4f388d5d390",
+    "video_object": "exercises/Dumbbell Good Mornings.webm",
+    "search": "dumbbell good mornings"
+  },
+  {
+    "exercise": "Dumbbell Hammer Press Floor",
+    "hebrew": "לחיצת פטיש עם משקולת יד על הרצפה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "1f250556-5867-4185-8082-d8e80dc219bb",
+    "video_object": "exercises/Dumbbell Hammer press - floor.webm",
+    "search": "dumbbell hammer press floor"
+  },
+  {
+    "exercise": "Dumbbell Hip Thrust",
+    "hebrew": "היפ טראסט עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "6571efb4-b1c0-4d3d-8b21-81fe28d2e3b7",
+    "video_object": "exercises/Dumbbell Hip Thrust.webm",
+    "search": "dumbbell hip thrust"
+  },
+  {
+    "exercise": "Dumbbell Incline Press Stability Ball",
+    "hebrew": "לחיצת שיפוע עם משקולת יד וכדור יציבות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "12c16102-0cbd-4151-ab37-48f266171673",
+    "video_object": "exercises/Dumbbell Incline press - stability ball.webm",
+    "search": "dumbbell incline press stability ball"
+  },
+  {
+    "exercise": "Dumbbell Jump Squats",
+    "hebrew": "סקוואטים קופצים עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "91e4b5b7-b627-48d5-9624-127b6d9bea7d",
+    "video_object": "exercises/Dumbbell Jump Squats.webm",
+    "search": "dumbbell jump squats"
+  },
+  {
+    "exercise": "Dumbbell Kroc Row",
+    "hebrew": "חתירת קרוק עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "fa229152-7dee-4360-92b7-83d687b1199c",
+    "video_object": "exercises/Dumbbell Kroc Row.webm",
+    "search": "dumbbell kroc row"
+  },
+  {
+    "exercise": "Dumbbell Lateral Lunge",
+    "hebrew": "לאנג' צידי עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "e2172d10-4045-4d47-8102-0023788c16c6",
+    "video_object": "exercises/Dumbbell Lateral Lunge.webm",
+    "search": "dumbbell lateral lunge"
+  },
+  {
+    "exercise": "Dumbbell Lateral Raise",
+    "hebrew": "הרמות צד עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "fdc44572-633e-4a76-8632-179bad654a33",
+    "video_object": "exercises/Dumbbell Lateral Raise.webm",
+    "search": "dumbbell lateral raise"
+  },
+  {
+    "exercise": "Dumbbell Lunges",
+    "hebrew": "לאנג'ים עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "1b92fbb9-1749-4efa-82c1-ec95c63cdae5",
+    "video_object": "exercises/Dumbbell Lunges.webm",
+    "search": "dumbbell lunges"
+  },
+  {
+    "exercise": "Dumbbell Pendlay Row",
+    "hebrew": "חתירת פנדלי עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "e53fd23c-4c1f-4168-be34-055f2ae07094",
+    "video_object": "exercises/Dumbbell Pendlay Row.webm",
+    "search": "dumbbell pendlay row"
+  },
+  {
+    "exercise": "Dumbbell Reverse Lunges",
+    "hebrew": "לאנג'ים הפוכים עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "5ed61441-b0bd-4034-ae70-4fbdd07cdfee",
+    "video_object": "exercises/Dumbbell Reverse Lunges.webm",
+    "search": "dumbbell reverse lunges"
+  },
+  {
+    "exercise": "Dumbbell Shoulder Press Standing",
+    "hebrew": "לחיצת כתפיים בעמידה עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c092fa88-4c03-4cef-a78a-685368623782",
+    "video_object": "exercises/Dumbbell Shoulder Press Standing.webm",
+    "search": "dumbbell shoulder press standing"
+  },
+  {
+    "exercise": "Dumbbell Shoulder Press",
+    "hebrew": "לחיצת כתפיים עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "e19be960-be4e-4c8c-a3a1-a4e6e08648a2",
+    "video_object": "exercises/Dumbbell Shoulder Press.webm",
+    "search": "dumbbell shoulder press"
+  },
+  {
+    "exercise": "Dumbbell Staggered Stance Rdl",
+    "hebrew": "דדליפט רומני עם עמידה מפוצלת ומשקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "873cc49b-e46a-41bb-b696-7daadf590d5f",
+    "video_object": "exercises/Dumbbell Staggered Stance RDL.webm",
+    "search": "dumbbell staggered stance rdl"
+  },
+  {
+    "exercise": "Dumbbell Svend Press",
+    "hebrew": "לחיצת סוונד עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "7fa04774-fd99-4c23-a116-c260604bda1a",
+    "video_object": "exercises/Dumbbell Svend Press.webm",
+    "search": "dumbbell svend press"
+  },
+  {
+    "exercise": "Dumbbell Swing",
+    "hebrew": "סווינג עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c99c61c2-570e-4660-afb1-ae42b02d7ce8",
+    "video_object": "exercises/Dumbbell Swing.webm",
+    "search": "dumbbell swing"
+  },
+  {
+    "exercise": "Dumbbell Swings",
+    "hebrew": "סווינגים עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "935dc02d-187d-4d53-b717-dfcd3b775c5a",
+    "video_object": "exercises/Dumbbell Swings.webm",
+    "search": "dumbbell swings"
+  },
+  {
+    "exercise": "Dumbbell Wrestlers Row",
+    "hebrew": "חתירת מתאבקים עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c4ea7bcc-f83d-476e-b735-9f6adb71f22f",
+    "video_object": "exercises/Dumbbell Wrestlers Row.webm",
+    "search": "dumbbell wrestlers row"
+  },
+  {
+    "exercise": "Dumbbell Yates Row",
+    "hebrew": "חתירת ייטס עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "2e3a0477-ac36-42f0-8fa8-d1649645a4f3",
+    "video_object": "exercises/Dumbbell Yates Row.webm",
+    "search": "dumbbell yates row"
+  },
+  {
+    "exercise": "Dumbbell Flies Stability Ball",
+    "hebrew": "פרפר עם משקולת יד וכדור יציבות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "378072f0-797d-47c7-b7e3-26459d40f4c1",
+    "video_object": "exercises/Dumbbell flies - stability ball.webm",
+    "search": "dumbbell flies stability ball"
+  },
+  {
+    "exercise": "Dumbbell Front & Side Press Superset",
+    "hebrew": "לחיצה קדמית וצידית עם משקולת יד בסופרסט",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "2eb9825b-bc29-4fbe-88ea-a7db57ebb566",
+    "video_object": "exercises/Dumbbell front & side press superset.webm",
+    "search": "dumbbell front & side press superset"
+  },
+  {
+    "exercise": "Dumbbell Press Stability Ball",
+    "hebrew": "לחיצה עם משקולת יד וכדור יציבות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "d4467583-be4f-4126-be28-c1f8c473f7a0",
+    "video_object": "exercises/Dumbbell press - stability ball.webm",
+    "search": "dumbbell press stability ball"
+  },
+  {
+    "exercise": "Dumbbell Press- Floor",
+    "hebrew": "לחיצה עם משקולת יד על הרצפה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "b64d4c9f-f00e-4efe-a4fe-33f122c8ba53",
+    "video_object": "exercises/Dumbbell press- floor.webm",
+    "search": "dumbbell press floor"
+  },
+  {
+    "exercise": "Dumbbell Push Up",
+    "hebrew": "שכיבות סמיכה עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "05684b85-dfa5-428e-a65f-0932186c6a37",
+    "video_object": "exercises/Dumbbell push up.webm",
+    "search": "dumbbell push up"
+  },
+  {
+    "exercise": "Dumbbell Triceps Extension",
+    "hebrew": "פשיטת טרייספס עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "bb041150-72d8-44f8-bf85-ba86aabc12d4",
+    "video_object": "exercises/Dumbbell triceps extension.webm",
+    "search": "dumbbell triceps extension"
+  },
+  {
+    "exercise": "Dumbell Crush Press Squeeze Press",
+    "hebrew": "לחיצת כתישה עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "09fb072e-1280-4f3f-802a-722fa6a148d4",
+    "video_object": "exercises/Dumbell Crush Press - Squeeze Press.webm",
+    "search": "dumbell crush press squeeze press"
+  },
+  {
+    "exercise": "Dumbell Lateral Raise",
+    "hebrew": "הרמת צד עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "0283ff3c-416d-4022-9279-87eb1d421adb",
+    "video_object": "exercises/Dumbell Lateral Raise.webm",
+    "search": "dumbell lateral raise"
+  },
+  {
+    "exercise": "Explosive Bulgarian Jump",
+    "hebrew": "קפיצה בולגרית מתפרצת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b8f818db-63c1-4b06-b8c7-d62c26561457",
+    "video_object": "exercises/EXPLOSIVE BULGARIAN JUMP.webm",
+    "search": "explosive bulgarian jump"
+  },
+  {
+    "exercise": "Ez Bar Curls",
+    "hebrew": "כפיפות EZ בר",
+    "equipment": "EZ Bar",
+    "equipment_hebrew": "מוט EZ",
+    "id": "46882c0f-6514-4371-8135-ade673953b21",
+    "video_object": "exercises/EZ BAR CURLS.webm",
+    "search": "ez bar curls"
+  },
+  {
+    "exercise": "Ez Bar Preacher Curls",
+    "hebrew": "כפיפות מטיף עם EZ בר",
+    "equipment": "EZ Bar",
+    "equipment_hebrew": "מוט EZ",
+    "id": "4af3ded8-d81f-439f-a747-8ebe0fd9a549",
+    "video_object": "exercises/EZ BAR PREACHER CURLS.webm",
+    "search": "ez bar preacher curls"
+  },
+  {
+    "exercise": "Ez Bar French Press Vo",
+    "hebrew": "לחיצה צרפתית עם EZ בר VO",
+    "equipment": "EZ Bar",
+    "equipment_hebrew": "מוט EZ",
+    "id": "1ff230b9-721a-41ea-9cdb-f88c86ed2d94",
+    "video_object": "exercises/EZ Bar French Press VO.webm",
+    "search": "ez bar french press vo"
+  },
+  {
+    "exercise": "Ez Bar French Press",
+    "hebrew": "לחיצה צרפתית עם EZ בר",
+    "equipment": "EZ Bar",
+    "equipment_hebrew": "מוט EZ",
+    "id": "738c1557-484a-442b-aefa-afe5b33d09d8",
+    "video_object": "exercises/EZ Bar French Press.webm",
+    "search": "ez bar french press"
+  },
+  {
+    "exercise": "Ecentric Pullup",
+    "hebrew": "מתח אקצנטרי",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "c23e620d-1a8b-41a8-8404-d4a509346a01",
+    "video_object": "exercises/Ecentric Pullup.webm",
+    "search": "ecentric pullup"
+  },
+  {
+    "exercise": "Elbow Up Down Planks",
+    "hebrew": "פלאנקים עלייה וירידה עם מרפקים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "dbdb7734-383e-47e2-a959-128e9f3656ba",
+    "video_object": "exercises/Elbow Up down Planks.webm",
+    "search": "elbow up down planks"
+  },
+  {
+    "exercise": "Elbow To Knee Side Plank Crunch (male)",
+    "hebrew": "כפיפת פלאנק צידי מרפק לברך (גבר)",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "588aa303-4091-43b9-91b0-1b40d71531da",
+    "video_object": "exercises/Elbow to Knee Side Plank Crunch (male).webm",
+    "search": "elbow to knee side plank crunch (male)"
+  },
+  {
+    "exercise": "Explosive Pushup",
+    "hebrew": "שכיבת סמיכה מתפרצת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "69fd589d-652e-4511-a5f8-25e6902e80e3",
+    "video_object": "exercises/Explosive Pushup.webm",
+    "search": "explosive pushup"
+  },
+  {
+    "exercise": "Ez Bar Curl Inside Grip",
+    "hebrew": "כפיפת EZ בר עם אחיזה פנימית",
+    "equipment": "EZ Bar",
+    "equipment_hebrew": "מוט EZ",
+    "id": "a35a1c74-78e6-4d2c-bbde-b11dec68fae7",
+    "video_object": "exercises/Ez Bar Curl Inside Grip.webm",
+    "search": "ez bar curl inside grip"
+  },
+  {
+    "exercise": "Ez Bar Curl",
+    "hebrew": "כפיפת EZ בר",
+    "equipment": "EZ Bar",
+    "equipment_hebrew": "מוט EZ",
+    "id": "1cbf36f4-2688-4ad4-9488-4c199fb7cdda",
+    "video_object": "exercises/Ez Bar Curl.webm",
+    "search": "ez bar curl"
+  },
+  {
+    "exercise": "Face Pulls Rear Delts",
+    "hebrew": "משיכת פנים לדלת אחורית",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "59787128-c0ae-4776-951a-554236e399cf",
+    "video_object": "exercises/Face Pulls Rear Delts.webm",
+    "search": "face pulls rear delts"
+  },
+  {
+    "exercise": "Fire Hydrants Left",
+    "hebrew": "כיבוי אש רגל שמאל",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "a9b9058a-7121-4ec6-a396-c9b9dfa93434",
+    "video_object": "exercises/Fire hydrants Left.webm",
+    "search": "fire hydrants left"
+  },
+  {
+    "exercise": "Fire Hydrants Right",
+    "hebrew": "כיבוי אש רגל ימין",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7db993ca-c1cf-4f4f-a243-10f128eac0e3",
+    "video_object": "exercises/Fire hydrants Right.webm",
+    "search": "fire hydrants right"
+  },
+  {
+    "exercise": "Floor Glute Bridge",
+    "hebrew": "גשר ישבן על הרצפה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d8c40073-013c-48b4-8f0a-c78109916231",
+    "video_object": "exercises/Floor Glute Bridge.webm",
+    "search": "floor glute bridge"
+  },
+  {
+    "exercise": "Floor Hip Thrusts",
+    "hebrew": "דחיפות ירך על הרצפה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "aec2dd00-8f4b-4dc3-aee6-faf4a8e48a59",
+    "video_object": "exercises/Floor Hip Thrusts.webm",
+    "search": "floor hip thrusts"
+  },
+  {
+    "exercise": "Flutter Kicks",
+    "hebrew": "בעיטות פרפר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "88c703ed-cea2-4a90-9da3-72a7f2617716",
+    "video_object": "exercises/Flutter kicks.webm",
+    "search": "flutter kicks"
+  },
+  {
+    "exercise": "Frog Jumps",
+    "hebrew": "קפיצות צפרדע",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "c11415f7-1ed3-4c35-bbea-eb2170ab48ba",
+    "video_object": "exercises/Frog Jumps.webm",
+    "search": "frog jumps"
+  },
+  {
+    "exercise": "Frog Kicks",
+    "hebrew": "בעיטות צפרדע",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "212b5832-6c72-4232-8c1a-e0a7cf351c8f",
+    "video_object": "exercises/Frog Kicks.webm",
+    "search": "frog kicks"
+  },
+  {
+    "exercise": "Frog Pumps",
+    "hebrew": "משאבות צפרדע",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "cd014ae1-00ad-4fda-8900-b0aa2d3f0d7a",
+    "video_object": "exercises/Frog Pumps.webm",
+    "search": "frog pumps"
+  },
+  {
+    "exercise": "Front Delt Plate Raises",
+    "hebrew": "הרמות פלטה לכתף קדמית",
+    "equipment": "Weight Plate",
+    "equipment_hebrew": "פלטת משקל",
+    "id": "d1571ecd-a3f2-410c-a812-c235716a7a50",
+    "video_object": "exercises/Front Delt Plate Raises.webm",
+    "search": "front delt plate raises"
+  },
+  {
+    "exercise": "Front Foot Elevated Ankle Mobility",
+    "hebrew": "שיפור ניידות קרסול עם רגל קדמית מורמת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "cfc929d1-b6da-431c-8c8d-dc5ae23b6618",
+    "video_object": "exercises/Front Foot Elevated ankle mobility.webm",
+    "search": "front foot elevated ankle mobility"
+  },
+  {
+    "exercise": "Front Squat",
+    "hebrew": "סקוואט קדמי",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "168ed79f-c8c2-42c7-8285-23efbdef0038",
+    "video_object": "exercises/Front Squat.webm",
+    "search": "front squat"
+  },
+  {
+    "exercise": "Glute Bridge",
+    "hebrew": "גשר ישבן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9a116aba-a98e-4f30-9d74-01afe4cb6615",
+    "video_object": "exercises/Glute Bridge.webm",
+    "search": "glute bridge"
+  },
+  {
+    "exercise": "Glute Ham Raise",
+    "hebrew": "הרמת ישבן וירך אחורית",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6448784f-7800-4601-8253-fb907bfd52ab",
+    "video_object": "exercises/Glute Ham Raise.webm",
+    "search": "glute ham raise"
+  },
+  {
+    "exercise": "Goblet Squat Heels Elevated",
+    "hebrew": "סקוואט גביע עם עקבים מורמים",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ebbf593e-ab58-4d00-ab6e-d2e6c34c8497",
+    "video_object": "exercises/Goblet Squat heels elevated.webm",
+    "search": "goblet squat heels elevated"
+  },
+  {
+    "exercise": "Gorilla Row",
+    "hebrew": "חתירת גורילה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "20d97f27-07ca-41cd-a66d-087b0f127599",
+    "video_object": "exercises/Gorilla Row.webm",
+    "search": "gorilla row"
+  },
+  {
+    "exercise": "Groiners",
+    "hebrew": "גרוינרים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "56bf8c55-4a2e-4e2a-8407-65cf7588f89a",
+    "video_object": "exercises/Groiners.webm",
+    "search": "groiners"
+  },
+  {
+    "exercise": "Hack Squat",
+    "hebrew": "האק סקוואט",
+    "equipment": "Machine",
+    "equipment_hebrew": "מכונה",
+    "id": "e6cdeddb-04f8-423f-886b-b4decc6ce202",
+    "video_object": "exercises/HACK SQUAT.webm",
+    "search": "hack squat"
+  },
+  {
+    "exercise": "Half Kneel Abductor Stretch",
+    "hebrew": "מתיחת חוטפים בכריעה חצי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "751fbe8f-964b-4798-81d3-8b6831665cf8",
+    "video_object": "exercises/Half Kneel Abductor Stretch.webm",
+    "search": "half kneel abductor stretch"
+  },
+  {
+    "exercise": "Half Kneel Quad Hip Flexor Stretch",
+    "hebrew": "מתיחת פושטי ירך וכפיפי ירך בכריעה חצי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6a9b0b3f-825b-4c27-88bc-106218fdcfdc",
+    "video_object": "exercises/Half Kneel Quad Hip Flexor Stretch.webm",
+    "search": "half kneel quad hip flexor stretch"
+  },
+  {
+    "exercise": "Hammer Curls",
+    "hebrew": "כפיפות פטיש",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "2125d32b-68a2-4f12-9834-aeacd816cdb7",
+    "video_object": "exercises/Hammer Curls.webm",
+    "search": "hammer curls"
+  },
+  {
+    "exercise": "Hamstring Curl Stability Ball Single Leg",
+    "hebrew": "כפיפת ירך עם כדור יציבות - רגל אחת",
+    "equipment": "Stability Ball",
+    "equipment_hebrew": "כדור יציבות",
+    "id": "4b798fd1-c515-4517-a030-537954d1bc2d",
+    "video_object": "exercises/Hamstring Curl Stability Ball - Single Leg.webm",
+    "search": "hamstring curl stability ball single leg"
+  },
+  {
+    "exercise": "Hamstring Curl Stability Ball",
+    "hebrew": "כפיפת ירך עם כדור יציבות",
+    "equipment": "Stability Ball",
+    "equipment_hebrew": "כדור יציבות",
+    "id": "cf91f592-451b-4eb0-aafb-fdd293496651",
+    "video_object": "exercises/Hamstring Curl Stability Ball.webm",
+    "search": "hamstring curl stability ball"
+  },
+  {
+    "exercise": "Hamstring Nordic Curls",
+    "hebrew": "כפיפות נורדיות לשרירי ירך אחורית",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6b184d6b-c5e0-43ba-a122-bc371a6c6f3b",
+    "video_object": "exercises/Hamstring Nordic Curls.webm",
+    "search": "hamstring nordic curls"
+  },
+  {
+    "exercise": "Hand Release Push-up Plyo Push Up",
+    "hebrew": "שכיבת סמיכה שחרור ידיים - שכיבה פליומטרית",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4cd82db9-5fef-4945-9e96-0e5db41c836e",
+    "video_object": "exercises/Hand release Push-up - Plyo Push up.webm",
+    "search": "hand release push up plyo push up"
+  },
+  {
+    "exercise": "Hand Release Push-up",
+    "hebrew": "שכיבת סמיכה עם שחרור ידיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d2ec49b6-fe8f-4c6a-a1f0-5292bc736beb",
+    "video_object": "exercises/Hand release Push-up.webm",
+    "search": "hand release push up"
+  },
+  {
+    "exercise": "Hanging Knee Raises",
+    "hebrew": "הרמת ברכיים בתלייה",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "81afcf3b-96fe-4fc4-ac59-e087e8dfd06f",
+    "video_object": "exercises/Hanging Knee Raises.webm",
+    "search": "hanging knee raises"
+  },
+  {
+    "exercise": "Hanging Leg Raises",
+    "hebrew": "הרמת רגליים בתלייה",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "445031e0-070b-47ac-82fc-1d86c5ac2099",
+    "video_object": "exercises/Hanging Leg Raises.webm",
+    "search": "hanging leg raises"
+  },
+  {
+    "exercise": "Heel Taps",
+    "hebrew": "נגיעות עקבים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "13b1c051-b4f2-470b-8911-997d272bc06b",
+    "video_object": "exercises/Heel Taps.webm",
+    "search": "heel taps"
+  },
+  {
+    "exercise": "High Knees",
+    "hebrew": "ברכיים גבוהות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "caf1c346-a6ad-4422-92f2-2e256dc60882",
+    "video_object": "exercises/High Knees.webm",
+    "search": "high knees"
+  },
+  {
+    "exercise": "High Rope French Press Over Head Cable Extension",
+    "hebrew": "לחיצה צרפתית עם כבל גבוה - מתיחה מעל הראש",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "210675c1-0b4c-4f9f-9e8a-9bb686e148c1",
+    "video_object": "exercises/High Rope French Press - OVER HEAD CABLE EXTENSION.webm",
+    "search": "high rope french press over head cable extension"
+  },
+  {
+    "exercise": "High Straight Arm Plank",
+    "hebrew": "פלאנק זרוע ישרה גבוה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9bd12583-6e25-4dd1-8a9b-d196ad23c0ee",
+    "video_object": "exercises/High Straight arm Plank.webm",
+    "search": "high straight arm plank"
+  },
+  {
+    "exercise": "High To Low Cable Fly",
+    "hebrew": "פרפר עם כבל גבוה לנמוך",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "f2654bfe-f3ea-4394-aa92-86ff63ef20b4",
+    "video_object": "exercises/High to Low Cable Fly.webm",
+    "search": "high to low cable fly"
+  },
+  {
+    "exercise": "Hip Abductor",
+    "hebrew": "חוטפי ירך",
+    "equipment": "Machine",
+    "equipment_hebrew": "מכונה",
+    "id": "2a64549f-8d69-4a47-b59b-6b81d48ad037",
+    "video_object": "exercises/Hip Abductor.webm",
+    "search": "hip abductor"
+  },
+  {
+    "exercise": "Hip Raise Straight Leg",
+    "hebrew": "הרמת ירך עם רגל ישרה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "f629848c-0118-46ff-acc9-23aef4c54259",
+    "video_object": "exercises/Hip Raise Straight Leg.webm",
+    "search": "hip raise straight leg"
+  },
+  {
+    "exercise": "Hip Raises",
+    "hebrew": "הרמות ירך",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "50f1d974-95ae-4c12-a338-43e024892b76",
+    "video_object": "exercises/Hip Raises.webm",
+    "search": "hip raises"
+  },
+  {
+    "exercise": "Hip Roll Plank",
+    "hebrew": "פלאנק גלגול ירכיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3ccf4549-d50f-4856-a876-cf455e69f10c",
+    "video_object": "exercises/Hip Roll Plank.webm",
+    "search": "hip roll plank"
+  },
+  {
+    "exercise": "Hip Thrust Single Leg",
+    "hebrew": "היפ טראסט רגל אחת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "0b8cc973-94c4-4873-a643-ccf54d893768",
+    "video_object": "exercises/Hip Thrust Single Leg.webm",
+    "search": "hip thrust single leg"
+  },
+  {
+    "exercise": "Hip Raise Bent Knee",
+    "hebrew": "הרמת ירך עם ברך מכופפת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9c8cf8c8-5403-4de9-a86b-9c19fc8f4473",
+    "video_object": "exercises/Hip raise bent knee.webm",
+    "search": "hip raise bent knee"
+  },
+  {
+    "exercise": "Hollow Body Hold",
+    "hebrew": "החזקת גוף חלול",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6ecd26ab-8652-481e-b9ce-f44157f10603",
+    "video_object": "exercises/Hollow body hold.webm",
+    "search": "hollow body hold"
+  },
+  {
+    "exercise": "Hollow Rocks",
+    "hebrew": "נדנדות גוף חלול",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "fcca0f69-9b18-4531-a7c5-0f172b86e274",
+    "video_object": "exercises/Hollow rocks.webm",
+    "search": "hollow rocks"
+  },
+  {
+    "exercise": "Horizontal Seated Cable Rows",
+    "hebrew": "חתירה אופקית בישיבה עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "31322c94-cf9f-428e-b2ef-d16b2a995d92",
+    "video_object": "exercises/Horizontal Seated Cable Rows.webm",
+    "search": "horizontal seated cable rows"
+  },
+  {
+    "exercise": "Hyperextensions",
+    "hebrew": "היפראקסטנשן",
+    "equipment": "Machine",
+    "equipment_hebrew": "מכונה",
+    "id": "fd87e117-7383-4622-8b24-4783445339d9",
+    "video_object": "exercises/Hyperextensions.webm",
+    "search": "hyperextensions"
+  },
+  {
+    "exercise": "Inverted Row",
+    "hebrew": "חתירה הפוכה",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "e641d8c8-24b0-4c81-ba17-db59762af2d2",
+    "video_object": "exercises/INVERTED ROW.webm",
+    "search": "inverted row"
+  },
+  {
+    "exercise": "Incline Cable Chest Press",
+    "hebrew": "לחיצת חזה בשיפוע עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "652b68d0-5482-4c0e-a075-87efd2cee985",
+    "video_object": "exercises/Incline Cable Chest Press.webm",
+    "search": "incline cable chest press"
+  },
+  {
+    "exercise": "Incline Db Extensions Db Powerbomb",
+    "hebrew": "פשיטות משקולת בשיפוע - פאוורבומב",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "a67fa481-b72c-4cd6-a932-1ccb57dc72c5",
+    "video_object": "exercises/Incline DB Extensions - DB Powerbomb.webm",
+    "search": "incline db extensions db powerbomb"
+  },
+  {
+    "exercise": "Incline Diamond Pushups",
+    "hebrew": "שכיבות סמיכה יהלום בשיפוע",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "c8ee4995-36b5-4880-8a17-650680a0a0d9",
+    "video_object": "exercises/Incline Diamond Pushups.webm",
+    "search": "incline diamond pushups"
+  },
+  {
+    "exercise": "Incline Dumbbell Extensions Vo",
+    "hebrew": "פשיטות משקולת בשיפוע VO",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "b0e4b150-55fc-4247-8e88-4983ded55815",
+    "video_object": "exercises/Incline Dumbbell Extensions VO.webm",
+    "search": "incline dumbbell extensions vo"
+  },
+  {
+    "exercise": "Incline Dumbbell Flyes",
+    "hebrew": "פרפר משקולת בשיפוע",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "6569f92d-b2d7-47d0-8dbd-c5d46576a10b",
+    "video_object": "exercises/Incline Dumbbell Flyes.webm",
+    "search": "incline dumbbell flyes"
+  },
+  {
+    "exercise": "Incline Dumbbell Press",
+    "hebrew": "לחיצה עם משקולת בשיפוע",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "947a4b7e-00a8-4616-ac14-d5dfd6662b53",
+    "video_object": "exercises/Incline Dumbbell Press.webm",
+    "search": "incline dumbbell press"
+  },
+  {
+    "exercise": "Incline Dumbbell Triceps Kickback",
+    "hebrew": "בעיטת טרייספס עם משקולת בשיפוע",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "dc9c4834-3a53-411d-9eca-4e8ff8f88981",
+    "video_object": "exercises/Incline Dumbbell triceps kickback.webm",
+    "search": "incline dumbbell triceps kickback"
+  },
+  {
+    "exercise": "Incline Push Up With Bench",
+    "hebrew": "שכיבת סמיכה בשיפוע עם ספסל",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "16faad76-bdd9-4745-94f8-fcedededec1e",
+    "video_object": "exercises/Incline Push Up with Bench.webm",
+    "search": "incline push up with bench"
+  },
+  {
+    "exercise": "Incline Push Up Rotation",
+    "hebrew": "שכיבת סמיכה בשיפוע עם סיבוב",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "a0bef284-b390-43ca-800c-9daf17c6eb8f",
+    "video_object": "exercises/Incline push up rotation.webm",
+    "search": "incline push up rotation"
+  },
+  {
+    "exercise": "Internal Rotation Dumbbell",
+    "hebrew": "סיבוב פנימי עם משקולת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "a599dea3-b00f-48b6-9a40-373852713c95",
+    "video_object": "exercises/Internal Rotation Dumbbell.webm",
+    "search": "internal rotation dumbbell"
+  },
+  {
+    "exercise": "Inverted Grip Lat Pulldown",
+    "hebrew": "משיכת לאטיסימוס עם אחיזה הפוכה",
+    "equipment": "Lat Pulldown Machine",
+    "equipment_hebrew": "מכונת משיכת לאטיסימוס",
+    "id": "50a3cf4a-f4d2-4a10-abf4-0173a63fc699",
+    "video_object": "exercises/Inverted Grip Lat Pulldown.webm",
+    "search": "inverted grip lat pulldown"
+  },
+  {
+    "exercise": "Inverted Pushup (raised Pike)",
+    "hebrew": "שכיבת סמיכה הפוכה (פייק מוגבה)",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "a85366a0-6060-4dd2-8cf1-776b004e5def",
+    "video_object": "exercises/Inverted Pushup (Raised Pike).webm",
+    "search": "inverted pushup (raised pike)"
+  },
+  {
+    "exercise": "Jump Squat Pause",
+    "hebrew": "סקוואט קפיצה עם הפסקה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "c37fef69-1b52-4ea3-a217-c69e407b46df",
+    "video_object": "exercises/JUMP SQUAT PAUSE.webm",
+    "search": "jump squat pause"
+  },
+  {
+    "exercise": "Jump Squats",
+    "hebrew": "סקוואטים קופצים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3adf8a3e-fad0-4752-8348-1556c9e97f6d",
+    "video_object": "exercises/JUMP SQUATS.webm",
+    "search": "jump squats"
+  },
+  {
+    "exercise": "Jack Plank Exercise",
+    "hebrew": "תרגיל פלאנק ג'ק",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1595b33d-065c-4cfe-b1c0-2d173b11f52c",
+    "video_object": "exercises/Jack Plank Exercise.webm",
+    "search": "jack plank exercise"
+  },
+  {
+    "exercise": "Jackknife Sit-ups",
+    "hebrew": "כפיפות בטן ג'קנייף",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "40521f40-baf8-456d-993d-d2614eb82e1d",
+    "video_object": "exercises/Jackknife sit-ups.webm",
+    "search": "jackknife sit ups"
+  },
+  {
+    "exercise": "Jump Rope",
+    "hebrew": "קפיצה עם חבל",
+    "equipment": "Jump Rope",
+    "equipment_hebrew": "חבל קפיצה",
+    "id": "69c98ea1-f3f9-4635-9a50-06eb8b412de0",
+    "video_object": "exercises/Jump Rope.webm",
+    "search": "jump rope"
+  },
+  {
+    "exercise": "Jump Split Squat",
+    "hebrew": "סקוואט מפוצל קפיצה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "2b102d71-dd48-4e87-9a76-94710c8c0df0",
+    "video_object": "exercises/Jump Split Squat.webm",
+    "search": "jump split squat"
+  },
+  {
+    "exercise": "Jumping Jacks",
+    "hebrew": "ג'אמפינג ג'קס",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6921e645-f628-4892-8513-ad2a848851b9",
+    "video_object": "exercises/Jumping Jacks.webm",
+    "search": "jumping jacks"
+  },
+  {
+    "exercise": "Jumping Lunges",
+    "hebrew": "לאנג'ים קופצים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "aa1581de-187a-4e36-98f9-15e03a586bbe",
+    "video_object": "exercises/Jumping Lunges.webm",
+    "search": "jumping lunges"
+  },
+  {
+    "exercise": "Jumping Squats",
+    "hebrew": "סקוואטים קופצים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1841fd4c-c62f-4746-afde-4c5df5f947fc",
+    "video_object": "exercises/Jumping Squats.webm",
+    "search": "jumping squats"
+  },
+  {
+    "exercise": "Kettlebell Ab Crunch",
+    "hebrew": "כפיפות בטן עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "72708d3d-7114-44af-92c0-2c40dae89659",
+    "video_object": "exercises/Kettlebell Ab Crunch.webm",
+    "search": "kettlebell ab crunch"
+  },
+  {
+    "exercise": "Kettlebell Bent Over Row",
+    "hebrew": "חתירה כפופה עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "a479304b-496a-44b2-9ac9-d62c2717a06f",
+    "video_object": "exercises/Kettlebell Bent Over Row.webm",
+    "search": "kettlebell bent over row"
+  },
+  {
+    "exercise": "Kettlebell Bicep Curl",
+    "hebrew": "כפיפות בייספס עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "69f25d40-217c-4fdc-b9d1-5f600f3a2501",
+    "video_object": "exercises/Kettlebell Bicep Curl.webm",
+    "search": "kettlebell bicep curl"
+  },
+  {
+    "exercise": "Kettlebell Goblet Squat",
+    "hebrew": "סקוואט גביע עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "eba5d290-09e6-4cd8-b584-b96d6fc86998",
+    "video_object": "exercises/Kettlebell Goblet Squat.webm",
+    "search": "kettlebell goblet squat"
+  },
+  {
+    "exercise": "Kettlebell Lunge",
+    "hebrew": "לאנג' עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "03cc3211-1094-4370-9bba-58df0aa88a27",
+    "video_object": "exercises/Kettlebell Lunge.webm",
+    "search": "kettlebell lunge"
+  },
+  {
+    "exercise": "Kettlebell Shoulder Press",
+    "hebrew": "לחיצת כתפיים עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "9bc35a26-fce8-4068-a517-0bdd1e7258c7",
+    "video_object": "exercises/Kettlebell Shoulder Press.webm",
+    "search": "kettlebell shoulder press"
+  },
+  {
+    "exercise": "Kettlebell Snatch",
+    "hebrew": "סנאץ' עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "2ccc0f58-0e23-41bd-b359-fc10a8bfa919",
+    "video_object": "exercises/Kettlebell Snatch.webm",
+    "search": "kettlebell snatch"
+  },
+  {
+    "exercise": "Kettlebell Tricep Extension",
+    "hebrew": "פשיטת טרייספס עם קטלבל",
+    "equipment": "Kettlebell",
+    "equipment_hebrew": "קטלבל",
+    "id": "fa6595e2-a301-46af-8aa8-52306e8e740d",
+    "video_object": "exercises/Kettlebell Tricep Extension.webm",
+    "search": "kettlebell tricep extension"
+  },
+  {
+    "exercise": "Knee Hugs",
+    "hebrew": "חיבוקי ברכיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "c32b7b5f-0ffd-4b9f-9059-75b9578b0ded",
+    "video_object": "exercises/Knee Hugs.webm",
+    "search": "knee hugs"
+  },
+  {
+    "exercise": "Knee Tucks",
+    "hebrew": "כיווץ ברכיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "77165035-7468-462d-a235-80fda942febb",
+    "video_object": "exercises/Knee tucks.webm",
+    "search": "knee tucks"
+  },
+  {
+    "exercise": "Kneeling Push Up Childs Pose",
+    "hebrew": "שכיבת סמיכה בכריעה לתנוחת ילד",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b6aacb14-2357-4a3f-a8c6-90dadad957f7",
+    "video_object": "exercises/Kneeling push up Childs Pose.webm",
+    "search": "kneeling push up childs pose"
+  },
+  {
+    "exercise": "Knelling Push Up To Child_s Pose",
+    "hebrew": "שכיבת סמיכה בכריעה לתנוחת ילד",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6611e0b2-ad04-491e-bb25-7cde29863160",
+    "video_object": "exercises/Knelling Push up to child_s pose.webm",
+    "search": "knelling push up to child_s pose"
+  },
+  {
+    "exercise": "Landmine Curtsy Lunge",
+    "hebrew": "לאנג' קורטסי עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "6b23acc3-b820-4c45-809e-a2993e278323",
+    "video_object": "exercises/Landmine Curtsy Lunge.webm",
+    "search": "landmine curtsy lunge"
+  },
+  {
+    "exercise": "Landmine Kneeling Press Double Arm",
+    "hebrew": "לחיצה כפולה עם לאנדמיין בכריעה",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "43a8647b-d50b-432b-8bd8-684ebebf02d2",
+    "video_object": "exercises/Landmine Kneeling Press Double Arm.webm",
+    "search": "landmine kneeling press double arm"
+  },
+  {
+    "exercise": "Landmine Kneeling Press Single Arm",
+    "hebrew": "לחיצה עם לאנדמיין בכריעה - יד אחת",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "fdf37ad5-c77b-4f49-b1a1-3284436036dc",
+    "video_object": "exercises/Landmine Kneeling Press Single Arm.webm",
+    "search": "landmine kneeling press single arm"
+  },
+  {
+    "exercise": "Landmine Meadows Row",
+    "hebrew": "חתירה מדוז עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "6851f606-86e2-41b8-ba8f-69073ad27983",
+    "video_object": "exercises/Landmine Meadows Row.webm",
+    "search": "landmine meadows row"
+  },
+  {
+    "exercise": "Landmine Press Single Arm",
+    "hebrew": "לחיצה עם לאנדמיין - יד אחת",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "b42df563-4ec2-4d84-9c45-9806cb32c5c4",
+    "video_object": "exercises/Landmine Press Single Arm.webm",
+    "search": "landmine press single arm"
+  },
+  {
+    "exercise": "Landmine Press",
+    "hebrew": "לחיצה עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "0dca29c5-3f47-442b-9ab3-ecee9f682590",
+    "video_object": "exercises/Landmine Press.webm",
+    "search": "landmine press"
+  },
+  {
+    "exercise": "Landmine Punch",
+    "hebrew": "אגרוף עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "3ff1bc6a-b06f-4b00-b3a2-bcc5b0894426",
+    "video_object": "exercises/Landmine Punch.webm",
+    "search": "landmine punch"
+  },
+  {
+    "exercise": "Landmine Squat",
+    "hebrew": "סקוואט עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "0259b619-859d-4f86-86ff-69bb250b5e1a",
+    "video_object": "exercises/Landmine Squat.webm",
+    "search": "landmine squat"
+  },
+  {
+    "exercise": "Landmine Sumo Deadlift",
+    "hebrew": "דדליפט סומו עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "8130f35b-eb71-46f4-be28-0a7d3aa136b8",
+    "video_object": "exercises/Landmine Sumo Deadlift.webm",
+    "search": "landmine sumo deadlift"
+  },
+  {
+    "exercise": "Landmine Throw",
+    "hebrew": "זריקה עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "89529944-e987-4db3-bfd4-7588d578d616",
+    "video_object": "exercises/Landmine Throw.webm",
+    "search": "landmine throw"
+  },
+  {
+    "exercise": "Landmine Thruster",
+    "hebrew": "ת'ראסטר עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "39cc3a35-b715-4be3-8acf-9fd6aac9683e",
+    "video_object": "exercises/Landmine Thruster.webm",
+    "search": "landmine thruster"
+  },
+  {
+    "exercise": "Landmine Twist",
+    "hebrew": "פיתול עם לאנדמיין",
+    "equipment": "Landmine",
+    "equipment_hebrew": "לאנדמיין",
+    "id": "4adf9f5f-381d-4a42-8ec2-42682d05c725",
+    "video_object": "exercises/Landmine Twist.webm",
+    "search": "landmine twist"
+  },
+  {
+    "exercise": "Lateral Bounds",
+    "hebrew": "קפיצות צידיות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "835ed9f5-8cd3-4c1d-a96e-724facbe0c44",
+    "video_object": "exercises/Lateral bounds.webm",
+    "search": "lateral bounds"
+  },
+  {
+    "exercise": "Leg Extensions",
+    "hebrew": "פשיטות רגליים",
+    "equipment": "Leg Extension Machine",
+    "equipment_hebrew": "מכונת פשיטת רגליים",
+    "id": "e655d38d-9a9e-48f3-96d0-5da392cb5e6e",
+    "video_object": "exercises/Leg Extensions.webm",
+    "search": "leg extensions"
+  },
+  {
+    "exercise": "Leg Flutter Kicks",
+    "hebrew": "בעיטות פרפר רגליים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6c9f0cd3-6f28-4a01-ae4a-e8481e3f1bff",
+    "video_object": "exercises/Leg Flutter Kicks.webm",
+    "search": "leg flutter kicks"
+  },
+  {
+    "exercise": "Leg Press",
+    "hebrew": "לחיצת רגליים",
+    "equipment": "Leg Press Machine",
+    "equipment_hebrew": "מכונת לחיצת רגליים",
+    "id": "08189dd1-9901-4a44-91e9-020e11bcc546",
+    "video_object": "exercises/Leg Press.webm",
+    "search": "leg press"
+  },
+  {
+    "exercise": "Leg Wipers Vo",
+    "hebrew": "מגבוני רגליים VO",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "420bd938-3c32-4de8-804d-39a1ca99895d",
+    "video_object": "exercises/Leg Wipers VO.webm",
+    "search": "leg wipers vo"
+  },
+  {
+    "exercise": "Leg Circles",
+    "hebrew": "מעגלי רגליים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "92544cdd-8598-47df-8f56-63f0391813cd",
+    "video_object": "exercises/Leg circles.webm",
+    "search": "leg circles"
+  },
+  {
+    "exercise": "Leg Raises",
+    "hebrew": "הרמות רגליים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "75e75a0d-40ee-461f-a58e-c7b06638fdc0",
+    "video_object": "exercises/Leg raises.webm",
+    "search": "leg raises"
+  },
+  {
+    "exercise": "Leverage Chest Press",
+    "hebrew": "לחיצת חזה במנוף",
+    "equipment": "Leverage Machine",
+    "equipment_hebrew": "מכונת מנוף",
+    "id": "3bf5b3fc-46b1-4f0d-bf1c-4a15fd13ab31",
+    "video_object": "exercises/Leverage Chest Press.webm",
+    "search": "leverage chest press"
+  },
+  {
+    "exercise": "Leverage Incline Chest Press",
+    "hebrew": "לחיצת חזה בשיפוע במנוף",
+    "equipment": "Leverage Machine",
+    "equipment_hebrew": "מכונת מנוף",
+    "id": "5e34ab94-9173-469d-a94b-1641f064682e",
+    "video_object": "exercises/Leverage Incline Chest Press.webm",
+    "search": "leverage incline chest press"
+  },
+  {
+    "exercise": "Lunges",
+    "hebrew": "לאנג'ים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "2feb64d9-f3ef-457d-9fcc-3b61970e86c9",
+    "video_object": "exercises/Lunges.webm",
+    "search": "lunges"
+  },
+  {
+    "exercise": "Lying Chest Squeezes 1",
+    "hebrew": "לחיצות חזה בשכיבה 1",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "be35e958-9853-4f14-bf73-601950bbaded",
+    "video_object": "exercises/Lying Chest Squeezes 1.webm",
+    "search": "lying chest squeezes 1"
+  },
+  {
+    "exercise": "Lying Chest Squeezes 2",
+    "hebrew": "לחיצות חזה בשכיבה 2",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "dce87ee6-ca99-4ed5-a015-e9c1fe57d512",
+    "video_object": "exercises/Lying Chest Squeezes 2.webm",
+    "search": "lying chest squeezes 2"
+  },
+  {
+    "exercise": "Lying Leg Curls",
+    "hebrew": "כפיפות רגליים בשכיבה",
+    "equipment": "Leg Curl Machine",
+    "equipment_hebrew": "מכונת כפיפות רגליים",
+    "id": "398c4bb5-045e-4cb1-a501-7d2d7125669c",
+    "video_object": "exercises/Lying Leg Curls.webm",
+    "search": "lying leg curls"
+  },
+  {
+    "exercise": "Lying Leg Raises",
+    "hebrew": "הרמות רגליים בשכיבה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "25d20cfb-4626-4410-84a8-7a59f18f59fb",
+    "video_object": "exercises/Lying leg raises.webm",
+    "search": "lying leg raises"
+  },
+  {
+    "exercise": "Machine Chest Press",
+    "hebrew": "לחיצת חזה במכונה",
+    "equipment": "Chest Press Machine",
+    "equipment_hebrew": "מכונת לחיצת חזה",
+    "id": "b782fb10-dd62-4633-83c0-e4caebf9795b",
+    "video_object": "exercises/Machine Chest Press.webm",
+    "search": "machine chest press"
+  },
+  {
+    "exercise": "Machine Pec Deck Fly",
+    "hebrew": "פרפר פק דק במכונה",
+    "equipment": "Pec Deck Machine",
+    "equipment_hebrew": "מכונת פק דק",
+    "id": "3a74b51e-40cc-48bf-926e-ce684f469c6f",
+    "video_object": "exercises/Machine Pec Deck Fly.webm",
+    "search": "machine pec deck fly"
+  },
+  {
+    "exercise": "Machine Preacher Curls",
+    "hebrew": "כפיפות מטיף במכונה",
+    "equipment": "Preacher Curl Machine",
+    "equipment_hebrew": "מכונת כפיפות מטיף",
+    "id": "0401bfab-38df-48a6-b30e-15ea13485159",
+    "video_object": "exercises/Machine Preacher Curls.webm",
+    "search": "machine preacher curls"
+  },
+  {
+    "exercise": "Motion Side Planks",
+    "hebrew": "פלאנק צידי בתנועה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3c01de5c-6228-4646-a752-c9cea3056c40",
+    "video_object": "exercises/Motion Side Planks.webm",
+    "search": "motion side planks"
+  },
+  {
+    "exercise": "Mountain Climbers",
+    "hebrew": "מטפסי הרים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3210f9b6-de7a-4661-b6e8-954df553c311",
+    "video_object": "exercises/Mountain climbers.webm",
+    "search": "mountain climbers"
+  },
+  {
+    "exercise": "Neck Circles",
+    "hebrew": "מעגלי צוואר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "ac986f58-92f2-4077-9534-e089bbad8507",
+    "video_object": "exercises/Neck Circles.webm",
+    "search": "neck circles"
+  },
+  {
+    "exercise": "One Arm Dumbbell Row",
+    "hebrew": "חתירה עם משקולת יד אחת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "7dcff660-be04-45e4-bb63-f720868323d1",
+    "video_object": "exercises/One Arm Dumbbell Row.webm",
+    "search": "one arm dumbbell row"
+  },
+  {
+    "exercise": "Plank",
+    "hebrew": "פלאנק",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "bbbb379b-f18d-4c9f-8ca6-c5691e87f277",
+    "video_object": "exercises/PLANK.webm",
+    "search": "plank"
+  },
+  {
+    "exercise": "Push Ups",
+    "hebrew": "שכיבות סמיכה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "8933edd4-2344-42dd-b394-53c360bce565",
+    "video_object": "exercises/PUSH UPS.webm",
+    "search": "push ups"
+  },
+  {
+    "exercise": "Pushup Downward Dog",
+    "hebrew": "שכיבת סמיכה לתנוחת כלב מביט מטה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b0fdfdc8-1f35-41b1-80b9-ff3c77901975",
+    "video_object": "exercises/PUSHUP DOWNWARD DOG.webm",
+    "search": "pushup downward dog"
+  },
+  {
+    "exercise": "Pike Push Up",
+    "hebrew": "שכיבת סמיכה פייק",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4d38751e-5abd-43cc-9b76-9cb6d326327d",
+    "video_object": "exercises/Pike Push up.webm",
+    "search": "pike push up"
+  },
+  {
+    "exercise": "Pile Squats",
+    "hebrew": "סקוואט פייל",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7096463b-6b82-4266-99cd-ff0530ca2d65",
+    "video_object": "exercises/Pile Squats.webm",
+    "search": "pile squats"
+  },
+  {
+    "exercise": "Plank Hip Flexion And Extension",
+    "hebrew": "פלאנק כפיפה והארכת ירך",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "fb2eeaee-2e5b-44f5-a996-d4fc46bee9ac",
+    "video_object": "exercises/Plank Hip Flexion and extension.webm",
+    "search": "plank hip flexion and extension"
+  },
+  {
+    "exercise": "Plank Jacks",
+    "hebrew": "פלאנק ג'ק",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "f0f16a22-d394-48a8-9f74-ce792109c9c7",
+    "video_object": "exercises/Plank Jacks.webm",
+    "search": "plank jacks"
+  },
+  {
+    "exercise": "Plank Knee Tucks",
+    "hebrew": "פלאנק עם קיפול ברכיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4d78aee9-354a-478d-8a0e-4af3ee9ad541",
+    "video_object": "exercises/Plank Knee Tucks.webm",
+    "search": "plank knee tucks"
+  },
+  {
+    "exercise": "Plank Up Down Elbows",
+    "hebrew": "פלאנק עלייה וירידה עם מרפקים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "93b50212-a2f9-4b27-835e-4c18738d55e9",
+    "video_object": "exercises/Plank Up Down Elbows.webm",
+    "search": "plank up down elbows"
+  },
+  {
+    "exercise": "Plank Walk Outs Inchworms",
+    "hebrew": "פלאנק הליכה - תולעת אינץ'",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d7f4b02a-e9fc-4e6e-992d-06cb91a63ce7",
+    "video_object": "exercises/Plank Walk outs - Inchworms.webm",
+    "search": "plank walk outs inchworms"
+  },
+  {
+    "exercise": "Plank Leg Lifts",
+    "hebrew": "פלאנק עם הרמות רגליים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "cc793324-250c-494b-b2c9-baf8b74fe335",
+    "video_object": "exercises/Plank leg lifts.webm",
+    "search": "plank leg lifts"
+  },
+  {
+    "exercise": "Plank On Elbows",
+    "hebrew": "פלאנק על מרפקים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "0b6a2c26-d77a-4679-b259-9fb79a52dcb6",
+    "video_object": "exercises/Plank on elbows.webm",
+    "search": "plank on elbows"
+  },
+  {
+    "exercise": "Plank Shoulder Taps",
+    "hebrew": "פלאנק עם נגיעות כתפיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9a2752e2-44e0-47e9-bba2-125f4905ef2b",
+    "video_object": "exercises/Plank shoulder taps.webm",
+    "search": "plank shoulder taps"
+  },
+  {
+    "exercise": "Plank To Squat",
+    "hebrew": "פלאנק לסקוואט",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "f3aaa5ba-a8d4-406e-8810-92d9a4f6e4be",
+    "video_object": "exercises/Plank to squat.webm",
+    "search": "plank to squat"
+  },
+  {
+    "exercise": "Plate Tricep Extensions",
+    "hebrew": "פשיטת טרייספס עם פלטה",
+    "equipment": "Weight Plate",
+    "equipment_hebrew": "פלטת משקל",
+    "id": "b7eda578-9208-4ae5-9117-af9f88d02619",
+    "video_object": "exercises/Plate Tricep Extensions.webm",
+    "search": "plate tricep extensions"
+  },
+  {
+    "exercise": "Pronated Pull Ups",
+    "hebrew": "מתח באחיזה פרונטלית",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "6fb6f2c6-3b77-4814-b624-34f0c09c624e",
+    "video_object": "exercises/Pronated pull ups.webm",
+    "search": "pronated pull ups"
+  },
+  {
+    "exercise": "Pull Throughs",
+    "hebrew": "משיכות קדימה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "87407833-6dc0-449e-90e0-66b08239a7fd",
+    "video_object": "exercises/Pull Throughs.webm",
+    "search": "pull throughs"
+  },
+  {
+    "exercise": "Push Up On Knees Vo",
+    "hebrew": "שכיבת סמיכה על ברכיים VO",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "eb5c3786-668c-4fd4-989c-c50be81252f5",
+    "video_object": "exercises/Push up on Knees VO.webm",
+    "search": "push up on knees vo"
+  },
+  {
+    "exercise": "Pushups",
+    "hebrew": "שכיבות סמיכה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1826b4d4-6ba5-4bb1-90e7-501d21eacde1",
+    "video_object": "exercises/Pushups.webm",
+    "search": "pushups"
+  },
+  {
+    "exercise": "Quad Stretch",
+    "hebrew": "מתיחת ארבע ראשי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "15ec2afe-94ee-4b95-9fcb-78307830b6cc",
+    "video_object": "exercises/Quad Stretch.webm",
+    "search": "quad stretch"
+  },
+  {
+    "exercise": "Reverse Db Curl",
+    "hebrew": "כפיפת משקולת הפוכה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "755ff146-5d94-428d-b51f-1a73c2903ce7",
+    "video_object": "exercises/REVERSE DB CURL.webm",
+    "search": "reverse db curl"
+  },
+  {
+    "exercise": "Reverse Lunge",
+    "hebrew": "לאנג' הפוך",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3076be64-ee38-4d60-b61a-2702c308cc25",
+    "video_object": "exercises/REVERSE LUNGE.webm",
+    "search": "reverse lunge"
+  },
+  {
+    "exercise": "Rope Press Down",
+    "hebrew": "לחיצה כלפי מטה עם חבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "830fbaf7-8df0-4e53-bcee-6368d14e92d0",
+    "video_object": "exercises/ROPE PRESS DOWN.webm",
+    "search": "rope press down"
+  },
+  {
+    "exercise": "Rack Pulls",
+    "hebrew": "משיכות מדף",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "820d32ed-ef69-4f8e-bc3b-0ff7c405fddf",
+    "video_object": "exercises/Rack Pulls.webm",
+    "search": "rack pulls"
+  },
+  {
+    "exercise": "Rear Delt Db Row With Bench",
+    "hebrew": "חתירה לכתף אחורית עם משקולת וספסל",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "6661c285-d46c-4d8f-ac04-aaeba2ec1bb7",
+    "video_object": "exercises/Rear Delt DB Row with bench.webm",
+    "search": "rear delt db row with bench"
+  },
+  {
+    "exercise": "Resistance Band Bicep Curls",
+    "hebrew": "כפיפות בייספס עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "0c03617b-22aa-4503-9351-5ee01d32850e",
+    "video_object": "exercises/Resistance Band Bicep Curls.webm",
+    "search": "resistance band bicep curls"
+  },
+  {
+    "exercise": "Resistance Band Hip Abduction",
+    "hebrew": "חטיפת ירך עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "8029127e-7df8-4478-b21f-9c7dc53af499",
+    "video_object": "exercises/Resistance Band Hip Abduction.webm",
+    "search": "resistance band hip abduction"
+  },
+  {
+    "exercise": "Resistance Band Kneeling Crunch",
+    "hebrew": "כפיפות בטן בכריעה עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "c87877a5-7e58-43ab-a779-156d2654541e",
+    "video_object": "exercises/Resistance Band Kneeling Crunch.webm",
+    "search": "resistance band kneeling crunch"
+  },
+  {
+    "exercise": "Resistance Band Leg Raises",
+    "hebrew": "הרמות רגליים עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "17516df3-39bf-46bd-aa1e-c645bb8a8642",
+    "video_object": "exercises/Resistance Band Leg Raises.webm",
+    "search": "resistance band leg raises"
+  },
+  {
+    "exercise": "Resistance Band Pull Aparts",
+    "hebrew": "משיכות לצדדים עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "f29a42af-042d-4fe8-9fe6-d395963dfbb4",
+    "video_object": "exercises/Resistance Band Pull Aparts.webm",
+    "search": "resistance band pull aparts"
+  },
+  {
+    "exercise": "Resistance Band Squats",
+    "hebrew": "סקוואטים עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "c0b81337-9b18-47f0-a04b-be2b89ab962f",
+    "video_object": "exercises/Resistance Band Squats.webm",
+    "search": "resistance band squats"
+  },
+  {
+    "exercise": "Resistance Band Tricep Pushdown",
+    "hebrew": "לחיצת טרייספס כלפי מטה עם גומיית התנגדות",
+    "equipment": "Resistance Band",
+    "equipment_hebrew": "גומיית התנגדות",
+    "id": "054c024c-c3c9-4e6e-9236-20f7b3e93a6b",
+    "video_object": "exercises/Resistance Band Tricep Pushdown.webm",
+    "search": "resistance band tricep pushdown"
+  },
+  {
+    "exercise": "Reverse Barbell Curl",
+    "hebrew": "כפיפת מוט הפוכה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "06629b4a-93fb-49fe-a5f6-cd4e568ff3b8",
+    "video_object": "exercises/Reverse Barbell Curl.webm",
+    "search": "reverse barbell curl"
+  },
+  {
+    "exercise": "Reverse Crunch (90 90)",
+    "hebrew": "כפיפת בטן הפוכה (90 90)",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "0fb1fdd6-a38e-41f5-b79f-a51d1e77e74d",
+    "video_object": "exercises/Reverse Crunch (90 90).webm",
+    "search": "reverse crunch (90 90)"
+  },
+  {
+    "exercise": "Reverse Hyperextension With Bench",
+    "hebrew": "היפראקסטנשן הפוך עם ספסל",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "65dccd48-3024-4203-80a8-cf010a3d0506",
+    "video_object": "exercises/Reverse Hyperextension with bench.webm",
+    "search": "reverse hyperextension with bench"
+  },
+  {
+    "exercise": "Reverse Machine Flyes",
+    "hebrew": "פרפר הפוך במכונה",
+    "equipment": "Machine",
+    "equipment_hebrew": "מכונה",
+    "id": "1ef8e327-50f9-4286-b70c-ec0b69165613",
+    "video_object": "exercises/Reverse Machine Flyes.webm",
+    "search": "reverse machine flyes"
+  },
+  {
+    "exercise": "Reverse Wrist Curl Single Db",
+    "hebrew": "כפיפת שורש כף יד הפוכה עם משקולת יד אחת",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "18d7916c-b204-404a-b461-e52769e3798f",
+    "video_object": "exercises/Reverse Wrist Curl Single DB.webm",
+    "search": "reverse wrist curl single db"
+  },
+  {
+    "exercise": "Romanian Dead Lift",
+    "hebrew": "דדליפט רומני",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "209e7a2e-8dea-4d52-b044-74ee344b13e7",
+    "video_object": "exercises/Romanian Dead Lift.webm",
+    "search": "romanian dead lift"
+  },
+  {
+    "exercise": "Romanian Dumbbell Deadlift",
+    "hebrew": "דדליפט רומני עם משקולות יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ab70f661-4d22-46b8-b934-4b02ffcbb44a",
+    "video_object": "exercises/Romanian Dumbbell Deadlift.webm",
+    "search": "romanian dumbbell deadlift"
+  },
+  {
+    "exercise": "Running In Place",
+    "hebrew": "ריצה במקום",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6427bd4b-5215-4435-bc21-6c311ed809c1",
+    "video_object": "exercises/Running in Place.webm",
+    "search": "running in place"
+  },
+  {
+    "exercise": "Russian Twists",
+    "hebrew": "פיתולים רוסיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b54aeb53-c7cc-4027-bec9-0b722bf2eb05",
+    "video_object": "exercises/Russian Twists.webm",
+    "search": "russian twists"
+  },
+  {
+    "exercise": "Russian Leg Twists Raised Feet",
+    "hebrew": "פיתולי רגליים רוסיים עם רגליים מורמות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "e80bd85c-0147-499e-b4cc-09fe837bf796",
+    "video_object": "exercises/Russian leg twists raised feet.webm",
+    "search": "russian leg twists raised feet"
+  },
+  {
+    "exercise": "Seated Concentration Curls",
+    "hebrew": "כפיפות ריכוז בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "67e01a0c-a3b3-4a4e-9e07-9d504d20ac53",
+    "video_object": "exercises/SEATED CONCENTRATION CURLS.webm",
+    "search": "seated concentration curls"
+  },
+  {
+    "exercise": "Seated Db Curls",
+    "hebrew": "כפיפות משקולת יד בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "b258472d-9be5-4580-b7a2-fd142886d16f",
+    "video_object": "exercises/SEATED DB CURLS.webm",
+    "search": "seated db curls"
+  },
+  {
+    "exercise": "Seated Overhead Db Extension",
+    "hebrew": "פשיטת משקולת יד מעל הראש בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "8780e430-9de9-41fe-a247-bd1a94d10d83",
+    "video_object": "exercises/SEATED OVERHEAD DB EXTENSION.webm",
+    "search": "seated overhead db extension"
+  },
+  {
+    "exercise": "Seated Side To Side Leg Raises",
+    "hebrew": "הרמות רגליים מצד לצד בישיבה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "5002bb8d-e428-4e8a-be62-f3e49278fc79",
+    "video_object": "exercises/SEATED SIDE TO SIDE LEG RAISES.webm",
+    "search": "seated side to side leg raises"
+  },
+  {
+    "exercise": "Single Leg Calf Raise",
+    "hebrew": "הרמת שוקיים על רגל אחת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "8a008e66-455d-4b39-8245-65ec6bdd1d28",
+    "video_object": "exercises/SINGLE LEG CALF RAISE.webm",
+    "search": "single leg calf raise"
+  },
+  {
+    "exercise": "Smith Machine Press",
+    "hebrew": "לחיצה במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "f8a916c3-d665-4c88-a6ce-1316637b524b",
+    "video_object": "exercises/SMITH MACHINE PRESS.webm",
+    "search": "smith machine press"
+  },
+  {
+    "exercise": "Smith Machine Shoulder Press",
+    "hebrew": "לחיצת כתפיים במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "4273f40f-95b7-401a-9612-a6a0bbb515d9",
+    "video_object": "exercises/SMITH MACHINE SHOULDER PRESS.webm",
+    "search": "smith machine shoulder press"
+  },
+  {
+    "exercise": "Split Squat Jump",
+    "hebrew": "קפיצת סקוואט מפוצל",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "504b8c07-f92b-4fa7-9b15-d8ff1fe83ca5",
+    "video_object": "exercises/SPLIT SQUAT JUMP.webm",
+    "search": "split squat jump"
+  },
+  {
+    "exercise": "Scalpular Pull Ups",
+    "hebrew": "משיכות שכמות",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "14cf89ff-301f-4f0b-9017-71b80f75b08a",
+    "video_object": "exercises/Scalpular Pull Ups.webm",
+    "search": "scalpular pull ups"
+  },
+  {
+    "exercise": "Scapular Push-ups",
+    "hebrew": "שכיבות סמיכה שכמות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4c095ba1-543d-4676-901d-a0e338b49e82",
+    "video_object": "exercises/Scapular push-ups.webm",
+    "search": "scapular push ups"
+  },
+  {
+    "exercise": "Scissor Kicks",
+    "hebrew": "בעיטות מספריים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "34ea56ab-4345-4ffb-9831-5fc818316632",
+    "video_object": "exercises/Scissor Kicks.webm",
+    "search": "scissor kicks"
+  },
+  {
+    "exercise": "Seal Jacks",
+    "hebrew": "ג'אמפינג ג'ק עם תנועת חותם",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1151dacc-f538-4977-a9c9-5cc28545abf7",
+    "video_object": "exercises/Seal jacks.webm",
+    "search": "seal jacks"
+  },
+  {
+    "exercise": "Seated Barbell Military Press",
+    "hebrew": "לחיצת צבא עם מוט בישיבה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "caaa8c56-3550-48d6-b121-34dfc349399e",
+    "video_object": "exercises/Seated Barbell Military Press.webm",
+    "search": "seated barbell military press"
+  },
+  {
+    "exercise": "Seated Calf Raise Machine",
+    "hebrew": "הרמת שוקיים במכונה בישיבה",
+    "equipment": "Calf Raise Machine",
+    "equipment_hebrew": "מכונת הרמת שוקיים",
+    "id": "87029922-5326-48c0-b7f4-13b06f379519",
+    "video_object": "exercises/Seated Calf Raise Machine.webm",
+    "search": "seated calf raise machine"
+  },
+  {
+    "exercise": "Seated Dumbbell Calf Raises",
+    "hebrew": "הרמת שוקיים עם משקולת יד בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "69f61a76-be2a-45a6-b222-7c10832d6855",
+    "video_object": "exercises/Seated Dumbbell Calf Raises.webm",
+    "search": "seated dumbbell calf raises"
+  },
+  {
+    "exercise": "Seated Hammer Curls",
+    "hebrew": "כפיפות פטיש בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "1b23e5e9-7003-41c5-a885-9a772b79bdb3",
+    "video_object": "exercises/Seated Hammer Curls -.webm",
+    "search": "seated hammer curls"
+  },
+  {
+    "exercise": "Seated Incline Dumbbell Curls",
+    "hebrew": "כפיפות משקולת יד בשיפוע בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "9c284a1b-469c-4f0b-bc46-1608f8b1c79f",
+    "video_object": "exercises/Seated Incline Dumbbell Curls.webm",
+    "search": "seated incline dumbbell curls"
+  },
+  {
+    "exercise": "Seated Leg Tucks",
+    "hebrew": "כיווץ רגליים בישיבה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "914ac31f-1998-4c37-a507-f3433f4401fb",
+    "video_object": "exercises/Seated Leg Tucks.webm",
+    "search": "seated leg tucks"
+  },
+  {
+    "exercise": "Seated Leverage Decline Chest Press",
+    "hebrew": "לחיצת חזה בשיפוע שלילי במנוף בישיבה",
+    "equipment": "Leverage Machine",
+    "equipment_hebrew": "מכונת מנוף",
+    "id": "d3b313dd-2fee-4fba-bba1-49b24364be2e",
+    "video_object": "exercises/Seated Leverage Decline Chest Press.webm",
+    "search": "seated leverage decline chest press"
+  },
+  {
+    "exercise": "Seated Rear Delt Raise",
+    "hebrew": "הרמת כתף אחורית בישיבה",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "13e19646-8674-415f-9737-2a1201408a63",
+    "video_object": "exercises/Seated Rear delt Raise.webm",
+    "search": "seated rear delt raise"
+  },
+  {
+    "exercise": "Seated Row Close Grip Cable Row",
+    "hebrew": "חתירה בישיבה - חתירה עם כבל אחיזה צמודה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "82fcd924-0a11-46a0-bee6-f084a4d27ecc",
+    "video_object": "exercises/Seated Row - CLOSE GRIP CABLE ROW.webm",
+    "search": "seated row close grip cable row"
+  },
+  {
+    "exercise": "Seated Straight Leg Hamstring & Calf Stretch",
+    "hebrew": "מתיחת שרירי ירך אחורית ושוקיים בישיבה עם רגל ישרה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1350c4f1-f561-4e27-8695-60669f3c61b1",
+    "video_object": "exercises/Seated straight leg hamstring & calf stretch.webm",
+    "search": "seated straight leg hamstring & calf stretch"
+  },
+  {
+    "exercise": "Side Lunges Left",
+    "hebrew": "לאנג' צידי - שמאל",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "0c1bf208-943d-4af0-87b2-e003218a4df0",
+    "video_object": "exercises/Side Lunges - Left.webm",
+    "search": "side lunges left"
+  },
+  {
+    "exercise": "Side Lunges Right",
+    "hebrew": "לאנג' צידי - ימין",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d67d3060-cd29-4df0-9f56-05494ba08ca9",
+    "video_object": "exercises/Side Lunges - Right.webm",
+    "search": "side lunges right"
+  },
+  {
+    "exercise": "Side Plank Left",
+    "hebrew": "פלאנק צידי - שמאל",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "0b08860a-a8de-4bfa-bd3d-6142ffbb2244",
+    "video_object": "exercises/Side Plank Left.webm",
+    "search": "side plank left"
+  },
+  {
+    "exercise": "Side Crunches",
+    "hebrew": "כפיפות צד",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "332108c2-3040-46e9-b0ee-a5b2ea4cdcaf",
+    "video_object": "exercises/Side crunches.webm",
+    "search": "side crunches"
+  },
+  {
+    "exercise": "Side Plank Dips",
+    "hebrew": "פלאנק צידי עם טבילות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "09f42a73-5c2c-4ba5-aa33-dfc879168b05",
+    "video_object": "exercises/Side plank dips.webm",
+    "search": "side plank dips"
+  },
+  {
+    "exercise": "Side Shuffles",
+    "hebrew": "תנועות צד מהירות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4b82540d-8198-4c13-ab4f-17f78028541e",
+    "video_object": "exercises/Side shuffles.webm",
+    "search": "side shuffles"
+  },
+  {
+    "exercise": "Side-lying Leg Lifts Left",
+    "hebrew": "הרמת רגל בצד שמאל בשכיבה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "6ac41093-d80b-4b51-981f-e19ba9dbbd35",
+    "video_object": "exercises/Side-lying leg lifts - left.webm",
+    "search": "side lying leg lifts left"
+  },
+  {
+    "exercise": "Side-lying Leg Lifts Right",
+    "hebrew": "הרמת רגל בצד ימין בשכיבה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d4d9b0bf-3ca1-4f82-959b-1da1827333d8",
+    "video_object": "exercises/Side-lying leg lifts - right.webm",
+    "search": "side lying leg lifts right"
+  },
+  {
+    "exercise": "Single Leg Dumbbell Split Squats",
+    "hebrew": "סקוואט מפוצל על רגל אחת עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "8e7261fd-e605-45b6-ba90-606739c7028f",
+    "video_object": "exercises/Single Leg Dumbbell Split Squats.webm",
+    "search": "single leg dumbbell split squats"
+  },
+  {
+    "exercise": "Single Leg Dumbbell Lunges",
+    "hebrew": "לאנג' על רגל אחת עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "60d16ad2-cdf0-47ef-b8a6-11641653fbb9",
+    "video_object": "exercises/Single Leg Dumbbell lunges.webm",
+    "search": "single leg dumbbell lunges"
+  },
+  {
+    "exercise": "Single Arm Cable Row",
+    "hebrew": "חתירה עם כבל יד אחת",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "39dcd801-c604-4c18-bfc8-bb2ca13b25cb",
+    "video_object": "exercises/Single arm Cable Row.webm",
+    "search": "single arm cable row"
+  },
+  {
+    "exercise": "Single-arm Cable Crossover",
+    "hebrew": "קרוס אובר עם כבל יד אחת",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "2bcf282d-a872-4a01-a125-b4f7cb5bcdb2",
+    "video_object": "exercises/Single-Arm Cable Crossover.webm",
+    "search": "single arm cable crossover"
+  },
+  {
+    "exercise": "Single-leg Hip Extension",
+    "hebrew": "הארכת ירך על רגל אחת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "abf36fc8-c1a0-47fc-8f18-aae4dc68e1a7",
+    "video_object": "exercises/Single-Leg Hip Extension.webm",
+    "search": "single leg hip extension"
+  },
+  {
+    "exercise": "Single-leg Squats",
+    "hebrew": "סקוואט על רגל אחת",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b213df38-f11f-45d3-82f7-95e00b328c89",
+    "video_object": "exercises/Single-leg squats.webm",
+    "search": "single leg squats"
+  },
+  {
+    "exercise": "Sit Ups",
+    "hebrew": "כפיפות בטן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "3713f276-d7f6-4f56-8e54-137698ab9270",
+    "video_object": "exercises/Sit Ups.webm",
+    "search": "sit ups"
+  },
+  {
+    "exercise": "Skater Jumps",
+    "hebrew": "קפיצות מחליק",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b6aaa5a5-84b9-4926-9194-4b29f0d01029",
+    "video_object": "exercises/Skater jumps.webm",
+    "search": "skater jumps"
+  },
+  {
+    "exercise": "Smith Machine Bench Press",
+    "hebrew": "לחיצת ספסל במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "c07c63d9-863e-4540-a6d9-e1d1c105da39",
+    "video_object": "exercises/Smith Machine Bench Press.webm",
+    "search": "smith machine bench press"
+  },
+  {
+    "exercise": "Smith Machine Decline Bench Press",
+    "hebrew": "לחיצת ספסל בשיפוע שלילי במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "de3bd296-5197-4da2-a827-c90de3edfa97",
+    "video_object": "exercises/Smith Machine Decline Bench Press.webm",
+    "search": "smith machine decline bench press"
+  },
+  {
+    "exercise": "Smith Machine Incline Bench Press",
+    "hebrew": "לחיצת ספסל בשיפוע במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "ac46e741-36bd-4a99-8e0a-62bdce166341",
+    "video_object": "exercises/Smith Machine Incline Bench Press.webm",
+    "search": "smith machine incline bench press"
+  },
+  {
+    "exercise": "Smith Machine Reverse Calf Raises",
+    "hebrew": "הרמות שוקיים הפוכות במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "528d3b15-d0da-460c-b45d-63f78fed891d",
+    "video_object": "exercises/Smith Machine Reverse Calf Raises.webm",
+    "search": "smith machine reverse calf raises"
+  },
+  {
+    "exercise": "Smith Machine Shrugs",
+    "hebrew": "הרמת כתפיים במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "ea06c2f8-8152-44c2-9ed8-43cb0d5874fe",
+    "video_object": "exercises/Smith Machine Shrugs.webm",
+    "search": "smith machine shrugs"
+  },
+  {
+    "exercise": "Smith Machine Split Squat",
+    "hebrew": "סקוואט מפוצל במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "2e643eca-58e5-47fb-b6b9-bcec97cfadc9",
+    "video_object": "exercises/Smith Machine Split Squat.webm",
+    "search": "smith machine split squat"
+  },
+  {
+    "exercise": "Smith Machine Squats",
+    "hebrew": "סקוואט במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "96cc150b-5554-4720-8988-fff784b4f15c",
+    "video_object": "exercises/Smith Machine Squats.webm",
+    "search": "smith machine squats"
+  },
+  {
+    "exercise": "Smith Machine Wide Stance Sumo Squat",
+    "hebrew": "סקוואט סומו עם עמידה רחבה במכונת סמית'",
+    "equipment": "Smith Machine",
+    "equipment_hebrew": "מכונת סמית'",
+    "id": "3ef3c194-7c10-49fe-98d1-37a0c42558dc",
+    "video_object": "exercises/Smith Machine Wide Stance Sumo Squat.webm",
+    "search": "smith machine wide stance sumo squat"
+  },
+  {
+    "exercise": "Spider Bicep Cable Curls",
+    "hebrew": "כפיפות בייספס כבל ספיידר",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "896e9345-d2ce-4b96-8d8a-bf71d99282e7",
+    "video_object": "exercises/Spider Bicep Cable Curls.webm",
+    "search": "spider bicep cable curls"
+  },
+  {
+    "exercise": "Spider Plank",
+    "hebrew": "פלאנק ספיידר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "01d6b24e-2431-4eed-ba33-94356671651a",
+    "video_object": "exercises/Spider Plank.webm",
+    "search": "spider plank"
+  },
+  {
+    "exercise": "Spider Push Ups",
+    "hebrew": "שכיבות סמיכה ספיידר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b037382d-ec80-4c17-99ae-e69949df4321",
+    "video_object": "exercises/Spider Push Ups.webm",
+    "search": "spider push ups"
+  },
+  {
+    "exercise": "Squat Low Bar",
+    "hebrew": "סקוואט עם מוט נמוך",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "0402e9ab-e62c-4cf7-bb34-d4d272aa0bf9",
+    "video_object": "exercises/Squat - Low Bar.webm",
+    "search": "squat low bar"
+  },
+  {
+    "exercise": "Squat Bicep Curls",
+    "hebrew": "סקוואט עם כפיפות בייספס",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "c3bb1d15-1802-455b-9c42-7606b97699f7",
+    "video_object": "exercises/Squat Bicep Curls.webm",
+    "search": "squat bicep curls"
+  },
+  {
+    "exercise": "Squat Pulses Bodyweight",
+    "hebrew": "פולסים סקוואט עם משקל גוף",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "cd75eedc-fe70-4d0e-807a-438c11930610",
+    "video_object": "exercises/Squat Pulses - Bodyweight.webm",
+    "search": "squat pulses bodyweight"
+  },
+  {
+    "exercise": "Squat Hold With Calf Raises",
+    "hebrew": "החזקת סקוואט עם הרמות שוקיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "e06e7e8a-ac3f-4205-8e61-815e0d1b01b9",
+    "video_object": "exercises/Squat hold with calf raises.webm",
+    "search": "squat hold with calf raises"
+  },
+  {
+    "exercise": "Squats",
+    "hebrew": "סקוואטים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4fe9446c-e798-4d35-852b-14a5886e84ba",
+    "video_object": "exercises/Squats.webm",
+    "search": "squats"
+  },
+  {
+    "exercise": "Standard Dumbbell Bicep Curl",
+    "hebrew": "כפיפות בייספס סטנדרטיות עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "23e042cd-c6b1-4d45-8720-ef4e2851b5bb",
+    "video_object": "exercises/Standard Dumbbell Bicep Curl.webm",
+    "search": "standard dumbbell bicep curl"
+  },
+  {
+    "exercise": "Standard Grip Pull Ups",
+    "hebrew": "מתח עם אחיזה סטנדרטית",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "197eebd5-c9aa-4080-81fd-9f2ef0ab5dd1",
+    "video_object": "exercises/Standard Grip Pull Ups.webm",
+    "search": "standard grip pull ups"
+  },
+  {
+    "exercise": "Standing Barbell Military Press",
+    "hebrew": "לחיצת צבא בעמידה עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "9411fded-9d2e-4e9b-8faf-e91f42f849eb",
+    "video_object": "exercises/Standing Barbell Militery Press.webm",
+    "search": "standing barbell military press"
+  },
+  {
+    "exercise": "Standing Biceps Cable Curl",
+    "hebrew": "כפיפות בייספס בעמידה עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "983fafdf-d72a-4ba2-9c2e-94d6d9c073fc",
+    "video_object": "exercises/Standing Biceps Cable Curl.webm",
+    "search": "standing biceps cable curl"
+  },
+  {
+    "exercise": "Standing Cable Chest Press",
+    "hebrew": "לחיצת חזה בעמידה עם כבל",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "5b0427ea-da06-42a6-84a7-97798149e3fe",
+    "video_object": "exercises/Standing Cable Chest Press.webm",
+    "search": "standing cable chest press"
+  },
+  {
+    "exercise": "Standing Calf Raise",
+    "hebrew": "הרמת שוקיים בעמידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "18382dc3-0963-458d-81d7-4417d5a14354",
+    "video_object": "exercises/Standing Calf Raise.webm",
+    "search": "standing calf raise"
+  },
+  {
+    "exercise": "Standing Calf Raises",
+    "hebrew": "הרמות שוקיים בעמידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7a9d3dd4-76ed-4f05-b9ab-a86555905ac0",
+    "video_object": "exercises/Standing Calf Raises.webm",
+    "search": "standing calf raises"
+  },
+  {
+    "exercise": "Standing Front Barbell Raise Over Head",
+    "hebrew": "הרמת מוט קדמית מעל הראש בעמידה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "39fe19aa-5e0c-4d2a-a361-87b6fcc9da67",
+    "video_object": "exercises/Standing Front Barbell Raise Over Head.webm",
+    "search": "standing front barbell raise over head"
+  },
+  {
+    "exercise": "Standing Overhead Push Press",
+    "hebrew": "לחיצת פוש מעל הראש בעמידה",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "d999ae36-f39d-4c80-a87a-a92b48c28e83",
+    "video_object": "exercises/Standing Overhead Push Press.webm",
+    "search": "standing overhead push press"
+  },
+  {
+    "exercise": "Standing Toe Touches",
+    "hebrew": "נגיעות אצבעות בעמידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "099ef104-6c57-48dd-9f52-ccd9ca2fa33a",
+    "video_object": "exercises/Standing Toe Touches.webm",
+    "search": "standing toe touches"
+  },
+  {
+    "exercise": "Standing Knee Raises",
+    "hebrew": "הרמות ברכיים בעמידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "47aafd29-7732-45ae-8e7c-a8cece75f49c",
+    "video_object": "exercises/Standing knee raises.webm",
+    "search": "standing knee raises"
+  },
+  {
+    "exercise": "Standing Oblique Crunches",
+    "hebrew": "כפיפות אלכסונים בעמידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "fe1bedbd-2c4b-4198-916d-42615674d07c",
+    "video_object": "exercises/Standing oblique crunches.webm",
+    "search": "standing oblique crunches"
+  },
+  {
+    "exercise": "Standing Side Bends",
+    "hebrew": "כפיפות צד בעמידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "dfa6f957-edc1-4d8e-b37b-c95887182fa1",
+    "video_object": "exercises/Standing side bends.webm",
+    "search": "standing side bends"
+  },
+  {
+    "exercise": "Star Jumps- Jumping Jacks",
+    "hebrew": "קפיצות כוכב - ג'אמפינג ג'קס",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d51c7b7f-0876-49aa-9b5a-366fa723fdc4",
+    "video_object": "exercises/Star Jumps- Jumping Jacks.webm",
+    "search": "star jumps jumping jacks"
+  },
+  {
+    "exercise": "Star Jumps",
+    "hebrew": "קפיצות כוכב",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "b27bbdfe-72ee-48d7-9d95-9cff3d968ce6",
+    "video_object": "exercises/Star Jumps.webm",
+    "search": "star jumps"
+  },
+  {
+    "exercise": "Step Ups",
+    "hebrew": "עליות מדרגה",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "261ee2db-bfc4-485e-9651-d575f2643ec5",
+    "video_object": "exercises/Step Ups.webm",
+    "search": "step ups"
+  },
+  {
+    "exercise": "Straight Leg Skips",
+    "hebrew": "דילוגים עם רגליים ישרות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "ab4b7a09-1d86-4317-ae99-80261074c203",
+    "video_object": "exercises/Straight leg Skips.webm",
+    "search": "straight leg skips"
+  },
+  {
+    "exercise": "Straight-arm Dumbbell Pullover",
+    "hebrew": "פולאובר עם משקולת יד בזרועות ישרות",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "8950f8b0-1ee8-48b8-9c69-e9486c9e6ba3",
+    "video_object": "exercises/Straight-Arm Dumbbell Pullover.webm",
+    "search": "straight arm dumbbell pullover"
+  },
+  {
+    "exercise": "Sumo Deadlift",
+    "hebrew": "דדליפט סומו",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "975daa3b-3615-4c55-88c3-96d52d012312",
+    "video_object": "exercises/Sumo Deadlift.webm",
+    "search": "sumo deadlift"
+  },
+  {
+    "exercise": "Sumo Squats Bodyweight",
+    "hebrew": "סקוואט סומו עם משקל גוף",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "c98092ce-d4ed-4875-838f-56fc373e5743",
+    "video_object": "exercises/Sumo Squats - Bodyweight.webm",
+    "search": "sumo squats bodyweight"
+  },
+  {
+    "exercise": "Superman Hold",
+    "hebrew": "החזקת סופרמן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "c02d9e9a-1211-4bf4-af1d-285761bb4ea2",
+    "video_object": "exercises/Superman Hold.webm",
+    "search": "superman hold"
+  },
+  {
+    "exercise": "Superman Stretch",
+    "hebrew": "מתיחת סופרמן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "cee3686b-7717-4420-99b5-cacabd647f8c",
+    "video_object": "exercises/Superman Stretch.webm",
+    "search": "superman stretch"
+  },
+  {
+    "exercise": "Supermans",
+    "hebrew": "תרגיל סופרמן",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "e91f5f48-5fce-433d-92e4-3ce765bf0eb8",
+    "video_object": "exercises/Supermans.webm",
+    "search": "supermans"
+  },
+  {
+    "exercise": "Supine Arm Leg Extension",
+    "hebrew": "פשיטת ידיים ורגליים בשכיבה על הגב",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "5497b171-8e49-48f4-a623-e12412a62b65",
+    "video_object": "exercises/Supine arm leg extension.webm",
+    "search": "supine arm leg extension"
+  },
+  {
+    "exercise": "Svend Press",
+    "hebrew": "לחיצת סוונד",
+    "equipment": "Weight Plate",
+    "equipment_hebrew": "פלטת משקל",
+    "id": "5c90fb0a-1c7a-4b57-b567-b6d4fe5de122",
+    "video_object": "exercises/Svend press.webm",
+    "search": "svend press"
+  },
+  {
+    "exercise": "T Bar Row",
+    "hebrew": "חתירת T בר",
+    "equipment": "T-Bar",
+    "equipment_hebrew": "מוט T",
+    "id": "46139f85-9cb8-46cd-ab39-9d3133cc258d",
+    "video_object": "exercises/T BAR ROW.webm",
+    "search": "t bar row"
+  },
+  {
+    "exercise": "T-push Ups",
+    "hebrew": "שכיבות סמיכה בצורת T",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "ee836fd2-2104-4bd6-9678-9a7570a383ad",
+    "video_object": "exercises/T-Push ups.webm",
+    "search": "t push ups"
+  },
+  {
+    "exercise": "Toe Touches",
+    "hebrew": "נגיעות אצבעות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "a700269d-5790-47b7-b51f-df870a6b16aa",
+    "video_object": "exercises/Toe touches.webm",
+    "search": "toe touches"
+  },
+  {
+    "exercise": "Tricep Dips On Bench",
+    "hebrew": "מקבילים לטרייספס על ספסל",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "0b6af485-1ee2-4303-ac52-2be5ec86e643",
+    "video_object": "exercises/Tricep Dips on Bench.webm",
+    "search": "tricep dips on bench"
+  },
+  {
+    "exercise": "Tricep Dips",
+    "hebrew": "מקבילים לטרייספס",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "5addc0e7-3cb6-4c02-a29a-e6239b2aa593",
+    "video_object": "exercises/Tricep Dips.webm",
+    "search": "tricep dips"
+  },
+  {
+    "exercise": "Tricep Dumbbell Kickback",
+    "hebrew": "בעיטת טרייספס עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "0e987244-edde-4a7f-834a-5f7f497c0de6",
+    "video_object": "exercises/Tricep Dumbbell Kickback.webm",
+    "search": "tricep dumbbell kickback"
+  },
+  {
+    "exercise": "Triceps Dips On A Bench",
+    "hebrew": "מקבילים לטרייספס על ספסל",
+    "equipment": "Bench",
+    "equipment_hebrew": "ספסל",
+    "id": "88a5fb70-227b-4861-b369-857089e03cab",
+    "video_object": "exercises/Triceps Dips on a Bench.webm",
+    "search": "triceps dips on a bench"
+  },
+  {
+    "exercise": "Triceps Dips",
+    "hebrew": "מקבילים לטרייספס",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "73e7e319-7db7-4393-8473-76293b63af91",
+    "video_object": "exercises/Triceps Dips.webm",
+    "search": "triceps dips"
+  },
+  {
+    "exercise": "Triceps Pushdown",
+    "hebrew": "לחיצת טרייספס כלפי מטה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "79dc75b4-b5ad-4522-b18c-4d6beb6dd446",
+    "video_object": "exercises/Triceps Pushdown.webm",
+    "search": "triceps pushdown"
+  },
+  {
+    "exercise": "Tuck Jumps",
+    "hebrew": "קפיצות עם קיפול ברכיים",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "74a657d8-0452-4598-b34d-febfe1c77950",
+    "video_object": "exercises/Tuck Jumps.webm",
+    "search": "tuck jumps"
+  },
+  {
+    "exercise": "Uneven Push Up",
+    "hebrew": "שכיבת סמיכה לא אחידה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "e9569743-1802-4c8d-bc12-a93252845243",
+    "video_object": "exercises/Uneven Push Up.webm",
+    "search": "uneven push up"
+  },
+  {
+    "exercise": "Unilateral Cable Single Arm Lateral Raise",
+    "hebrew": "הרמת צד עם כבל יד אחת",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "a8c217c8-0097-46b1-8e09-2d85b91dd180",
+    "video_object": "exercises/Unilateral Cable Single Arm Lateral Raise.webm",
+    "search": "unilateral cable single arm lateral raise"
+  },
+  {
+    "exercise": "Upright Row Dumbbells",
+    "hebrew": "חתירה אנכית עם משקולות יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "9cae7a3d-d19d-4c5d-afe8-61e4fdb057db",
+    "video_object": "exercises/Upright Row Dumbbells.webm",
+    "search": "upright row dumbbells"
+  },
+  {
+    "exercise": "V Sit Up",
+    "hebrew": "כפיפות בטן בצורת V",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "aaeba6f8-c451-4153-ab8d-7b801a4e2bc2",
+    "video_object": "exercises/V Sit Up.webm",
+    "search": "v sit up"
+  },
+  {
+    "exercise": "V-bar Bicep Curls",
+    "hebrew": "כפיפות בייספס עם מוט V",
+    "equipment": "V-Bar",
+    "equipment_hebrew": "מוט V",
+    "id": "1a5140b0-5216-43cc-ab1b-bb57dc5f96de",
+    "video_object": "exercises/V-BAR BICEP CURLS.webm",
+    "search": "v bar bicep curls"
+  },
+  {
+    "exercise": "V-bar Press Down",
+    "hebrew": "לחיצה כלפי מטה עם מוט V",
+    "equipment": "V-Bar",
+    "equipment_hebrew": "מוט V",
+    "id": "a8913204-dcc8-46c1-95a5-f4f4e84c41f8",
+    "video_object": "exercises/V-BAR PRESS DOWN.webm",
+    "search": "v bar press down"
+  },
+  {
+    "exercise": "V-bar Pulldown",
+    "hebrew": "משיכת לאטיסימוס עם מוט V",
+    "equipment": "V-Bar",
+    "equipment_hebrew": "מוט V",
+    "id": "63e962fa-e6f6-4309-bec6-87f9279fd8de",
+    "video_object": "exercises/V-Bar Pulldown.webm",
+    "search": "v bar pulldown"
+  },
+  {
+    "exercise": "V-bar Pullup",
+    "hebrew": "מתח עם מוט V",
+    "equipment": "V-Bar",
+    "equipment_hebrew": "מוט V",
+    "id": "9c54fad3-a532-4a46-bc85-d8da8ce2a2af",
+    "video_object": "exercises/V-Bar Pullup.webm",
+    "search": "v bar pullup"
+  },
+  {
+    "exercise": "V-ups",
+    "hebrew": "כפיפות V",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "d262e72f-bcc7-4bec-91fc-6243cb4c82c1",
+    "video_object": "exercises/V-ups.webm",
+    "search": "v ups"
+  },
+  {
+    "exercise": "Wall Sit",
+    "hebrew": "ישיבה על הקיר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "1bdb8d70-1a26-4719-bca3-8f4d4061af1d",
+    "video_object": "exercises/WALL SIT.webm",
+    "search": "wall sit"
+  },
+  {
+    "exercise": "Walking Lunge Barbell",
+    "hebrew": "לאנג'ים בהליכה עם מוט",
+    "equipment": "Barbell",
+    "equipment_hebrew": "מוט משקולות",
+    "id": "85567049-ce4a-49a7-8bca-637dfb13af48",
+    "video_object": "exercises/Walking Lunge Barbell.webm",
+    "search": "walking lunge barbell"
+  },
+  {
+    "exercise": "Walking Lunge Dumbbell",
+    "hebrew": "לאנג'ים בהליכה עם משקולת יד",
+    "equipment": "Dumbbell",
+    "equipment_hebrew": "משקולת יד",
+    "id": "ea3f2fef-fcb6-4da5-9af9-04a8a61c40f5",
+    "video_object": "exercises/Walking Lunge Dumbbell.webm",
+    "search": "walking lunge dumbbell"
+  },
+  {
+    "exercise": "Wall Pushups",
+    "hebrew": "שכיבות סמיכה על הקיר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "4486fb50-9d7f-44ac-afd2-68962d2ef4d3",
+    "video_object": "exercises/Wall Pushups.webm",
+    "search": "wall pushups"
+  },
+  {
+    "exercise": "Wall Side Glute Activation",
+    "hebrew": "הפעלת גלוט צדדי על הקיר",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "083dcd1b-8136-4cf3-a46b-4dbf536425e8",
+    "video_object": "exercises/Wall Side Glute Activation.webm",
+    "search": "wall side glute activation"
+  },
+  {
+    "exercise": "Wall Sits Isometric Chair",
+    "hebrew": "ישיבה סטטית על הקיר - כיסא איזומטרי",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "65e3ad5e-9db6-4a86-8a93-5e0e6792fe6f",
+    "video_object": "exercises/Wall Sits - Isometric chair.webm",
+    "search": "wall sits isometric chair"
+  },
+  {
+    "exercise": "Weighted Crunch",
+    "hebrew": "כפיפות בטן עם משקל",
+    "equipment": "Weight Plate",
+    "equipment_hebrew": "פלטת משקל",
+    "id": "f2e829c8-dbc7-4a04-92f1-5a0e430c8808",
+    "video_object": "exercises/Weighted Crunch.webm",
+    "search": "weighted crunch"
+  },
+  {
+    "exercise": "Weighted Dips",
+    "hebrew": "מקבילים עם משקל",
+    "equipment": "Weighted Vest",
+    "equipment_hebrew": "אפוד משקולת",
+    "id": "7c88b397-4cdd-465c-97a6-f0e98d1b84e9",
+    "video_object": "exercises/Weighted Dips.webm",
+    "search": "weighted dips"
+  },
+  {
+    "exercise": "Weighted Russian Twists",
+    "hebrew": "פיתולים רוסיים עם משקל",
+    "equipment": "Weight Plate",
+    "equipment_hebrew": "פלטת משקל",
+    "id": "74776f30-9214-49f9-bf2c-ee676aa83cfd",
+    "video_object": "exercises/Weighted Russian Twists.webm",
+    "search": "weighted russian twists"
+  },
+  {
+    "exercise": "Weighted Side Crunch",
+    "hebrew": "כפיפות צד עם משקל",
+    "equipment": "Weight Plate",
+    "equipment_hebrew": "פלטת משקל",
+    "id": "25c56bce-582c-4053-aad4-3fa93fdb5b6b",
+    "video_object": "exercises/Weighted Side Crunch.webm",
+    "search": "weighted side crunch"
+  },
+  {
+    "exercise": "Weighted Push Up Vo",
+    "hebrew": "שכיבות סמיכה עם משקל VO",
+    "equipment": "Weighted Vest",
+    "equipment_hebrew": "אפוד משקולת",
+    "id": "06238177-7cfd-4a8f-9642-fdef83ce2ab9",
+    "video_object": "exercises/Weighted push up VO.webm",
+    "search": "weighted push up vo"
+  },
+  {
+    "exercise": "Wide Push Ups",
+    "hebrew": "שכיבות סמיכה רחבות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "0da5421d-6e36-4488-9752-a8b514be7657",
+    "video_object": "exercises/Wide Push ups.webm",
+    "search": "wide push ups"
+  },
+  {
+    "exercise": "Wide Pushups",
+    "hebrew": "שכיבות סמיכה רחבות",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "12f8d502-1844-404d-b195-162907d95907",
+    "video_object": "exercises/Wide Pushups.webm",
+    "search": "wide pushups"
+  },
+  {
+    "exercise": "Wide-grip Cable Row",
+    "hebrew": "חתירה עם כבל באחיזה רחבה",
+    "equipment": "Cable",
+    "equipment_hebrew": "כבל",
+    "id": "69aaf97e-152f-4ea7-9496-b82dd779f59a",
+    "video_object": "exercises/Wide-Grip Cable Row.webm",
+    "search": "wide grip cable row"
+  },
+  {
+    "exercise": "Wide-grip Lat Pulldown",
+    "hebrew": "משיכת לאטיסימוס באחיזה רחבה",
+    "equipment": "Lat Pulldown Machine",
+    "equipment_hebrew": "מכונת משיכת לאטיסימוס",
+    "id": "86c5e7d2-3d13-4218-917d-569d97da4222",
+    "video_object": "exercises/Wide-Grip Lat Pulldown.webm",
+    "search": "wide grip lat pulldown"
+  },
+  {
+    "exercise": "Wide-grip Pull-up",
+    "hebrew": "מתח באחיזה רחבה",
+    "equipment": "Bar",
+    "equipment_hebrew": "מוט",
+    "id": "29830fcd-8968-4099-bb42-d939af3a5939",
+    "video_object": "exercises/Wide-Grip Pull-Up.webm",
+    "search": "wide grip pull up"
+  },
+  {
+    "exercise": "Windshield Wipers",
+    "hebrew": "מגבוני שמשה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "365e615f-893e-4043-b859-7ff1aae9d39e",
+    "video_object": "exercises/Windshield wipers.webm",
+    "search": "windshield wipers"
+  },
+  {
+    "exercise": "Plank Bird Dog",
+    "hebrew": "פלאנק כלב-ציפור",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9b48f1b8-5eef-40a4-a835-6029b4a9bc00",
+    "video_object": "exercises/plank bird dog.webm",
+    "search": "plank bird dog"
+  },
+  {
+    "exercise": "Pseudo Push Up",
+    "hebrew": "שכיבת סמיכה פסאודו",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "a0527400-3af7-4375-8cec-82fe49e1196e",
+    "video_object": "exercises/pseudo push up.webm",
+    "search": "pseudo push up"
+  },
+  {
+    "exercise": "Push Up Rotation",
+    "hebrew": "שכיבת סמיכה עם סיבוב",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "7f5ee42e-8be9-4329-b773-ea9b739a04b5",
+    "video_object": "exercises/push up rotation.webm",
+    "search": "push up rotation"
+  },
+  {
+    "exercise": "Squat With Pause",
+    "hebrew": "סקוואט עם עצירה",
+    "equipment": "Bodyweight",
+    "equipment_hebrew": "משקל גוף",
+    "id": "9215640f-3125-41f3-84ab-14e750ab2b3a",
+    "video_object": "exercises/squat with pause.webm",
+    "search": "squat with pause"
+  }
+]

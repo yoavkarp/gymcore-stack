@@ -3,6 +3,9 @@ import { AppSyncResolver } from "@/lambdas/appsync.types";
 import { dynamodb } from "../../connection";
 import { addCreateMetadata } from "../../actions/addMetadata";
 import { randomUUID } from "crypto";
+import AWS from 'aws-sdk';
+
+const s3 = new AWS.S3({ region: process.env.AWS_REGION });
 
 export const handler: AppSyncResolver<IMutationStartActiveWorkoutArgs, IMutation['startActiveWorkout']> = async (event, context, callback) => {
     const { workoutId } = event.arguments;
@@ -36,15 +39,39 @@ export const handler: AppSyncResolver<IMutationStartActiveWorkoutArgs, IMutation
         return callback(new Error("Workout not found"))
     }
 
+    const createUrls = await Promise.all(workout.exercises.map((ex: any) => {
+        return dynamodb.get({
+            TableName: "ExercisesCollection",
+            Key: {
+                id: ex.xid
+            }
+        }).promise().then(({ Item }) => {
+            if (!Item) {
+                return ""
+            }
+
+            return s3.getSignedUrlPromise('getObject', {
+                Bucket: 'gymcore-exercises',
+                Key: Item.video_object,
+                Expires: 60 * 60 * 2, // 2 hours
+            })
+
+        })
+
+    }))
+
+    const withVideos = (workout.exercises as any[]).map((ex: any, i) => {
+        return {
+            ...ex,
+            video_url: createUrls[i],
+            __typename: "Active" + ex.__typename,
+        }
+    })
+
     const Item = addCreateMetadata({
         id: randomUUID(),
         workoutId: workout.id,
-        exercises: workout.exercises.map((ex: any) => {
-            return {
-                ...ex,
-                __typename: "Active" + ex.__typename
-            }
-        }),
+        exercises: withVideos,
         clubId: workout.clubId,
         'tenantId#memberId': `${process.env.TENANT_ID}#${event.identity?.sub}`,
         'tenantId#planId': workout["tenantId#planId"],
