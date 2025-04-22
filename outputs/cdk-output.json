@@ -26,22 +26,33 @@
     "ExportsOutputRefGoalTableConstructGoalTable4B21C4DA148CEACC": "GoalTable"
   },
   "GymcoreSMSQueueStack": {
-    "ExportsOutputFnGetAttVerifySMSKmsKey6ACD05CFArnCD0B7E87": "arn:aws:kms:eu-central-1:136715808932:key/8c81317e-0f6c-4835-86ba-48d0b41fa6b6",
-    "ApiKey": "da2-gdcyxycgbrhnxbtgt74hz4utha",
+    "ExportsOutputFnGetAttVerifySMSKmsKey6ACD05CFArnCD0B7E87": "arn:aws:kms:eu-central-1:136715808932:key/29e8ae49-ea09-459d-b92c-5eca34b5cee9",
+    "ApiKey": "da2-e3vuixztkfgfvjclldivckfx3u",
     "smssendlayerLayerPath1B437C01": "src/layers/sms-send-layer",
     "ExportsOutputFnGetAttSMSSEND553619A6Arn1A3EF644": "arn:aws:lambda:eu-central-1:136715808932:function:SMS_SEND_Trigger",
-    "ApiEndpoint": "https://jpxdcilisrhqznzlozi4daptj4.appsync-api.eu-central-1.amazonaws.com/graphql",
-    "ApiId": "xiqk6msnhbhspixgeovyoa2kma"
+    "ApiEndpoint": "https://mzdjobq7zbg4joalhe3zlaikfq.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "ApiId": "k6z3zuntingwtbih6qv5ek5ofu"
   },
   "DevCDKStack": {
     "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
-    "UserPoolClientId": "6mgk08pco7tnehpq24f37bqtra",
-    "UserPoolId": "eu-central-1_MehUDfcFk",
+    "UserPoolClientId": "6k1ib8g1unndfee2ron056joc5",
+    "UserPoolId": "eu-central-1_8bvqDAzr5",
     "tenantName": "Dev_Israel",
     "tenantId": "6334c862-6041-7018-7094-9d7686054bd9",
-    "IdentityPoolId": "eu-central-1:b5a4c971-a427-4dd6-b6d6-ddca977381ea",
-    "ApiEndpoint": "https://lp7dern7nzgrhjry4isonixs2i.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "IdentityPoolId": "eu-central-1:ff3bce37-6e3b-4813-9a37-b898cbe2b517",
+    "ApiEndpoint": "https://hgqrl4ultzaa7cq6e3acvrxbfm.appsync-api.eu-central-1.amazonaws.com/graphql",
     "region": "eu-central-1",
-    "ApiId": "bfyuql6d5jhulnm3doohaof7wi"
+    "ApiId": "y67ugqc2prehpkdrnw2wo2wyje"
+  },
+  "SpinPlusCDKStack": {
+    "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
+    "UserPoolClientId": "57hd9kd8o4dimqecc6vb1iefcu",
+    "UserPoolId": "eu-central-1_7jNlB2mJg",
+    "tenantName": "SpinPlus_Israel",
+    "tenantId": "43e48822-4001-7060-b9ed-d70b828c71e2",
+    "IdentityPoolId": "eu-central-1:c26cf6c8-28a6-4f14-a1b1-c7e27536cd1a",
+    "ApiEndpoint": "https://aywd3l54evd4bgekyjp3fuwyxm.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "region": "eu-central-1",
+    "ApiId": "2jyhy6bcrvffhcubpzrydjfh54"
   }
 }

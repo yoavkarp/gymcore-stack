@@ -3,7 +3,7 @@
 import awsJson from '../outputs/cdk-output.json';
 type OutputStack = Exclude<keyof typeof awsJson, "GymcoreDatabaseStack">;
 
-const stack: OutputStack = "DevCDKStack"
+const stack: OutputStack = "SpinPlusCDKStack"
 
 const config = {
     API: {

@@ -1,0 +1,1 @@
+export const tenantId = "43e48822-4001-7060-b9ed-d70b828c71e2"

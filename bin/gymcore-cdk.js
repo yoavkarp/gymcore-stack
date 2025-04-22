@@ -29,3 +29,14 @@ new GymcoreCdkStack(app, 'DevCDKStack', {
   SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
   SmsVerifyKmsKey: smsStack.KmsKey
 });
+
+new GymcoreCdkStack(app, 'SpinPlusCDKStack', {
+  env: {
+    region: "eu-central-1",
+  },
+  tenantName: "SpinPlus_Israel",
+  tenantId: "43e48822-4001-7060-b9ed-d70b828c71e2",
+  tables: dbStack.tables,
+  SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
+  SmsVerifyKmsKey: smsStack.KmsKey
+});
