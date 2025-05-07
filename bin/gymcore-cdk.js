@@ -46,7 +46,7 @@ new GymcoreCdkStack(app, 'MinheletOfekCDKStack', {
     region: "eu-central-1",
   },
   tenantName: "MinheletOfek_Israel",
-  tenantId: "d314b8e2-f0a1-70eb-30a2-8f9932830f09",
+  tenantId: "7364e862-8041-701a-637d-ed9bc9543cbe",
   tables: dbStack.tables,
   SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
   SmsVerifyKmsKey: smsStack.KmsKey

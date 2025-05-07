@@ -1,5 +1,6 @@
 import AWS from 'aws-sdk'
 import aws_exports from '../auth-client/aws-exports';
+import { randomUUID } from 'crypto';
 
 AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "pumpreact" })
 AWS.config.region = "eu-central-1"
@@ -14,9 +15,17 @@ const createMember = async ({ phone_number, tenantId }: { phone_number: string, 
 
     const { User: user } = await cognito.adminCreateUser({
         UserPoolId: aws_exports.Auth.Cognito.userPoolId,
-        Username: phone_number.substring(4),
+        Username: randomUUID(),
         TemporaryPassword: "Abcd1234!@",
         UserAttributes: [
+            {
+                Name: 'preferred_username',
+                Value: Username.substring(4)
+            },
+            {
+                Name: 'custom:tenantId',
+                Value: tenantId
+            },
             {
                 Name: 'phone_number',
                 Value: phone_number

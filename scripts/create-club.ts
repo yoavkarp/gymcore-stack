@@ -3,19 +3,23 @@ import { cognito } from '../auth-client/cognito';
 import { cognitoisp } from '../aws-providers/cognito-isp';
 import { dynamodb } from '../aws-providers/dynamodb-client'
 import aws_exports from '../auth-client/aws-exports';
-import { tenantId } from './scripts.config';
+import { randomUUID } from 'crypto';
 
-const main = async () => {
-    const Username = "0544595659"
+export const createClub = async (
+    tenantId: string,
+    clubName: string,
+    phoneNumber: string,
+    email: string
+) => {
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
-            Username,
+            Username: randomUUID(),
             UserPoolId: aws_exports.Auth.Cognito.userPoolId,
             TemporaryPassword: "Abcd1234!@",
             UserAttributes: [
                 {
                     Name: 'phone_number',
-                    Value: `+972${Username}`
+                    Value: `+972${phoneNumber}`
                 },
                 {
                     Name: "phone_number_verified",
@@ -23,7 +27,15 @@ const main = async () => {
                 },
                 {
                     Name: "email",
-                    Value: "pumpreact@gmail.com"
+                    Value: email
+                },
+                {
+                    Name: 'preferred_username',
+                    Value: phoneNumber
+                },
+                {
+                    Name: 'custom:tenantId',
+                    Value: tenantId
                 },
                 {
                     Name: "email_verified",
@@ -31,7 +43,7 @@ const main = async () => {
                 },
                 {
                     Name: "name",
-                    Value: "Modiin"
+                    Value: clubName
                 },
                 {
                     Name: "birthdate",
@@ -51,7 +63,7 @@ const main = async () => {
             Item: {
                 tenantId: tenantId,
                 id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
-                name: "Modiin",
+                name: clubName,
                 ...user?.Attributes?.reduce((acc, attr) => {
                     return { ...acc, [attr.Name]: attr.Value }
                 }, {}),
@@ -65,7 +77,5 @@ const main = async () => {
         console.error(e)
     }
 
-    await cognito.login(`+972${Username}`, "Abcd1234!@")
+    await cognito.login(`+972${phoneNumber}`, "Abcd1234!@")
 }
-
-main();

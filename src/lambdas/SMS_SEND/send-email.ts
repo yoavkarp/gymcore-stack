@@ -13,16 +13,14 @@ const transporter = nodemailer.createTransport({
 
 // Send the email
 export const sendEmail = (to: string, text: string) => {
-
-    const mailOptions = {
-        from: myMail,
-        to: to,
-        subject: 'Your verification code for Gymcore',
-        text: text,
-        // html: '<b>Hello from Node.js!</b>' // if you want HTML
-    };
-
     return new Promise<string>((resolve, reject) => {
+        const mailOptions = {
+            from: myMail,
+            to: to,
+            subject: 'Your verification code for Gymcore',
+            text: text,
+            // html: '<b>Hello from Node.js!</b>' // if you want HTML
+        };
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 reject(error);

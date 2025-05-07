@@ -3,7 +3,8 @@ import { cognito, dynamodb } from "./connection";
 
 const groupTableMap = {
     member: "MemberTable",
-    club: "ClubTable"
+    club: "ClubTable",
+    tenant: "TenantTable"
 }
 
 export const handler: PreTokenGenerationTriggerHandler = async (event, context, callback) => {
@@ -13,11 +14,11 @@ export const handler: PreTokenGenerationTriggerHandler = async (event, context, 
         Username: event.userName
     }).promise();
 
-    if (!Groups || !Groups.length || Groups.filter(group => ["member", "club"].includes(group.GroupName || "")).length === 0) {
+    if (!Groups || !Groups.length || Groups.filter(group => ["member", "club", "tenant"].includes(group.GroupName || "")).length === 0) {
         throw new Error('User not found');
     }
 
-    const group = Groups.filter(group => ["member", "club"].includes(group.GroupName || ""))?.[0]?.GroupName as keyof typeof groupTableMap;
+    const group = Groups.filter(group => ["member", "club", "tenant"].includes(group.GroupName || ""))?.[0]?.GroupName as keyof typeof groupTableMap;
 
     if (!group) {
         return callback(new Error('Group not found'));
@@ -34,7 +35,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event, context, 
                 tenantId: process.env.TENANT_ID,
                 id: event.request.userAttributes.sub
             },
-            TableName: group === 'member' ? "MemberTable" : group === 'club' ? "ClubTable" : "",
+            TableName: group === 'member' ? "MemberTable" : group === 'club' ? "ClubTable" : group === 'tenant' ? "TenantTable" : "",
             UpdateExpression: attributeKeys.reduce((acc, key) => {
                 return acc + `#${key} = :${key},`
             }, "set ").slice(0, -1),

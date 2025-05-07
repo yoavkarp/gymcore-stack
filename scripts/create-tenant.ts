@@ -3,21 +3,32 @@ import { cognito } from '../auth-client/cognito';
 import { cognitoisp } from '../aws-providers/cognito-isp';
 import aws_exports from '../auth-client/aws-exports';
 import { dynamodb } from '../aws-providers/dynamodb-client';
+import { randomUUID } from 'crypto';
 
-const main = async () => {
-    const Username = "0501111117";
-    const Name = "Minhelet Ofek";
-    const Email = "minheletofek@gymcore.co.il";
+export const createTenant = async (
+    tenantName: string,
+    phoneNumber: string,
+    email: string
+) => {
+    const PhoneNumber = phoneNumber;
+    const Name = tenantName;
+    const Email = email;
+
+    let tid = "";
 
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
-            Username,
+            Username: randomUUID(),
             UserPoolId: aws_exports.Auth.Cognito.userPoolId,
             TemporaryPassword: "Abcd1234!@",
             UserAttributes: [
                 {
+                    Name: 'preferred_username',
+                    Value: PhoneNumber
+                },
+                {
                     Name: 'phone_number',
-                    Value: `+972${Username}`
+                    Value: `+972${PhoneNumber}`
                 },
                 {
                     Name: "phone_number_verified",
@@ -38,10 +49,13 @@ const main = async () => {
             ]
         }).promise()
 
+        let tid = user?.Attributes?.find(attr => attr.Name === "sub")?.Value;
+
         await dynamodb.put({
             TableName: "TenantTable",
             Item: {
-                id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
+                id: tid,
+                tenantId: tid,
                 name: Name,
                 ...user?.Attributes?.reduce((acc, attr) => {
                     return { ...acc, [attr.Name]: attr.Value }
@@ -56,7 +70,8 @@ const main = async () => {
         console.log(e)
     }
 
-    await cognito.login(`+972${Username}`, "Abcd1234!@")
-}
+    await cognito.login(`+972${PhoneNumber}`, "Abcd1234!@")
 
-main();
+    console.log(tid);
+    return tid;
+}

@@ -60,7 +60,7 @@ export class AppSyncConstruct extends Construct {
                 TENANT_ID: props.tenantId,
                 USER_POOL_ID: props.userPool.userPoolId
             },
-            timeout: Duration.seconds(10)
+            timeout: Duration.seconds(10),
         })
 
         const API_TABLES: Array<keyof typeof props.tables> = [

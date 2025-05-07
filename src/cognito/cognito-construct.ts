@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { CfnOutput, Duration, RemovalPolicy, StackProps } from 'aws-cdk-lib';
-import { AccountRecovery, CfnUserPoolGroup, Mfa, UserPool, UserPoolClient, UserPoolOperation, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
+import { AccountRecovery, CfnUserPoolGroup, Mfa, StringAttribute, UserPool, UserPoolClient, UserPoolOperation, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
 import { IRole, Policy, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import {
     IdentityPool,
@@ -58,7 +58,8 @@ export class CognitoConstruct extends Construct {
             signInAliases: {
                 username: true,
                 email: true,
-                phone: true
+                phone: true,
+                preferredUsername: true
             },
             passwordPolicy: {
                 requireDigits: true,
@@ -82,6 +83,10 @@ export class CognitoConstruct extends Construct {
                 phoneNumber: {
                     required: true,
                     mutable: true
+                },
+                preferredUsername: {
+                    required: true,
+                    mutable: true
                 }
             },
             lambdaTriggers: {
@@ -89,6 +94,11 @@ export class CognitoConstruct extends Construct {
             },
             customSenderKmsKey: props.KmsKey,
             userPoolName: `${props.tenantName} UserPool`,
+            customAttributes: {
+                tenantId: new StringAttribute({
+                    mutable: true,
+                })
+            }
         })
 
         const groups = ["admin", "club", "trainer", "member"];
