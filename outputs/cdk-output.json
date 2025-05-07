@@ -54,5 +54,16 @@
     "ApiEndpoint": "https://aywd3l54evd4bgekyjp3fuwyxm.appsync-api.eu-central-1.amazonaws.com/graphql",
     "region": "eu-central-1",
     "ApiId": "2jyhy6bcrvffhcubpzrydjfh54"
+  },
+  "MinheletOfekCDKStack": {
+    "awssdklayerLayerPathD25219AF": "src/layers/aws-sdk-layer",
+    "UserPoolClientId": "746f2thqhtureo2lj08pvge4rr",
+    "UserPoolId": "eu-central-1_M207q4Xbd",
+    "tenantName": "MinheletOfek_Israel",
+    "tenantId": "d314b8e2-f0a1-70eb-30a2-8f9932830f09",
+    "IdentityPoolId": "eu-central-1:252d781c-1eb3-4f6a-89eb-aede266bc221",
+    "ApiEndpoint": "https://vaag6cm6ejejbdylj2w67b5xqe.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "region": "eu-central-1",
+    "ApiId": "5eireymvafh65mt6jjm6naacu4"
   }
 }

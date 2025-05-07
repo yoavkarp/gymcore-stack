@@ -6,7 +6,7 @@ import aws_exports from '../auth-client/aws-exports';
 import { tenantId } from './scripts.config';
 
 const main = async () => {
-    const Username = "0542344736"
+    const Username = "0544595659"
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
             Username,
@@ -23,7 +23,7 @@ const main = async () => {
                 },
                 {
                     Name: "email",
-                    Value: "spinplus.alon@gmail.com"
+                    Value: "pumpreact@gmail.com"
                 },
                 {
                     Name: "email_verified",
@@ -31,7 +31,7 @@ const main = async () => {
                 },
                 {
                     Name: "name",
-                    Value: "SpinPlus Club"
+                    Value: "Modiin"
                 },
                 {
                     Name: "birthdate",
@@ -51,7 +51,7 @@ const main = async () => {
             Item: {
                 tenantId: tenantId,
                 id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
-                name: "SpinPlus Club",
+                name: "Modiin",
                 ...user?.Attributes?.reduce((acc, attr) => {
                     return { ...acc, [attr.Name]: attr.Value }
                 }, {}),

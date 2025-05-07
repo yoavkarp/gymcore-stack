@@ -3,11 +3,14 @@ import { IWorkout } from "../schema";
 import { ResolverType } from "../types/ResolverType";
 import path from "path";
 import { mappingTemplatesPath } from "../utils/paths";
+import { fromFileWithParams } from "../utils/vtl-templates";
 
-export const resolver: ResolverType<IWorkout> = {
-    trainer: {
-        dataSourceName: "TrainerTable",
-        req: MappingTemplate.fromFile(path.join(mappingTemplatesPath, "Source.Trainer.req.vtl")),
-        res: MappingTemplate.dynamoDbResultItem(),
+export const resolver: (params: Record<string, string>) => ResolverType<IWorkout> = (params) => {
+    return {
+        trainer: {
+            dataSourceName: "TrainerTable",
+            req: fromFileWithParams(path.join(mappingTemplatesPath, "Source.Trainer.req.vtl"), params),
+            res: MappingTemplate.dynamoDbResultItem(),
+        }
     }
 }

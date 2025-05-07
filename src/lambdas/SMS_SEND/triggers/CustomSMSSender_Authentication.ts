@@ -2,6 +2,7 @@ import { Handler, CustomSMSSenderAuthenticationUserTriggerEvent } from "aws-lamb
 import { buildClient, KmsKeyringNode, CommitmentPolicy } from '@aws-crypto/client-node';
 import b64 from 'base64-js';
 import { sendSMS } from "../send-sms";
+import { sendEmail } from "../send-email";
 
 export const handler: Handler<CustomSMSSenderAuthenticationUserTriggerEvent> = async (event, context, callback) => {
     console.log("IM HERE!");
@@ -14,6 +15,14 @@ export const handler: Handler<CustomSMSSenderAuthenticationUserTriggerEvent> = a
     if (event.request.code) {
         const { plaintext } = await decrypt(keyring, b64.toByteArray(event.request.code));
         plainTextCode = plaintext.toString();
+    }
+
+    try {
+        console.log("Sending email to", event.request.userAttributes);
+        await sendEmail(event.request.userAttributes.email, `Your verification code is ${plainTextCode}`);
+    }
+    catch (e) {
+        console.error("Error: Failed to send email", e);
     }
 
     try {

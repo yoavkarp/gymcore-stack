@@ -5,7 +5,10 @@ import aws_exports from '../auth-client/aws-exports';
 import { dynamodb } from '../aws-providers/dynamodb-client';
 
 const main = async () => {
-    const Username = "0501111112"
+    const Username = "0501111117";
+    const Name = "Minhelet Ofek";
+    const Email = "minheletofek@gymcore.co.il";
+
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
             Username,
@@ -22,11 +25,11 @@ const main = async () => {
                 },
                 {
                     Name: "name",
-                    Value: "SpinPlus"
+                    Value: Name
                 },
                 {
                     Name: "email",
-                    Value: "spinplus@gymcore.co.il"
+                    Value: Email
                 },
                 {
                     Name: "email_verified",
@@ -39,7 +42,7 @@ const main = async () => {
             TableName: "TenantTable",
             Item: {
                 id: user?.Attributes?.find(attr => attr.Name === "sub")?.Value,
-                name: "Dev Tenant",
+                name: Name,
                 ...user?.Attributes?.reduce((acc, attr) => {
                     return { ...acc, [attr.Name]: attr.Value }
                 }, {}),

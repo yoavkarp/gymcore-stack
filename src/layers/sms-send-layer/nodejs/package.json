@@ -9,6 +9,10 @@
     "dependencies": {
         "@aws-crypto/client-node": "^4.0.1",
         "aws-sdk": "^2.1549.0",
-        "zod": "^3.23.8"
+        "zod": "^3.23.8",
+        "nodemailer": "^7.0.2"
+    },
+    "devDependencies": {
+        "@types/nodemailer": "^6.4.17"
     }
 }

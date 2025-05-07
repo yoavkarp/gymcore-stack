@@ -105,7 +105,7 @@ export class AppSyncConstruct extends Construct {
         resolversFiles.map((file) => {
             return {
                 typeName: file.split('.')[0],
-                resolver: require(path.join(resolversPath, file)).resolver as ResolverType<any>
+                resolver: require(path.join(resolversPath, file)).resolver({ "tenantId": props.tenantId }) as ResolverType<any>
             }
         }).forEach(({ resolver, typeName }) => {
             const fields = Object.keys(resolver);
