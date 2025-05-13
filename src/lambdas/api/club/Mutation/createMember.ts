@@ -16,7 +16,7 @@ export const handler: AppSyncResolver<IMutationCreateMemberArgs, IMutation['crea
 
     // define username
     const user = await createUser({ phone_number: input.phone_number, email: input.email || undefined }, "member");
-    const member = await createMemberPayload(user?.Attributes?.find((attribute) => attribute.Name === "sub")?.Value!, input);
+    const member = await createMemberPayload(event.identity?.claims?.["custom:tenantId"]!, user?.Attributes?.find((attribute) => attribute.Name === "sub")?.Value!, input);
 
     if (Array.isArray(member)) {
         await dynamodb.transactWrite({

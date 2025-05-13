@@ -17,7 +17,7 @@ export const handler: AppSyncResolver<IMutationCreateMeasurementForMemberArgs, I
     } = event.arguments;
 
     // define username
-    const payload = createMeasurementPayload(memberId, input);
+    const payload = createMeasurementPayload(event.identity?.claims?.["custom:tenantId"]!, memberId, input);
 
     const { Attributes } = await dynamodb.put(payload).promise();
 

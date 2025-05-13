@@ -9,7 +9,7 @@ export const handler: AppSyncResolver<IQueryGetPlanByIdArgs, IQuery['getPlanById
         planId
     } = event.arguments;
 
-    const payload = await getPlanByIdPayload(planId);
+    const payload = await getPlanByIdPayload(event.identity?.claims?.["custom:tenantId"]!, planId);
 
     const { Item } = await dynamodb.get(payload).promise();
 

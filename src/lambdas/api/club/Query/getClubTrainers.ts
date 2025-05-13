@@ -14,7 +14,7 @@ export const handler: AppSyncResolver<undefined, IQuery['getClubTrainers']> = as
     if (!Items)
         return [];
 
-    const trainers = await getClubTrainersPayload(Items.map((item) => item.id));
+    const trainers = await getClubTrainersPayload(event.identity?.claims?.["custom:tenantId"]!, Items.map((item) => item.id));
 
     const { Responses } = await dynamodb.batchGet(trainers).promise();
 

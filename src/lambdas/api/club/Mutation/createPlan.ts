@@ -13,15 +13,17 @@ export const handler: AppSyncResolver<IMutationCreatePlanArgs, IMutation['create
 
     const clubId = event.identity?.sub!;
 
-    const Item = addCreateMetadata({
-        id: randomUUID(),
-        clubId,
-        ...input,
-        trainerId,
-        "tenantId#clubId": `${process.env.TENANT_ID}#${clubId}`,
-        "tenantId#trainerId": `${process.env.TENANT_ID}#${trainerId}`,
-        "tenantId#memberId": `${process.env.TENANT_ID}#${input.memberId}`
-    }, clubId) satisfies IPlan
+    const Item = addCreateMetadata(
+        event.identity?.claims?.["custom:tenantId"]!,
+        {
+            id: randomUUID(),
+            clubId,
+            ...input,
+            trainerId,
+            "tenantId#clubId": `${process.env.TENANT_ID}#${clubId}`,
+            "tenantId#trainerId": `${process.env.TENANT_ID}#${trainerId}`,
+            "tenantId#memberId": `${process.env.TENANT_ID}#${input.memberId}`
+        }, clubId) satisfies IPlan
 
     // define username
     const { Attributes } = await dynamodb.put({

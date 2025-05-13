@@ -1,9 +1,7 @@
-import { IMeasurement, IMutation, IMutationCreateMeasurementArgs, IMutationCreateMemberArgs } from "@/appsync/schema";
-import { AppSyncResolver } from "@/lambdas/appsync.types";
 import * as AWS from 'aws-sdk';
-import { randomUUID } from "crypto";
-import { createUser } from "../../actions/createUserPayload";
-import { createMemberPayload } from "../../actions/createMemberPayload";
+
+import { IMutation, IMutationCreateMeasurementArgs } from "@/appsync/schema";
+import { AppSyncResolver } from "@/lambdas/appsync.types";
 import { createMeasurementPayload } from "../../actions/createMeasurementPayload";
 
 const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'eu-central-1' });
@@ -18,7 +16,7 @@ export const handler: AppSyncResolver<IMutationCreateMeasurementArgs, IMutation[
     const memberId = event.identity?.sub!
 
     // define username
-    const payload = createMeasurementPayload(memberId, input);
+    const payload = createMeasurementPayload(event.identity?.claims?.["custom:tenantId"]!, memberId, input);
 
     const { Attributes } = await dynamodb.put(payload).promise();
 
