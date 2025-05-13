@@ -1,5 +1,5 @@
 import AWS from 'aws-sdk'
-import aws_exports from '../auth-client/aws-exports';
+import aws_exports, { STACK_DETAILS } from '../auth-client/aws-exports';
 
 AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "pumpreact" })
 AWS.config.region = "eu-central-1"
@@ -7,7 +7,9 @@ AWS.config.region = "eu-central-1"
 const dynamodb = new AWS.DynamoDB.DocumentClient()
 const cognito = new AWS.CognitoIdentityServiceProvider()
 
-const deleteMember = async ({ phone_number, tenantId }: { phone_number: string, tenantId: string }) => {
+const deleteMember = async ({ phone_number }: { phone_number: string }) => {
+
+    const tenantId = STACK_DETAILS.tenantId;
 
     const { Username, UserAttributes } = await cognito.adminGetUser({
         UserPoolId: aws_exports.Auth.Cognito.userPoolId,
@@ -29,4 +31,4 @@ const deleteMember = async ({ phone_number, tenantId }: { phone_number: string, 
 
 }
 
-deleteMember({ phone_number: "+9720505716745", tenantId: "d4258a0f-85a5-4c0b-b95a-f9c861e0a00c" })
+deleteMember({ phone_number: "+9720505716745" })

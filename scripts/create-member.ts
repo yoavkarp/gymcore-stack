@@ -1,5 +1,5 @@
 import AWS from 'aws-sdk'
-import aws_exports from '../auth-client/aws-exports';
+import aws_exports, { STACK_DETAILS } from '../auth-client/aws-exports';
 import { randomUUID } from 'crypto';
 
 AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: "pumpreact" })
@@ -8,7 +8,9 @@ AWS.config.region = "eu-central-1"
 const dynamodb = new AWS.DynamoDB.DocumentClient()
 const cognito = new AWS.CognitoIdentityServiceProvider()
 
-const createMember = async ({ phone_number, tenantId }: { phone_number: string, tenantId: string }) => {
+const tenantId = STACK_DETAILS.tenantId;
+
+const createMember = async ({ phone_number }: { phone_number: string }) => {
 
     // define username
     const Username = phone_number;
@@ -61,4 +63,4 @@ const createMember = async ({ phone_number, tenantId }: { phone_number: string, 
 
 }
 
-createMember({ phone_number: "+9720505716749", tenantId: "6334c862-6041-7018-7094-9d7686054bd9" })
+createMember({ phone_number: "+9720505716749" })

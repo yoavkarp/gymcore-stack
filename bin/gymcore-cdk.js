@@ -19,6 +19,18 @@ const smsStack = new SMSQueueStack(app, 'GymcoreSMSQueueStack', {
   }
 });
 
+const apiLambdaStack = new Function(scope, "api", {
+  functionName: `API_Lambda`,
+  runtime: Runtime.NODEJS_18_X,
+  handler: 'index.main',
+  code: Code.fromAsset(
+    path.join(__dirname, "..", "src", "lambdas", 'api')
+  ),
+  layers: props.layers,
+  logRetention: RetentionDays.TWO_WEEKS,
+  timeout: Duration.seconds(10),
+});
+
 new GymcoreCdkStack(app, 'DevCDKStack', {
   env: {
     region: "eu-central-1",
@@ -27,27 +39,28 @@ new GymcoreCdkStack(app, 'DevCDKStack', {
   tenantId: "6334c862-6041-7018-7094-9d7686054bd9",
   tables: dbStack.tables,
   SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
-  SmsVerifyKmsKey: smsStack.KmsKey
+  SmsVerifyKmsKey: smsStack.KmsKey,
+  api_lambda: apiLambdaStack
 });
 
-new GymcoreCdkStack(app, 'SpinPlusCDKStack', {
-  env: {
-    region: "eu-central-1",
-  },
-  tenantName: "SpinPlus_Israel",
-  tenantId: "33342822-40c1-703d-aeb2-7a259a5892b4",
-  tables: dbStack.tables,
-  SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
-  SmsVerifyKmsKey: smsStack.KmsKey
-});
+// new GymcoreCdkStack(app, 'SpinPlusCDKStack', {
+//   env: {
+//     region: "eu-central-1",
+//   },
+//   tenantName: "SpinPlus_Israel",
+//   tenantId: "33342822-40c1-703d-aeb2-7a259a5892b4",
+//   tables: dbStack.tables,
+//   SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
+//   SmsVerifyKmsKey: smsStack.KmsKey
+// });
 
-new GymcoreCdkStack(app, 'MinheletOfekCDKStack', {
-  env: {
-    region: "eu-central-1",
-  },
-  tenantName: "MinheletOfek_Israel",
-  tenantId: "7364e862-8041-701a-637d-ed9bc9543cbe",
-  tables: dbStack.tables,
-  SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
-  SmsVerifyKmsKey: smsStack.KmsKey
-});
+// new GymcoreCdkStack(app, 'MinheletOfekCDKStack', {
+//   env: {
+//     region: "eu-central-1",
+//   },
+//   tenantName: "MinheletOfek_Israel",
+//   tenantId: "7364e862-8041-701a-637d-ed9bc9543cbe",
+//   tables: dbStack.tables,
+//   SMS_SENDLambda: smsStack.SMS_SENDTriggerLambda,
+//   SmsVerifyKmsKey: smsStack.KmsKey
+// });

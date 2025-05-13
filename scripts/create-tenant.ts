@@ -1,9 +1,8 @@
 import AWS from 'aws-sdk'
 import { cognito } from '../auth-client/cognito';
 import { cognitoisp } from '../aws-providers/cognito-isp';
-import aws_exports from '../auth-client/aws-exports';
+import aws_exports, { STACK_DETAILS } from '../auth-client/aws-exports';
 import { dynamodb } from '../aws-providers/dynamodb-client';
-import { randomUUID } from 'crypto';
 
 export const createTenant = async (
     tenantName: string,
@@ -14,11 +13,11 @@ export const createTenant = async (
     const Name = tenantName;
     const Email = email;
 
-    let tid = "";
+    const tid = STACK_DETAILS.tenantId;
 
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
-            Username: randomUUID(),
+            Username: tid,
             UserPoolId: aws_exports.Auth.Cognito.userPoolId,
             TemporaryPassword: "Abcd1234!@",
             UserAttributes: [
@@ -45,11 +44,13 @@ export const createTenant = async (
                 {
                     Name: "email_verified",
                     Value: "true"
+                },
+                {
+                    Name: 'custom:tenantId',
+                    Value: tid
                 }
             ]
         }).promise()
-
-        let tid = user?.Attributes?.find(attr => attr.Name === "sub")?.Value;
 
         await dynamodb.put({
             TableName: "TenantTable",

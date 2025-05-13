@@ -15,9 +15,10 @@ export const handler: AppSyncResolver<IMutationCreateTrainerArgs, IMutation['cre
     } = event.arguments;
 
     const clubId = event.identity?.sub!;
+    const userPoolId = event.identity?.issuer?.split("/").pop()!;
 
     // define username
-    const user = await createUser({ phone_number: input.phone_number, email: input.email || undefined }, "trainer");
+    const user = await createUser({ phone_number: input.phone_number, email: input.email || undefined }, "trainer", userPoolId);
     const [trainer, trainerIndex] = await createTrainerPayload(event.identity?.claims?.["custom:tenantId"]!, user?.Attributes?.find((attribute) => attribute.Name === "sub")?.Value!, clubId, input);
 
     await dynamodb.transactWrite({

@@ -8,7 +8,6 @@ import { Code, Function, ILayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { DynamoDBStack } from '@/dynamodb/dynamodb-stack';
 import fs from 'fs'
-import { resolver } from './resolvers/Query';
 import { ResolverData, ResolverType } from './types/ResolverType';
 import { Table } from 'aws-cdk-lib/aws-dynamodb';
 import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -20,6 +19,7 @@ type AppSyncConstructProps = {
     layers: ILayerVersion[];
     tenantId: string;
     tables: DynamoDBStack['tables'];
+    api_lambda: Function;
 }
 
 export class AppSyncConstruct extends Construct {
@@ -47,22 +47,6 @@ export class AppSyncConstruct extends Construct {
             xrayEnabled: false
         })
 
-        const api_lambda = new Function(scope, "api", {
-            functionName: `${props.tenantName}_API_Lambda`,
-            runtime: Runtime.NODEJS_18_X,
-            handler: 'index.main',
-            code: Code.fromAsset(
-                path.join(__dirname, "..", "lambdas", 'api')
-            ),
-            layers: props.layers,
-            logRetention: RetentionDays.TWO_WEEKS,
-            environment: {
-                TENANT_ID: props.tenantId,
-                USER_POOL_ID: props.userPool.userPoolId
-            },
-            timeout: Duration.seconds(10),
-        })
-
         const API_TABLES: Array<keyof typeof props.tables> = [
             "activeWorkoutTable",
             "clubTable",
@@ -77,6 +61,8 @@ export class AppSyncConstruct extends Construct {
             "workoutTable",
             "trainerIndexTable"
         ];
+
+        const { api_lambda } = props;
 
         const s3bucketexercises = s3.Bucket.fromBucketName(this, 'gymcore-exercises', 'gymcore-exercises');
         s3bucketexercises.grantReadWrite(api_lambda);

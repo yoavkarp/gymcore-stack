@@ -13,6 +13,7 @@ type GymcoreCdkStackProps = StackProps & {
     tables: DynamoDBStack['tables'];
     SMS_SENDLambda: Function;
     SmsVerifyKmsKey: IKey;
+    aws_lambda: Function;
 }
 
 class GymcoreCdkStack extends Stack {
@@ -43,6 +44,7 @@ class GymcoreCdkStack extends Stack {
             layers: [this.awsSdkLayer.layerVersion],
             tenantId: props.tenantId,
             tables: props.tables,
+            api_lambda: props.aws_lambda,
         })
 
         new CfnOutput(this, "tenantId", {

@@ -1,16 +1,17 @@
-import AWS from 'aws-sdk'
 import { cognito } from '../auth-client/cognito';
 import { cognitoisp } from '../aws-providers/cognito-isp';
 import { dynamodb } from '../aws-providers/dynamodb-client'
-import aws_exports from '../auth-client/aws-exports';
+import aws_exports, { STACK_DETAILS } from '../auth-client/aws-exports';
 import { randomUUID } from 'crypto';
 
 export const createClub = async (
-    tenantId: string,
     clubName: string,
     phoneNumber: string,
     email: string
 ) => {
+
+    const tenantId = STACK_DETAILS.tenantId;
+
     try {
         const { User: user } = await cognitoisp.adminCreateUser({
             Username: randomUUID(),

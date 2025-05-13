@@ -14,8 +14,10 @@ export const handler: AppSyncResolver<IMutationCreateMemberArgs, IMutation['crea
         input
     } = event.arguments;
 
+    const userPoolId = event.identity?.issuer?.split("/").pop()!;
+
     // define username
-    const user = await createUser({ phone_number: input.phone_number, email: input.email || undefined }, "member");
+    const user = await createUser({ phone_number: input.phone_number, email: input.email || undefined }, "member", userPoolId);
     const member = await createMemberPayload(event.identity?.claims?.["custom:tenantId"]!, user?.Attributes?.find((attribute) => attribute.Name === "sub")?.Value!, input);
 
     if (Array.isArray(member)) {

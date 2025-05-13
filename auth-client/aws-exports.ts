@@ -5,6 +5,8 @@ type OutputStack = Exclude<keyof typeof awsJson, "GymcoreDatabaseStack">;
 
 const stack: OutputStack = "SpinPlusCDKStack"
 
+export const STACK_DETAILS = awsJson[stack];
+
 const config = {
     API: {
         GraphQL: {
