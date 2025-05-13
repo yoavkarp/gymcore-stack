@@ -15,7 +15,7 @@ export const handler: AppSyncResolver<IMutationAddWorkoutToLibraryArgs, IMutatio
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
     };

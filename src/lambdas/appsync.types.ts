@@ -6,6 +6,7 @@ export interface AppSyncResolverEvent<TArguments = any> {
         claims?: {
             "cognito:groups"?: Array<"club" | "member">;
             "custom:clubId"?: string;
+            "custom:tenantId"?: string;
             [key: string]: any;
         }
     };

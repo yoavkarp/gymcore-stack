@@ -28,7 +28,7 @@ export const handler: AppSyncResolver<IMutationUpdateMemberProfileArgs, IMutatio
             return acc;
         }, {}),
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: memberId,
         },
     }).promise();

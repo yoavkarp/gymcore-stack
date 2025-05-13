@@ -22,7 +22,7 @@ export const handler: AppSyncResolver<IMutationUpdateIntervalInExerciseArgs, IMu
     const { Item: existItem } = await dynamodb.get({
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         }
     }).promise()
@@ -35,7 +35,7 @@ export const handler: AppSyncResolver<IMutationUpdateIntervalInExerciseArgs, IMu
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         UpdateExpression: `SET #exercises[${indexOfExercise}].intervals[${indexOfInterval}] = :new_interval, #updated_at = :updated_at, #trainerId = :trainerId`,

@@ -26,7 +26,7 @@ export const handler: AppSyncResolver<undefined, IMutation['endActiveWorkout']> 
     const updatedActiveWorkout = await dynamodb.update({
         TableName: "ActiveWorkoutTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: activeWorkout.Items![0].id,
         },
         UpdateExpression: "SET end_at = :end_at",

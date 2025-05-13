@@ -47,7 +47,7 @@ export const handler: AppSyncResolver<IMutationEndActiveWorkoutDropsetArgs, IMut
     const updatedActiveWorkout = await dynamodb.update({
         TableName: "ActiveWorkoutTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: existItem.id
         },
         UpdateExpression: `SET exercises[${indexOfExercise}].#sets[${indexOfDropset}].dropsets[${indexOfDropset}] = :dropset`,

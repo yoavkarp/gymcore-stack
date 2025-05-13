@@ -6,13 +6,13 @@ import { createMeasurementPayload } from "./createMeasurementPayload";
 
 type Result = DynamoDBGetItem;
 
-export const getMemberByIdPayload: (id: string) => Promise<Result> = async (id) => {
+export const getMemberByIdPayload: (tenantId: string, id: string) => Promise<Result> = async (tenantId, id) => {
 
     const result: Result = {
         type: "get",
         TableName: "MemberTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId,
             id: id
         }
     }

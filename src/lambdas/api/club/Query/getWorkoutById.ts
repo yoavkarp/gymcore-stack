@@ -11,7 +11,7 @@ export const handler: AppSyncResolver<IQueryGetWorkoutByIdArgs, IQuery['getWorko
 
     const { Item } = await dynamodb.get({
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         TableName: "WorkoutTable"

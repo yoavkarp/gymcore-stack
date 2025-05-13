@@ -17,7 +17,7 @@ const schema = z.object({
 
 type Result = [DynamoDBPut<IMember>, DynamoDBPut<IMeasurement>] | DynamoDBPut<IMember>;
 
-export const createMemberPayload: (id: string, input: Input) => Promise<Result> = async (id, input) => {
+export const createMemberPayload: (tenantId: string, id: string, input: Input) => Promise<Result> = async (tenantId, id, input) => {
 
     const validate = schema.safeParse(input)
     if (!validate.success) {
@@ -27,7 +27,7 @@ export const createMemberPayload: (id: string, input: Input) => Promise<Result> 
     let measurementPayload: DynamoDBPut<IMeasurement> | undefined;
 
     if (input.measurement) {
-        measurementPayload = createMeasurementPayload(id, input.measurement);
+        measurementPayload = createMeasurementPayload(tenantId, id, input.measurement);
     }
 
     const Item = {
@@ -35,7 +35,7 @@ export const createMemberPayload: (id: string, input: Input) => Promise<Result> 
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
         id,
-        tenantId: process.env.TENANT_ID,
+        tenantId,
         measurement: measurementPayload?.Item
     } satisfies IMember
 

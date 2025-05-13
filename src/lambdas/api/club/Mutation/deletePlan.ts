@@ -11,7 +11,7 @@ export const handler: AppSyncResolver<IMutationDeletePlanArgs, IMutation['create
     const { Attributes: document } = await dynamodb.delete({
         TableName: 'PlanTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: planId
         },
         ReturnValues: "ALL_OLD"

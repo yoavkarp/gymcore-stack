@@ -32,7 +32,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event, context, 
 
         const { Attributes } = await dynamodb.update({
             Key: {
-                tenantId: process.env.TENANT_ID,
+                tenantId: event.request.userAttributes['custom:tenantId'],
                 id: event.request.userAttributes.sub
             },
             TableName: group === 'member' ? "MemberTable" : group === 'club' ? "ClubTable" : group === 'tenant' ? "TenantTable" : "",
@@ -60,7 +60,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event, context, 
         const { Item } = await dynamodb.get({
             TableName: groupTableMap[group],
             Key: {
-                tenantId: process.env.TENANT_ID,
+                tenantId: event.request.userAttributes['custom:tenantId'],
                 id: event.request.userAttributes.sub
             }
         }).promise();

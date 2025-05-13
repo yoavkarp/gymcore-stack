@@ -30,7 +30,7 @@ export const handler: AppSyncResolver<IMutationStartActiveWorkoutArgs, IMutation
     const { Item: workout } = await dynamodb.get({
         TableName: "WorkoutTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId,
         }
     }).promise()
@@ -68,18 +68,20 @@ export const handler: AppSyncResolver<IMutationStartActiveWorkoutArgs, IMutation
         }
     })
 
-    const Item = addCreateMetadata({
-        id: randomUUID(),
-        workoutId: workout.id,
-        exercises: withVideos,
-        clubId: workout.clubId,
-        'tenantId#memberId': `${process.env.TENANT_ID}#${event.identity?.sub}`,
-        'tenantId#planId': workout["tenantId#planId"],
-        started_at: new Date().toISOString(),
-        planId: workout.planId,
-        memberId: event.identity?.sub!,
-        name: workout.name
-    }, event.identity?.sub!) satisfies IActiveWorkout
+    const Item = addCreateMetadata(
+        event.identity?.claims?.['custom:tenantId'] || "",
+        {
+            id: randomUUID(),
+            workoutId: workout.id,
+            exercises: withVideos,
+            clubId: workout.clubId,
+            'tenantId#memberId': `${process.env.TENANT_ID}#${event.identity?.sub}`,
+            'tenantId#planId': workout["tenantId#planId"],
+            started_at: new Date().toISOString(),
+            planId: workout.planId,
+            memberId: event.identity?.sub!,
+            name: workout.name
+        }, event.identity?.sub!) satisfies IActiveWorkout
 
     await dynamodb.put({
         TableName: "ActiveWorkoutTable",

@@ -19,7 +19,7 @@ export const handler: AppSyncResolver<IMutationUpdateWorkoutArgs, IMutation['upd
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         UpdateExpression: `SET ${paramsToUpdate.map((param) => `#${param} = :${param}`).join(', ')}, #updated_at = :updated_at, #trainerId = :trainerId`,

@@ -1,8 +1,6 @@
-import { ICreateTrainerInput, IMeasurement, ITrainer } from "@/appsync/schema";
-import { dynamodb } from "../connection";
+import { ICreateTrainerInput, ITrainer } from "@/appsync/schema";
 import { z } from 'zod';
 import { DynamoDBPut } from "../dynamodb-types";
-import { createMeasurementPayload } from "./createMeasurementPayload";
 import { TrainerIndex } from "../trainer-index";
 
 type Input = ICreateTrainerInput
@@ -17,9 +15,9 @@ const schema = z.object({
 })
 
 type Result = [DynamoDBPut<ITrainer>, DynamoDBPut<TrainerIndex>];
-type PayloadFn = (id: string, clubId: string, input: Input) => Promise<Result>;
+type PayloadFn = (tenantId: string, id: string, clubId: string, input: Input) => Promise<Result>;
 
-export const createTrainerPayload: PayloadFn = async (id, clubId, input) => {
+export const createTrainerPayload: PayloadFn = async (tenantId, id, clubId, input) => {
 
     const validate = schema.safeParse(input)
     if (!validate.success) {
@@ -31,7 +29,7 @@ export const createTrainerPayload: PayloadFn = async (id, clubId, input) => {
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
         id,
-        tenantId: process.env.TENANT_ID,
+        tenantId,
     } satisfies ITrainer
 
     const result: Result = [
@@ -43,7 +41,7 @@ export const createTrainerPayload: PayloadFn = async (id, clubId, input) => {
         {
             TableName: "TrainerIndexTable",
             Item: {
-                tenantId: process.env.TENANT_ID,
+                tenantId,
                 clubId,
                 id,
                 'trainerId_clubId': `${id}_${clubId}`,

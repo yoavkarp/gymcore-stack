@@ -16,7 +16,7 @@ export const handler: AppSyncResolver<IMutationDeleteWorkoutArgs, IMutation['del
     const { Attributes } = await dynamodb.delete({
         TableName: "WorkoutTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         ReturnValues: 'ALL_OLD'

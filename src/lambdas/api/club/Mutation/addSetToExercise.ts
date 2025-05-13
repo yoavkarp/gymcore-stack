@@ -23,7 +23,7 @@ export const handler: AppSyncResolver<IMutationAddSetToExerciseArgs, IMutation['
     const { Item: existItem } = await dynamodb.get({
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         }
     }).promise()
@@ -41,7 +41,7 @@ export const handler: AppSyncResolver<IMutationAddSetToExerciseArgs, IMutation['
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         UpdateExpression: `SET #exercises[${indexOfExercise}].#sets = list_append(if_not_exists(#exercises[${indexOfExercise}].#sets, :empty_list), :new_set), #updated_at = :updated_at, #trainerId = :trainerId`,

@@ -22,7 +22,7 @@ export const handler: AppSyncResolver<IMutationAddExerciseToWorkoutArgs, IMutati
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         UpdateExpression: 'SET #exercises = list_append(if_not_exists(#exercises, :empty_list), :new_exercise), #updated_at = :updated_at, #trainerId = :trainerId',

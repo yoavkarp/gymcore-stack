@@ -16,7 +16,7 @@ export const handler: AppSyncResolver<IMutationDeleteIntervalFromExerciseArgs, I
     const { Item: prevItem } = await dynamodb.get({
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         }
     }).promise()
@@ -37,7 +37,7 @@ export const handler: AppSyncResolver<IMutationDeleteIntervalFromExerciseArgs, I
     const { Attributes } = await dynamodb.update({
         TableName: "WorkoutTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         UpdateExpression: `REMOVE exercises[${exerciseIndex}].intervals[${intervalIndex}] SET #updated_at = :updated_at, #trainerId = :trainerId`, // Replace '2' with the index of the item to remove

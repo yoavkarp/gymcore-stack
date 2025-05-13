@@ -11,23 +11,23 @@ type UpdateMetadataFields = {
     updated_uid: string;
 }
 
-type CreateMetadataFn = <T extends {} = {}>(object: T, userId: string) => T & MetadataFields;
+type CreateMetadataFn = <T extends {} = {}>(tenantId: string, object: T, userId: string) => T & MetadataFields;
 
-type UpdateMetadataFn = <T extends {} = {}>(object: T, userId: string) => T & UpdateMetadataFields;
+type UpdateMetadataFn = <T extends {} = {}>(tenantId: string, object: T, userId: string) => T & UpdateMetadataFields;
 
 
-export const addCreateMetadata: CreateMetadataFn = (object, userId) => {
+export const addCreateMetadata: CreateMetadataFn = (tenantId, object, userId) => {
     return {
         ...object,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-        tenantId: process.env.TENANT_ID,
+        tenantId,
         created_uid: userId,
         updated_uid: userId
     }
 }
 
-export const addUpdateMetadata: UpdateMetadataFn = (object, userId) => {
+export const addUpdateMetadata: UpdateMetadataFn = (tenantId, object, userId) => {
     return {
         ...object,
         updated_at: new Date().toISOString(),

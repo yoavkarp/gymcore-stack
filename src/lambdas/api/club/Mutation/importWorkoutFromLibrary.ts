@@ -21,7 +21,7 @@ export const handler: AppSyncResolver<IMutationImportWorkoutFromLibraryArgs, IMu
     const Item = {
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
     }

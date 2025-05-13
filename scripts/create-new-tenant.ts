@@ -3,20 +3,22 @@ import { createTenant } from "./create-tenant";
 
 async function main() {
     // const tenantId = await createTenant(
-    //     "MinheletOfek",
+    //     "SpinPlus",
     //     "0505716749",
-    //     "pumpreact@gmail.com"
+    //     "dev@pumpapp.app"
     // )
+
+    // console.log("Tenant ID: ", tenantId);
 
     // now create the tenant in the database
     // and after
 
-    // const club = await createClub(
-    //     '7364e862-8041-701a-637d-ed9bc9543cbe',
-    //     "Modiin",
-    //     "0544452263",
-    //     "netanel.amor@gmail.com"
-    // )
+    const club = await createClub(
+        '33342822-40c1-703d-aeb2-7a259a5892b4',
+        "Club",
+        "0544452263",
+        "netanel.amor@gmail.com"
+    )
 }
 
 main();

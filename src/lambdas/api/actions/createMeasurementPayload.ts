@@ -18,8 +18,7 @@ const schema = z.object({
     message: "At least one property must be provided"
 });
 
-export const createMeasurementPayload: (memberId: string, input: Input) => DynamoDBPut<IMeasurement & { "tenantId#memberId": string }> = (memberId, input) => {
-
+export const createMeasurementPayload: (tenantId: string, memberId: string, input: Input) => DynamoDBPut<IMeasurement & { "tenantId#memberId": string }> = (tenantId, memberId, input) => {
     const validate = schema.safeParse(input)
     if (!validate.success) {
         throw new Error(validate.error.errors.at(0)?.message)
@@ -31,7 +30,7 @@ export const createMeasurementPayload: (memberId: string, input: Input) => Dynam
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
         id: randomUUID(),
-        tenantId: process.env.TENANT_ID,
+        tenantId,
         "tenantId#memberId": `${process.env.TENANT_ID}#${memberId}`
     } satisfies IMeasurement & { "tenantId#memberId": string }
 

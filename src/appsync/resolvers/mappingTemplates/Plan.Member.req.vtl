@@ -1,4 +1,4 @@
-#set($tenantId = $ctx.source.tenantId)
+#set($tenantId = $ctx.identity.claims.get("custom:tenantId"))
 #set($memberId = $ctx.source.memberId)
 
 {

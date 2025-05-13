@@ -15,7 +15,7 @@ export const handler: AppSyncResolver<IMutationDeleteExerciseFromWorkoutArgs, IM
     const { Item: prevItem } = await dynamodb.get({
         TableName: 'WorkoutTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         }
     }).promise()
@@ -27,7 +27,7 @@ export const handler: AppSyncResolver<IMutationDeleteExerciseFromWorkoutArgs, IM
     const { Attributes } = await dynamodb.update({
         TableName: "WorkoutTable",
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: workoutId
         },
         UpdateExpression: `REMOVE exercises[${exerciseIndex}] SET #trainerId = :trainerId`, // Replace '2' with the index of the item to remove

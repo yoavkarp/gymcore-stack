@@ -15,7 +15,7 @@ export const handler: AppSyncResolver<IMutationCreateEventArgs, IMutation['creat
     const { Item: plan } = await dynamodb.get({
         TableName: 'PlanTable',
         Key: {
-            tenantId: process.env.TENANT_ID,
+            tenantId: event.identity?.claims?.['custom:tenantId'] || "",
             id: input.planId
         }
     }).promise()
@@ -24,7 +24,7 @@ export const handler: AppSyncResolver<IMutationCreateEventArgs, IMutation['creat
         return callback(new Error('Plan not found'))
     }
 
-    const Item = addCreateMetadata({
+    const Item = addCreateMetadata(event.identity?.claims?.['custom:tenantId'] || "", {
         id: randomUUID(),
         clubId,
         ...input,
